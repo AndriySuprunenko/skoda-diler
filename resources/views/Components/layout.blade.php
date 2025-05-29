@@ -11,9 +11,12 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="font-sans">
     <x-header />
-    {{ $slot }}
+    <main class="container mx-auto px-4 py-8 h-screen">
+        {{ $slot }}
+    </main>
+    <x-footer />
 </body>
 
 </html>
