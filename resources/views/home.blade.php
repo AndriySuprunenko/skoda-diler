@@ -1,4 +1,4 @@
 <x-layout>
-    <h1 class="text-xl text-amber-500">Головна</h1>
+    <x-title>Головна</x-title>
     <p class="text-gray-700">Це головна сторінка вашого сайту.</p>
 </x-layout>

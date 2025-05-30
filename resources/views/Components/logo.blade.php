@@ -1,6 +1,6 @@
-<div class="max-w-[200px]">
+<div class="max-w-[150px]">
     <a href="/">
-        <img src={{ Vite::asset('resources/assets/images/logos/Skoda_Wordmark_RGB_White.svg') }}
+        <img src={{ Vite::asset('resources/assets/images/logos/avtocentr-electric.png') }}
             alt="Skoda wordmark logo in white text on a transparent background, modern and clean design, no additional elements present"
             class="w-full" />
     </a>

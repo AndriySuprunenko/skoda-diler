@@ -5,6 +5,23 @@ export default {
   theme: {
     extend: {
       colors: {
+        'skoda-emerald-green': '#0E3A2F', // Основний зелений колір
+        'skoda-electric-green': '#78FAAE', // Світло-зелений колір
+        // вторинні кольори
+        'skoda-black': '#000000', // Чорний
+        'skoda-white': '#FFFFFF', // Білий
+        'skoda-chrome-750': '#394748', // Хромований 750
+        'skoda-chrome-500': '#0F797A', // Хромований 500
+        'skoda-chrome-400': '#A0A7A8', // Хромований 400
+        'skoda-chrome-200': '#CACECF', // Хромований 200
+        'skoda-chrome-50': '#E3E5E6', // Хромований 50
+        'skoda-chrome-25': '#F1F2F2', // Хромований 25
+        // третинні кольори
+        'skoda-blue': '#0961A1', // Синій
+        'skoda-red': '#F15252', // Червоний
+        'skoda-yellow': '#FAEB67', // Жовтий
+        'skoda-orange': '#F7B046', // Помаранчевий
+        'skoda-teal': '#1ED4DF', // Бірюзовий
       },
       fontFamily: {
         sans: ['SkodaNext', 'sans-serif'], // Основний шрифт
