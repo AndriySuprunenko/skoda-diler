@@ -13,7 +13,7 @@
 
 <body class="font-sans">
     <x-header />
-    <main class="container mx-auto px-4 py-8 h-screen">
+    <main class="h-screen">
         {{ $slot }}
     </main>
     <x-footer />
