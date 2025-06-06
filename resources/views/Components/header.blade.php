@@ -1,4 +1,5 @@
-<header class="bg-gray-800 px-8 py-4 flex justify-between items-center">
+<header class="bg-skoda-emerald-green px-8 py-4 flex justify-between items-center sticky top-0">
     <x-logo />
     <x-navigation />
+    <x-phone-number />
 </header>
