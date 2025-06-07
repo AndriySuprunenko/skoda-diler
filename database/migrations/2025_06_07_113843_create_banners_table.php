@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->text('item_one')->nullable();
+            $table->text('item_two')->nullable();
+            $table->text('item_three')->nullable();
+            $table->text('item_four')->nullable();
+            $table->text('item_five')->nullable();
+            $table->text('item_six')->nullable();
             $table->string('button_text')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(true);

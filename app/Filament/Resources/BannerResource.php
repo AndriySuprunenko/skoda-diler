@@ -32,6 +32,30 @@ class BannerResource extends Resource
             ->schema([
                 TextInput::make('title')->required()->maxLength(255),
                 Textarea::make('description')->rows(3),
+                TextInput::make('item_one')
+                    ->label('Item One')
+                    ->maxLength(50)
+                    ->nullable(),
+                TextInput::make('item_two')
+                    ->label('Item Two')
+                    ->maxLength(50)
+                    ->nullable(),
+                TextInput::make('item_three')
+                    ->label('Item Three')
+                    ->maxLength(50)
+                    ->nullable(),
+                TextInput::make('item_four')
+                    ->label('Item Four')
+                    ->maxLength(50)
+                    ->nullable(),
+                TextInput::make('item_five')
+                    ->label('Item Five')
+                    ->maxLength(50)
+                    ->nullable(),
+                TextInput::make('item_six')
+                    ->label('Item Six')
+                    ->maxLength(50)
+                    ->nullable(),
                 TextInput::make('button_text')
                     ->label('Button Text')
                     ->maxLength(50)

@@ -11,7 +11,15 @@
                         class="w-full h-[848px] object-cover object-center" />
                     <div class="text flex flex-col gap-4">
                         <x-title>{{ $slider->title }}</x-title>
-                        <x-text>{{ $slider->description }}</x-text>
+                        <x-subtitle>{{ $slider->description }}</x-subtitle>
+                        <ul>
+                            <li>{{ $slider->item_one }}</li>
+                            <li>{{ $slider->item_two }}</li>
+                            <li>{{ $slider->item_three }}</li>
+                            <li>{{ $slider->item_four }}</li>
+                            <li>{{ $slider->item_five }}</li>
+                            <li>{{ $slider->item_six }}</li>
+                        </ul>
                         <div>
                             @if ($slider->button_text)
                                 <x-button>
