@@ -32,6 +32,10 @@ class BannerResource extends Resource
             ->schema([
                 TextInput::make('title')->required()->maxLength(255),
                 Textarea::make('description')->rows(3),
+                TextInput::make('button_text')
+                    ->label('Button Text')
+                    ->maxLength(50)
+                    ->nullable(),
                 FileUpload::make('image')
                     ->directory('banners')
                     ->image()

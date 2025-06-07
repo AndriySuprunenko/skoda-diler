@@ -1,3 +1,6 @@
+@props(['type' => 'button'])
+
 <div>
-    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
+    <button type={{ $type }}
+        class="text-base text-skoda-emerald-green font-bold bg-skoda-electric-green rounded-3xl px-4 py-2 cursor-pointer">{{ $slot }}</button>
 </div>
