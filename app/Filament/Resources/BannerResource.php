@@ -37,7 +37,7 @@ class BannerResource extends Resource
                     ->image()
                     ->imagePreviewHeight('250')
                     ->nullable(),
-                Toggle::make('is_active'),
+                Toggle::make('is_active')->default(true)->label('Active'),
                 TextInput::make('order')
                     ->numeric()
                     ->default(1)
@@ -61,6 +61,7 @@ class BannerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
