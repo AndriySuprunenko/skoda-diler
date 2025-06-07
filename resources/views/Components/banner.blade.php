@@ -2,24 +2,24 @@
     $sliders = \App\Models\Banner::where('is_active', true)->orderBy('order')->get();
 @endphp
 
-<section class="banner">
+<section class="relative w-full h-[848px]">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
                     <img src="{{ Vite::asset('storage/app/public/' . $slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[848px] object-cover object-center" />
-                    <div class="text">
-                        <h2>{{ $slider->title }}</h2>
-                        <p>{{ $slider->description }}</p>
-                    </div>
-                    @if ($slider->button_text)
-                        <div class="absolute bottom-10 left-10">
-                            <x-button>
-                                {{ $slider->button_text }}
-                            </x-button>
+                    <div class="text flex flex-col gap-4">
+                        <x-title>{{ $slider->title }}</x-title>
+                        <x-text>{{ $slider->description }}</x-text>
+                        <div>
+                            @if ($slider->button_text)
+                                <x-button>
+                                    {{ $slider->button_text }}
+                                </x-button>
+                            @endif
                         </div>
-                    @endif
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -54,12 +54,6 @@
 </script>
 
 <style>
-    .banner {
-        position: relative;
-        width: 100%;
-        height: 848px;
-    }
-
     .swiper {
         width: 100%;
         height: 100%;
@@ -73,19 +67,10 @@
 
     .text {
         position: absolute;
-        top: 20px;
-        left: 20px;
+        top: 50px;
+        left: 50px;
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .text h2 {
-        font-size: 36px;
-        margin-bottom: 10px;
-    }
-
-    .text p {
-        font-size: 18px;
     }
 
     .swiper-pagination-bullet {
