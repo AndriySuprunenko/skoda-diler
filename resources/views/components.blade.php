@@ -1,4 +1,5 @@
 <x-layout>
+    <x-bunner />
     <x-section>
         <x-title>Components</x-title>
         <x-subtitle>Components are reusable pieces of UI that can be used across your application.</x-subtitle>

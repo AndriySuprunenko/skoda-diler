@@ -13,7 +13,7 @@
 
 <body class="font-sans">
     <x-header />
-    <main class="h-screen">
+    <main>
         {{ $slot }}
     </main>
     <x-footer />
