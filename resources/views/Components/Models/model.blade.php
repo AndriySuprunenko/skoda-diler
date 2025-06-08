@@ -2,12 +2,11 @@
     $models = \App\Models\Models::get();
 @endphp
 
-<div class="flex flex-col justify-around items-center p-8 w-full z-30 bg-skoda-emerald-green">
+<div class="flex flex-col justify-around items-center p-8 w-full bg-skoda-emerald-green">
     @foreach ($models as $model)
-        <div
-            class="flex justify-around items-center p-8 w-full z-30 {{ $model->id % 2 == 0 ? 'flex-row-reverse' : '' }}">
+        <div class="flex justify-around items-center p-8 w-full {{ $model->id % 2 == 0 ? 'flex-row-reverse' : '' }}">
             <div class="relative z-20 w-full md:w-fit p-4 bg-skoda-electric-green">
-                <img loading="lazy" class="w-[700px] h-[400px] object-cover object-center"
+                <img loading="lazy" class="w-[900px] h-[500px] object-cover object-center"
                     src="{{ Vite::asset('storage/app/public/' . $model->image) }}"
                     alt="Škoda {{ $model->name }} - Full vehicle view" role="img" />
                 <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
@@ -18,11 +17,7 @@
                 </div>
             </div>
             <div
-                class="z-30 relative flex flex-col gap-4 w-[600px] border border-solid border-skoda-emerald-green p-8 rounded-xl bg-skoda-white text-skoda-emerald-green">
-
-                <div
-                    class="absolute top-0 left-0 w-[700px] h-[200px] bg-skoda-electric-green -rotate-12 -translate-x-8 -translate-y-24 -z-10">
-                </div>
+                class="relative flex flex-col gap-4 w-[600px] border border-solid border-skoda-emerald-green p-8 rounded-xl bg-skoda-white text-skoda-emerald-green z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Потужність двигуна </span>
@@ -72,6 +67,9 @@
                         Детальніше про модель
                     </x-Buttons.button-emerald-electric>
                 </div>
+                {{-- <div
+                    class="absolute -z-10 top-0 left-0 w-[700px] h-[200px] bg-skoda-electric-green -rotate-12 -translate-x-8 -translate-y-24 ">
+                </div> --}}
             </div>
         </div>
     @endforeach
