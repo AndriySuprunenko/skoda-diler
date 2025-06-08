@@ -12,19 +12,28 @@
                     <div class="text flex flex-col gap-4">
                         <x-title>{{ $slider->title }}</x-title>
                         <x-subtitle>{{ $slider->description }}</x-subtitle>
+                        @php
+                            $items = [
+                                $slider->item_one,
+                                $slider->item_two,
+                                $slider->item_three,
+                                $slider->item_four,
+                                $slider->item_five,
+                                $slider->item_six,
+                            ];
+                        @endphp
                         <ul>
-                            <li>{{ $slider->item_one }}</li>
-                            <li>{{ $slider->item_two }}</li>
-                            <li>{{ $slider->item_three }}</li>
-                            <li>{{ $slider->item_four }}</li>
-                            <li>{{ $slider->item_five }}</li>
-                            <li>{{ $slider->item_six }}</li>
+                            @foreach ($items as $item)
+                                @if (!empty($item))
+                                    <li> - {{ $item }}</li>
+                                @endif
+                            @endforeach
                         </ul>
                         <div>
                             @if ($slider->button_text)
-                                <x-button>
+                                <x-Buttons.button-electric>
                                     {{ $slider->button_text }}
-                                </x-button>
+                                </x-Buttons.button-electric>
                             @endif
                         </div>
                     </div>
