@@ -1,18 +1,36 @@
 <x-layout>
     <x-banner />
     <x-section>
-        <x-title>Components</x-title>
-        <x-subtitle>Components are reusable pieces of UI that can be used across your application.</x-subtitle>
-        <x-text>
-            Components can be used to create buttons, cards, modals, and more. They help in maintaining consistency and
-            reusability in your UI design.
-        </x-text>
-        <div class="flex justify-around mt-8">
+        <div class="py-11">
+            <x-Text.title>Про компанію</x-Text.title>
+            <x-Text.subtitle>Офіційний дилер ŠKODA​ в Полтавській області</x-Text.subtitle>
+            <x-Text.text>
+                ТОВ «Автоцентр-Кременчук-2012» провідний сертифікований дилер. Вже більше 15 років ми представляємо
+                інтереси
+                SKODA в Кременчуці і займаємо вищу ланку серед інших автомобільних центрів. Працівники мають високий
+                кваліфікаційний рівень, відповідно до високих норм міжнародного стандарту, завдяки якому до Автоцентра
+                звертаються тисячі клієнтів, які завжди задоволені виконаною роботою.
+            </x-Text.text>
+            <x-Text.text>
+                Автоцентр надає широкий спектр послуг, які включають в себе продаж автомобілів, сервісне обслуговування,
+                ремонт та діагностику автомобілів, а також продаж оригінальних запчастин і аксесуарів. Ми прагнемо
+                забезпечити найвищий рівень обслуговування клієнтів і гарантуємо якість наших послуг.
+            </x-Text.text>
+            <x-Text.text>
+                Ми пропонуємо широкий вибір автомобілів SKODA, включаючи нові моделі та автомобілі з пробігом. Наші
+                консультанти завжди готові допомогти вам вибрати автомобіль, який найкраще відповідає вашим потребам і
+                бюджету.
+            </x-Text.text>
+        </div>
+
+        <x-Text.title>Кнопки</x-Text.title>
+        <div class="flex justify-around mt-8 py-11">
             <x-Buttons.button-electric>Button Electric</x-Buttons.button-electric>
             <x-Buttons.button-emerald-electric>Button Emerald-Electric</x-Buttons.button-emerald-electric>
             <x-Buttons.button-emerald-white>Button Emerald-White</x-Buttons.button-emerald-white>
         </div>
 
+        <x-Text.title>Модальні вікна</x-Text.title>
     </x-section>
     {{-- Modals --}}
     <div class="flex justify-between items-center mt-8 bg-skoda-chrome-400 transition-opacity p-4">
@@ -170,10 +188,8 @@
         </div>
     </div>
 
-    {{-- Images --}}
-    <div class="flex justify-around mt-8">
-        {{-- <x-Images.image-electric />
-        <x-Images.image-emerald />
-        <x-Images.image-emerald-electric /> --}}
+    {{-- Models --}}
+    <div class="flex justify-around">
+        <x-Models.model />
     </div>
 </x-layout>

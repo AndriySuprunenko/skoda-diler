@@ -9,9 +9,9 @@
                 <div class="swiper-slide">
                     <img src="{{ Vite::asset('storage/app/public/' . $slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[848px] object-cover object-center" />
-                    <div class="text flex flex-col gap-4">
-                        <x-title>{{ $slider->title }}</x-title>
-                        <x-subtitle>{{ $slider->description }}</x-subtitle>
+                    <div class="absolute top-12 left-12 text-skoda-white flex flex-col gap-4 max-w-4xl text-left">
+                        <x-Text.title>{{ $slider->title }}</x-Text.title>
+                        <x-Text.subtitle>{{ $slider->description }}</x-Text.subtitle>
                         @php
                             $items = [
                                 $slider->item_one,
@@ -25,7 +25,7 @@
                         <ul>
                             @foreach ($items as $item)
                                 @if (!empty($item))
-                                    <li> - {{ $item }}</li>
+                                    <li class="text-base"> - {{ $item }}</li>
                                 @endif
                             @endforeach
                         </ul>
@@ -80,14 +80,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .text {
-        position: absolute;
-        top: 50px;
-        left: 50px;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .swiper-pagination-bullet {
