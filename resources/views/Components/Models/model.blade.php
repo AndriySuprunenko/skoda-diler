@@ -5,7 +5,7 @@
 <div class="flex flex-col justify-around items-center p-8 w-full bg-skoda-emerald-green">
     @foreach ($models as $model)
         <div class="flex justify-around items-center p-8 w-full {{ $model->id % 2 == 0 ? 'flex-row-reverse' : '' }}">
-            <div class="relative z-20 w-full md:w-fit p-4 bg-skoda-electric-green">
+            <div class="relative z-20 w-full md:w-fit p-4 bg-skoda-electric-green rounded-xl">
                 <img loading="lazy" class="w-[900px] h-[500px] object-cover object-center"
                     src="{{ Vite::asset('storage/app/public/' . $model->image) }}"
                     alt="Škoda {{ $model->name }} - Full vehicle view" role="img" />
