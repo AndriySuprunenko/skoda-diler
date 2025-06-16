@@ -3,17 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ModelsResource\Pages;
-use App\Filament\Resources\ModelsResource\RelationManagers;
 use App\Models\Models;
 use Filament\Forms;
-use Filament\Forms\Components\Tabs\Tab;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\FileUpload;
 
 class ModelsResource extends Resource
 {
@@ -42,13 +40,17 @@ class ModelsResource extends Resource
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('complectation')
-                    ->nullable()
-                    ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->directory('models')
-                    ->image()
-                    ->imagePreviewHeight('250')
                     ->nullable(),
+                Repeater::make('images')
+                    ->relationship()
+                    ->schema([
+                        FileUpload::make('image')
+                            ->image()
+                            ->directory('models')
+                            ->required(),
+                    ])
+                    ->collapsible()
+                    ->label('Галерея моделі'),
             ]);
     }
 

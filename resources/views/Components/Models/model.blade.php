@@ -2,13 +2,31 @@
     $models = \App\Models\Models::get();
 @endphp
 
-<div class="flex flex-col justify-around items-center p-8 w-full bg-skoda-emerald-green">
+<div class="flex flex-col justify-around lg:p-8 w-full bg-skoda-emerald-green">
     @foreach ($models as $model)
-        <div class="flex justify-around items-center p-8 w-full {{ $model->id % 2 == 0 ? 'flex-row-reverse' : '' }}">
-            <div class="relative z-20 w-full md:w-fit p-4 bg-skoda-electric-green rounded-xl">
-                <img loading="lazy" class="w-[900px] h-[500px] object-cover object-center"
-                    src="{{ Vite::asset('storage/app/public/' . $model->image) }}"
-                    alt="Škoda {{ $model->name }} - Full vehicle view" role="img" />
+        @php
+            $reverse = $model->id % 2 == 0 ? 'flex-col lg:flex-row-reverse' : '';
+        @endphp
+        <div class="flex flex-col lg:flex-row lg:justify-around items-center p-8 {{ $reverse }} lg:gap-8">
+            <div
+                class="relative z-20 max-w-[900px] w-full lg:max-w-[1000px]  p-1 bg-skoda-electric-green rounded-xl overflow-hidden">
+                <!-- Slider main container -->
+                <div class="swiper modelSwiper-{{ $model->id }}">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        @foreach ($model->images as $image)
+                            <div class="swiper-slide">
+                                <img src="{{ Vite::asset('storage/app/public/') . $image->image }}"
+                                    alt="Фото моделі {{ $model->name }}" loading="lazy"
+                                    class="w-full h-[530px] object-cover object-center rounded-lg">
+                            </div>
+                        @endforeach
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next after:text-skoda-emerald-green"></div>
+                    <div class="swiper-button-prev after:text-skoda-emerald-green"></div>
+                </div>
+
                 <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
                     <x-Text.title>{{ $model->name }}</x-Text.title>
                 </div>
@@ -16,8 +34,9 @@
                     <x-Header.logo />
                 </div>
             </div>
+
             <div
-                class="relative flex flex-col gap-4 w-[600px] border border-solid border-skoda-emerald-green p-8 rounded-xl bg-skoda-white text-skoda-emerald-green z-10">
+                class="relative flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border border-solid border-skoda-emerald-green p-8 rounded-xl bg-skoda-white text-skoda-emerald-green z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Потужність двигуна </span>
@@ -59,7 +78,8 @@
                         <div class="w-5 h-5 rounded-4xl bg-skoda-orange"></div>
                     </div>
                 </div>
-                <div class="flex gap-2">
+                <div
+                    class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
                     <x-Buttons.button-electric>
                         Завантажити прайс
                     </x-Buttons.button-electric>
@@ -74,3 +94,21 @@
         </div>
     @endforeach
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        @foreach ($models as $model)
+            new Swiper('.modelSwiper-{{ $model->id }}', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        @endforeach
+    });
+</script>

@@ -29,7 +29,7 @@
                                 @endif
                             @endforeach
                         </ul>
-                        <div>
+                        <div class="max-w-[300px]">
                             @if ($slider->button_text)
                                 <x-Buttons.button-electric>
                                     {{ $slider->button_text }}

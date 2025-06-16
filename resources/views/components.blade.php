@@ -32,7 +32,7 @@
 
         <x-Text.title>Модальні вікна</x-Text.title>
     </x-section>
-    {{-- Modals --}}
+    {{-- Modals
     <div class="flex justify-between items-center mt-8 bg-skoda-chrome-400 transition-opacity p-4">
         <div class="flex h-full w-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <div
@@ -186,7 +186,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Models --}}
     <div class="flex justify-around">

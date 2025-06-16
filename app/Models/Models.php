@@ -13,6 +13,10 @@ class Models extends Model
         'engine_capacity',
         'fuel_consumtion',
         'complectation',
-        'image',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ModelImage::class, 'models_id');
+    }
 }
