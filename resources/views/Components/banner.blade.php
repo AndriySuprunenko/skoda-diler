@@ -111,8 +111,4 @@
     .swiper-button-prev:hover {
         background-color: rgba(0, 0, 0, 0.7);
     }
-
-    .swiper-button-next:after {}
-
-    .swiper-button-prev:after {}
 </style>

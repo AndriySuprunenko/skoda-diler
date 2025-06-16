@@ -12,11 +12,11 @@
 </head>
 
 <body class="font-sans">
-    <x-header />
+    <x-Header.header />
     <main>
         {{ $slot }}
     </main>
-    <x-footer />
+    <x-Footer.footer />
 
 </body>
 

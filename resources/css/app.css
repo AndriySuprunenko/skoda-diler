@@ -79,3 +79,7 @@
   font-weight: 900;
   font-style: normal;
 }
+
+li {
+  list-style-type: none;
+}

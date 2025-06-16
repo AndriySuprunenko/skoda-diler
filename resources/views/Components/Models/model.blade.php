@@ -13,7 +13,7 @@
                     <x-Text.title>{{ $model->name }}</x-Text.title>
                 </div>
                 <div class="absolute top-10 left-10 z-20">
-                    <x-logo />
+                    <x-Header.logo />
                 </div>
             </div>
             <div

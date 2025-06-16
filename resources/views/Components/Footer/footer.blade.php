@@ -1,5 +1,5 @@
 <footer class="bg-skoda-emerald-green px-8 py-4 flex justify-between items-center z-50">
-    <x-logo />
+    <x-Header.logo />
     <x-text color="electric-green">
         &copy; {{ date('Y') }} Skoda. All rights reserved.
     </x-text>
