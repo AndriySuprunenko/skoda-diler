@@ -1,7 +1,7 @@
 <x-layout>
     <x-banner />
     <x-section>
-        <div class="py-11">
+        <div class="py-6 md:py-11">
             <x-Text.title>Про компанію</x-Text.title>
             <x-Text.subtitle>Офіційний дилер ŠKODA​ в Полтавській області</x-Text.subtitle>
             <x-Text.text>
@@ -24,7 +24,8 @@
         </div>
 
         <x-Text.title>Кнопки</x-Text.title>
-        <div class="flex justify-around mt-8 py-11">
+        <div
+            class="w-full flex justify-around py-6 md:py-11 md:flex-row flex-col gap-4 max-w-[300px] m-auto md:max-w-[800px]">
             <x-Buttons.button-electric>Button Electric</x-Buttons.button-electric>
             <x-Buttons.button-emerald-electric>Button Emerald-Electric</x-Buttons.button-emerald-electric>
             <x-Buttons.button-emerald-white>Button Emerald-White</x-Buttons.button-emerald-white>

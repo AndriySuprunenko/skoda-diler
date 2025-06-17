@@ -6,10 +6,18 @@
     @foreach ($models as $model)
         @php
             $reverse = $model->id % 2 == 0 ? 'flex-col lg:flex-row-reverse' : '';
+            $roundedBl =
+                $model->id % 2 == 0
+                    ? 'rounded-b-xl lg:rounded-br-none lg:rounded-l-xl'
+                    : 'rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl';
+            $roundedImg =
+                $model->id % 2 == 0
+                    ? 'rounded-t-xl lg:rounded-tl-none lg:rounded-r-xl '
+                    : 'rounded-t-xl lg:rounded-tr-none lg:rounded-l-xl ';
         @endphp
-        <div class="flex flex-col lg:flex-row lg:justify-around items-center p-8 {{ $reverse }} lg:gap-8">
+        <div class="flex flex-col lg:flex-row justify-center p-2 md:p-8 {{ $reverse }}">
             <div
-                class="relative z-20 max-w-[900px] w-full lg:max-w-[1000px]  p-1 bg-skoda-electric-green rounded-xl overflow-hidden">
+                class="relative z-20 max-w-[900px] w-full lg:max-w-[1000px]  p-1 bg-skoda-electric-green  {{ $roundedImg }} overflow-hidden">
                 <!-- Slider main container -->
                 <div class="swiper modelSwiper-{{ $model->id }}">
                     <!-- Additional required wrapper -->
@@ -25,6 +33,7 @@
                     <!-- Navigation buttons -->
                     <div class="swiper-button-next after:text-skoda-emerald-green"></div>
                     <div class="swiper-button-prev after:text-skoda-emerald-green"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
 
                 <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
@@ -36,7 +45,7 @@
             </div>
 
             <div
-                class="relative flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border border-solid border-skoda-emerald-green p-8 rounded-xl bg-skoda-white text-skoda-emerald-green z-10">
+                class="relative flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-2 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Потужність двигуна </span>
@@ -103,6 +112,10 @@
                 effect: 'fade',
                 fadeEffect: {
                     crossFade: true
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
                 },
                 navigation: {
                     nextEl: '.swiper-button-next',

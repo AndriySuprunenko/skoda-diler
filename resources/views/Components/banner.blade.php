@@ -2,14 +2,15 @@
     $sliders = \App\Models\Banner::where('is_active', true)->orderBy('order')->get();
 @endphp
 
-<section class="relative w-full h-[848px]">
+<section class="relative w-full h-[500px] md:h-[848px]">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
                     <img src="{{ Vite::asset('storage/app/public/' . $slider->image) }}" alt="{{ $slider->title }}"
-                        class="w-full h-[848px] object-cover object-center" />
-                    <div class="absolute top-12 left-12 text-skoda-white flex flex-col gap-4 max-w-4xl text-left">
+                        class="w-full h-[500px] md:h-[848px] object-cover object-center" />
+                    <div
+                        class="absolute top-6 left-6 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
                         <x-Text.title>{{ $slider->title }}</x-Text.title>
                         <x-Text.subtitle>{{ $slider->description }}</x-Text.subtitle>
                         @php
@@ -29,7 +30,7 @@
                                 @endif
                             @endforeach
                         </ul>
-                        <div class="max-w-[300px]">
+                        <div class="w-full max-w-[300px] m-auto md:m-0">
                             @if ($slider->button_text)
                                 <x-Buttons.button-electric>
                                     {{ $slider->button_text }}
@@ -110,5 +111,13 @@
     .swiper-button-next:hover,
     .swiper-button-prev:hover {
         background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    @media (max-width: 800px) {
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none;
+        }
     }
 </style>

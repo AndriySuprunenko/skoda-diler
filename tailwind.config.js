@@ -4,6 +4,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'md': '800px', // Додано для великих екранів
+      },
       colors: {
         'skoda-emerald-green': '#0E3A2F', // Основний зелений колір
         'skoda-electric-green': '#78FAAE', // Світло-зелений колір
