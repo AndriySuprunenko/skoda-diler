@@ -44,7 +44,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-2 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
+                class="flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-4 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Потужність двигуна </span>
@@ -96,7 +96,7 @@
                     </x-Buttons.button-emerald-electric>
                 </div>
                 <div
-                    class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-xl' : '' }} -z-10">
+                    class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">
                 </div>
             </div>
         </div>

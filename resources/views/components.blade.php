@@ -44,7 +44,6 @@
     </x-section>
     <x-modals />
     {{-- Models --}}
-    <div class="flex justify-around">
-        <x-Models.model />
-    </div>
+    <x-Models.model />
+    {{-- Image Block --}}
 </x-layout>

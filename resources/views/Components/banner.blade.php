@@ -96,21 +96,21 @@
 
     .swiper-button-next,
     .swiper-button-prev {
-        color: white;
+        color: #0E3A2F;
         width: 40px;
         height: 50px;
-        background-color: #0E3A2F;
+        background-color: #78FAAE;
     }
 
     .swiper-button-next::after,
     .swiper-button-prev::after {
         font-size: 30px;
-        color: white;
+        color: #0E3A2F;
     }
 
     .swiper-button-next:hover,
     .swiper-button-prev:hover {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(120, 250, 174, 0.8);
     }
 
     @media (max-width: 800px) {
