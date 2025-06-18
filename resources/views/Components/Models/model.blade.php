@@ -35,16 +35,16 @@
                     <div class="swiper-pagination"></div>
                 </div>
 
-                <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
+                {{-- <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
                     <x-Text.title>{{ $model->name }}</x-Text.title>
-                </div>
+                </div> --}}
                 <div class="absolute top-10 left-10 z-20">
                     <x-Header.logo />
                 </div>
             </div>
 
             <div
-                class="relative flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-2 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green z-10">
+                class="flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-2 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Потужність двигуна </span>
@@ -95,9 +95,9 @@
                         Детальніше про модель
                     </x-Buttons.button-emerald-electric>
                 </div>
-                {{-- <div
-                    class="absolute -z-10 top-0 left-0 w-[700px] h-[200px] bg-skoda-electric-green -rotate-12 -translate-x-8 -translate-y-24 ">
-                </div> --}}
+                <div
+                    class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-xl' : '' }} -z-10">
+                </div>
             </div>
         </div>
     @endforeach
@@ -124,3 +124,29 @@
         @endforeach
     });
 </script>
+
+<style>
+    .triangle-up {
+        border-bottom: 150px solid transparent;
+        border-right: 50px solid transparent;
+        border-left: 650px solid #78FAAE;
+    }
+
+    @media (max-width: 1280px) {
+        .triangle-up {
+            border-left: 500px solid #78FAAE;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .triangle-up {
+            border-left: 450px solid #78FAAE;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .triangle-up {
+            border-left: 300px solid #78FAAE;
+        }
+    }
+</style>
