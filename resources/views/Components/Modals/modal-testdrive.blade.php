@@ -1,22 +1,26 @@
-    <div class="hidden relative z-50" aria-labelledby="dialog-title" role="dialog" aria-modal="true">
+    <div x-show="open" x-cloak x-transition class="relative z-50" aria-labelledby="dialog-title" role="dialog"
+        aria-modal="true">
         <div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
                 <div
                     class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <button @click="open = false"
+                        class="absolute top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
                     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                            <img class="mx-auto h-10 w-auto"
-                                src={{ Vite::asset('resources/assets/images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}
+                            <img class="mx-auto h-7 md:h-10 w-auto"
+                                src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}
                                 alt="Your Company">
-                            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
+                            <h2
+                                class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
                                 Залиште заявку на тест-драйв
                             </h2>
 
                         </div>
 
-                        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                            <form class="space-y-6" action="#" method="POST">
+                        <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                            <form class="space-y-3 md:space-y-6" action="#" method="POST">
                                 <div>
                                     <label for="name"
                                         class="block text-base font-medium text-skoda-emerald-green">Імʼя</label>

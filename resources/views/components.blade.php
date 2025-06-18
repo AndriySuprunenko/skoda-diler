@@ -23,17 +23,25 @@
             </x-Text.text>
         </div>
 
-        <x-Text.title>Кнопки</x-Text.title>
+        <x-Text.title>Кнопки та Модалки</x-Text.title>
         <div
             class="w-full flex justify-around py-6 md:py-11 md:flex-row flex-col gap-4 max-w-[300px] m-auto md:max-w-[800px]">
-            <x-Buttons.button-electric>Button Electric</x-Buttons.button-electric>
-            <x-Buttons.button-emerald-electric>Button Emerald-Electric</x-Buttons.button-emerald-electric>
-            <x-Buttons.button-emerald-white>Button Emerald-White</x-Buttons.button-emerald-white>
+            <div x-data="{ open: false }">
+                <x-buttons.button-electric click="open = true">Button Electric</x-buttons.button-electric>
+                <x-Modals.modal-price />
+            </div>
+            <div x-data="{ open: false }">
+                <x-buttons.button-emerald-electric click="open = true">Button
+                    Emerald-Electric</x-buttons.button-emerald-electric>
+                <x-Modals.modal-contacts />
+            </div>
+            <div x-data="{ open: false }">
+                <x-buttons.button-emerald-white click="open = true">Button
+                    Emerald-White</x-buttons.button-emerald-white>
+                <x-Modals.modal-testdrive />
+            </div>
         </div>
-
-        <x-Text.title>Модальні вікна</x-Text.title>
     </x-section>
-    <x-modals />
     {{-- Models --}}
     <div class="flex justify-around">
         <x-Models.model />
