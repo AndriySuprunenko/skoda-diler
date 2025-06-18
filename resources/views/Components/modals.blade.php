@@ -8,9 +8,9 @@
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img class="mx-auto h-10 w-auto"
-                        src="{{ asset('storage/images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}" alt="Your Company">
+                        src="{{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}" alt="Your Company">
                     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                        Залиште заявку на тест-драйв
+                        Залиште заявку на тест-драйв автомобіля Škoda
                     </h2>
 
                 </div>
@@ -52,7 +52,7 @@
             <div class="flex
                                     min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
-                    <img class="mx-auto h-10 w-auto" src="{{ asset('storage/images/logos/' . $logo) }}"
+                    <img class="mx-auto h-10 w-auto" src="{{ Storage::url('images/logos/' . $logo) }}"
                         alt="Your Company">
                     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-electric-green">
                         Заповніть поля та отримуйте прайс-лист на автомобіль</h2>
@@ -106,7 +106,7 @@
                                         min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
                     <img class="mx-auto h-10 w-auto"
-                        src="{{ asset('storage/images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}"
+                        src="{{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}"
                         alt="Your Company">
                     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
                         Залиште заявку та отримайте консультацію

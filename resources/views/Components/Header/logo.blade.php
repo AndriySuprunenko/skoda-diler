@@ -2,7 +2,7 @@
 
 <div class="max-w-[150px]">
     <a href="/">
-        <img src="{{ asset('storage/images/logos/' . $logo) }}"
+        <img src="{{ Storage::url('images/logos/' . $logo) }}"
             alt="Skoda wordmark logo in white text on a transparent background, modern and clean design, no additional elements present"
             class="w-full" />
     </a>

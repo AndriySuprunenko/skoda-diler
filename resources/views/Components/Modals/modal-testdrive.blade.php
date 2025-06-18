@@ -7,14 +7,14 @@
                     class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                     <button @click="open = false"
                         class="absolute top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
-                    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+                    <div class="flex min-h-full flex-col justify-center px-6 py-8 lg:py-12 lg:px-8">
                         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                             <img class="mx-auto h-7 md:h-10 w-auto"
                                 src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}
                                 alt="Your Company">
                             <h2
                                 class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                                Залиште заявку на тест-драйв
+                                Залиште заявку на тест-драйв автомобіля Škoda</h2>
                             </h2>
 
                         </div>

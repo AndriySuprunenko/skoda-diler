@@ -7,7 +7,7 @@
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
-                    <img src="{{ asset('storage/' . $slider->image) }}" alt="{{ $slider->title }}"
+                    <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[500px] md:h-[848px] object-cover object-center" />
                     <div
                         class="absolute top-6 left-6 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
