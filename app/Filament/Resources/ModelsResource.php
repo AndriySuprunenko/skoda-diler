@@ -46,6 +46,7 @@ class ModelsResource extends Resource
                     ->schema([
                         FileUpload::make('image')
                             ->image()
+                            ->maxSize(204800) // 20 MB
                             ->directory('models')
                             ->required(),
                     ])

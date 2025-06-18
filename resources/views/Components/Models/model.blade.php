@@ -24,9 +24,8 @@
                     <div class="swiper-wrapper">
                         @foreach ($model->images as $image)
                             <div class="swiper-slide">
-                                <img src="{{ Vite::asset('storage/app/public/') . $image->image }}"
-                                    alt="Фото моделі {{ $model->name }}" loading="lazy"
-                                    class="w-full h-[530px] object-cover object-center rounded-lg">
+                                <img src="{{ Storage::url($image->image) }}" alt="Фото моделі {{ $model->name }}"
+                                    loading="lazy" class="w-full h-[530px] object-cover object-center rounded-lg">
                             </div>
                         @endforeach
                     </div>
