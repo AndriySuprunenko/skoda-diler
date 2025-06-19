@@ -2,15 +2,15 @@
     $sliders = \App\Models\Banner::where('is_active', true)->orderBy('order')->get();
 @endphp
 
-<section class="relative w-full h-[500px] md:h-[848px]">
+<section class="relative w-full h-[600px] md:h-[848px]">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
                     <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}"
-                        class="w-full h-[500px] md:h-[848px] object-cover object-center" />
+                        class="w-full h-[600px] md:h-[848px] object-cover object-center" />
                     <div
-                        class="absolute top-6 left-6 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
+                        class="absolute top-2 left-1 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
                         <x-Text.title>{{ $slider->title }}</x-Text.title>
                         <x-Text.subtitle>{{ $slider->description }}</x-Text.subtitle>
                         @php

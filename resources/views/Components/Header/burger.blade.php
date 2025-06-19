@@ -14,15 +14,7 @@
             x-transition:leave-end="opacity-0 -translate-y-4"
             class="absolute top-10 -right-7 w-70 text-center z-0 bg-skoda-emerald-green rounded-lg px-4 py-8"
             @click.away="isOpen = false">
-            <nav class="flex flex-col gap-10" role="menu">
-                <x-Header.nav-link href="/" class="p-5">Головна</x-Header.nav-link>
-                <x-Header.nav-link href="/about" class="p-5">Про
-                    нас</x-Header.nav-link>
-                <x-Header.nav-link href="/contact" class="p-5">Контакти</x-Header.nav-link>
-                <x-Header.nav-link href="/components" class="p-5">Компоненти</x-Header.nav-link>
-                <x-Header.nav-link href='tel:+380676208844'
-                    class="text-skoda-emerald-green bg-skoda-electric-green rounded-4xl p-4 mt-6">+380676208844</x-Header.nav-link>
-            </nav>
+            <x-Header.navigation />
         </div>
     </button>
 
