@@ -10,7 +10,7 @@
                     <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[600px] md:h-[848px] object-cover object-center" />
                     <div
-                        class="absolute top-2 left-1 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
+                        class="absolute top-6 left-1 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
                         <x-Text.title>{{ $slider->title }}</x-Text.title>
                         <x-Text.subtitle>{{ $slider->description }}</x-Text.subtitle>
                         @php

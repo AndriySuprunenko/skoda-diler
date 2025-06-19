@@ -1,4 +1,4 @@
-<nav class="flex gap-10 flex-col md:flex-row w-full justify-between">
+<nav class="flex gap-10 flex-col md:flex-row w-full justify-end items-center">
     <ul class="flex flex-col md:flex-row gap-8 md:gap-4 items-center">
         <x-Header.nav-link href="/">Головна</x-nav-link>
             <x-Header.nav-link href="/about">Про нас</x-nav-link>
