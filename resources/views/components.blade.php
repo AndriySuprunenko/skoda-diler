@@ -46,4 +46,21 @@
     {{-- Models --}}
     <x-Models.model />
     {{-- Image Block --}}
+    <div class="p-6 md:p-11 text-center">
+        <x-Text.title>Галерея</x-Text.title>
+        <x-Text.subtitle>Відображення зображень</x-Text.subtitle>
+    </div>
+    <div class="flex justify-center items-center p-6 md:p-11 flex-col md:flex-row gap-4 md:gap-11">
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" />
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='vertical' />
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='horizontal' />
+    </div>
+    <div class="p-6 md:p-11 text-center">
+        <x-Text.title>Галерея з декораціями</x-Text.title>
+    </div>
+    <div class="flex justify-center items-center p-6 md:p-11 flex-col md:flex-row gap-4 md:gap-11">
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" decor='bottom-right' />
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='vertical' decor='bottom-left' />
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='horizontal' decor='double' />
+    </div>
 </x-layout>
