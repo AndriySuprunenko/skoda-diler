@@ -88,12 +88,12 @@
                 </div>
                 <div
                     class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
-                    <x-Buttons.button-electric>
+                    <x-Buttons.button>
                         Завантажити прайс
-                    </x-Buttons.button-electric>
-                    <x-Buttons.button-emerald-electric>
+                    </x-Buttons.button>
+                    <x-Buttons.button style='emerald'>
                         Детальніше про модель
-                    </x-Buttons.button-emerald-electric>
+                    </x-Buttons.button>
                 </div>
                 <div
                     class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">
