@@ -2,7 +2,7 @@
     'url',
     'color' => 'emerald',
     'size' => '400px',
-    'logo' => 'Skoda_Wordmark_RGB_Electric_Green.svg',
+    'logo' => '',
     'decor' => 'none',
     'ratio' => 'square',
     'alt' => 'Зображення',
@@ -26,26 +26,31 @@
             $height = $size;
     }
 
+    $decorColor = $color === 'emerald' ? '#0E3A2F' : '#78FAAE';
+
 @endphp
 
 <div
     class="relative border-4 md:border-6 border-solid {{ 'border-skoda-' . $color . '-green' }} overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
     <img src="{{ Storage::url('images/' . $url) }}" alt={{ $alt }}
         class="w-full h-full object-cover object-center">
-    <img class="absolute top-2 right-2 w-20 md:w-28 z-20" src="{{ Storage::url('images/logos/' . $logo) }}" alt="Логотип">
+    @if ($logo)
+        <img class="absolute top-2 right-2 w-20 md:w-28 z-20" src="{{ Storage::url('images/logos/' . $logo) }}"
+            alt="Логотип">
+    @endif
 
     @if ($decor === 'top-right' || $decor === 'double')
-        <div class="triangle absolute top-0 right-0 w-0 h-0 z-10" style="border-right-color: #0E3A2F"></div>
+        <div class="triangle absolute top-0 right-0 w-0 h-0 z-10" style="border-right-color: {{ $decorColor }}"></div>
     @endif
 
     @if ($decor === 'bottom-left')
-        <div class="triangle-2 absolute bottom-0 left-0 w-0 h-0 z-10" style="border-left-color: #0E3A2F">
+        <div class="triangle-2 absolute bottom-0 left-0 w-0 h-0 z-10" style="border-left-color: {{ $decorColor }}">
         </div>
-        <div class="triangle absolute top-0 right-0 w-0 h-0 z-10" style="border-right-color: #0E3A2F"></div>
+        <div class="triangle absolute top-0 right-0 w-0 h-0 z-10" style="border-right-color: {{ $decorColor }}"></div>
     @endif
 
     @if ($decor === 'bottom-right' || $decor === 'double')
-        <div class="triangle-3 absolute bottom-0 right-0 w-0 h-0 z-10" style="border-right-color: #0E3A2F">
+        <div class="triangle-3 absolute bottom-0 right-0 w-0 h-0 z-10" style="border-right-color: {{ $decorColor }}">
         </div>
     @endif
 </div>

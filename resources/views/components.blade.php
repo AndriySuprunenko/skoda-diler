@@ -59,7 +59,7 @@
     </div>
     <div class="flex justify-center items-center p-6 md:p-11 flex-col md:flex-row gap-4 md:gap-11">
         <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" decor='bottom-right' />
-        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='vertical' decor='bottom-left' />
+        <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='vertical' decor='bottom-left' color='electric' />
         <x-Images.image url="01JX661VXFVW2YNVHDJM3H5N5Y.jpg" ratio='horizontal' decor='double' />
     </div>
 </x-layout>
