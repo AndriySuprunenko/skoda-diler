@@ -34,13 +34,6 @@
                     <div class="swiper-button-prev after:text-skoda-emerald-green"></div>
                     <div class="swiper-pagination"></div>
                 </div>
-
-                {{-- <div class="absolute bottom-10 right-10 z-20 text-skoda-electric-green">
-                    <x-Text.title>{{ $model->name }}</x-Text.title>
-                </div> --}}
-                <div class="absolute top-10 left-10 z-20">
-                    <x-Header.logo />
-                </div>
             </div>
 
             <div

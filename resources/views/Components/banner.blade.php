@@ -32,9 +32,9 @@
                         </ul>
                         <div class="w-full max-w-[300px] m-auto md:m-0">
                             @if ($slider->button_text)
-                                <x-Buttons.button-electric>
+                                <x-Buttons.button>
                                     {{ $slider->button_text }}
-                                </x-Buttons.button-electric>
+                                </x-Buttons.button>
                             @endif
                         </div>
                     </div>
