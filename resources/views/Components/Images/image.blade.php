@@ -5,9 +5,13 @@
     'logo' => 'Skoda_Wordmark_RGB_Electric_Green.svg',
     'decor' => 'none',
     'ratio' => 'square',
+    'alt' => 'Зображення',
 ])
 
 @php
+    $allowedColors = ['emerald', 'electric'];
+    $color = in_array($color, $allowedColors) ? $color : 'emerald';
+
     switch ($ratio) {
         case 'vertical':
             $width = $size;
@@ -25,9 +29,9 @@
 @endphp
 
 <div
-    class="relative border-4 md:border-6 border-solid {{ 'border-skoda-' . $color . '-green' }} rounded-xl overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
-    <img src="{{ Storage::url('images/' . $url) }}" alt="Зображення"
-        class="w-full h-full object-cover object-center rounded-sm">
+    class="relative border-4 md:border-6 border-solid {{ 'border-skoda-' . $color . '-green' }} overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
+    <img src="{{ Storage::url('images/' . $url) }}" alt={{ $alt }}
+        class="w-full h-full object-cover object-center">
     <img class="absolute top-2 right-2 w-20 md:w-28 z-20" src="{{ Storage::url('images/logos/' . $logo) }}" alt="Логотип">
 
     @if ($decor === 'top-right' || $decor === 'double')
