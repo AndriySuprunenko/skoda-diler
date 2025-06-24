@@ -26,12 +26,13 @@
             $height = $size;
     }
 
+    $borderColor = 'border-skoda-' . $color . '-green';
     $decorColor = $color === 'emerald' ? '#0E3A2F' : '#78FAAE';
 
 @endphp
 
 <div
-    class="relative border-4 md:border-6 border-solid {{ 'border-skoda-' . $color . '-green' }} overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
+    class="relative border-4 md:border-6 border-solid {{ $borderColor }} overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
     <img src="{{ Storage::url('images/' . $url) }}" alt={{ $alt }}
         class="w-full h-full object-cover object-center">
     @if ($logo)
