@@ -39,7 +39,7 @@
                 </div>
             @endforeach
         </div>
-        <x-modal type='test-drive' />
+        <x-modal type='consultation' />
         <!-- Навігація -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>

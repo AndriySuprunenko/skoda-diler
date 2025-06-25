@@ -9,7 +9,7 @@
     @switch($type)
         @case('price')
             @php
-                $title = 'Дізнатись ціну';
+                $title = 'Заповніть поля та отримуйте прайс-лист на автомобіль';
                 $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg');
                 $theme = 'price';
             @endphp
@@ -24,12 +24,10 @@
                         <div class="flex
                         min-h-full flex-col justify-center px-6 py-8 md:py-12 lg:px-8">
                             <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
-                                <img class="mx-auto h-7 md:h-10 w-auto"
-                                    src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg') }}
-                                    alt="Skoda Logo">
+                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Skoda Logo">
                                 <h2
                                     class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-electric-green">
-                                    Заповніть поля та отримуйте прайс-лист на автомобіль</h2>
+                                    {{ $title }}
                                 </h2>
 
                             </div>
@@ -86,7 +84,7 @@
 
         @case('consultation')
             @php
-                $title = 'Отримати консультацію';
+                $title = 'Залиште заявку та отримайте консультацію';
                 $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg');
                 $theme = 'consultation';
             @endphp
@@ -99,36 +97,44 @@
                         <div class="flex
                         min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                             <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
-                                <img class="mx-auto h-7 md:h-10 w-auto"
-                                    src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}
-                                    alt="Your Company">
+                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Your Company">
                                 <h2
                                     class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                                    Залиште заявку та отримайте консультацію
+                                    {{ $title }}
                                 </h2>
 
                             </div>
 
                             <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form class="space-y-3 md:space-y-6" action="#" method="POST">
+                                <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                    @keydown.escape.window="open = false"
+                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                    class="space-y-3 md:space-y-6" action="#" method="POST">
                                     <div>
-                                        <label for="name"
-                                            class="block text-base font-medium text-skoda-emerald-green">Імʼя</label>
+                                        <label for="name" class="block text-base font-medium"
+                                            :class="errors.name ? 'text-red-500' : 'text-skoda-emerald-green'">
+                                            <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
+                                        </label>
                                         <div class="mt-2">
-                                            <input type="text" name="name" id="name" autocomplete="name" required
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-emerald-green sm:text-sm/6">
+                                            <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                                                autocomplete="name" @input="if (errors.name) delete errors.name"
+                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                                :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <div class="flex items-center justify-between">
-                                            <label for="phone"
-                                                class="block text-base font-medium text-skoda-emerald-green">Номер
-                                                телефону</label>
-                                        </div>
-                                        <div class="mt-2">
-                                            <input type="phone" name="phone" id="phone" autocomplete="phone" required
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-emerald-green sm:text-sm/6">
+                                        <label for="phone" class="block text-base font-medium"
+                                            :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
+                                            <span x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                        </label>
+                                        <div class="mt-0 md:mt-2">
+                                            <input type="text" name="phone" id="phone" x-model="phone"
+                                                autocomplete="phone" @input="if (errors.phone) delete errors.phone"
+                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                                :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
                                         </div>
                                     </div>
 
@@ -148,7 +154,7 @@
 
         @case('test-drive')
             @php
-                $title = 'Записатись на тест-драйв';
+                $title = 'Залиште заявку на тест-драйв автомобіля Škoda';
                 $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg');
                 $theme = 'test-drive';
             @endphp
@@ -160,37 +166,45 @@
                             class="absolute top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
                         <div class="flex min-h-full flex-col justify-center px-6 py-8 lg:py-12 lg:px-8">
                             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                                <img class="mx-auto h-7 md:h-10 w-auto"
-                                    src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg') }}
-                                    alt="Your Company">
+                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Your Company">
                                 <h2
                                     class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                                    Залиште заявку на тест-драйв автомобіля Škoda</h2>
+                                    {{ $title }}</h2>
                                 </h2>
 
                             </div>
 
                             <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form class="space-y-3 md:space-y-6" action="#" method="POST">
+                                <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                    @keydown.escape.window="open = false"
+                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                    class="space-y-3 md:space-y-6" action="#" method="POST">
                                     <div>
-                                        <label for="name"
-                                            class="block text-base font-medium text-skoda-emerald-green">Імʼя</label>
+                                        <label for="name" class="block text-base font-medium"
+                                            :class="errors.name ? 'text-red-500' : 'text-skoda-emerald-green'">
+                                            <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
+                                        </label>
                                         <div class="mt-2">
-                                            <input type="text" name="name" id="name" autocomplete="name" required
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-emerald-green sm:text-sm/6">
+                                            <input type="text" name="name" id="name" x-ref="name"
+                                                x-model="name" autocomplete="name"
+                                                @input="if (errors.name) delete errors.name"
+                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                                :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <div class="flex items-center justify-between">
-                                            <label for="phone"
-                                                class="block text-base font-medium text-skoda-emerald-green">Номер
-                                                телефону</label>
-                                        </div>
-                                        <div class="mt-2">
-                                            <input type="phone" name="phone" id="phone" autocomplete="phone"
-                                                required
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-emerald-green sm:text-sm/6">
+                                        <label for="phone" class="block text-base font-medium"
+                                            :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
+                                            <span x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                        </label>
+                                        <div class="mt-0 md:mt-2">
+                                            <input type="text" name="phone" id="phone" x-model="phone"
+                                                autocomplete="phone" @input="if (errors.phone) delete errors.phone"
+                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                                :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
                                         </div>
                                     </div>
 
