@@ -2,7 +2,7 @@
     $sliders = \App\Models\Banner::where('is_active', true)->orderBy('order')->get();
 @endphp
 
-<section class="relative w-full h-[600px] md:h-[848px]">
+<section class="relative w-full h-[600px] md:h-[848px]" x-data="{ open: false }">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
@@ -32,15 +32,14 @@
                         </ul>
                         <div class="w-full max-w-[300px] m-auto md:m-0">
                             @if ($slider->button_text)
-                                <x-Buttons.button>
-                                    {{ $slider->button_text }}
-                                </x-Buttons.button>
+                                <x-button click="open = true">{{ $slider->button_text }}</x-button>
                             @endif
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+        <x-Modals.modal-price />
         <!-- Навігація -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
