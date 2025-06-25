@@ -22,26 +22,35 @@
                         </div>
 
                         <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                            <form class="space-y-3 md:space-y-6" action="#" method="POST">
+                            <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" @keydown.escape.window="open = false"
+                                @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                class="space-y-3 md:space-y-6" action="#" method="POST">
                                 <div>
-                                    <label for="name"
-                                        class="block text-base font-medium text-skoda-electric-green">Імʼя</label>
+                                    <label for="name" class="block text-base font-medium"
+                                        :class="errors.name ? 'text-red-500' : 'text-skoda-electric-green'">
+                                        <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
+                                    </label>
                                     <div class="mt-2">
-                                        <input type="text" name="name" id="name" autocomplete="name" required
-                                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-electric-green sm:text-sm/6">
+                                        <input type="text" name="name" id="name" x-model="name"
+                                            autocomplete="name" @input="if (errors.name) delete errors.name"
+                                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                            :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                                                'outline-skoda-emerald-green focus:outline-skoda-electric-green'" />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <div class="flex items-center justify-between">
-                                        <label for="phone"
-                                            class="block text-base font-medium text-skoda-electric-green">Номер
-                                            телефону</label>
-                                    </div>
+                                    <label for="phone" class="block text-base font-medium"
+                                        :class="errors.phone ? 'text-red-500' : 'text-skoda-electric-green'">
+                                        <span
+                                            x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                    </label>
                                     <div class="mt-0 md:mt-2">
-                                        <input type="phone" name="phone" id="phone" autocomplete="phone"
-                                            required
-                                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-skoda-emerald-green placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-skoda-electric-green sm:text-sm/6">
+                                        <input type="text" name="phone" id="phone" x-model="phone"
+                                            autocomplete="phone" @input="if (errors.phone) delete errors.phone"
+                                            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                            :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                                                'outline-skoda-emerald-green focus:outline-skoda-electric-green'" />
                                     </div>
                                 </div>
 
