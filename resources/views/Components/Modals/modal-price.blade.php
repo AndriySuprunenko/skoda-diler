@@ -22,7 +22,8 @@
                         </div>
 
                         <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                            <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" @keydown.escape.window="open = false"
+                            <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                @keydown.escape.window="open = false"
                                 @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
                                 class="space-y-3 md:space-y-6" action="#" method="POST">
                                 <div>
@@ -31,8 +32,9 @@
                                         <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
                                     </label>
                                     <div class="mt-2">
-                                        <input type="text" name="name" id="name" x-model="name"
-                                            autocomplete="name" @input="if (errors.name) delete errors.name"
+                                        <input type="text" name="name" id="name" x-ref="name"
+                                            x-model="name" autocomplete="name"
+                                            @input="if (errors.name) delete errors.name"
                                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
                                             :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
                                                 'outline-skoda-emerald-green focus:outline-skoda-electric-green'" />
