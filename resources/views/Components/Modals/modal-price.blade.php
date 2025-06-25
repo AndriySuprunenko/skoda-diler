@@ -13,7 +13,7 @@
                         <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
                             <img class="mx-auto h-7 md:h-10 w-auto"
                                 src={{ Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg') }}
-                                alt="Your Company">
+                                alt="Skoda Logo">
                             <h2
                                 class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-electric-green">
                                 Заповніть поля та отримуйте прайс-лист на автомобіль</h2>

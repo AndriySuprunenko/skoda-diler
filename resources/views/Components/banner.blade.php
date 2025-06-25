@@ -32,14 +32,14 @@
                         </ul>
                         <div class="w-full max-w-[300px] m-auto md:m-0">
                             @if ($slider->button_text)
-                                <x-button click="open = true">{{ $slider->button_text }}</x-button>
+                                <x-button click="$dispatch('open-modal')">{{ $slider->button_text }}</x-button>
                             @endif
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        <x-Modals.modal-price />
+        <x-modal type='test-drive' />
         <!-- Навігація -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
