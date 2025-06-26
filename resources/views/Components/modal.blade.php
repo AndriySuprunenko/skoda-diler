@@ -41,8 +41,8 @@
         $config = $configs[$type] ?? $configs['consultation'];
     @endphp <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
-            <div
-                class="relative transform overflow-hidden rounded-lg {{ $config['bgColor'] }} text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="relative transform overflow-hidden rounded-lg {{ $config['bgColor'] }} text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+                @click.away="open = false">
                 <button @click="open = false" @keydown.enter="open = false" aria-label="Закрити модальне вікно"
                     class="absolute top-4 right-4 {{ $config['textColor'] }} p-2 cursor-pointer text-2xl font-bold z-50 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2">
                     × </button>
