@@ -13,7 +13,7 @@
     $styles = [
         'electric' => [
             'base' => 'text-skoda-emerald-green bg-skoda-electric-green border-skoda-electric-green',
-            'hover' => 'hover:bg-skoda-emerald-green hover:text-skoda-electric-green hover:border-skoda-emerald-green',
+            'hover' => 'hover:bg-skoda-emerald-green hover:text-skoda-electric-green hover:border-skoda-electric-green',
             'active' => 'active:bg-skoda-emerald-green active:text-skoda-electric-green',
             'focus' => 'focus:outline-none focus:ring-2 focus:ring-skoda-electric-green focus:ring-offset-2',
         ],
