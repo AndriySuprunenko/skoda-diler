@@ -13,7 +13,7 @@
                 $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg');
                 $theme = 'price';
             @endphp
-            <div class="fixed inset-0 z-10 w-screen overflow-y-auto" @click.away="open=false">
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
                 <div
                     class="flex min-h-full items-center
                     md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
@@ -33,9 +33,9 @@
                             </div>
 
                             <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
                                     @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
                                     class="space-y-3 md:space-y-6" action="#" method="POST">
                                     <div>
                                         <label for="name" class="block text-base font-medium"
@@ -54,7 +54,8 @@
                                     <div>
                                         <label for="phone" class="block text-base font-medium"
                                             :class="errors.phone ? 'text-red-500' : 'text-skoda-electric-green'">
-                                            <span x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                            <span
+                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                                         </label>
                                         <div class="mt-0 md:mt-2">
                                             <input type="text" name="phone" id="phone" x-model="phone"
@@ -106,9 +107,9 @@
                             </div>
 
                             <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
                                     @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
                                     class="space-y-3 md:space-y-6" action="#" method="POST">
                                     <div>
                                         <label for="name" class="block text-base font-medium"
@@ -127,7 +128,8 @@
                                     <div>
                                         <label for="phone" class="block text-base font-medium"
                                             :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                            <span
+                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                                         </label>
                                         <div class="mt-0 md:mt-2">
                                             <input type="text" name="phone" id="phone" x-model="phone"
@@ -175,9 +177,9 @@
                             </div>
 
                             <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {} }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
                                     @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; if (Object.keys(errors).length === 0) $refs.form.submit()"
+                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
                                     class="space-y-3 md:space-y-6" action="#" method="POST">
                                     <div>
                                         <label for="name" class="block text-base font-medium"
@@ -197,7 +199,8 @@
                                     <div>
                                         <label for="phone" class="block text-base font-medium"
                                             :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span x-text="errors.phone ? 'Це поле є обовʼязковим' : 'Номер телефону'"></span>
+                                            <span
+                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                                         </label>
                                         <div class="mt-0 md:mt-2">
                                             <input type="text" name="phone" id="phone" x-model="phone"

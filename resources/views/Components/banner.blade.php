@@ -11,8 +11,8 @@
                         class="w-full h-[600px] md:h-[848px] object-cover object-center" />
                     <div
                         class="absolute top-6 left-1 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
-                        <x-Text.title>{{ $slider->title }}</x-Text.title>
-                        <x-Text.subtitle>{{ $slider->description }}</x-Text.subtitle>
+                        <x-Text.title color='white'>{{ $slider->title }}</x-Text.title>
+                        <x-Text.subtitle color='white'>{{ $slider->description }}</x-Text.subtitle>
                         @php
                             $items = [
                                 $slider->item_one,
@@ -39,7 +39,7 @@
                 </div>
             @endforeach
         </div>
-        <x-modal type='consultation' />
+        <x-modal type='test-drive' />
         <!-- Навігація -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
