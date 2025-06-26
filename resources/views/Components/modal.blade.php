@@ -1,228 +1,98 @@
 <div x-data="{ open: false }" @open-modal.window="open = true" @close-modal.window="open = false" x-show="open"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75">
-    @php
-        $title = '';
-        $logo = '';
-        $theme = '';
-    @endphp
-
-    @switch($type)
-        @case('price')
-            @php
-                $title = 'Заповніть поля та отримуйте прайс-лист на автомобіль';
-                $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg');
-                $theme = 'price';
-            @endphp
-            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div
-                    class="flex min-h-full items-center
-                    md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
-                    <div
-                        class="relative transform overflow-hidden rounded-lg bg-skoda-emerald-green text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                        <button @click="open = false"
-                            class="absolute top-0 md:top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
-                        <div class="flex
-                        min-h-full flex-col justify-center px-6 py-8 md:py-12 lg:px-8">
-                            <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
-                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Skoda Logo">
-                                <h2
-                                    class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-electric-green">
-                                    {{ $title }}
-                                </h2>
-
-                            </div>
-
-                            <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
-                                    @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
-                                    class="space-y-3 md:space-y-6" action="#" method="POST">
-                                    <div>
-                                        <label for="name" class="block text-base font-medium"
-                                            :class="errors.name ? 'text-red-500' : 'text-skoda-electric-green'">
-                                            <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
-                                        </label>
-                                        <div class="mt-2">
-                                            <input type="text" name="name" id="name" x-ref="name" x-model="name"
-                                                autocomplete="name" @input="if (errors.name) delete errors.name"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-electric-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label for="phone" class="block text-base font-medium"
-                                            :class="errors.phone ? 'text-red-500' : 'text-skoda-electric-green'">
-                                            <span
-                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
-                                        </label>
-                                        <div class="mt-0 md:mt-2">
-                                            <input type="text" name="phone" id="phone" x-model="phone"
-                                                autocomplete="phone" @input="if (errors.phone) delete errors.phone"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-electric-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div class="w-fit mx-auto z-50 mb-5 md:mb-0">
-                                        <x-button type='submit'>Відправити</x-button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div
-                            class="absolute top-0 left-0 w-[500px] h-20 bg-skoda-electric-green rotate-12 translate-x-7 -translate-y-12 z-10">
-                        </div>
-                        <div
-                            class="absolute bottom-0 right-0 w-[500px] h-20 bg-skoda-electric-green -rotate-12 translate-x-4 translate-y-12 z-10">
-                        </div>
+    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title"> @php
+        $configs = [
+            'price' => [
+                'title' => 'Заповніть поля та отримуйте прайс-лист на автомобіль',
+                'logo' => Storage::url('images/logos/Skoda_Wordmark_RGB_Electric_Green.svg'),
+                'bgColor' => 'bg-skoda-emerald-green',
+                'textColor' => 'text-skoda-electric-green',
+                'outlineColor' => 'outline-skoda-emerald-green focus:outline-skoda-electric-green',
+                'hasDecorations' => true,
+                'decorations' => [
+                    'bottom' =>
+                        'bottom-0 right-0 w-[500px] h-20 bg-skoda-electric-green -rotate-12 translate-x-4 translate-y-12',
+                ],
+            ],
+            'consultation' => [
+                'title' => 'Залиште заявку та отримайте консультацію',
+                'logo' => Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg'),
+                'bgColor' => 'bg-white',
+                'textColor' => 'text-skoda-emerald-green',
+                'outlineColor' => 'outline-skoda-emerald-green focus:outline-skoda-emerald-green',
+                'hasDecorations' => true,
+                'decorations' => [
+                    'top' =>
+                        'top-0 left-0 w-[700px] h-50 bg-skoda-electric-green rotate-12 transform -translate-x-1 -translate-y-8',
+                ],
+            ],
+            'test-drive' => [
+                'title' => 'Залиште заявку на тест-драйв автомобіля Škoda',
+                'logo' => Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg'),
+                'bgColor' => 'bg-white',
+                'textColor' => 'text-skoda-emerald-green',
+                'outlineColor' => 'outline-skoda-emerald-green focus:outline-skoda-emerald-green',
+                'hasDecorations' => false,
+            ],
+        ];
+        $config = $configs[$type] ?? $configs['consultation'];
+    @endphp <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
+            <div
+                class="relative transform overflow-hidden rounded-lg {{ $config['bgColor'] }} text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <button @click="open = false" @keydown.enter="open = false" aria-label="Закрити модальне вікно"
+                    class="absolute top-4 right-4 {{ $config['textColor'] }} p-2 cursor-pointer text-2xl font-bold z-50 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2">
+                    × </button>
+                <div class="flex min-h-full flex-col justify-center px-6 py-8 md:py-12 lg:px-8">
+                    <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20"> <img class="mx-auto h-7 md:h-10 w-auto"
+                            src="{{ $config['logo'] }}" alt="Skoda Logo" onerror="this.style.display='none'">
+                        <h2 id="modal-title"
+                            class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight {{ $config['textColor'] }}">
+                            {{ $config['title'] }} </h2>
                     </div>
-                </div>
-            </div>
-        @break
-
-        @case('consultation')
-            @php
-                $title = 'Залиште заявку та отримайте консультацію';
-                $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg');
-                $theme = 'consultation';
-            @endphp
-            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
-                    <div
-                        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                        <button @click="open = false"
-                            class="absolute top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
-                        <div class="flex
-                        min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-                            <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20">
-                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Your Company">
-                                <h2
-                                    class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                                    {{ $title }}
-                                </h2>
-
+                    <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                        <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                            @keydown.escape.window="open = false"
+                            @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
+                            class="space-y-3 md:space-y-6" action="#" method="POST">
+                            @csrf <input type="hidden" name="type" value="{{ $type }}">
+                            <div> <label for="name" class="block text-base font-medium"
+                                    :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
+                                        x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span> </label>
+                                <div class="mt-2"> <input type="text" name="name" id="name" x-ref="name"
+                                        x-model="name" autocomplete="name" :disabled="isSubmitting"
+                                        @input="if (errors.name) delete errors.name"
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
+                                        :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                                            '{{ $config['outlineColor'] }}'" />
+                                </div>
                             </div>
-
-                            <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
-                                    @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
-                                    class="space-y-3 md:space-y-6" action="#" method="POST">
-                                    <div>
-                                        <label for="name" class="block text-base font-medium"
-                                            :class="errors.name ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
-                                        </label>
-                                        <div class="mt-2">
-                                            <input type="text" name="name" id="name" x-ref="name" x-model="name"
-                                                autocomplete="name" @input="if (errors.name) delete errors.name"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label for="phone" class="block text-base font-medium"
-                                            :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span
-                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
-                                        </label>
-                                        <div class="mt-0 md:mt-2">
-                                            <input type="text" name="phone" id="phone" x-model="phone"
-                                                autocomplete="phone" @input="if (errors.phone) delete errors.phone"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div class="w-fit mx-auto">
-                                        <x-button type='submit'>Відправити</x-button>
-                                    </div>
-                                </form>
+                            <div> <label for="phone" class="block text-base font-medium"
+                                    :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
+                                        x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
+                                </label>
+                                <div class="mt-0 md:mt-2"> <input type="tel" name="phone" id="phone"
+                                        x-model="phone" autocomplete="tel" :disabled="isSubmitting"
+                                        @input="if (errors.phone) delete errors.phone"
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
+                                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                                            '{{ $config['outlineColor'] }}'" />
+                                </div>
                             </div>
-                        </div>
-                        <div
-                            class="absolute top-0 left-0 w-[700px] h-50 bg-skoda-electric-green rotate-12 transform -translate-x-1 -translate-y-8 z-10">
-                        </div>
+                            <div class="w-fit mx-auto"> <x-button type="submit"> <span
+                                        x-show="!isSubmitting">Відправити</span> <span
+                                        x-show="isSubmitting">Відправляю...</span> </x-button> </div>
+                        </form>
                     </div>
-                </div>
+                </div> {{-- Decorative elements --}} @if ($config['hasDecorations'])
+                    @foreach ($config['decorations'] as $position => $classes)
+                        <div class="absolute {{ $classes }} z-10"></div>
+                    @endforeach
+                @endif
             </div>
-        @break
-
-        @case('test-drive')
-            @php
-                $title = 'Залиште заявку на тест-драйв автомобіля Škoda';
-                $logo = Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg');
-                $theme = 'test-drive';
-            @endphp
-            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
-                    <div
-                        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                        <button @click="open = false"
-                            class="absolute top-4 right-4 text-skoda-emerald-green p-2 cursor-pointer text-2xl font-bold z-50">&times;</button>
-                        <div class="flex min-h-full flex-col justify-center px-6 py-8 lg:py-12 lg:px-8">
-                            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                                <img class="mx-auto h-7 md:h-10 w-auto" src={{ $logo }} alt="Your Company">
-                                <h2
-                                    class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight text-skoda-emerald-green">
-                                    {{ $title }}</h2>
-                                </h2>
-
-                            </div>
-
-                            <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                                <form x-data="{ name: '', phone: '', errors: {}, phoneValid(phone) { return /^\+?\d{10,15}$/.test(phone); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
-                                    @keydown.escape.window="open = false"
-                                    @submit.prevent="errors = {}; if (!name) errors.name = true; if (!phone) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) $refs.form.submit()"
-                                    class="space-y-3 md:space-y-6" action="#" method="POST">
-                                    <div>
-                                        <label for="name" class="block text-base font-medium"
-                                            :class="errors.name ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span>
-                                        </label>
-                                        <div class="mt-2">
-                                            <input type="text" name="name" id="name" x-ref="name"
-                                                x-model="name" autocomplete="name"
-                                                @input="if (errors.name) delete errors.name"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label for="phone" class="block text-base font-medium"
-                                            :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
-                                            <span
-                                                x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
-                                        </label>
-                                        <div class="mt-0 md:mt-2">
-                                            <input type="text" name="phone" id="phone" x-model="phone"
-                                                autocomplete="phone" @input="if (errors.phone) delete errors.phone"
-                                                class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                                :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                                                    'outline-skoda-emerald-green focus:outline-skoda-emerald-green'" />
-                                        </div>
-                                    </div>
-
-                                    <div class="w-fit mx-auto">
-                                        <x-button type='submit'>Відправити</x-button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @break
-
-        @default
-            <p>Невідомий тип модалки.</p>
-    @endswitch
+        </div>
+    </div>
 </div>
