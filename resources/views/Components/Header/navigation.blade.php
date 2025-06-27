@@ -6,14 +6,13 @@
         </li>
         <!-- Лінк з підменю -->
         <li class="relative dropdown">
-            <button
-                class="dropdown-toggle text-skoda-electric-green transition-colors flex items-center gap-1 p-2 cursor-pointer group">
+            <x-Header.nav-link-def href="#" class="dropdown-toggle flex cursor-pointer group">
                 Послуги
-                <svg class="w-4 h-4 dropdown-arrow transition-transform" fill="none" stroke="currentColor"
+                <svg class="w-4 h-4 dropdown-arrow transition-transform mt-1" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-            </button>
+            </x-Header.nav-link-def>
             <!-- Підменю -->
             <ul class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md z-50 hidden">
                 <li class="group">
@@ -27,14 +26,13 @@
             </ul>
         </li>
         <li class="relative dropdown">
-            <button
-                class="dropdown-toggle text-skoda-electric-green transition-colors flex items-center gap-1 p-2 cursor-pointer">
+            <x-Header.nav-link-def href="#" class="dropdown-toggle group flex">
                 Моделі
-                <svg class="w-4 h-4 dropdown-arrow transition-transform" fill="none" stroke="currentColor"
+                <svg class="w-4 h-4 dropdown-arrow transition-transform mt-1" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-            </button>
+            </x-Header.nav-link-def>
             <!-- Підменю -->
             <ul
                 class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md shadow-lg z-50 hidden">
