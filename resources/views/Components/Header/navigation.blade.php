@@ -7,7 +7,7 @@
         <!-- Лінк з підменю -->
         <li class="relative dropdown">
             <button
-                class="dropdown-toggle text-skoda-electric-green hover:text-skoda-white transition-colors flex items-center gap-1 p-2">
+                class="dropdown-toggle text-skoda-electric-green transition-colors flex items-center gap-1 p-2 cursor-pointer group">
                 Послуги
                 <svg class="w-4 h-4 dropdown-arrow transition-transform" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
@@ -28,7 +28,7 @@
         </li>
         <li class="relative dropdown">
             <button
-                class="dropdown-toggle text-skoda-electric-green hover:text-skoda-white transition-colors flex items-center gap-1 p-2">
+                class="dropdown-toggle text-skoda-electric-green transition-colors flex items-center gap-1 p-2 cursor-pointer">
                 Моделі
                 <svg class="w-4 h-4 dropdown-arrow transition-transform" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
