@@ -37,12 +37,32 @@
             <ul
                 class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md shadow-lg z-50 hidden">
                 <li class="group">
-                    <x-Header.nav-link href="/about/history"
+                    <x-Header.nav-link href="/octavia"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Octavia</x-Header.nav-link>
                 </li>
                 <li class="group">
-                    <x-Header.nav-link href="/about/team"
+                    <x-Header.nav-link href="/kodiaq"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Kodiaq</x-Header.nav-link>
+                </li>
+                <li class="group">
+                    <x-Header.nav-link href="/kamiq"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Kamiq</x-Header.nav-link>
+                </li>
+                <li class="group">
+                    <x-Header.nav-link href="/karoq"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Karoq</x-Header.nav-link>
+                </li>
+                <li class="group">
+                    <x-Header.nav-link href="/superb"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Superb</x-Header.nav-link>
+                </li>
+                <li class="group">
+                    <x-Header.nav-link href="/fabia"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Fabia</x-Header.nav-link>
+                </li>
+                <li class="group">
+                    <x-Header.nav-link href="/scala"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Scala</x-Header.nav-link>
                 </li>
             </ul>
         </li>
