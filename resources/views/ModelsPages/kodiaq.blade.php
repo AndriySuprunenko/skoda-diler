@@ -1,4 +1,4 @@
-@section('title', 'Škoda Kodiaq - Великий SUV')
+@section('title', 'Škoda Kodiaq')
 @section('meta')
     <meta name="description"
         content="Kodiaq - великий SUV від Škoda, який поєднує простір, комфорт та технології. Досконалий вибір для сім'ї.">
@@ -9,7 +9,7 @@
     <meta property="og:title" content="Škoda Kodiaq - Великий SUV від офіційного дилера">
     <meta property="og:description" content="Kodiaq - великий SUV від Škoda, який поєднує простір, комфорт та технології">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Ukraine">
+    <meta property="og:site_name" content="Škoda Кременчук">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
