@@ -108,7 +108,7 @@
                 </ul>
 
                 <!-- Placeholder for x-Header.phone-number -->
-                <x-Header.phone-number />
+                <x-link href="tel:+380676208844">+380676208844</x-link>
             </nav>
         </div>
     </div>

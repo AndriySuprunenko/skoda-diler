@@ -71,7 +71,9 @@
             <x-Header.nav-link href="/contact">Контакти</x-Header.nav-link>
         </li>
     </ul>
-    <x-Header.phone-number />
+    <div>
+        <x-link href="tel:+380676208844">+380676208844</x-link>
+    </div>
 </nav>
 
 <script>
