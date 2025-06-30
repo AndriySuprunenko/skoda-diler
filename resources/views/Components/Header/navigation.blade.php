@@ -37,7 +37,7 @@
             <ul
                 class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md shadow-lg z-50 hidden">
                 <li class="group">
-                    <x-Header.nav-link href="/octavia"
+                    <x-Header.nav-link href="/octavia-a8"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Octavia</x-Header.nav-link>
                 </li>
                 <li class="group">
@@ -45,7 +45,7 @@
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Kodiaq</x-Header.nav-link>
                 </li>
                 <li class="group">
-                    <x-Header.nav-link href="/kamiq"
+                    <x-Header.nav-link href="/kamiq-fl"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Kamiq</x-Header.nav-link>
                 </li>
                 <li class="group">

@@ -48,13 +48,25 @@
                             x-transition:leave-end="opacity-0 transform -translate-y-2"
                             class="flex flex-col gap-8 items-end w-full py-8 text-base">
                             <li>
-                                <x-Header.nav-link href="/models/octavia">Octavia</x-Header.nav-link>
+                                <x-Header.nav-link href="/octavia-a8">Octavia</x-Header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/models/octavia">Kodiaq</x-Header.nav-link>
+                                <x-Header.nav-link href="/kodiaq">Kodiaq</x-Header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/models/octavia">Karoq</x-Header.nav-link>
+                                <x-Header.nav-link href="/karoq">Karoq</x-Header.nav-link>
+                            </li>
+                            <li>
+                                <x-Header.nav-link href="/fabia">Fabia</x-Header.nav-link>
+                            </li>
+                            <li>
+                                <x-Header.nav-link href="/superb">Superb</x-Header.nav-link>
+                            </li>
+                            <li>
+                                <x-Header.nav-link href="/scala">Scala</x-Header.nav-link>
+                            </li>
+                            <li>
+                                <x-Header.nav-link href="/kamiq-fl">Kamiq FL</x-Header.nav-link>
                             </li>
                         </ul>
                     </li>
