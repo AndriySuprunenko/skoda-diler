@@ -1,9 +1,9 @@
-<div x-data="{ open: false }" @open-modal.window="open = true" @close-modal.window="open = false" x-show="open"
-    x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
-    x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75" role="dialog" aria-modal="true"
-    aria-labelledby="modal-title"> @php
+<div x-data="{ open: false }" @open-modal.window="if ($event.detail?.type === '{{ $type }}') open = true"
+    @close-modal.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75"
+    role="dialog" aria-modal="true" aria-labelledby="modal-title"> @php
         $configs = [
             'price' => [
                 'title' => 'Заповніть поля та отримуйте прайс-лист на автомобіль',
@@ -39,7 +39,8 @@
             ],
         ];
         $config = $configs[$type] ?? $configs['consultation'];
-    @endphp <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    @endphp <div
+        class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
             <div class="relative transform overflow-hidden rounded-lg {{ $config['bgColor'] }} text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
                 @click.away="open = false">
@@ -57,7 +58,7 @@
                         <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
                             @keydown.escape.window="open = false"
                             @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
-                            class="space-y-3 md:space-y-6" action="#" method="POST">
+                            class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                             @csrf <input type="hidden" name="type" value="{{ $type }}">
                             <div> <label for="name" class="block text-base font-medium"
                                     :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
@@ -74,17 +75,30 @@
                                     :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
                                         x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                                 </label>
-                                <div class="mt-0 md:mt-2"> <input type="tel" name="phone" id="phone"
+                                <div class="mt-0 md:mt-2 mb-4"> <input type="tel" name="phone" id="phone"
                                         x-model="phone" autocomplete="tel" :disabled="isSubmitting"
                                         @input="if (errors.phone) delete errors.phone"
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
                                         :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
                                             '{{ $config['outlineColor'] }}'" />
                                 </div>
+                                <x-checkbox name="no_call" text="Не телефонуйте мені"
+                                    color="{{ $config['textColor'] }}" />
                             </div>
-                            <div class="w-fit mx-auto"> <x-button type="submit"> <span
-                                        x-show="!isSubmitting">Відправити</span> <span
-                                        x-show="isSubmitting">Відправляю...</span> </x-button> </div>
+                            <div class="space-y-2 {{ $config['textColor'] }}">
+                                <p class="text-base">Оберіть зручний спосіб звʼязку:</p>
+                                <div class="flex flex-wrap gap-2 justify-around">
+                                    <x-checkbox name="viber" text="Viber" color="{{ $config['textColor'] }}" />
+                                    <x-checkbox name="telegram" text="Telegram" color="{{ $config['textColor'] }}" />
+                                    <x-checkbox name="whatsapp" text="WhatsApp" color="{{ $config['textColor'] }}" />
+                                </div>
+                            </div>
+                            <div class="w-fit mx-auto mb-6 md:mb-0">
+                                <x-button type="submit">
+                                    <span x-show="!isSubmitting">Відправити</span>
+                                    <span x-show="isSubmitting">Відправляю...</span>
+                                </x-button>
+                            </div>
                         </form>
                     </div>
                 </div> {{-- Decorative elements --}} @if ($config['hasDecorations'])

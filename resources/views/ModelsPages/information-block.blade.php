@@ -64,8 +64,11 @@
             </div>
             <div
                 class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
-                <x-button>
+                <x-button click="$dispatch('open-modal', { type: 'price' })">
                     Завантажити прайс
+                </x-button>
+                <x-button style="emerald" click="$dispatch('open-modal', { type: 'test-drive' })">
+                    Залишити заявку на тест-драйв
                 </x-button>
             </div>
             <div

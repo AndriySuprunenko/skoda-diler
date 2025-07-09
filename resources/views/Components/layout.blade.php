@@ -13,13 +13,16 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="font-sans">
+<body class="font-sans" x-data="{ open: false }">
     <x-Header.header />
     <main>
         {{ $slot }}
     </main>
     <x-footer />
 
+    <x-modal type='test-drive' />
+    <x-modal type='consultation' />
+    <x-modal type='price' />
 </body>
 
 </html>

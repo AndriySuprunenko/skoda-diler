@@ -81,7 +81,7 @@
                 </div>
                 <div
                     class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
-                    <x-button>
+                    <x-button click="$dispatch('open-modal', { type: 'price' })">
                         Завантажити прайс
                     </x-button>
                     <x-link style='emerald' href="/{{ Str::slug($model->name) }}">Детальніше про модель</x-link>
