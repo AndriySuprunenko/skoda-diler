@@ -1,7 +1,7 @@
 @props(['name', 'text', 'color'])
 
 <label class="container">
-    <input type="checkbox" name={{ $name }} value="1">
+    <input type="checkbox" name={{ $name }} value="1" tabindex="0">
     <span class="ml-2 {{ $color }}">{{ $text }}</span>
     <span class="checkmark"></span>
 </label>
@@ -51,6 +51,12 @@
     /* When the checkbox is checked, add a blue background */
     .container input:checked~.checkmark {
         background-color: #0E3A2F;
+    }
+
+    /* Show focus outline */
+    .container input:focus~.checkmark {
+        box-shadow: 0 0 0 2px rgba(14, 58, 47, 0.6);
+        outline: none;
     }
 
     /* Create the checkmark/indicator (hidden when not checked) */

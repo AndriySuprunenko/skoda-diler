@@ -55,7 +55,7 @@
                             {{ $config['title'] }} </h2>
                     </div>
                     <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
+                        <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneStarted: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
                             @keydown.escape.window="open = false"
                             @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
@@ -75,9 +75,28 @@
                                     :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
                                         x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                                 </label>
-                                <div class="mt-0 md:mt-2 mb-4"> <input type="tel" name="phone" id="phone"
-                                        x-model="phone" autocomplete="tel" :disabled="isSubmitting"
-                                        @input="if (errors.phone) delete errors.phone"
+                                <div class="mt-0 md:mt-2 mb-4">
+                                    <input type="tel" name="phone" id="phone" x-model="phone"
+                                        autocomplete="tel" :disabled="isSubmitting"
+                                        @keydown="
+                                            if (!phoneStarted) {
+                                                phoneStarted = true;
+                                                phone = '+380';
+                                                $event.preventDefault();
+                                                return;
+                                            }
+                                            if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes($event.key) && !/\d/.test($event.key)) {
+                                                $event.preventDefault();
+                                            }
+                                        "
+                                        @input="
+                                            let cleaned = phone.replace(/[^\d]/g, '');
+                                            if (!cleaned.startsWith('380')) {
+                                                cleaned = '380' + cleaned.replace(/^380+/, '');
+                                            }
+                                            phone = '+' + cleaned.slice(0, 12);
+                                            if (errors.phone) delete errors.phone
+                                        "
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
                                         :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
                                             '{{ $config['outlineColor'] }}'" />
