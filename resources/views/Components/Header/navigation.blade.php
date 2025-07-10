@@ -16,11 +16,11 @@
             <!-- Підменю -->
             <ul class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md z-50 hidden">
                 <li class="group">
-                    <x-Header.nav-link href="/about/history"
+                    <x-Header.nav-link href="/trade-in"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Trade in</x-Header.nav-link>
                 </li>
                 <li class="group">
-                    <x-Header.nav-link href="/about/team"
+                    <x-Header.nav-link href="/kredit"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Кредит/Лізинг</x-Header.nav-link>
                 </li>
             </ul>
@@ -67,6 +67,12 @@
             </ul>
         </li>
 
+        <li class="group">
+            <x-Header.nav-link href="/stock-cars">Авто на складі</x-Header.nav-link>
+        </li>
+        <li class="group">
+            <x-Header.nav-link href="/reviews">Клієнти</x-Header.nav-link>
+        </li>
         <li class="group">
             <x-Header.nav-link href="/contact">Контакти</x-Header.nav-link>
         </li>

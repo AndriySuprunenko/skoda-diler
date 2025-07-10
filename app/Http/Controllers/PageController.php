@@ -46,4 +46,28 @@ class PageController extends Controller
     {
         return view('ModelsPages.karoq');
     }
+    public function kredit()
+    {
+        return view('kredit');
+    }
+    public function tradeIn()
+    {
+        return view('trade-in');
+    }
+    public function reviews()
+    {
+        return view('reviews');
+    }
+    public function privacyPolicy()
+    {
+        return view('privacy-policy');
+    }
+    public function thankYou()
+    {
+        return view('thank-you');
+    }
+    public function stockCars()
+    {
+        return view('stock-cars');
+    }
 }

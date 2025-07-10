@@ -93,15 +93,21 @@
                             x-transition:leave-end="opacity-0 transform -translate-y-2"
                             class="flex flex-col gap-8 items-end w-full py-8 text-base">
                             <li>
-                                <x-Header.nav-link href="/models/octavia">Trade in</x-Header.nav-link>
+                                <x-Header.nav-link href="/trade-in">Trade in</x-Header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/models/octavia">Кредит/Лізинг</x-Header.nav-link>
+                                <x-Header.nav-link href="/kredit">Кредит/Лізинг</x-Header.nav-link>
                             </li>
                         </ul>
                     </li>
 
                     <!-- Звичайний лінк: Контакти (Contact) -->
+                    <li class="w-full">
+                        <x-Header.nav-link href="/stock-cars">Авто на складі</x-Header.nav-link>
+                    </li>
+                    <li class="w-full">
+                        <x-Header.nav-link href="/reviews">Клієнти</x-Header.nav-link>
+                    </li>
                     <li class="w-full">
                         <x-Header.nav-link href="/contact">Контакти</x-Header.nav-link>
                     </li>
