@@ -7,6 +7,10 @@
             <option value="Skoda Octavia" data-price="800000">Skoda Octavia</option>
             <option value="Skoda Kodiaq" data-price="1200000">Skoda Kodiaq</option>
             <option value="Skoda Superb" data-price="1500000">Skoda Superb</option>
+            <option value="Skoda Kamiq" data-price="700000">Skoda Kamiq</option>
+            <option value="Skoda Scala" data-price="600000">Skoda Scala</option>
+            <option value="Skoda Fabia" data-price="500000">Skoda Fabia</option>
+            <option value="Skoda Karoq" data-price="900000">Skoda Karoq</option>
         </select>
     </div>
 
@@ -21,7 +25,7 @@
     <div class="mb-8">
         <label for="months" class="block text-skoda-emerald-green font-semibold mb-2">Кількість місяців:</label>
         <input type="number" id="months"
-            class="w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            class="w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green"
             placeholder="Наприклад, 24">
     </div>
 

@@ -32,7 +32,7 @@
 <x-layout>
     <div>
         <img src="{{ Storage::url('images/kredit/kredit.jpg') }}" alt="Зображення кредитної програми Škoda"
-            class="w-full h-auto">
+            class="w-full h-auto" />
     </div>
     <div class="text-center my-4 md:my-8">
         <x-Text.title>Основні переваги кредитної програми Škoda</x-Text.title>
@@ -85,5 +85,14 @@
                 <x-calculator />
             </x-section>
         </div>
+    </div>
+    <div class="bg-skoda-emerald-green text-center">
+        <x-section>
+            <x-Text.title color='electric-green'>Хочеш точний прорахунок?</x-Text.title>
+            <x-Text.text color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
+                зв'яжеться з
+                вами для точного прорахунку з найвигіднішими для вас умовами</x-Text.text>
+            <x-form value='Кредит' />
+        </x-section>
     </div>
 </x-layout>

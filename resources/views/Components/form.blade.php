@@ -1,0 +1,73 @@
+@props(['value'])
+
+<div class="mt-5 md:mt-10 bg-skoda-emerald-green p-6 text-start max-w-[900px] mx-auto">
+    <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneStarted: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
+        @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
+        class="space-y-3 md:space-y-6 flex flex-col" action="{{ route('send.modal.form') }}" method="POST">
+        @csrf <input type="hidden" name="type" value="{{ $value }}">
+
+        <div class="flex flex-col md:flex-row w-full gap-4 items-center">
+            <div class="w-full">
+                <label for="name" class="block text-base font-medium"
+                    :class="errors.name ? 'text-red-500' : 'text-skoda-electric-green'"> <span
+                        x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span> </label>
+                <div> <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                        autocomplete="name" :disabled="isSubmitting" @input="if (errors.name) delete errors.name"
+                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
+                        :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                            'outline-skoda-electric-green'" />
+                </div>
+            </div>
+            <div class="w-full">
+                <label for="phone" class="block text-base font-medium"
+                    :class="errors.phone ? 'text-red-500' : 'text-skoda-electric-green'"> <span
+                        x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
+                </label>
+                <div>
+                    <input type="tel" name="phone" id="phone" x-model="phone" autocomplete="tel"
+                        :disabled="isSubmitting"
+                        @keydown="
+                                            if (!phoneStarted) {
+                                                phoneStarted = true;
+                                                phone = '+380';
+                                                $event.preventDefault();
+                                                return;
+                                            }
+                                            if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes($event.key) && !/\d/.test($event.key)) {
+                                                $event.preventDefault();
+                                            }
+                                        "
+                        @input="
+                                            let cleaned = phone.replace(/[^\d]/g, '');
+                                            if (!cleaned.startsWith('380')) {
+                                                cleaned = '380' + cleaned.replace(/^380+/, '');
+                                            }
+                                            phone = '+' + cleaned.slice(0, 12);
+                                            if (errors.phone) delete errors.phone
+                                        "
+                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
+                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                            'outline-skoda-electric-green'" />
+                </div>
+            </div>
+            <div class="w-fit mt-5">
+                <x-button type="submit">
+                    <span x-show="!isSubmitting">Відправити</span>
+                    <span x-show="isSubmitting">Відправляю...</span>
+                </x-button>
+            </div>
+        </div>
+
+        <div class="flex gap-8 items-start md:items-center flex-col md:flex-row mt-6 md:mt-0">
+            <x-checkbox name="no_call" text="Не телефонуйте мені" color="text-skoda-electric-green" />
+            <div class="space-y-2 text-skoda-electric-green flex flex-col md:flex-row gap-8">
+                <p class="text-base">Оберіть зручний спосіб звʼязку:</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-start">
+                    <x-checkbox name="viber" text="Viber" color="text-skoda-electric-green" />
+                    <x-checkbox name="telegram" text="Telegram" color="text-skoda-electric-green" />
+                    <x-checkbox name="whatsapp" text="WhatsApp" color="text-skoda-electric-green" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
