@@ -6,7 +6,7 @@
             {{ number_format($carPrice, 0, ',', ' ') }} ₴
         </x-Text.title>
     </div>
-    <div class="triangle-up absolute top-0 left-[212px] w-0 h-0 z-0" />
+    <div class="triangle-up absolute top-0 left-[209px] w-0 h-0 z-0" />
 </div>
 
 <style>
