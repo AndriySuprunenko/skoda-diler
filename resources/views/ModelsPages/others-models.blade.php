@@ -1,20 +1,20 @@
 @props(['models'])
 
-<x-section>
+<x-section class="bg-skoda-electric-green text-center">
     <x-Text.title>Інші моделі</x-Text.subtitle>
-        <div class="flex flex-wrap gap-8 mt-8 justify-around items-center">
+        <div class="flex flex-wrap gap-8 mt-8 items-center justify-center">
             {{-- Перебираємо моделі --}}
             @foreach ($models as $modl)
-                <div class="relative">
-                    <div class="w-full max-w-[400px] border-4 border-skoda-electric-green">
+                <a href="/{{ Str::slug($modl->name) }}"
+                    class="block hover:shadow-lg transition rounded-lg overflow-hidden max-w-[350px]">
+                    <div class="w-full">
                         <img src="{{ Storage::url($modl->images->first()->image) }}" alt="Фото моделі {{ $modl->name }}"
-                            class="w-full h-[300px] object-cover object-center">
+                            class="w-full h-[250px] object-cover object-center rounded-t-lg">
                     </div>
-                    <div class="absolute bottom-0 left-0 w-full max-w-[300px] p-4 rounded-lg">
-                        <x-Text.subtitle color='electric-green'>{{ $modl->name }}</x-Text.subtitle>
-                        <x-link href="/{{ Str::slug($modl->name) }}">Детальніше</x-link>
+                    <div class="w-full p-4 bg-skoda-emerald-green">
+                        <x-Text.subtitle color='white'>Škoda {{ $modl->name }}</x-Text.subtitle>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
 </x-section>
