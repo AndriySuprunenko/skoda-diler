@@ -1,7 +1,7 @@
 @props(['model'])
 
 <x-section>
-    <div class="relative z-20 w-full overflow-hidden flex flex-col lg:flex-row gap-8">
+    <div class="relative z-20 w-full overflow-hidden flex flex-col lg:flex-row gap-4">
         <!-- Slider main container -->
         <div class="swiper modelSwiper-{{ $model->id }}">
             <!-- Additional required wrapper -->
@@ -9,7 +9,7 @@
                 @foreach ($model->images as $image)
                     <div class="swiper-slide">
                         <img src="{{ Storage::url($image->image) }}" alt="Фото моделі {{ $model->name }}" loading="lazy"
-                            class="w-full h-[630px] object-cover object-center rounded-xl">
+                            class="w-full h-[300px] md:h-[630px] object-cover object-center rounded-xl">
                     </div>
                 @endforeach
             </div>
