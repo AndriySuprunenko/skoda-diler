@@ -9,7 +9,7 @@
                 @foreach ($model->images as $image)
                     <div class="swiper-slide">
                         <img src="{{ Storage::url($image->image) }}" alt="Фото моделі {{ $model->name }}" loading="lazy"
-                            class="w-full h-[630px] object-cover object-center">
+                            class="w-full h-[630px] object-cover object-center rounded-xl">
                     </div>
                 @endforeach
             </div>
@@ -20,7 +20,8 @@
         </div>
 
         {{--  Model details section --}}
-        <div class="flex flex-col gap-4 w-full p-4 md:p-8 bg-skoda-white text-skoda-emerald-green relative z-10">
+        <div
+            class="flex flex-col gap-4 w-full p-4 md:p-8 bg-skoda-white text-skoda-emerald-green relative z-10 rounded-xl">
             <x-Text.main-title>Škoda {{ $model->name }}</x-Text.main-title>
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                 <span class="text-lg">Потужність двигуна </span>

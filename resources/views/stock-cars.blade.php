@@ -29,9 +29,9 @@
 @endphp
 
 <x-layout>
-    {{-- <x-Text.main-title>Авто на складі</x-Text.main-title> --}}
-    <x-section>
-        <ul class="flex flex-wrap w-full justify-center gap-6">
+    <x-section class="text-center">
+        <x-Text.main-title>Авто на складі</x-Text.main-title>
+        <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             @forelse($cars as $car)
                 <li class="w-full max-w-[600px]">
                     <x-stock-card :car="$car" />

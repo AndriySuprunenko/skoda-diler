@@ -13,7 +13,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="font-sans w-full min-h-screen flex flex-col" x-data="{ open: false }">
+<body class="font-sans w-full min-h-screen flex flex-col bg-skoda-chrome-50" x-data="{ open: false }">
     <x-Header.header />
     <main class="flex-1">
         {{ $slot }}

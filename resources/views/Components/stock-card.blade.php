@@ -5,7 +5,7 @@
 {{-- Параметри: --}}
 {{-- $car - об'єкт автомобіля з усіма необхідними властивостями --}}
 
-<div class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+<div class="bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-200">
     @php
         // Безпечне декодування галереї
         $gallery = [];
