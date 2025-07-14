@@ -31,7 +31,7 @@
 <x-layout>
     <x-section>
         <x-Text.main-title>Авто на складі</x-Text.main-title>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             @forelse($cars as $car)
                 <div class="bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col">
                     @php
@@ -73,39 +73,78 @@
                                 <span class="px-2 py-1 text-xs rounded bg-gray-100 text-gray-700">Вживаний</span>
                             @endif
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1">{{ $car->name }}</h3>
-                        <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-2">
+                        <x-Text.subtitle class="font-bold">{{ $car->name }}</x-Text.subtitle>
+                        <div class="mb-2 flex flex-col gap-2">
                             @if ($car->color)
-                                <span>Колір: {{ $car->color }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Колір</span>
+                                    <x-Text.text>
+                                        {{ $car->color }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                             @if ($car->mileage)
-                                <span>Пробіг: {{ number_format($car->mileage, 0, ',', ' ') }} км</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Пробіг</span>
+                                    <x-Text.text>
+                                        {{ number_format($car->mileage, 0, ',', ' ') }} км
+                                    </x-Text.text>
+                                </div>
                             @endif
                             @if ($car->vin)
-                                <span>VIN: {{ $car->vin }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">VIN-код</span>
+                                    <x-Text.text>
+                                        {{ $car->vin }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                         </div>
-                        <div class="text-sm text-gray-500 mb-2 flex flex-wrap gap-2">
+                        <div class="mb-2 flex flex-col gap-2">
                             @if ($car->engine_power)
-                                <span>Потужність: {{ $car->engine_power }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Потужність</span>
+                                    <x-Text.text>
+                                        {{ $car->engine_power }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                             @if ($car->engine_volume)
-                                <span>Обʼєм: {{ $car->engine_volume }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Обʼєм</span>
+                                    <x-Text.text>
+                                        {{ $car->engine_volume }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                             @if ($car->transmission)
-                                <span>Коробка: {{ ucfirst($car->transmission) }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Коробка</span>
+                                    <x-Text.text>
+                                        {{ ucfirst($car->transmission) }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                             @if ($car->fuel_consumption)
-                                <span>Витрата: {{ $car->fuel_consumption }}</span>
+                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                    <span class="text-lg text-skoda-emerald-green font-bold">Витрата</span>
+                                    <x-Text.text>
+                                        {{ $car->fuel_consumption }}
+                                    </x-Text.text>
+                                </div>
                             @endif
                         </div>
                         @if ($car->configuration)
-                            <div class="text-xs text-gray-700 mb-2">Комплектація: {{ $car->configuration }}</div>
+                            <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
+                                <span class="text-lg text-skoda-emerald-green font-bold">Комплектація</span>
+                                <x-Text.text>
+                                    {{ $car->configuration }}
+                                </x-Text.text>
+                            </div>
                         @endif
-                        <div class="text-xl font-semibold text-skoda-emerald-green mb-2">
-                            {{ number_format($car->price, 0, ',', ' ') }} ₴</div>
+                        <x-price :carPrice="$car->price" />
                         <x-button style="emerald"
-                            click="$dispatch('open-modal', { type: 'consultation', value: '{{ $car->name }}' })">
+                            click="$dispatch('open-modal', { type: 'consultation', value: 'Склад {{ $car->name }}' })">
                             Дізнати більше
                         </x-button>
                     </div>

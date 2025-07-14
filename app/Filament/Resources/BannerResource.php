@@ -17,8 +17,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 
 class BannerResource extends Resource
 {
@@ -31,6 +31,13 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 TextInput::make('title')->required()->maxLength(255),
+                Select::make('button_type')
+                    ->label('Оберіть тип форми')
+                    ->options([
+                        'price' => 'Скачати прайс',
+                        'test-drive' => 'Записатися на тест-драйв',
+                        'consultation' => 'Консультація',
+                    ]),
                 Textarea::make('description')->rows(3),
                 TextInput::make('item_one')
                     ->label('Item One')

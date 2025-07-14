@@ -79,7 +79,7 @@
     <div class="bg-skoda-electric-green">
         <div class="max-w-3xl mx-auto text-center">
             <x-section>
-                <x-Text.title>Кредитний калькулятор</x-Text.title>
+                <x-Text.title class="mb-4">Кредитний калькулятор</x-Text.title>
                 <x-Text.text class="mb-4">Ви можете скористатися нашим кредитним калькулятором, щоб розрахувати
                     приблизні щомісячні платежі за кредитом на автомобіль Škoda.</x-Text.text>
                 <x-calculator />

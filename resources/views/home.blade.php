@@ -1,7 +1,7 @@
 <x-layout>
     <x-banner />
     <x-section>
-        <x-Text.title>Про нас</x-Text.title>
+        <x-Text.title class="mb-4">Про нас</x-Text.title>
         <x-Text.subtitle>Офіційний дилер автомобілів ŠKODA в м. Кременчук</x-Text.subtitle>
         <x-Text.text>
             Ми є офіційним дилером автомобілів ŠKODA в м. Кременчук, що надає широкий спектр послуг, включаючи продаж

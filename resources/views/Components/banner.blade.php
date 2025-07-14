@@ -33,7 +33,7 @@
                         <div class="w-full max-w-[300px] m-auto md:m-0">
                             @if ($slider->button_text)
                                 <x-button
-                                    click="$dispatch('open-modal', { type: '{{ $slider->button_type ?? 'test-drive' }}' })">{{ $slider->button_text }}</x-button>
+                                    click="$dispatch('open-modal', { type: '{{ $slider->button_type ?? 'consultation' }}', value: '{{ $slider->title }}' })">{{ $slider->button_text }}</x-button>
                             @endif
                         </div>
                     </div>
