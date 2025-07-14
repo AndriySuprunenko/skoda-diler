@@ -8,7 +8,7 @@
         content="Авто на складі Škoda в Кременчуці. Широкий вибір моделей та вигідні умови покупки.">
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ Storage::url('kredit/') }}">
+    <meta property="og:image" content="{{ asset('images/stock-cars-og.jpg') }}">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
@@ -25,7 +25,7 @@
 @endsection
 
 @php
-    $cars = \App\Models\StockCars::get();
+    $cars = \App\Models\StockCars::orderBy('created_at', 'desc')->get();
 @endphp
 
 <x-layout>
@@ -34,115 +34,21 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @forelse($cars as $car)
-                <div class="bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col">
-                    @php
-                        $gallery = is_array($car->gallery) ? $car->gallery : json_decode($car->gallery, true) ?? [];
-                        $img = count($gallery) ? Storage::url($gallery[0]) : asset('images/no-car.jpg');
-                    @endphp
-                    <div class="rounded-t-lg w-full object-cover">
-                        <img src="{{ $img }}" alt="Фото моделі {{ $car->name }}" loading="lazy"
-                            class="w-full h-full object-cover object-center rounded-lg">
-                    </div>
-                    <div class="p-4 flex-1 flex flex-col">
-                        <div class="flex items-center gap-2 mb-2">
-                            @if ($car->status === 'sold')
-                                <span class="px-2 py-1 text-xs rounded bg-red-100 text-red-700">Продано</span>
-                            @elseif($car->status === 'available')
-                                <span class="px-2 py-1 text-xs rounded bg-green-100 text-green-700">В
-                                    наявності</span>
-                            @elseif($car->status === 'reserved')
-                                <span
-                                    class="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-700">Заброньовано</span>
-                            @elseif($car->status === 'hot_offer')
-                                <span class="px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-700">Гаряча
-                                    пропозиція</span>
-                            @endif
-
-                            @if ($car->condition === 'new')
-                                <span class="px-2 py-1 text-xs rounded bg-gray-100 text-gray-700">Новий</span>
-                            @elseif($car->condition === 'used')
-                                <span class="px-2 py-1 text-xs rounded bg-gray-100 text-gray-700">Вживаний</span>
-                            @endif
-                        </div>
-                        <x-Text.subtitle class="font-bold">{{ $car->name }}</x-Text.subtitle>
-                        <div class="mb-2 flex flex-col gap-2">
-                            @if ($car->color)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Колір</span>
-                                    <x-Text.text>
-                                        {{ $car->color }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                            @if ($car->mileage)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Пробіг</span>
-                                    <x-Text.text>
-                                        {{ number_format($car->mileage, 0, ',', ' ') }} км
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                            @if ($car->vin)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">VIN-код</span>
-                                    <x-Text.text>
-                                        {{ $car->vin }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                        </div>
-                        <div class="mb-2 flex flex-col gap-2">
-                            @if ($car->engine_power)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Потужність</span>
-                                    <x-Text.text>
-                                        {{ $car->engine_power }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                            @if ($car->engine_volume)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Обʼєм</span>
-                                    <x-Text.text>
-                                        {{ $car->engine_volume }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                            @if ($car->transmission)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Коробка</span>
-                                    <x-Text.text>
-                                        {{ ucfirst($car->transmission) }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                            @if ($car->fuel_consumption)
-                                <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                    <span class="text-lg text-skoda-emerald-green font-bold">Витрата</span>
-                                    <x-Text.text>
-                                        {{ $car->fuel_consumption }}
-                                    </x-Text.text>
-                                </div>
-                            @endif
-                        </div>
-                        @if ($car->configuration)
-                            <div class="flex justify-between border-b-2 border-solid border-skoda-emerald-green ">
-                                <span class="text-lg text-skoda-emerald-green font-bold">Комплектація</span>
-                                <x-Text.text>
-                                    {{ $car->configuration }}
-                                </x-Text.text>
-                            </div>
-                        @endif
-                        <x-price :carPrice="$car->price" />
-                        <x-button style="emerald"
-                            click="$dispatch('open-modal', { type: 'consultation', value: 'Склад {{ $car->name }}' })">
-                            Дізнати більше
-                        </x-button>
+                <x-stock-card :car="$car" />
+            @empty
+                <div class="col-span-full text-center text-gray-500 py-12">
+                    <div class="max-w-md mx-auto">
+                        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Немає авто на складі</h3>
+                        <p class="text-gray-500">Наразі немає доступних автомобілів за обраними параметрами.</p>
                     </div>
                 </div>
-            @empty
-                <div class="col-span-full text-center text-gray-500 py-12">Немає авто за обраними параметрами.</div>
             @endforelse
         </div>
+
     </x-section>
 </x-layout>

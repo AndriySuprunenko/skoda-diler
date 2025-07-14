@@ -1,12 +1,12 @@
 @props(['carPrice'])
 
-<div class="relative mt-6">
+<div class="relative mt-6 flex">
     <div class="mb-6 bg-skoda-emerald-green w-fit p-4 flex items-center justify-between z-10">
         <x-Text.title color="electric-green">
             {{ number_format($carPrice, 0, ',', ' ') }} ₴
         </x-Text.title>
     </div>
-    <div class="triangle-up absolute top-0 left-[209px] w-0 h-0 z-0" />
+    <div class="triangle-up  w-0 h-0 z-0" />
 </div>
 
 <style>
