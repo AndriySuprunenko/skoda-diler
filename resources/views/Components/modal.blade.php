@@ -1,4 +1,5 @@
-<div x-data="{ open: false }" @open-modal.window="if ($event.detail?.type === '{{ $type }}') open = true"
+<div x-data="{ open: false, value: '', phone: '', phoneStarted: false, isSubmitting: false, errors: {}, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }"
+    @open-modal.window="if ($event.detail?.type === '{{ $type }}') { open = true; value = $event.detail?.value || ''; }"
     @close-modal.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
@@ -39,14 +40,15 @@
             ],
         ];
         $config = $configs[$type] ?? $configs['consultation'];
-    @endphp <div
-        class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    @endphp
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-center md:items-end justify-center p-1 md:p-4 text-center sm:items-center">
             <div class="relative transform overflow-hidden rounded-lg {{ $config['bgColor'] }} text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
                 @click.away="open = false">
                 <button @click="open = false" @keydown.enter="open = false" aria-label="Закрити модальне вікно"
                     class="absolute top-4 right-4 {{ $config['textColor'] }} p-2 cursor-pointer text-2xl font-bold z-50 hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2">
-                    × </button>
+                    ×
+                </button>
                 <div class="flex min-h-full flex-col justify-center px-6 py-8 md:py-12 lg:px-8">
                     <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20"> <img class="mx-auto h-7 md:h-10 w-auto"
                             src="{{ $config['logo'] }}" alt="Skoda Logo" onerror="this.style.display='none'">
@@ -55,13 +57,14 @@
                             {{ $config['title'] }} </h2>
                     </div>
                     <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneStarted: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })"
-                            @keydown.escape.window="open = false"
-                            @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
+                        <form x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
+                            @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name?.trim()) errors.name = true; if (!phone?.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
-                            @csrf <input type="hidden" name="type" value="{{ $type }}">
-                            <div> <label for="name" class="block text-base font-medium"
-                                    :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
+                            @csrf
+                            <input type="hidden" name="type" :value="value">
+                            <div>
+                                <label for="name" class="block text-base font-medium"
+                                    :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'"><span
                                         x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span> </label>
                                 <div class="mt-2"> <input type="text" name="name" id="name" x-ref="name"
                                         x-model="name" autocomplete="name" :disabled="isSubmitting"

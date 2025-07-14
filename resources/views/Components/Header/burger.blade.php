@@ -96,7 +96,7 @@
                                 <x-Header.nav-link href="/trade-in">Trade in</x-Header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/kredit">Кредит/Лізинг</x-Header.nav-link>
+                                <x-Header.nav-link href="/credit">Кредит/Лізинг</x-Header.nav-link>
                             </li>
                         </ul>
                     </li>

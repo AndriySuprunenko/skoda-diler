@@ -46,9 +46,9 @@ class PageController extends Controller
     {
         return view('ModelsPages.karoq');
     }
-    public function kredit()
+    public function credit()
     {
-        return view('kredit');
+        return view('credit');
     }
     public function tradeIn()
     {

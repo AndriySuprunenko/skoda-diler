@@ -20,7 +20,7 @@
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Trade in</x-Header.nav-link>
                 </li>
                 <li class="group">
-                    <x-Header.nav-link href="/kredit"
+                    <x-Header.nav-link href="/credit"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Кредит/Лізинг</x-Header.nav-link>
                 </li>
             </ul>
