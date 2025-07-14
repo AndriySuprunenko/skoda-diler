@@ -29,12 +29,13 @@
 @endphp
 
 <x-layout>
+    {{-- <x-Text.main-title>Авто на складі</x-Text.main-title> --}}
     <x-section>
-        <x-Text.main-title>Авто на складі</x-Text.main-title>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <ul class="flex flex-wrap w-full justify-center gap-6">
             @forelse($cars as $car)
-                <x-stock-card :car="$car" />
+                <li class="w-full max-w-[600px]">
+                    <x-stock-card :car="$car" />
+                </li>
             @empty
                 <div class="col-span-full text-center text-gray-500 py-12">
                     <div class="max-w-md mx-auto">
@@ -48,7 +49,6 @@
                     </div>
                 </div>
             @endforelse
-        </div>
-
+        </ul>
     </x-section>
 </x-layout>
