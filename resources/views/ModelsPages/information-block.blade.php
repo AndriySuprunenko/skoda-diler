@@ -64,10 +64,11 @@
             </div>
             <div
                 class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
-                <x-button click="$dispatch('open-modal', { type: 'price' })">
+                <x-button click="$dispatch('open-modal', { type: 'price', value: '{{ $model->name }}' })">
                     Завантажити прайс
                 </x-button>
-                <x-button style="emerald" click="$dispatch('open-modal', { type: 'test-drive' })">
+                <x-button style="emerald"
+                    click="$dispatch('open-modal', { type: 'test-drive' , value: '{{ $model->name }}' })">
                     Залишити заявку на тест-драйв
                 </x-button>
             </div>
