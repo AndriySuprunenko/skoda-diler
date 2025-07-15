@@ -24,22 +24,28 @@ class ModelsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Назва моделі')
                     ->required()
                     ->unique(Models::class, 'name', ignoreRecord: true)
                     ->maxLength(255),
                 Forms\Components\TextInput::make('power')
+                    ->label('Потужність двигуна')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('gear_box')
+                    ->label('Коробка передач')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('engine_capacity')
+                    ->label('Обʼєм двигуна')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('fuel_consumtion')
+                    ->label('Витрати палива')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('complectation')
+                    ->label('Комплектація')
                     ->nullable(),
                 Repeater::make('images')
                     ->relationship()

@@ -30,7 +30,7 @@ class BannerResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')->required()->maxLength(255),
+                TextInput::make('title')->label('Заголовок')->required()->maxLength(255),
                 Select::make('button_type')
                     ->label('Оберіть тип форми')
                     ->options([
@@ -38,42 +38,42 @@ class BannerResource extends Resource
                         'test-drive' => 'Записатися на тест-драйв',
                         'consultation' => 'Консультація',
                     ]),
-                Textarea::make('description')->rows(3),
+                Textarea::make('description')->label('Текст')->rows(3),
                 TextInput::make('item_one')
-                    ->label('Item One')
+                    ->label('Пункт Один')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('item_two')
-                    ->label('Item Two')
+                    ->label('Пункт Два')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('item_three')
-                    ->label('Item Three')
+                    ->label('Пункт Три')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('item_four')
-                    ->label('Item Four')
+                    ->label('Пункт чотири')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('item_five')
-                    ->label('Item Five')
+                    ->label('Пункт Пʼять')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('item_six')
-                    ->label('Item Six')
+                    ->label('Пункт Шість')
                     ->maxLength(50)
                     ->nullable(),
                 TextInput::make('button_text')
-                    ->label('Button Text')
+                    ->label('Текст кнопки')
                     ->maxLength(50)
                     ->nullable(),
                 FileUpload::make('image')
+                    ->label('Зображення(Рекомендовано 1920х1080)')
                     ->directory('banners')
-                    ->image()
-                    ->imagePreviewHeight('250')
-                    ->nullable(),
-                Toggle::make('is_active')->default(true)->label('Active'),
+                    ->image(),
+                Toggle::make('is_active')->default(true)->label('Чи активний?'),
                 TextInput::make('order')
+                    ->label('Порядок відображення')
                     ->numeric()
                     ->default(1)
                     ->required()

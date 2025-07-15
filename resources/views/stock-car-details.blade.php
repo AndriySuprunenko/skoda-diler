@@ -4,9 +4,10 @@
         abort(404, 'Stock car not found');
     }
     $otherCars = \App\Models\StockCars::where('id', '!=', $carId)->where('status', '!=', 'sold')->get();
+    $name = $car->name ?? 'Автомобіль на складі';
 @endphp
 
-@section('title', '{{ $car->name }}')
+@section('title', $name)
 @section('meta')
     <meta name="description"
         content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
@@ -38,7 +39,7 @@
 
 <x-layout>
     <x-section>
-        <div class="bg-white shadow hover:shadow-xl transition-shadow duration-200 flex flex-col xl:flex-row">
+        <div class="bg-white shadow flex flex-col xl:flex-row">
             @php
                 // Безпечне декодування галереї
                 $gallery = [];
@@ -96,7 +97,7 @@
                         <span class="px-2 py-1 text-md rounded bg-gray-100 text-gray-700">Вживаний</span>
                     @endif
                 </div>
-                <div class="flex items-center gap-2 mb-3 flex-wrap absolute top-2 right-2 z-10">
+                <div class="flex items-center gap-2 mb-3 flex-wrap absolute top-12 left-2 z-10">
                     <span class="px-2 py-1 text-md rounded bg-gray-100 text-gray-500">Зараз цю модель переглядають:
                         {{ random_int(1, 3) }}</span>
                 </div>
@@ -184,7 +185,10 @@
                         </x-button>
                     </div>
                     <div class="max-w-[300px] w-full">
-                        <x-link href="tel:+380676208844">Подзвонити</x-link>
+                        <x-link href="tel:+380676208844" style="emerald-white">Зателефонуйте нам</x-link>
+                    </div>
+                    <div class="max-w-[300px] w-full">
+                        <x-send-message-button>Написати нам</x-send-message-button>
                     </div>
                 </div>
             </div>
@@ -213,7 +217,7 @@
                                 class="w-full h-[250px] object-cover object-center rounded-t-lg">
                         </div>
                         <div class="w-full p-4 bg-skoda-emerald-green">
-                            <x-Text.subtitle color='white'>Škoda {{ $modl->name }}</x-Text.subtitle>
+                            <x-Text.subtitle color='white'>{{ $modl->name }}</x-Text.subtitle>
                         </div>
                     </a>
                 @endforeach

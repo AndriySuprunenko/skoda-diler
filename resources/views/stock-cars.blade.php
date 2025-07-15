@@ -34,7 +34,9 @@
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             @forelse($cars as $car)
                 <li class="w-full max-w-[600px]">
-                    <x-stock-card :car="$car" />
+                    <a href="{{ route('stock.car.details', $car->id) }}">
+                        <x-stock-card :car="$car" />
+                    </a>
                 </li>
             @empty
                 <div class="col-span-full text-center text-gray-500 py-12">
@@ -50,5 +52,11 @@
                 </div>
             @endforelse
         </ul>
+    </x-section>
+    <x-section class="bg-skoda-emerald-green text-center">
+        <x-Text.title color='electric-green'>Не знайшли що шукали?</x-Text.title>
+        <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
+            вас!</x-Text.subtitle>
+        <x-form value='Склад' />
     </x-section>
 </x-layout>

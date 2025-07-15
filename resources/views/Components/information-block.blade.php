@@ -1,7 +1,7 @@
 @props(['model'])
 
 <x-section>
-    <div class="relative z-20 w-full overflow-hidden flex flex-col lg:flex-row">
+    <div class="relative w-full overflow-hidden flex flex-col lg:flex-row">
         <!-- Slider main container -->
         <div class="swiper modelSwiper-{{ $model->id }}">
             <!-- Additional required wrapper -->
@@ -20,7 +20,7 @@
         </div>
 
         {{--  Model details section --}}
-        <div class="flex flex-col gap-4 w-full p-4 md:p-8 bg-skoda-white text-skoda-emerald-green relative z-10">
+        <div class="flex flex-col gap-4 w-full p-4 md:p-8 bg-skoda-white text-skoda-emerald-green relative">
             <x-Text.main-title>Škoda {{ $model->name }}</x-Text.main-title>
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                 <span class="text-lg">Потужність двигуна </span>
@@ -62,15 +62,25 @@
                     <div class="w-5 h-5 rounded-4xl bg-skoda-orange"></div>
                 </div>
             </div>
-            <div
-                class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
-                <x-button click="$dispatch('open-modal', { type: 'price', value: '{{ $model->name }}' })">
-                    Завантажити прайс
-                </x-button>
-                <x-button style="emerald"
-                    click="$dispatch('open-modal', { type: 'test-drive' , value: '{{ $model->name }}' })">
-                    Залишити заявку на тест-драйв
-                </x-button>
+            <div class="flex gap-6 flex-wrap justify-center mt-6">
+                <div class="w-full max-w-[300px]">
+                    <x-send-message-button>Написати нам</x-send-message-button>
+                </div>
+                <div class="w-full max-w-[300px]">
+                    <x-link href="tel:+380676208844" style="emerald-white">Зателефонуйте нам</x-link>
+                </div>
+                <div class="w-full max-w-[300px]">
+                    <x-button style="emerald"
+                        click="$dispatch('open-modal', { type: 'price', value: '{{ $model->name }}' })">
+                        Завантажити прайс
+                    </x-button>
+                </div>
+                <div class="w-full max-w-[300px]">
+                    <x-button style="emerald-white"
+                        click="$dispatch('open-modal', { type: 'test-drive' , value: '{{ $model->name }}' })">
+                        Залишити заявку на тест-драйв
+                    </x-button>
+                </div>
             </div>
             <div
                 class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">

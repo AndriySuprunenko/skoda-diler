@@ -18,3 +18,9 @@
             @endforeach
         </div>
 </x-section>
+<x-section class="bg-skoda-emerald-green text-center">
+    <x-Text.title color='electric-green'>Не знайшли що шукали?</x-Text.title>
+    <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
+        вас!</x-Text.subtitle>
+    <x-form value='Склад' />
+</x-section>

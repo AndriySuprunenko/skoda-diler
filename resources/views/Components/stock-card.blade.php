@@ -97,12 +97,12 @@
         </div>
 
         {{-- Ціна --}}
-        <div class="mb-4">
+        <div>
             <x-price :carPrice="$car->price" />
         </div>
 
         {{-- Кнопка дії --}}
-        <div class="m-auto">
+        {{-- <div class="m-auto">
             <x-button style="emerald"
                 click="$dispatch('open-modal', { type: 'consultation', value: 'Склад {{ $car->name }}' })">
                 Замовити консультацію
@@ -113,7 +113,7 @@
                 href="{{ route('stock.car.details', $car->id) }}">
                 Детальніше про модель
             </x-link>
-        </div>
+        </div> --}}
     </div>
 </div>
 </div>

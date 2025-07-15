@@ -40,7 +40,7 @@
 @endsection
 
 <x-layout>
-    @include('ModelsPages.information-block', ['model' => $model])
+    <x-information-block :model="$model" />
     <x-section>
         <x-Text.title>Опис моделі</x-Text.title>
         <x-Text.text class="py-6">
@@ -59,5 +59,5 @@
         </x-Text.text>
     </x-section>
     {{-- Інші моделі --}}
-    @include('ModelsPages.others-models', ['models' => $models])
+    <x-others-models :models="$models" />
 </x-layout>
