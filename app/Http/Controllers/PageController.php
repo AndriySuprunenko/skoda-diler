@@ -70,4 +70,9 @@ class PageController extends Controller
     {
         return view('stock-cars');
     }
+    public function stockCarDetails($car)
+    {
+        // Logic to retrieve and display details for the specific stock car
+        return view('stock-car-details', ['carId' => $car]);
+    }
 }

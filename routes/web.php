@@ -22,3 +22,7 @@ Route::get('/privacy-policy', [PageController::class, 'privacyPolicy']);
 Route::get('/reviews', [PageController::class, 'reviews']);
 Route::get('/thank-you', [PageController::class, 'thankYou']);
 Route::get('/stock-cars', [PageController::class, 'stockCars']);
+
+Route::get('/stock-cars/{car}', [PageController::class, 'stockCarDetails'])
+  ->name('stock.car.details')
+  ->where('car', '[0-9]+');

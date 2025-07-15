@@ -102,11 +102,18 @@
         </div>
 
         {{-- Кнопка дії --}}
-        <div class="mt-auto">
+        <div class="m-auto">
             <x-button style="emerald"
                 click="$dispatch('open-modal', { type: 'consultation', value: 'Склад {{ $car->name }}' })">
-                Дізнатись більше
+                Замовити консультацію
             </x-button>
         </div>
+        <div class="mt-2">
+            <x-link class="inline-block mt-2 text-sm text-skoda-emerald-green hover:underline"
+                href="{{ route('stock.car.details', $car->id) }}">
+                Детальніше про модель
+            </x-link>
+        </div>
     </div>
+</div>
 </div>

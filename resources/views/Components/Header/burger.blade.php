@@ -1,4 +1,4 @@
-<div x-data="{ isOpen: false }" class="relative z-50 md:hidden">
+<div x-data="{ isOpen: false }" class="relative z-50 lg:hidden">
     <button @click="isOpen = !isOpen" aria-label="Toggle Menu">
         <div class="flex flex-col gap-1.5 p-2">
             <span class="block h-0.5 w-6 bg-skoda-electric-green transition-transform duration-300"
