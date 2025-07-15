@@ -3,9 +3,38 @@
     if (!$car) {
         abort(404, 'Stock car not found');
     }
+    $otherCars = \App\Models\StockCars::where('id', '!=', $carId)->where('status', '!=', 'sold')->get();
 @endphp
 
+@section('title', '{{ $car->name }}')
+@section('meta')
+    <meta name="description"
+        content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
+    <meta name="keywords" content="{{ $car->name }}, автомобіль, стиль, комфорт, технології, Škoda Кременчук">
 
+    <!-- Open Graph мета-теги -->
+    <meta property="og:title" content="{{ $car->name }}">
+    <meta property="og:description"
+        content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="Škoda Кременчук">
+    <meta property="og:image" content="{{ Storage::url($car->gallery[0]) }}">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "{{ $car->name }}",
+        "brand": {
+            "@type": "Brand",
+            "name": "Škoda"
+        },
+        "category": "SUV",
+        "description": "{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.",
+    }
+    </script>
+@endsection
 
 <x-layout>
     <x-section>
@@ -170,6 +199,25 @@
                 <img id="fullscreenImage" src="" alt="Зображення" class="max-w-full max-h-full">
             </div>
         </div>
+    </x-section>
+
+    <x-section class="bg-skoda-electric-green text-center">
+        <x-Text.title>Інші моделі на складі</x-Text.subtitle>
+            <div class="flex flex-wrap gap-8 mt-8 items-center justify-center">
+                {{-- Перебираємо моделі --}}
+                @foreach ($otherCars as $modl)
+                    <a href="{{ route('stock.car.details', $modl->id) }}"
+                        class="block hover:shadow-lg transition rounded-lg overflow-hidden max-w-[350px]">
+                        <div class="w-full">
+                            <img src="{{ Storage::url($modl->gallery[0]) }}" alt="Фото моделі {{ $modl->name }}"
+                                class="w-full h-[250px] object-cover object-center rounded-t-lg">
+                        </div>
+                        <div class="w-full p-4 bg-skoda-emerald-green">
+                            <x-Text.subtitle color='white'>Škoda {{ $modl->name }}</x-Text.subtitle>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
     </x-section>
 </x-layout>
 
