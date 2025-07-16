@@ -78,13 +78,13 @@
             <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/telegram.png') }}" alt="Telegram">
             Telegram
         </a>
-        <a href="viber://chat?number=%2B380000000000"
+        <a href="viber://chat?number=%2B380674000167"
             class="flex items-center gap-2 text-purple-500 hover:text-purple-700">
             <!-- Viber Icon -->
             <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/viber.png') }}" alt="Telegram">
             Viber
         </a>
-        <a href="https://wa.me/380000000000" target="_blank"
+        <a href="https://wa.me/380674000167" target="_blank"
             class="flex items-center gap-2 text-green-500 hover:text-green-700">
             <!-- WhatsApp Icon -->
             <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/whatsapp.png') }}" alt="Telegram">
