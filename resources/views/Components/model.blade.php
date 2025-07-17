@@ -2,7 +2,7 @@
     $models = \App\Models\Models::get();
 @endphp
 
-<div class="flex flex-col justify-around lg:p-8 w-full bg-skoda-emerald-green">
+<div class="flex flex-col justify-around lg:p-8 w-full text-start">
     @foreach ($models as $model)
         @php
             $reverse = $model->id % 2 == 0 ? 'flex-col lg:flex-row-reverse' : '';
@@ -25,7 +25,8 @@
                         @foreach ($model->images as $image)
                             <div class="swiper-slide">
                                 <img src="{{ Storage::url($image->image) }}" alt="Фото моделі {{ $model->name }}"
-                                    loading="lazy" class="w-full h-[530px] object-cover object-center rounded-lg">
+                                    loading="lazy"
+                                    class="w-full h-[250px] md:h-[530px] object-cover object-center rounded-lg">
                             </div>
                         @endforeach
                     </div>
@@ -72,11 +73,11 @@
                 <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                     <span class="text-lg">Кольори</span>
                     <div class="flex gap-2 mb-4">
-                        <div class="w-5 h-5 rounded-4xl bg-skoda-black"></div>
-                        <div class="w-5 h-5 rounded-4xl bg-skoda-white border-2 border-solid border-skoda-black"></div>
-                        <div class="w-5 h-5 rounded-4xl bg-skoda-red"></div>
-                        <div class="w-5 h-5 rounded-4xl bg-skoda-blue"></div>
-                        <div class="w-5 h-5 rounded-4xl bg-skoda-orange"></div>
+                        @foreach ($model->colors ?? [] as $color)
+                            <div
+                                class="w-5 h-5 rounded-4xl bg-skoda-{{ $color }} @if ($color === 'white') border-2 border-solid border-skoda-black @endif @if ($color === 'gray') bg-skoda-gray @endif">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div

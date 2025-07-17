@@ -98,7 +98,7 @@
                     @endif
                 </div>
                 <div class="flex items-center gap-2 mb-3 flex-wrap absolute top-12 left-2 z-10">
-                    <span class="px-2 py-1 text-md rounded bg-gray-100 text-gray-500">Зараз цю модель переглядають:
+                    <span class="px-2 py-1 text-md rounded bg-gray-100 text-gray-500">Зараз переглядають:
                         {{ random_int(1, 3) }}</span>
                 </div>
             </div>
@@ -211,13 +211,16 @@
                 {{-- Перебираємо моделі --}}
                 @foreach ($otherCars as $modl)
                     <a href="{{ route('stock.car.details', $modl->id) }}"
-                        class="block hover:shadow-lg transition rounded-lg overflow-hidden max-w-[350px]">
-                        <div class="w-full">
-                            <img src="{{ Storage::url($modl->gallery[0]) }}" alt="Фото моделі {{ $modl->name }}"
-                                class="w-full h-[250px] object-cover object-center rounded-t-lg">
-                        </div>
-                        <div class="w-full p-4 bg-skoda-emerald-green">
-                            <x-Text.subtitle color='white'>{{ $modl->name }}</x-Text.subtitle>
+                        class="block hover:shadow-lg transition overflow-hidden max-w-[350px]">
+                        <div class="w-full relative">
+                            <div class="w-full">
+                                <img src="{{ Storage::url($modl->gallery[0]) }}" alt="Фото моделі {{ $modl->name }}"
+                                    class="w-full h-[250px] object-cover object-center">
+                            </div>
+                            <div class="w-full bg-black/70 absolute bottom-0">
+                                <x-Text.subtitle class="my-2" color='white'>
+                                    {{ $modl->name }}</x-Text.subtitle>
+                            </div>
                         </div>
                     </a>
                 @endforeach

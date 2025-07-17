@@ -1,5 +1,3 @@
-@props(['model'])
-
 <x-section>
     <div class="relative w-full overflow-hidden flex flex-col lg:flex-row">
         <!-- Slider main container -->
@@ -55,11 +53,11 @@
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
                 <span class="text-lg">Кольори</span>
                 <div class="flex gap-2 mb-4">
-                    <div class="w-5 h-5 rounded-4xl bg-skoda-black"></div>
-                    <div class="w-5 h-5 rounded-4xl bg-skoda-white border-2 border-solid border-skoda-black"></div>
-                    <div class="w-5 h-5 rounded-4xl bg-skoda-red"></div>
-                    <div class="w-5 h-5 rounded-4xl bg-skoda-blue"></div>
-                    <div class="w-5 h-5 rounded-4xl bg-skoda-orange"></div>
+                    @foreach ($model->colors ?? [] as $color)
+                        <div
+                            class="w-5 h-5 rounded-4xl bg-skoda-{{ $color }} @if ($color === 'white') border-2 border-solid border-skoda-black @endif @if ($color === 'gray') bg-skoda-gray @endif">
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="flex gap-6 flex-wrap justify-center mt-6">

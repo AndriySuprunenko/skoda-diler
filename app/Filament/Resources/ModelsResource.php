@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Toggle;
 
 class ModelsResource extends Resource
 {
@@ -47,6 +48,20 @@ class ModelsResource extends Resource
                 Forms\Components\TextInput::make('complectation')
                     ->label('Комплектація')
                     ->nullable(),
+                Forms\Components\CheckboxList::make('colors')
+                    ->label('Кольори')
+                    ->options([
+                        'white' => 'Білий',
+                        'black' => 'Чорний',
+                        'gray' => 'Сірий',
+                        'blue' => 'Синій',
+                        'red' => 'Червоний',
+                        'gold' => 'Золотий',
+                        'bronze' => 'Бронзовий',
+                        'green' => 'Зелений',
+                        'orange' => 'Помаранчевий',
+                    ])
+                    ->columns(2),
                 Repeater::make('images')
                     ->relationship()
                     ->schema([

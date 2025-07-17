@@ -20,11 +20,15 @@ export default {
         'skoda-chrome-50': '#E3E5E6', // Хромований 50
         'skoda-chrome-25': '#F1F2F2', // Хромований 25
         // третинні кольори
-        'skoda-blue': '#0961A1', // Синій
-        'skoda-red': '#F15252', // Червоний
-        'skoda-yellow': '#FAEB67', // Жовтий
-        'skoda-orange': '#F7B046', // Помаранчевий
-        'skoda-teal': '#1ED4DF', // Бірюзовий
+        'skoda-blue': '#0961A1',
+        'skoda-red': '#ED2100',
+        'skoda-gray': '#898989', 
+        'skoda-green': '#0E3A2F',
+        'skoda-gold': '#EFBF04' ,
+        'skoda-bronze': '#CE8946',
+        'skoda-yellow': '#FAEB67',
+        'skoda-orange': '#FF7518',
+        'skoda-teal': '#1ED4DF',
       },
       fontFamily: {
         sans: ['SkodaNext', 'sans-serif'], // Основний шрифт

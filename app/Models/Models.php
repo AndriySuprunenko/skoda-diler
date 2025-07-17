@@ -13,6 +13,11 @@ class Models extends Model
         'engine_capacity',
         'fuel_consumtion',
         'complectation',
+        'colors',
+    ];
+
+    protected $casts = [
+        'colors' => 'array',
     ];
 
     public function images()
