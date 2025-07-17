@@ -1,3 +1,3 @@
-@props(['color' => 'emerald-green'])
+@props(['color' => 'emerald-green', 'class' => ''])
 
-<h3 class="text-3xl mb-4 {{ 'text-skoda-' . $color }}">{{ $slot }}</h3>
+<h3 class="text-3xl {{ 'text-skoda-' . $color }} {{ $class }}">{{ $slot }}</h3>
