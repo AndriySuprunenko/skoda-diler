@@ -237,9 +237,11 @@
 
         const swiper = new Swiper('.modelSwiper-{{ $car->id }}', {
             loop: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
             slideToClickedSlide: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
             watchSlidesProgress: true,
             pagination: {
                 el: '.swiper-pagination',

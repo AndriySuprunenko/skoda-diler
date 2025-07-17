@@ -75,6 +75,6 @@
     <x-section class="bg-skoda-emerald-green text-center">
         <x-Text.title color='electric-green'>Не знайшли що шукали?</x-Text.title>
         <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми допоможемо вам!</x-Text.subtitle>
-        <x-form value='Склад' />
+        <x-form value='Головна сторінка "Потрібна допомога"' />
     </x-section>
 </x-layout>

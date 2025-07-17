@@ -100,9 +100,11 @@
 
         const swiper = new Swiper('.modelSwiper-{{ $model->id }}', {
             loop: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
+            effect: 'fade',
             slideToClickedSlide: true,
+            fadeEffect: {
+                crossFade: true
+            },
             watchSlidesProgress: true,
             pagination: {
                 el: '.swiper-pagination',
