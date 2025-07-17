@@ -23,7 +23,7 @@ export default {
         'skoda-blue': '#0961A1',
         'skoda-red': '#ED2100',
         'skoda-gray': '#898989', 
-        'skoda-green': '#0E3A2F',
+        'skoda-green': '#568203',
         'skoda-gold': '#EFBF04' ,
         'skoda-bronze': '#CE8946',
         'skoda-yellow': '#FAEB67',
