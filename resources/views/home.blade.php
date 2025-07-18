@@ -69,7 +69,7 @@
                 можливості для подальшого зростання і вдосконалення системи контролю якості.</x-Text.text>
         </div>
         <div>
-            <x-image url='about.jpg' ratio='horizontal' size='900' />
+            <x-image url='images/about.jpg' ratio='horizontal' />
         </div>
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">

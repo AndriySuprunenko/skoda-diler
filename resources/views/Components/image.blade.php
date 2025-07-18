@@ -33,8 +33,7 @@
 
 <div
     class="relative border-4 md:border-6 border-solid {{ $borderColor }} overflow-hidden w-full max-w-[{{ $width }}] {{ $ratio === 'vertical' ? 'aspect-[2/3]' : ($ratio === 'horizontal' ? 'aspect-[3/2]' : 'aspect-square') }}">
-    <img src="{{ Storage::url('images/' . $url) }}" alt={{ $alt }}
-        class="w-full h-full object-cover object-center">
+    <img src="{{ Storage::url($url) }}" alt="{{ $alt }}" class="w-full h-full object-cover object-center">
     @if ($logo)
         <img class="absolute top-2 right-2 w-20 md:w-28 z-20" src="{{ Storage::url('images/logos/' . $logo) }}"
             alt="Логотип">
