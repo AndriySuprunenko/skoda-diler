@@ -40,37 +40,43 @@
             <div
                 class="flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-4 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
                 <x-Text.title>Škoda {{ $model->name }}</x-Text.title>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex md:justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row">
                     <span class="text-lg">Потужність двигуна </span>
                     <x-Text.text>
                         {{ $model->power }} кВт
                     </x-Text.text>
                 </div>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex md:justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row">
                     <span class="text-lg">Коробка</span>
                     <x-Text.text>
                         {{ $model->gear_box }}
                     </x-Text.text>
                 </div>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                     <span class="text-lg">Об'єм двигуна</span>
                     <x-Text.text>
                         {{ $model->engine_capacity }}
                     </x-Text.text>
                 </div>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                     <span class="text-lg">Середня витрата палива</span>
                     <x-Text.text>
                         {{ $model->fuel_consumtion }}
                     </x-Text.text>
                 </div>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                     <span class="text-lg">Комплектація</span>
                     <x-Text.text>
                         {{ $model->complectation }}
                     </x-Text.text>
                 </div>
-                <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green ">
+                <div
+                    class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                     <span class="text-lg">Кольори</span>
                     <x-colors :colors='$model->colors' />
                 </div>

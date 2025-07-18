@@ -50,7 +50,7 @@
                             'outline-skoda-electric-green'" />
                 </div>
             </div>
-            <div class="w-fit mt-5">
+            <div class="w-fit mt-5 hidden md:block">
                 <x-button type="submit">
                     <span x-show="!isSubmitting">Відправити</span>
                     <span x-show="isSubmitting">Відправляю...</span>
@@ -68,6 +68,12 @@
                     <x-checkbox name="whatsapp" text="WhatsApp" color="text-skoda-electric-green" />
                 </div>
             </div>
+        </div>
+        <div class="w-fit mt-5 m-auto md:hidden block">
+            <x-button type="submit">
+                <span x-show="!isSubmitting">Відправити</span>
+                <span x-show="isSubmitting">Відправляю...</span>
+            </x-button>
         </div>
     </form>
 </div>

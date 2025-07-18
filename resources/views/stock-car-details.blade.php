@@ -113,14 +113,16 @@
                 <div class="mb-3 flex-grow text-lg">
                     <div class="space-y-2">
                         @if (!empty($car->color))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1  flex-col md:flex-row">
                                 <span class="font-medium text-skoda-emerald-green">Колір</span>
                                 <x-Text.text>{{ $car->color }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->mileage))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Пробіг</span>
                                 <x-Text.text>{{ number_format($car->mileage, 0, ',', ' ') }}
                                     км</x-Text.text>
@@ -128,42 +130,48 @@
                         @endif
 
                         @if (!empty($car->vin))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">VIN-код</span>
                                 <x-Text.text>{{ $car->vin }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->engine_power))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Потужність</span>
                                 <x-Text.text>{{ $car->engine_power }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->engine_volume))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Об'єм</span>
                                 <x-Text.text>{{ $car->engine_volume }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->transmission))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Коробка</span>
                                 <x-Text.text>{{ ucfirst($car->transmission) }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->fuel_consumption))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Витрата палива</span>
                                 <x-Text.text>{{ $car->fuel_consumption }}</x-Text.text>
                             </div>
                         @endif
 
                         @if (!empty($car->configuration))
-                            <div class="flex justify-between items-center border-b-4 border-skoda-emerald-green pb-1">
+                            <div
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class=" text-skoda-emerald-green">Комплектація</span>
                                 <x-Text.text>{{ $car->configuration }}</x-Text.text>
                             </div>
