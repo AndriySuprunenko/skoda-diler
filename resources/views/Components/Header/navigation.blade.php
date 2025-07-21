@@ -1,3 +1,7 @@
+@php
+    $contacts = \App\Models\Contacts::first();
+@endphp
+
 <nav class="flex gap-10 flex-col md:flex-row w-full justify-end items-center">
     <ul class="flex flex-col md:flex-row gap-8 md:gap-4 items-center">
         <!-- Звичайний лінк -->
@@ -78,7 +82,7 @@
         </li>
     </ul>
     <div>
-        <x-link href="tel:+380676208844">+380676208844</x-link>
+        <x-link href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</x-link>
     </div>
 </nav>
 

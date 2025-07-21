@@ -1,3 +1,8 @@
+@php
+    $contacts = \App\Models\Contacts::first();
+@endphp
+
+
 <div x-data="{ isOpen: false }" class="relative z-50 lg:hidden">
     <button @click="isOpen = !isOpen" aria-label="Toggle Menu">
         <div class="flex flex-col gap-1.5 p-2">
@@ -114,7 +119,7 @@
                 </ul>
 
                 <!-- Placeholder for x-Header.phone-number -->
-                <x-link href="tel:+380676208844">+380676208844</x-link>
+                <x-link href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</x-link>
             </nav>
         </div>
     </div>

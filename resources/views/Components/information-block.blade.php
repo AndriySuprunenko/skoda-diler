@@ -1,3 +1,7 @@
+@php
+    $contacts = \App\Models\Contacts::first();
+@endphp
+
 <x-section>
     <div class="relative w-full overflow-hidden flex flex-col lg:flex-row">
         <!-- Slider main container -->
@@ -59,7 +63,7 @@
                     <x-send-message-button>Написати нам</x-send-message-button>
                 </div>
                 <div class="w-full max-w-[300px]">
-                    <x-link href="tel:+380676208844" style="emerald-white">Зателефонуйте нам</x-link>
+                    <x-link href="tel:{{ $contacts->phone }}" style="emerald-white">Зателефонуйте нам</x-link>
                 </div>
                 <div class="w-full max-w-[300px]">
                     <x-button style="emerald"

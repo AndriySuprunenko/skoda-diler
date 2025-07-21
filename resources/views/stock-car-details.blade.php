@@ -1,5 +1,6 @@
 @php
     $car = \App\Models\StockCars::find($carId);
+    $contacts = \App\Models\Contacts::first();
     if (!$car) {
         abort(404, 'Stock car not found');
     }
@@ -193,7 +194,7 @@
                         </x-button>
                     </div>
                     <div class="max-w-[300px] w-full">
-                        <x-link href="tel:+380676208844" style="emerald-white">Зателефонуйте нам</x-link>
+                        <x-link href="tel:{{ $contacts->phone }}" style="emerald-white">Зателефонуйте нам</x-link>
                     </div>
                     <div class="max-w-[300px] w-full">
                         <x-send-message-button>Написати нам</x-send-message-button>
