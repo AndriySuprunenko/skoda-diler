@@ -1,8 +1,8 @@
 @section('title', 'Fabia')
 
 @php
-    $model = \App\Models\Models::where('name', 'Fabia')->with('images')->first();
-    $models = \App\Models\Models::where('name', '!=', 'Fabia')->with('images')->get();
+    $model = \App\Models\Models::where('url', 'fabia')->with('images')->first();
+    $models = \App\Models\Models::where('url', '!=', 'fabia')->with('images')->get();
 
     if (!$model) {
         abort(404, 'Модель не знайдена');

@@ -1,8 +1,8 @@
 @section('title', 'Scala')
 
 @php
-    $model = \App\Models\Models::where('name', 'Scala')->with('images')->first();
-    $models = \App\Models\Models::where('name', '!=', 'Scala')->with('images')->get();
+    $model = \App\Models\Models::where('url', 'scala')->with('images')->first();
+    $models = \App\Models\Models::where('url', '!=', 'scala')->with('images')->get();
 
     if (!$model) {
         abort(404, 'Модель не знайдена');

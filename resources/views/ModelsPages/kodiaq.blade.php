@@ -1,8 +1,8 @@
 @section('title', 'New Kodiaq')
 
 @php
-    $model = \App\Models\Models::where('name', 'Kodiaq')->with('images')->first();
-    $models = \App\Models\Models::where('name', '!=', 'Kodiaq')->with('images')->get();
+    $model = \App\Models\Models::where('url', 'kodiaq')->with('images')->first();
+    $models = \App\Models\Models::where('url', '!=', 'kodiaq')->with('images')->get();
 
     if (!$model) {
         abort(404, 'Модель не знайдена');

@@ -1,8 +1,8 @@
 @section('title', 'Octavia A8')
 
 @php
-    $model = \App\Models\Models::where('name', 'Octavia A8')->with('images')->first();
-    $models = \App\Models\Models::where('name', '!=', 'Octavia A8')->with('images')->get();
+    $model = \App\Models\Models::where('url', 'octavia-a8')->with('images')->first();
+    $models = \App\Models\Models::where('url', '!=', 'octavia-a8')->with('images')->get();
 
     if (!$model) {
         abort(404, 'Модель не знайдена');

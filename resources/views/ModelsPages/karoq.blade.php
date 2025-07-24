@@ -1,8 +1,8 @@
 @section('title', 'Karoq')
 
 @php
-    $model = \App\Models\Models::where('name', 'Karoq')->with('images')->first();
-    $models = \App\Models\Models::where('name', '!=', 'Karoq')->with('images')->get();
+    $model = \App\Models\Models::where('url', 'karoq')->with('images')->first();
+    $models = \App\Models\Models::where('url', '!=', 'karoq')->with('images')->get();
 
     if (!$model) {
         abort(404, 'Модель не знайдена');
