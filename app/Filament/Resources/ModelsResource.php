@@ -29,12 +29,21 @@ class ModelsResource extends Resource
                     ->required()
                     ->unique(Models::class, 'name', ignoreRecord: true)
                     ->maxLength(255),
+                Forms\Components\TextInput::make('url')
+                    ->label('Шлях')
+                    ->required()
+                    ->unique(Models::class, 'url', ignoreRecord: true)
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('power')
                     ->label('Потужність двигуна')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('gear_box')
                     ->label('Коробка передач')
+                    ->nullable()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('price')
+                    ->label('Прайс')
                     ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('engine_capacity')

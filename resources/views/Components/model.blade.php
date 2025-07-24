@@ -80,8 +80,7 @@
                     <span class="text-lg">Кольори</span>
                     <x-colors :colors='$model->colors' />
                 </div>
-                <div
-                    class="flex gap-2 flex-col lg:flex-row text-center lg:text-start max-w-[400px] lg:max-w-[500px] m-auto">
+                <div class="flex gap-6 flex-col lg:flex-row text-center lg:text-start mt-6">
                     <x-button click="$dispatch('open-modal', { type: 'price' , value: '{{ $model->name }}' })">
                         Завантажити прайс
                     </x-button>

@@ -13,7 +13,9 @@ class Models extends Model
         'engine_capacity',
         'fuel_consumtion',
         'complectation',
+        'price',
         'colors',
+        'url',
     ];
 
     protected $casts = [
