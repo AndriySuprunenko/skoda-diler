@@ -23,7 +23,7 @@
 
         {{--  Model details section --}}
         <div class="flex flex-col gap-4 w-full p-4 md:p-8 bg-skoda-white text-skoda-emerald-green relative">
-            <x-Text.main-title>Škoda {{ $model->name }}</x-Text.main-title>
+            <x-Text.main-title>{{ $model->name }}</x-Text.main-title>
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                 <span class="text-lg">Потужність двигуна </span>
                 <x-Text.text>

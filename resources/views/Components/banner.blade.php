@@ -9,10 +9,18 @@
                 <div class="swiper-slide">
                     <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[600px] md:h-[848px] object-cover object-center" />
+                    @php
+                        $color = match ($slider->text_color) {
+                            'white' => 'white',
+                            'black' => 'black',
+                            'green' => 'emerald-green',
+                            default => 'white',
+                        };
+                    @endphp
                     <div
-                        class="absolute top-6 left-1 md:top-12 md:left-12 text-skoda-white flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
-                        <x-Text.title color='white'>{{ $slider->title }}</x-Text.title>
-                        <x-Text.subtitle color='white'>{{ $slider->description }}</x-Text.subtitle>
+                        class="absolute top-6 left-1 md:top-12 md:left-12 flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
+                        <x-Text.title color="{{ $color }}">{{ $slider->title }}</x-Text.title>
+                        <x-Text.subtitle color="{{ $color }}">{{ $slider->description }}</x-Text.subtitle>
                         @php
                             $items = [
                                 $slider->item_one,
@@ -26,7 +34,7 @@
                         <ul>
                             @foreach ($items as $item)
                                 @if (!empty($item))
-                                    <li class="text-base"> - {{ $item }}</li>
+                                    <li class="text-base text-skoda-{{ $color }}"> - {{ $item }}</li>
                                 @endif
                             @endforeach
                         </ul>

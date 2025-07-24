@@ -38,6 +38,13 @@ class BannerResource extends Resource
                         'test-drive' => 'Записатися на тест-драйв',
                         'consultation' => 'Консультація',
                     ]),
+                Select::make('text_color')
+                    ->label('Оберіть колір тексту')
+                    ->options([
+                        'white' => 'Білий',
+                        'black' => 'Чорний',
+                        'green' => 'Зелений',
+                    ]),
                 Textarea::make('description')->label('Текст')->rows(3),
                 TextInput::make('item_one')
                     ->label('Пункт Один')
