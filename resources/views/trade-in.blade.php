@@ -19,16 +19,16 @@
 <x-layout>
     <img src="{{ Storage::url('images/trade-in/trade-in.webp') }}" alt="Trade-in"
         class="w-full h-[300px] md:h-[800px] object-cover object-center" />
-    <div class="flex flex-col justify-center gap-6 max-w-[1200px] text-center mt-10 m-auto">
+    <div class="flex flex-col gap-6 max-w-[1200px] text-center mt-10 m-auto">
         <x-Text.main-title>Обміняйте свій автомобіль на нову Škoda — без зайвих
             турбот</x-Text.main-title>
         <x-Text.subtitle>У вас уже є авто, але хочете нову Škoda?
             Не витрачайте час на самостійну продажу — ми викупимо або приймемо ваш автомобіль на комісію, поки ви вже
             катаєтесь на новенькій Škoda з салону.</x-Text.subtitle>
     </div>
-    <x-section class="flex flex-col justify-center gap-6 max-w-[800px] text-center">
+    <x-section class="flex flex-col justify-center gap-6 max-w-[800px]">
         <x-Text.title>Чому обмін авто зараз — вигідне рішення</x-Text.title>
-        <ul class="w-fit m-auto text-start">
+        <ul class="text-start">
             <li><x-Text.text> - Ринок автомобілів із пробігом перенасичений;</x-Text.text></li>
             <li><x-Text.text> - Продаж займає тижні або навіть місяці;</x-Text.text></li>
             <li><x-Text.text> - Не завжди вдається знайти надійного покупця.</x-Text.text></li>
@@ -37,7 +37,7 @@
             власників обирають <strong>трейд-ін</strong> або <strong>продаж авто через автосалон.</strong></x-Text.text>
 
         <x-Text.title>Як це працює — простими словами</x-Text.title>
-        <ul class="w-fit m-auto text-start">
+        <ul class="text-start">
             <li><x-Text.text> Ми зробили процес максимально простим та зручним: </strong></x-Text.text></li>
             <li><x-Text.text> - <strong>Безкоштовна оцінка вашого авто</strong> — в нашому дилерському
                     центрі; </x-Text.text></li>
@@ -50,7 +50,7 @@
         </ul>
 
         <x-Text.title>Якщо ви вже маєте авто — вам буде швидше, вигідніше, зручніше</x-Text.title>
-        <ul class="w-fit m-auto text-start">
+        <ul class="text-start">
             <li><x-Text.text> Цей формат — ідеальний, якщо: </strong></x-Text.text></li>
             <li><x-Text.text> - Ви хочете <strong>пересісти на нову Škoda без затримок</strong>; </x-Text.text></li>
             <li><x-Text.text> - Вам важливо <strong>не втрачати час на розміщення оголошень</strong>;</x-Text.text></li>
