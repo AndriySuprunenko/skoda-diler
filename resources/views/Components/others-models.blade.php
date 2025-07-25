@@ -10,7 +10,7 @@
                         <img src="{{ Storage::url($modl->images->first()->image) }}" alt="Фото моделі {{ $modl->name }}"
                             class="w-full h-[250px] object-cover object-center">
                         <div class="w-full bg-black/70 absolute bottom-0">
-                            <x-Text.subtitle class="my-2" color='white'>Škoda {{ $modl->name }}</x-Text.subtitle>
+                            <x-Text.subtitle class="my-2" color='white'>{{ $modl->name }}</x-Text.subtitle>
                         </div>
                     </div>
                 </a>

@@ -12,14 +12,16 @@ class ModalFormRequest extends Mailable
 
     public $data;
     public $contactMethods;
+    public $utm;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(array $data, string $contactMethods)
+    public function __construct(array $data, string $contactMethods, array $utm)
     {
         $this->data = $data;
         $this->contactMethods = $contactMethods;
+        $this->utm = $utm;
     }
 
     /**

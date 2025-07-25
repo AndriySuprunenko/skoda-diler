@@ -23,6 +23,20 @@
     <x-modal type='test-drive' />
     <x-modal type='consultation' />
     <x-modal type='price' />
+    <script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+            utms.forEach(key => {
+                const value = params.get(key);
+                if (value) {
+                    document.cookie =
+                    `${key}=${encodeURIComponent(value)}; path=/; max-age=${60 * 60 * 24 * 7}`;
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
