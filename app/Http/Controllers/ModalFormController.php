@@ -26,7 +26,6 @@ class ModalFormController extends Controller
 
         $contactMethods = count($preferences) ? implode(', ', $preferences) : 'Не вказано';
 
-        // Отримання UTM-міток з cookies
         $utm = [
             'utm_source' => $request->cookie('utm_source') ?? '',
             'utm_medium' => $request->cookie('utm_medium') ?? '',
@@ -45,7 +44,6 @@ class ModalFormController extends Controller
         $utm_term = $utm['utm_term'] ?? '';
 
         $full_data = "Source: $utm_source/$utm_medium/$utm_campaign/$utm_content\nKW: $utm_term";
-        \Log::info('UTM з cookies (на бекенді):', $utm);
 
         // Відправка у Bitrix24
         $response = Http::post(env('BITRIX_WEBHOOK') . 'crm.lead.add.json', [
@@ -65,10 +63,6 @@ class ModalFormController extends Controller
                 'REGISTER_SONET_EVENT' => 'Y'
             ]
         ]);
-
-        if (!$response->successful()) {
-            \Log::error('Bitrix24 error: ' . $response->body());
-        }
 
         return back()->with('success', 'Дякуємо! Вашу заявку надіслано.');
     }
