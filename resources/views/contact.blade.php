@@ -51,7 +51,7 @@
                 </div>
                 <div class="flex flex-col pt-4">
                     <span class="font-bold"> Графік роботи компанії: </span>
-                    <div class="w-full max-w-[200px] pt-2 m-auto">
+                    <div class="w-full max-w-[200px] pt-2 m-auto md:m-0">
                         {{-- Перебираємо робочі години --}}
                         @foreach (array_reverse($contacts->working_hours) as $day => $hours)
                             <div class="flex justify-between">
