@@ -4,12 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     @yield('meta')
+
     <title>@yield('title', 'Головна')</title>
+
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     @vite('resources/css/app.css')
 </head>
@@ -24,6 +28,8 @@
     <x-modal type='test-drive' />
     <x-modal type='consultation' />
     <x-modal type='price' />
+
+    {{-- UTM мітки --}}
     <script>
         (function() {
             const UTMManager = {
@@ -106,9 +112,32 @@
 
             // Запуск
             UTMManager.saveUtmParams();
+        })();
+    </script>
 
-            // Для тестування (можна видалити в продакшні)
-            // UTMManager.debug();
+    {{-- Повідомлення про збирання cookies --}}
+    <div id="cookie-banner"
+        class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-skoda-emerald-green text-white text-sm md:text-base px-6 py-4 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 z-50 w-full md:w-auto max-w-7xl rounded-xl border-2 border-skoda-electric-green">
+        <span>Ми використовуємо cookie для покращення роботи сайту. Продовжуючи, ви погоджуєтесь.</span>
+        <button id="accept-cookies"
+            class="bg-skoda-electric-green border-2 border-skoda-emerald-green hover:border-skoda-white text-skoda-emerald-green px-4 py-2 rounded-2xl cursor-pointer">
+            Зрозуміло
+        </button>
+    </div>
+
+    <script>
+        (function() {
+            const banner = document.getElementById('cookie-banner');
+            const button = document.getElementById('accept-cookies');
+
+            if (localStorage.getItem('cookiesAccepted')) {
+                banner.style.display = 'none';
+            }
+
+            button.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                banner.style.display = 'none';
+            });
         })();
     </script>
 </body>
