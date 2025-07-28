@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     @vite('resources/css/app.css')
 </head>
@@ -28,7 +29,7 @@
             const UTMManager = {
                 // Конфігурація
                 config: {
-                    maxAge: 60 * 60 * 24 * 30, // 30 днів
+                    maxAge: 60 * 60 * 24 * 7, // 30 днів
                     domain: window.location.hostname,
                     sameSite: 'Lax',
                     secure: window.location.protocol === 'https:'
