@@ -120,7 +120,7 @@
         class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-skoda-emerald-green text-white text-sm md:text-base px-6 py-4 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 z-50 w-full md:w-auto max-w-7xl rounded-xl border-2 border-skoda-electric-green">
         <span>Ми використовуємо cookie для покращення роботи сайту. Продовжуючи, ви погоджуєтесь.</span>
         <button id="accept-cookies"
-            class="bg-skoda-electric-green border-2 border-skoda-emerald-green hover:border-skoda-white text-skoda-emerald-green px-4 py-2 rounded-2xl cursor-pointer">
+            class="bg-skoda-electric-green border-2 border-skoda-emerald-green hover:border-skoda-white text-skoda-emerald-green px-4 py-2 rounded-3xl cursor-pointer">
             Зрозуміло
         </button>
     </div>

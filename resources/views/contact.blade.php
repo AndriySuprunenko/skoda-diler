@@ -35,7 +35,7 @@
         <x-Text.title>Контакти</x-Text.title>
         <div class="flex gap-6 mt-5 flex-col md:flex-row justify-center w-full items-center">
             <x-map />
-            <div class="w-full max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">
+            <div class="w-full max-w-[300px] md:max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">
                 <div class="flex flex-col">
                     <span class="font-bold">Адреса: </span>
                     <a href="https://maps.app.goo.gl/VBhCJBRkU8pzisDLA?g_st=ipc" target="_blank">вулиця
@@ -49,9 +49,10 @@
                     <span class="font-bold"> Електронна пошта: </span>
                     <a href="mailto:{{ $contacts->email }}">{{ $contacts->email }}</a>
                 </div>
-                <div class="flex flex-col mt-4">
+                <div class="flex flex-col pt-4">
                     <span class="font-bold"> Графік роботи компанії: </span>
-                    <div class="w-full max-w-[200px] mt-2">
+                    <div class="w-full max-w-[200px] pt-2 m-auto">
+                        {{-- Перебираємо робочі години --}}
                         @foreach (array_reverse($contacts->working_hours) as $day => $hours)
                             <div class="flex justify-between">
                                 <span>{{ $day }}</span>
@@ -60,16 +61,14 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="flex flex-col mt-4 max-w-[200px]">
+                <div class="flex flex-col gap-6 max-w-[200px] m-auto md:m-0 pt-4">
                     <x-send-message-button>Написати нам</x-send-message-button>
-                </div>
-                <div class="flex flex-col mt-4 max-w-[200px]">
                     <x-button style="emerald-white"
                         click="$dispatch('open-modal', { type: 'consultation' , value: 'Контакти' })">
                         Залишити заявку
                     </x-button>
                 </div>
-                <div class="flex flex-col mt-8">
+                <div class="flex flex-col mt-8 w-fit m-auto md:w-full">
                     <span class="font-bold"> Наші соціальні мережі: </span>
                     <div class="flex gap-6 mt-2">
                         <a href="{{ $contacts->social_medias['instagram'] }}" target="_blank">

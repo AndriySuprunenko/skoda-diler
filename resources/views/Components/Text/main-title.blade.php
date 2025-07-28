@@ -1,3 +1,3 @@
 @props(['color' => 'emerald-green'])
 
-<h1 class="text-5xl font-bold mb-4 {{ 'text-skoda-' . $color }}">{{ $slot }}</h1>
+<h1 class="text-4xl md:text-5xl font-bold mb-4 {{ 'text-skoda-' . $color }}">{{ $slot }}</h1>
