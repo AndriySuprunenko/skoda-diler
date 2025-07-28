@@ -58,10 +58,6 @@ class PageController extends Controller
     {
         return view('reviews');
     }
-    public function privacyPolicy()
-    {
-        return view('privacy-policy');
-    }
     public function thankYou()
     {
         return view('thank-you');
