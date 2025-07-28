@@ -64,6 +64,9 @@ class ModalFormController extends Controller
             ]
         ]);
 
-        return back()->with('success', 'Дякуємо! Вашу заявку надіслано.');
+        return response()->json([
+            'redirect' => '/thank-you',
+            'price_url' => $request->input('price_url'),
+        ]);
     }
 }

@@ -1,5 +1,5 @@
-<div x-data="{ open: false, value: '', phone: '', phoneStarted: false, isSubmitting: false, errors: {}, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }"
-    @open-modal.window="if ($event.detail?.type === '{{ $type }}') { open = true; value = $event.detail?.value || ''; }"
+<div x-data="{ open: false, value: '', phone: '', phoneStarted: false, isSubmitting: false, errors: {}, priceUrl: '', phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }"
+    @open-modal.window="if ($event.detail?.type === '{{ $type }}') { open = true; value = $event.detail?.value || ''; priceUrl = $event.detail?.price || ''; }"
     @close-modal.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
@@ -58,7 +58,31 @@
                     </div>
                     <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                         <form x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
-                            @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name?.trim()) errors.name = true; if (!phone?.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
+                            @submit.prevent="
+                                if (isSubmitting) return;
+                                errors = {};
+                                if (!name?.trim()) errors.name = true;
+                                if (!phone?.trim()) errors.phone = true;
+                                else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера';
+                                if (Object.keys(errors).length === 0) {
+                                    isSubmitting = true;
+
+                                    const formData = new FormData($refs.form);
+                                    fetch($refs.form.action, {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: {
+                                            'X-CSRF-TOKEN': formData.get('_token')
+                                        }
+                                    })
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        if (data.price_url) window.open(data.price_url, '_blank');
+                                        if (data.redirect) window.location.href = data.redirect;
+                                    })
+                                    .catch(() => isSubmitting = false);
+                                }
+                            "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                             @csrf
                             <input type="hidden" name="type" :value="value">
@@ -115,6 +139,7 @@
                                     <x-checkbox name="whatsapp" text="WhatsApp" color="{{ $config['textColor'] }}" />
                                 </div>
                             </div>
+                            <input type="hidden" name="price_url" :value="priceUrl">
                             <div class="w-fit mx-auto mb-6 md:mb-0">
                                 <x-button type="submit">
                                     <span x-show="!isSubmitting">Відправити</span>

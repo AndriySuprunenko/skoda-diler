@@ -81,7 +81,8 @@
                     <x-colors :colors='$model->colors' />
                 </div>
                 <div class="flex gap-6 flex-col lg:flex-row text-center lg:text-start mt-6">
-                    <x-button click="$dispatch('open-modal', { type: 'price' , value: '{{ $model->name }}' })">
+                    <x-button
+                        click="$dispatch('open-modal', { type: 'price' , value: '{{ $model->name }}', price: '{{ $model->price }}' })">
                         Завантажити прайс
                     </x-button>
                     <x-link style='emerald' href="/{{ $model->url }}">Детальніше про модель</x-link>

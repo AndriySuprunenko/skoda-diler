@@ -2,7 +2,29 @@
 
 <div class="mt-5 md:mt-10 bg-skoda-emerald-green p-6 text-start max-w-[900px] mx-auto">
     <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneStarted: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
-        @submit.prevent=" if (isSubmitting) return; errors = {}; if (!name.trim()) errors.name = true; if (!phone.trim()) errors.phone = true; else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера'; if (Object.keys(errors).length === 0) { isSubmitting = true; $refs.form.submit(); } "
+        @submit.prevent="
+                                if (isSubmitting) return;
+                                errors = {};
+                                if (!name?.trim()) errors.name = true;
+                                if (!phone?.trim()) errors.phone = true;
+                                else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера';
+                                if (Object.keys(errors).length === 0) {
+                                    isSubmitting = true;
+
+                                    const formData = new FormData($refs.form);
+                                    fetch($refs.form.action, {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: {
+                                            'X-CSRF-TOKEN': formData.get('_token')
+                                        }
+                                    })
+                                    .then(() => {
+                                        window.location.href = '/thank-you';
+                                    })
+                                    .catch(() => isSubmitting = false);
+                                }
+                            "
         class="space-y-3 md:space-y-6 flex flex-col" action="{{ route('send.modal.form') }}" method="POST">
         @csrf <input type="hidden" name="type" value="{{ $value }}">
 
