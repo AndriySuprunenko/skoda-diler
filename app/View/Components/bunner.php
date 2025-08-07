@@ -21,6 +21,6 @@ class bunner extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.bunner');
+        return view('components.banner');
     }
 }
