@@ -1,0 +1,57 @@
+{
+  "resources/assets/fonts/SKODANext-Black.ttf": {
+    "file": "assets/SKODANext-Black-CPO8rWDg.ttf",
+    "src": "resources/assets/fonts/SKODANext-Black.ttf"
+  },
+  "resources/assets/fonts/SKODANext-BlackItalic.ttf": {
+    "file": "assets/SKODANext-BlackItalic-_S4vL_NI.ttf",
+    "src": "resources/assets/fonts/SKODANext-BlackItalic.ttf"
+  },
+  "resources/assets/fonts/SKODANext-Bold.ttf": {
+    "file": "assets/SKODANext-Bold-DPr-UnVI.ttf",
+    "src": "resources/assets/fonts/SKODANext-Bold.ttf"
+  },
+  "resources/assets/fonts/SKODANext-BoldItalic.ttf": {
+    "file": "assets/SKODANext-BoldItalic-C_a492Oy.ttf",
+    "src": "resources/assets/fonts/SKODANext-BoldItalic.ttf"
+  },
+  "resources/assets/fonts/SKODANext-Italic.ttf": {
+    "file": "assets/SKODANext-Italic-RFYvlEn-.ttf",
+    "src": "resources/assets/fonts/SKODANext-Italic.ttf"
+  },
+  "resources/assets/fonts/SKODANext-Light.ttf": {
+    "file": "assets/SKODANext-Light-Bdpr4CM3.ttf",
+    "src": "resources/assets/fonts/SKODANext-Light.ttf"
+  },
+  "resources/assets/fonts/SKODANext-LightItalic.ttf": {
+    "file": "assets/SKODANext-LightItalic-CcAkTOMd.ttf",
+    "src": "resources/assets/fonts/SKODANext-LightItalic.ttf"
+  },
+  "resources/assets/fonts/SKODANext-Regular.ttf": {
+    "file": "assets/SKODANext-Regular-DSSptZsL.ttf",
+    "src": "resources/assets/fonts/SKODANext-Regular.ttf"
+  },
+  "resources/assets/fonts/SKODANextArabic-Black.ttf": {
+    "file": "assets/SKODANextArabic-Black-CMEQeDD7.ttf",
+    "src": "resources/assets/fonts/SKODANextArabic-Black.ttf"
+  },
+  "resources/assets/fonts/SKODANextArabic-Light.ttf": {
+    "file": "assets/SKODANextArabic-Light-q_Nqs6jl.ttf",
+    "src": "resources/assets/fonts/SKODANextArabic-Light.ttf"
+  },
+  "resources/assets/fonts/SKODANextArabic-Regular.ttf": {
+    "file": "assets/SKODANextArabic-Regular-4lBHrGNN.ttf",
+    "src": "resources/assets/fonts/SKODANextArabic-Regular.ttf"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DMVa0ZJ5.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-T1DpEqax.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
