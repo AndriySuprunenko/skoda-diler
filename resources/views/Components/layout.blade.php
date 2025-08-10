@@ -19,7 +19,7 @@
 </head>
 
 <body class="font-sans w-full min-h-screen flex flex-col bg-skoda-white" x-data="{ open: false }">
-    <x-Header.header />
+    <x-header.header />
     <main class="flex-1">
         {{ $slot }}
     </main>

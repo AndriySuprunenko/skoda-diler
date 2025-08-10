@@ -25,7 +25,7 @@
                 <ul class="flex flex-col gap-8 w-fit">
                     <!-- Звичайний лінк: Головна (Home) -->
                     <li class="w-full">
-                        <x-Header.nav-link href="/">Головна</x-Header.nav-link>
+                        <x-header.nav-link href="/">Головна</x-header.nav-link>
                     </li>
 
                     <!-- Лінк з підменю/акордеоном: Моделі (Models) -->
@@ -53,25 +53,25 @@
                             x-transition:leave-end="opacity-0 transform -translate-y-2"
                             class="flex flex-col gap-8 items-end w-full py-8 text-base">
                             <li>
-                                <x-Header.nav-link href="/octavia-a8">Octavia</x-Header.nav-link>
+                                <x-header.nav-link href="/octavia-a8">Octavia</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/kodiaq">Kodiaq</x-Header.nav-link>
+                                <x-header.nav-link href="/kodiaq">Kodiaq</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/karoq">Karoq</x-Header.nav-link>
+                                <x-header.nav-link href="/karoq">Karoq</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/fabia">Fabia</x-Header.nav-link>
+                                <x-header.nav-link href="/fabia">Fabia</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/superb">Superb</x-Header.nav-link>
+                                <x-header.nav-link href="/superb">Superb</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/scala">Scala</x-Header.nav-link>
+                                <x-header.nav-link href="/scala">Scala</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/kamiq-fl">Kamiq FL</x-Header.nav-link>
+                                <x-header.nav-link href="/kamiq-fl">Kamiq FL</x-header.nav-link>
                             </li>
                         </ul>
                     </li>
@@ -98,27 +98,27 @@
                             x-transition:leave-end="opacity-0 transform -translate-y-2"
                             class="flex flex-col gap-8 items-end w-full py-8 text-base">
                             <li>
-                                <x-Header.nav-link href="/trade-in">Trade in</x-Header.nav-link>
+                                <x-header.nav-link href="/trade-in">Trade in</x-header.nav-link>
                             </li>
                             <li>
-                                <x-Header.nav-link href="/credit">Кредит/Лізинг</x-Header.nav-link>
+                                <x-header.nav-link href="/credit">Кредит/Лізинг</x-header.nav-link>
                             </li>
                         </ul>
                     </li>
 
                     <!-- Звичайний лінк: Контакти (Contact) -->
                     <li class="w-full">
-                        <x-Header.nav-link href="/stock-cars">Авто на складі</x-Header.nav-link>
+                        <x-header.nav-link href="/stock-cars">Авто на складі</x-header.nav-link>
                     </li>
                     <li class="w-full">
-                        <x-Header.nav-link href="/reviews">Клієнти</x-Header.nav-link>
+                        <x-header.nav-link href="/reviews">Клієнти</x-header.nav-link>
                     </li>
                     <li class="w-full">
-                        <x-Header.nav-link href="/contact">Контакти</x-Header.nav-link>
+                        <x-header.nav-link href="/contact">Контакти</x-header.nav-link>
                     </li>
                 </ul>
 
-                <!-- Placeholder for x-Header.phone-number -->
+                <!-- Placeholder for x-header.phone-number -->
                 <x-link href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</x-link>
             </nav>
         </div>
