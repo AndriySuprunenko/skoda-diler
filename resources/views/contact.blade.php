@@ -32,7 +32,7 @@
 
 <x-layout>
     <x-section class="flex flex-col items-center">
-        <x-Text.title>Контакти</x-Text.title>
+        <x-text.title>Контакти</x-Text.title>
         <div class="flex gap-6 mt-5 flex-col md:flex-row justify-center w-full items-center">
             <x-map />
             <div class="w-full max-w-[300px] md:max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">

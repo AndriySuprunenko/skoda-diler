@@ -3,15 +3,15 @@
     {{-- Перевіряємо, чи є інші моделі на складі --}}
     @if ($otherCars->isEmpty())
         <x-section class="bg-skoda-electric-green text-center">
-            <x-Text.title>Інші моделі на складі</x-Text.subtitle>
-                <x-Text.subtitle>
+            <x-text.title>Інші моделі на складі</x-text.subtitle>
+                <x-text.subtitle>
                     Наразі немає інших моделей на складі.
-                </x-Text.subtitle>
+                </x-text.subtitle>
         </x-section>
     @endif
 
     <x-section class="bg-skoda-electric-green text-center">
-        <x-Text.title>Інші моделі на складі</x-Text.subtitle>
+        <x-text.title>Інші моделі на складі</x-text.subtitle>
             <div class="flex flex-wrap gap-8 mt-8 items-center justify-center">
                 {{-- Перебираємо моделі --}}
                 @foreach ($otherCars as $modl)
@@ -23,8 +23,8 @@
                                     class="w-full h-[250px] object-cover object-center">
                             </div>
                             <div class="w-full bg-black/70 absolute bottom-0">
-                                <x-Text.subtitle class="my-2" color='white'>
-                                    {{ $modl->name }}</x-Text.subtitle>
+                                <x-text.subtitle class="my-2" color='white'>
+                                    {{ $modl->name }}</x-text.subtitle>
                             </div>
                         </div>
                     </a>

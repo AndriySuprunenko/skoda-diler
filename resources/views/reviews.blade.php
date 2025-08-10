@@ -33,7 +33,7 @@
 
 <x-layout>
     <x-section class="text-center">
-        <x-Text.main-title>Наші клієнти</x-Text.main-title>
+        <x-text.main-title>Наші клієнти</x-text.main-title>
         <ul class="flex flex-wrap items-center justify-center gap-8 mt-10">
             @foreach ($clients as $client)
                 <li>

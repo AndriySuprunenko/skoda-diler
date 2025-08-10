@@ -35,63 +35,63 @@
             class="w-full h-auto" />
     </div>
     <div class="text-center my-4 md:my-8">
-        <x-Text.title>Основні переваги кредитної програми Škoda</x-Text.title>
+        <x-text.title>Основні переваги кредитної програми Škoda</x-text.title>
     </div>
     <div class="max-w-3xl mx-auto">
         <x-section>
-            <x-Text.subtitle>Для фізичних осіб: </x-Text.subtitle>
-            <x-Text.text class="mb-4">Економія на щомісячних платежах - програма «Акція Škoda»:</x-Text.text>
-            <x-Text.text class="mb-2"> - Мінімальна відсоткова ставка: </x-Text.text>
-            <x-Text.text>
+            <x-text.subtitle>Для фізичних осіб: </x-text.subtitle>
+            <x-text.text class="mb-4">Економія на щомісячних платежах - програма «Акція Škoda»:</x-text.text>
+            <x-text.text class="mb-2"> - Мінімальна відсоткова ставка: </x-text.text>
+            <x-text.text>
                 по кредиту на один рік з авансом від 20%,
-            </x-Text.text>
-            <x-Text.text> по кредиту на два роки з авансом від 50%,</x-Text.text>
-            <x-Text.text> по кредиту на три роки з авансом від 60%,</x-Text.text>
-            <x-Text.text class="mb-4"> по кредиту на сім років з авансом від 70%</x-Text.text>
-            <x-Text.text class="mb-4"> - Строк кредитування від 1 до 7 років</x-Text.text>
-            <x-Text.text class="mb-4"> Можливість вигідно придбати автомобіль у кредит – програма «З пільговим
-                періодом»</x-Text.text>
-            <x-Text.text> - Пільговий період з мінімальною відсотковою ставкою у перші два або три роки</x-Text.text>
-            <x-Text.text class="mb-4"> - Загальний строк кредитування – 5 років</x-Text.text>
-            <x-Text.text> Для обох програм також вірно: </x-Text.text>
-            <x-Text.text> - Мінімальний авансовий платіж 20% </x-Text.text>
-            <x-Text.text> - Можливість включити в тіло кредиту разову комісію або платіж КАСКО на перший рік
-            </x-Text.text>
-            <x-Text.text> - Відсутня щомісячна комісія</x-Text.text>
-            <x-Text.text> - Відсутнє страхування життя</x-Text.text>
-            <x-Text.text> - Відсутні штрафні санкції за дострокове погашення кредиту</x-Text.text>
+            </x-text.text>
+            <x-text.text> по кредиту на два роки з авансом від 50%,</x-text.text>
+            <x-text.text> по кредиту на три роки з авансом від 60%,</x-text.text>
+            <x-text.text class="mb-4"> по кредиту на сім років з авансом від 70%</x-text.text>
+            <x-text.text class="mb-4"> - Строк кредитування від 1 до 7 років</x-text.text>
+            <x-text.text class="mb-4"> Можливість вигідно придбати автомобіль у кредит – програма «З пільговим
+                періодом»</x-text.text>
+            <x-text.text> - Пільговий період з мінімальною відсотковою ставкою у перші два або три роки</x-text.text>
+            <x-text.text class="mb-4"> - Загальний строк кредитування – 5 років</x-text.text>
+            <x-text.text> Для обох програм також вірно: </x-text.text>
+            <x-text.text> - Мінімальний авансовий платіж 20% </x-text.text>
+            <x-text.text> - Можливість включити в тіло кредиту разову комісію або платіж КАСКО на перший рік
+            </x-text.text>
+            <x-text.text> - Відсутня щомісячна комісія</x-text.text>
+            <x-text.text> - Відсутнє страхування життя</x-text.text>
+            <x-text.text> - Відсутні штрафні санкції за дострокове погашення кредиту</x-text.text>
         </x-section>
         <x-section>
-            <x-Text.subtitle>Для юридичних осіб: </x-Text.subtitle>
-            <x-Text.text class="mb-4">Економія на щомісячних платежах - програма «Акція Škoda»:</x-Text.text>
-            <x-Text.text class="mb-2"> - Мінімальна відсоткова ставка: </x-Text.text>
-            <x-Text.text>
+            <x-text.subtitle>Для юридичних осіб: </x-text.subtitle>
+            <x-text.text class="mb-4">Економія на щомісячних платежах - програма «Акція Škoda»:</x-text.text>
+            <x-text.text class="mb-2"> - Мінімальна відсоткова ставка: </x-text.text>
+            <x-text.text>
                 по кредиту на один рік з авансом від 30%,
-            </x-Text.text>
-            <x-Text.text> по кредиту на два роки з авансом від 60%,</x-Text.text>
-            <x-Text.text> по кредиту на три роки з авансом від 70%,</x-Text.text>
-            <x-Text.text> - Строк кредитування від 1 до 7 років</x-Text.text>
-            <x-Text.text> - Мінімальний авансовий платіж - 20%</x-Text.text>
-            <x-Text.text> - Відсутня щомісячна комісія</x-Text.text>
-            <x-Text.text class="mb-4"> - Відсутні штрафні санкції за дострокове погашення кредиту</x-Text.text>
+            </x-text.text>
+            <x-text.text> по кредиту на два роки з авансом від 60%,</x-text.text>
+            <x-text.text> по кредиту на три роки з авансом від 70%,</x-text.text>
+            <x-text.text> - Строк кредитування від 1 до 7 років</x-text.text>
+            <x-text.text> - Мінімальний авансовий платіж - 20%</x-text.text>
+            <x-text.text> - Відсутня щомісячна комісія</x-text.text>
+            <x-text.text class="mb-4"> - Відсутні штрафні санкції за дострокове погашення кредиту</x-text.text>
         </x-section>
     </div>
     <div class="bg-skoda-electric-green">
         <div class="max-w-3xl mx-auto text-center">
             <x-section>
-                <x-Text.title class="mb-4">Кредитний калькулятор</x-Text.title>
-                <x-Text.text class="mb-4">Ви можете скористатися нашим кредитним калькулятором, щоб розрахувати
-                    приблизні щомісячні платежі за кредитом на автомобіль Škoda.</x-Text.text>
+                <x-text.title class="mb-4">Кредитний калькулятор</x-text.title>
+                <x-text.text class="mb-4">Ви можете скористатися нашим кредитним калькулятором, щоб розрахувати
+                    приблизні щомісячні платежі за кредитом на автомобіль Škoda.</x-text.text>
                 <x-calculator />
             </x-section>
         </div>
     </div>
     <div class="bg-skoda-emerald-green text-center">
         <x-section>
-            <x-Text.title color='electric-green'>Хочеш точний прорахунок?</x-Text.title>
-            <x-Text.text color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
+            <x-text.title color='electric-green'>Хочеш точний прорахунок?</x-text.title>
+            <x-text.text color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
                 зв'яжеться з
-                вами для точного прорахунку з найвигіднішими для вас умовами</x-Text.text>
+                вами для точного прорахунку з найвигіднішими для вас умовами</x-text.text>
             <x-form value='Кредит' />
         </x-section>
     </div>

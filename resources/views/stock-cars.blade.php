@@ -30,7 +30,7 @@
 
 <x-layout>
     <x-section class="text-center">
-        <x-Text.main-title>Авто на складі</x-Text.main-title>
+        <x-text.main-title>Авто на складі</x-text.main-title>
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             @forelse($cars as $car)
                 <li class="w-full max-w-[600px]">
@@ -54,9 +54,9 @@
         </ul>
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">
-        <x-Text.title color='electric-green'>Не знайшли що шукали?</x-Text.title>
-        <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
-            вас!</x-Text.subtitle>
+        <x-text.title color='electric-green'>Не знайшли що шукали?</x-text.title>
+        <x-text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
+            вас!</x-text.subtitle>
         <x-form value='Склад' />
     </x-section>
 </x-layout>

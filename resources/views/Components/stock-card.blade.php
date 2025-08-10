@@ -32,7 +32,7 @@
     <div class="p-4 flex flex-col flex-grow">
 
         {{-- Назва моделі --}}
-        <x-Text.subtitle class="font-bold mb-3">{{ $car->name }}</x-Text.subtitle>
+        <x-text.subtitle class="font-bold mb-3">{{ $car->name }}</x-text.subtitle>
 
         {{-- Основна інформація --}}
         <div class="mb-3 flex-grow">
@@ -40,57 +40,57 @@
                 @if (!empty($car->color))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Колір</span>
-                        <x-Text.text class="text-sm">{{ $car->color }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ $car->color }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->mileage))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Пробіг</span>
-                        <x-Text.text class="text-sm">{{ number_format($car->mileage, 0, ',', ' ') }}
-                            км</x-Text.text>
+                        <x-text.text class="text-sm">{{ number_format($car->mileage, 0, ',', ' ') }}
+                            км</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->vin))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">VIN-код</span>
-                        <x-Text.text class="text-sm font-mono">{{ $car->vin }}</x-Text.text>
+                        <x-text.text class="text-sm font-mono">{{ $car->vin }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->engine_power))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Потужність</span>
-                        <x-Text.text class="text-sm">{{ $car->engine_power }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ $car->engine_power }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->engine_volume))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Об'єм</span>
-                        <x-Text.text class="text-sm">{{ $car->engine_volume }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ $car->engine_volume }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->transmission))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Коробка</span>
-                        <x-Text.text class="text-sm">{{ ucfirst($car->transmission) }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ ucfirst($car->transmission) }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->fuel_consumption))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Витрата</span>
-                        <x-Text.text class="text-sm">{{ $car->fuel_consumption }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ $car->fuel_consumption }}</x-text.text>
                     </div>
                 @endif
 
                 @if (!empty($car->configuration))
                     <div class="flex justify-between items-center border-b border-gray-200 pb-1">
                         <span class="text-sm font-medium text-skoda-emerald-green">Комплектація</span>
-                        <x-Text.text class="text-sm">{{ $car->configuration }}</x-Text.text>
+                        <x-text.text class="text-sm">{{ $car->configuration }}</x-text.text>
                     </div>
                 @endif
             </div>

@@ -19,8 +19,8 @@
                     @endphp
                     <div
                         class="absolute top-6 left-1 md:top-12 md:left-12 flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
-                        <x-Text.title color="{{ $color }}">{{ $slider->title }}</x-Text.title>
-                        <x-Text.subtitle color="{{ $color }}">{{ $slider->description }}</x-Text.subtitle>
+                        <x-text.title color="{{ $color }}">{{ $slider->title }}</x-text.title>
+                        <x-text.subtitle color="{{ $color }}">{{ $slider->description }}</x-text.subtitle>
                         @php
                             $items = [
                                 $slider->item_one,

@@ -28,11 +28,11 @@
 <x-layout>
     <x-banner />
     <x-section class=" flex flex-col items-center gap-6">
-        <x-Text.title>Про нас</x-Text.title>
+        <x-text.title>Про нас</x-text.title>
         <div class="flex justify-around items-center gap-6 flex-col md:flex-row">
             <div class="max-w-[900px]">
-                <x-Text.subtitle class="mb-4">Офіційний дилер автомобілів ŠKODA в м. Кременчук</x-Text.subtitle>
-                <x-Text.text class="mb-4">
+                <x-text.subtitle class="mb-4">Офіційний дилер автомобілів ŠKODA в м. Кременчук</x-text.subtitle>
+                <x-text.text class="mb-4">
                     ТОВ«Автоцентр-Кременчук-2012» є сертифікованим дилерським центром ТОВ «Єврокар». Основними видами
                     діяльності
                     компанії є продаж автомобілів торгової марки Škoda, технічне обслуговування, як в гарантійний, так і
@@ -45,30 +45,30 @@
                     саме тому якість продукції та послуг завжди займали перше місце в цінностях нашої компанії. У своїй
                     роботі
                     наша організація завжди дотримується таких принципів:
-                </x-Text.text>
-                <x-Text.text class="mb-4"> - Якість продукції та робіт повинна відповідати всім вимогам законів та
+                </x-text.text>
+                <x-text.text class="mb-4"> - Якість продукції та робіт повинна відповідати всім вимогам законів та
                     нормативних
                     актів,
-                    міжнародних стандартів якості і стандартам якості «Škoda Auto»;</x-Text.text>
-                <x-Text.text class="mb-4">
+                    міжнародних стандартів якості і стандартам якості «Škoda Auto»;</x-text.text>
+                <x-text.text class="mb-4">
                     - Роботи, пов'язані з обслуговуванням і ремонтом автомобілів, виконуються з дотриманням високих норм
-                    якості;</x-Text.text>
-                <x-Text.text class="mb-4">
+                    якості;</x-text.text>
+                <x-text.text class="mb-4">
                     - Кожен співробітник нашої компанії насе відповідальність за виконану ним роботу і прагне до
                     виконання
                     поставлених підприємством планових показників. Відповідає за дбайливе ставлення до майна
                     підприємства і
-                    конфіденційність інформації про підприємство;</x-Text.text>
-                <x-Text.text class="mb-4">
+                    конфіденційність інформації про підприємство;</x-text.text>
+                <x-text.text class="mb-4">
                     - Керівництво компанії ініціює і підтримує своїх співробітників в їх професійному зростанні,
                     піклується
                     про
                     сприятливе середовище в компанії, необхідне для результативного виконання поставлених
-                    завдань;</x-Text.text>
-                <x-Text.text class="">
+                    завдань;</x-text.text>
+                <x-text.text class="">
                     - Тісна співпраця з компанією ТОВ «Єврокар» дозволяє досягти високих якісних показників в роботі та
                     надає
-                    можливості для подальшого зростання і вдосконалення системи контролю якості.</x-Text.text>
+                    можливості для подальшого зростання і вдосконалення системи контролю якості.</x-text.text>
             </div>
             <div>
                 <x-image url='images/about.jpg' ratio='horizontal' />
@@ -76,7 +76,7 @@
         </div>
     </x-section>
     <x-section class="text-center bg-skoda-electric-green">
-        <x-Text.title>Наші послуги</x-Text.title>
+        <x-text.title>Наші послуги</x-text.title>
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Продаж автомобілів"
@@ -104,12 +104,12 @@
         </ul>
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">
-        <x-Text.title color='electric-green'>Наш модельний ряд</x-Text.title>
+        <x-text.title color='electric-green'>Наш модельний ряд</x-text.title>
         <x-model />
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">
-        <x-Text.title color='electric-green'>Залишились запитання?</x-Text.title>
-        <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми допоможемо вам!</x-Text.subtitle>
+        <x-text.title color='electric-green'>Залишились запитання?</x-text.title>
+        <x-text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми допоможемо вам!</x-text.subtitle>
         <x-form value="Головна сторінка Потрібна допомога" />
     </x-section>
 </x-layout>

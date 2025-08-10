@@ -1,7 +1,7 @@
 @props(['models'])
 
 <x-section class="bg-skoda-electric-green text-center">
-    <x-Text.title>Інші моделі</x-Text.subtitle>
+    <x-text.title>Інші моделі</x-text.subtitle>
         <div class="flex flex-wrap gap-8 mt-8 items-center justify-center">
             {{-- Перебираємо моделі --}}
             @foreach ($models as $modl)
@@ -10,7 +10,7 @@
                         <img src="{{ Storage::url($modl->images->first()->image) }}" alt="Фото моделі {{ $modl->name }}"
                             class="w-full h-[250px] object-cover object-center">
                         <div class="w-full bg-black/70 absolute bottom-0">
-                            <x-Text.subtitle class="my-2" color='white'>{{ $modl->name }}</x-Text.subtitle>
+                            <x-text.subtitle class="my-2" color='white'>{{ $modl->name }}</x-text.subtitle>
                         </div>
                     </div>
                 </a>
@@ -18,8 +18,8 @@
         </div>
 </x-section>
 <x-section class="bg-skoda-emerald-green text-center">
-    <x-Text.title color='electric-green'>Не знайшли що шукали?</x-Text.title>
-    <x-Text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
-        вас!</x-Text.subtitle>
+    <x-text.title color='electric-green'>Не знайшли що шукали?</x-text.title>
+    <x-text.subtitle color='electric-green' class="m-auto">Залиште заявку і ми підберемо найкраще авто для
+        вас!</x-text.subtitle>
     <x-form value='Склад' />
 </x-section>

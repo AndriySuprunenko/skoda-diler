@@ -108,7 +108,7 @@
             <div class="p-4 flex flex-col flex-grow md:p-8">
 
                 {{-- Назва моделі --}}
-                <x-Text.main-title class="font-bold mb-3">{{ $car->name }}</x-Text.main-title>
+                <x-text.main-title class="font-bold mb-3">{{ $car->name }}</x-text.main-title>
 
                 {{-- Основна інформація --}}
                 <div class="mb-3 flex-grow text-lg">
@@ -117,7 +117,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1  flex-col md:flex-row">
                                 <span class="font-medium text-skoda-emerald-green">Колір</span>
-                                <x-Text.text>{{ $car->color }}</x-Text.text>
+                                <x-text.text>{{ $car->color }}</x-text.text>
                             </div>
                         @endif
 
@@ -125,8 +125,8 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Пробіг</span>
-                                <x-Text.text>{{ number_format($car->mileage, 0, ',', ' ') }}
-                                    км</x-Text.text>
+                                <x-text.text>{{ number_format($car->mileage, 0, ',', ' ') }}
+                                    км</x-text.text>
                             </div>
                         @endif
 
@@ -134,7 +134,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">VIN-код</span>
-                                <x-Text.text>{{ $car->vin }}</x-Text.text>
+                                <x-text.text>{{ $car->vin }}</x-text.text>
                             </div>
                         @endif
 
@@ -142,7 +142,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Потужність</span>
-                                <x-Text.text>{{ $car->engine_power }}</x-Text.text>
+                                <x-text.text>{{ $car->engine_power }}</x-text.text>
                             </div>
                         @endif
 
@@ -150,7 +150,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Об'єм</span>
-                                <x-Text.text>{{ $car->engine_volume }}</x-Text.text>
+                                <x-text.text>{{ $car->engine_volume }}</x-text.text>
                             </div>
                         @endif
 
@@ -158,7 +158,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Коробка</span>
-                                <x-Text.text>{{ ucfirst($car->transmission) }}</x-Text.text>
+                                <x-text.text>{{ ucfirst($car->transmission) }}</x-text.text>
                             </div>
                         @endif
 
@@ -166,7 +166,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class="text-skoda-emerald-green">Витрата палива</span>
-                                <x-Text.text>{{ $car->fuel_consumption }}</x-Text.text>
+                                <x-text.text>{{ $car->fuel_consumption }}</x-text.text>
                             </div>
                         @endif
 
@@ -174,7 +174,7 @@
                             <div
                                 class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
                                 <span class=" text-skoda-emerald-green">Комплектація</span>
-                                <x-Text.text>{{ $car->configuration }}</x-Text.text>
+                                <x-text.text>{{ $car->configuration }}</x-text.text>
                             </div>
                         @endif
                     </div>
