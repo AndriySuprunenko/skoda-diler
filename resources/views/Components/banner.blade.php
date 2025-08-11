@@ -9,6 +9,7 @@
                 <div class="swiper-slide">
                     <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title }}"
                         class="w-full h-[600px] md:h-[848px] object-cover object-center" />
+                    <div class="w-full h-[600px] md:h-[848px] absolute top-0 left-0 bg-black/30"></div>
                     @php
                         $color = match ($slider->text_color) {
                             'white' => 'white',
