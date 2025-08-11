@@ -125,12 +125,11 @@
         let pasted = ($event.clipboardData || window.clipboardData).getData('text') || '';
         let digits = pasted.replace(/\D/g, '');
 
-        // забираємо тільки останні 9 цифр, якщо більше
-        if (digits.length > 9) {
-            digits = digits.slice(-9);
+        // забираємо тільки останні 10 цифр
+        if (digits.length > 10) {
+            digits = digits.slice(-10);
         }
 
-        // формуємо маску
         let p1 = digits.slice(0, 3); // оператор
         let p2 = digits.slice(3, 6);
         let p3 = digits.slice(6, 8);
@@ -147,13 +146,15 @@
     "
                                         @input="
         let digits = phone.replace(/\D/g, '');
+
         // видаляємо код країни, якщо він випадково додався
         if (digits.startsWith('38')) {
             digits = digits.slice(2);
         }
 
-        if (digits.length > 9) {
-            digits = digits.slice(0, 9);
+        // максимум 10 цифр
+        if (digits.length > 10) {
+            digits = digits.slice(0, 10);
         }
 
         let p1 = digits.slice(0, 3);
