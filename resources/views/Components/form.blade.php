@@ -49,27 +49,35 @@
                     <input type="tel" name="phone" id="phone" x-model="phone" autocomplete="tel"
                         :disabled="isSubmitting"
                         @keydown="
-                                            if (!phoneStarted) {
-                                                phoneStarted = true;
-                                                phone = '+38';
-                                                $event.preventDefault();
-                                                return;
-                                            }
-                                            if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes($event.key) && !/\d/.test($event.key)) {
-                                                $event.preventDefault();
-                                            }
-                                        "
+        // дозволяємо цифри та службові клавіші
+        if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes($event.key) && !/\d/.test($event.key)) {
+            $event.preventDefault();
+        }
+    "
+                        @paste.prevent="
+        let pasted = (event.clipboardData || window.clipboardData).getData('text');
+        let cleaned = pasted.replace(/[^\d]/g, '');
+        if (!cleaned.startsWith('380')) {
+            cleaned = '380' + cleaned;
+        }
+        phone = '+' + cleaned.slice(0, 12);
+        if (errors.phone) delete errors.phone;
+    "
                         @input="
-                                            let cleaned = phone.replace(/[^\d]/g, '');
-                                            if (!cleaned.startsWith('380')) {
-                                                cleaned = '380';
-                                            }
-                                            phone = '+' + cleaned.slice(0, 12);
-                                            if (errors.phone) delete errors.phone
-                                        "
+        let cleaned = phone.replace(/[^\d]/g, '');
+        if (cleaned.length === 0) {
+            phone = '';
+            return;
+        }
+        if (!cleaned.startsWith('380')) {
+            cleaned = '380';
+        }
+        phone = '+' + cleaned.slice(0, 12);
+        if (errors.phone) delete errors.phone;
+    "
+                        x-init="if (!phone) phone = '+380';"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
-                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                            'outline-skoda-electric-green'" />
+                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' : 'outline-skoda-electric-green'" />
                 </div>
             </div>
             <div class="w-fit mt-5 hidden md:block">
