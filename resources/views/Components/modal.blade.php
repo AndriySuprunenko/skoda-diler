@@ -113,7 +113,7 @@
                                         @keydown="
                                             if (!phoneStarted) {
                                                 phoneStarted = true;
-                                                phone = '+380';
+                                                phone = '+38';
                                                 $event.preventDefault();
                                                 return;
                                             }
@@ -124,7 +124,7 @@
                                         @input="
                                             let cleaned = phone.replace(/[^\d]/g, '');
                                             if (!cleaned.startsWith('380')) {
-                                                cleaned = '380' + cleaned.replace(/^380+/, '');
+                                                cleaned = '380';
                                             }
                                             phone = '+' + cleaned.slice(0, 12);
                                             if (errors.phone) delete errors.phone
