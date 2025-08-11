@@ -115,38 +115,35 @@
         if (!['Backspace','Delete','ArrowLeft','ArrowRight','Tab'].includes($event.key) && !/\d/.test($event.key)) {
             $event.preventDefault();
         }
-    "
-                                        @paste.prevent="
-        // використовуємо $event (Alpine) замість глобального event
-        let pasted = ($event.clipboardData || window.clipboardData).getData('text') || '';
-        let digits = pasted.replace(/\D/g, '');
-        if (!digits) return;
-        // беремо останні 9 цифр як локальну частину номера (це вирішує проблему з автозаповненням, коли додається зайвий 0)
-        let local = digits.length >= 9 ? digits.slice(-9) : digits;
-        let cleaned = '380' + local;
-        phone = '+' + cleaned.slice(0, 12);
-        if (errors.phone) delete errors.phone;
+
+        // забороняємо стирати префікс +380
+        if ($event.key === 'Backspace' && phone.length <= 5) {
+            $event.preventDefault();
+        }
     "
                                         @input="
         let digits = phone.replace(/\D/g, '');
-        if (digits.length === 0) {
-            phone = '';
-            return;
+        // залишаємо тільки цифри після '380'
+        if (digits.startsWith('380')) {
+            digits = digits.slice(3);
         }
-        if (digits.length >= 9) {
-            let local = digits.slice(-9);
-            let cleaned = '380' + local;
-            phone = '+' + cleaned.slice(0, 12);
-        } else {
-            if (digits.startsWith('380')) {
-                phone = '+' + digits.slice(0, 12);
-            } else {
-                phone = '+' + ('380' + digits).slice(0, 12);
-            }
-        }
+
+        // формуємо маску
+        let part1 = digits.slice(0, 2);  // оператор
+        let part2 = digits.slice(2, 5);  // перші 3 цифри
+        let part3 = digits.slice(5, 7);  // наступні 2 цифри
+        let part4 = digits.slice(7, 9);  // останні 2 цифри
+
+        phone = '+380' 
+            + (part1 ? '(' + part1 : '')
+            + (part1 && part1.length === 2 ? ')' : '')
+            + (part2 ? part2 : '')
+            + (part3 ? '-' + part3 : '')
+            + (part4 ? '-' + part4 : '');
+
         if (errors.phone) delete errors.phone;
     "
-                                        x-init="if (!phone) phone = '+380';"
+                                        x-init="phone = '+380('"
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
                                         :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
                                             '{{ $config['outlineColor'] }}'" />
