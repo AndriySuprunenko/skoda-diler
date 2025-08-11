@@ -57,7 +57,9 @@
                         @paste.prevent="
         let pasted = (event.clipboardData || window.clipboardData).getData('text');
         let cleaned = pasted.replace(/[^\d]/g, '');
-        if (!cleaned.startsWith('380')) {
+        if (cleaned.startsWith('3800')) {
+            cleaned = '380' + cleaned.slice(4); // прибираємо зайвий нуль
+        } else if (!cleaned.startsWith('380')) {
             cleaned = '380' + cleaned;
         }
         phone = '+' + cleaned.slice(0, 12);
@@ -69,8 +71,10 @@
             phone = '';
             return;
         }
-        if (!cleaned.startsWith('380')) {
-            cleaned = '38' + cleaned;
+        if (cleaned.startsWith('3800')) {
+            cleaned = '380' + cleaned.slice(4); // фікс зайвого нуля
+        } else if (!cleaned.startsWith('380')) {
+            cleaned = '380' + cleaned;
         }
         phone = '+' + cleaned.slice(0, 12);
         if (errors.phone) delete errors.phone;
