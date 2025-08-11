@@ -27,6 +27,30 @@
 @endsection
 <x-layout>
     <x-banner />
+    <x-section class="text-center bg-skoda-electric-green">
+        <x-text.title>Наші послуги</x-text.title>
+        <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
+            <li class="w-full max-w-[600px]">
+                <x-service-card title="Продаж автомобілів"
+                    description="Широкий вибір нових та вживаних автомобілів ŠKODA." />
+            </li>
+            <li class="w-full max-w-[600px]">
+                <x-service-card title="Кредитування"
+                    description="Консультації з питань фінансування та кредитування автомобілів." link='credit' />
+            </li>
+            <li class="w-full max-w-[600px]">
+                <x-service-card title="Тест-драйв"
+                    description="Запишіться на тест-драйв та відчуйте переваги автомобілів ŠKODA." type='test-drive' />
+            </li>
+            <li class="w-full max-w-[600px]">
+                <x-service-card title="Trade-in" description="Обміняй старе авто на нову ŠKODA" link='trade-in' />
+            </li>
+        </ul>
+    </x-section>
+    <x-section class="bg-skoda-emerald-green text-center">
+        <x-text.title color='electric-green'>Наш модельний ряд</x-text.title>
+        <x-model />
+    </x-section>
     <x-section class=" flex flex-col items-center gap-6">
         <x-text.title>Про нас</x-text.title>
         <div class="flex justify-around items-center gap-6 flex-col md:flex-row">
@@ -74,38 +98,6 @@
                 <x-image url='images/about.jpg' ratio='horizontal' />
             </div>
         </div>
-    </x-section>
-    <x-section class="text-center bg-skoda-electric-green">
-        <x-text.title>Наші послуги</x-text.title>
-        <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Продаж автомобілів"
-                    description="Широкий вибір нових та вживаних автомобілів ŠKODA." />
-            </li>
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Оригінальні запчастини"
-                    description="Продаж оригінальних запчастин та аксесуарів ŠKODA." />
-            </li>
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Кредитування"
-                    description="Консультації з питань фінансування та кредитування автомобілів." link='credit' />
-            </li>
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Тест-драйв"
-                    description="Запишіться на тест-драйв та відчуйте переваги автомобілів ŠKODA." type='test-drive' />
-            </li>
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Консультації"
-                    description="Отримайте професійну консультацію щодо вибору автомобіля." />
-            </li>
-            <li class="w-full max-w-[600px]">
-                <x-service-card title="Trade-in" description="Обміняй старе авто на нову ŠKODA" link='trade-in' />
-            </li>
-        </ul>
-    </x-section>
-    <x-section class="bg-skoda-emerald-green text-center">
-        <x-text.title color='electric-green'>Наш модельний ряд</x-text.title>
-        <x-model />
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">
         <x-text.title color='electric-green'>Залишились запитання?</x-text.title>
