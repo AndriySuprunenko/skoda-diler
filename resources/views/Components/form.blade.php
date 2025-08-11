@@ -70,7 +70,7 @@
             return;
         }
         if (!cleaned.startsWith('380')) {
-            cleaned = '380' + cleaned;
+            cleaned = '38' + cleaned;
         }
         phone = '+' + cleaned.slice(0, 12);
         if (errors.phone) delete errors.phone;
