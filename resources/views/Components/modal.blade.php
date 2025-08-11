@@ -111,34 +111,39 @@
                                     <input type="tel" name="phone" id="phone" x-model="phone"
                                         autocomplete="tel" :disabled="isSubmitting"
                                         @keydown="
-        // Дозволяємо лише цифри, керуючі клавіші та навігацію
+        // дозволяємо цифри та службові клавіші
         if (!['Backspace','Delete','ArrowLeft','ArrowRight','Tab'].includes($event.key) && !/\d/.test($event.key)) {
             $event.preventDefault();
         }
     "
                                         @paste.prevent="
-        let pasted = (event.clipboardData || window.clipboardData).getData('text');
-        let cleaned = pasted.replace(/[^\d]/g, '');
-        if (cleaned.startsWith('3800')) {
-            cleaned = '380' + cleaned.slice(4); // прибираємо зайвий нуль
-        } else if (!cleaned.startsWith('380')) {
-            cleaned = '380' + cleaned;
-        }
+        // використовуємо $event (Alpine) замість глобального event
+        let pasted = ($event.clipboardData || window.clipboardData).getData('text') || '';
+        let digits = pasted.replace(/\D/g, '');
+        if (!digits) return;
+        // беремо останні 9 цифр як локальну частину номера (це вирішує проблему з автозаповненням, коли додається зайвий 0)
+        let local = digits.length >= 9 ? digits.slice(-9) : digits;
+        let cleaned = '380' + local;
         phone = '+' + cleaned.slice(0, 12);
         if (errors.phone) delete errors.phone;
     "
                                         @input="
-        let cleaned = phone.replace(/[^\d]/g, '');
-        if (cleaned.length === 0) {
+        let digits = phone.replace(/\D/g, '');
+        if (digits.length === 0) {
             phone = '';
             return;
         }
-        if (cleaned.startsWith('3800')) {
-            cleaned = '380' + cleaned.slice(4); // прибираємо зайвий нуль
-        } else if (!cleaned.startsWith('380')) {
-            cleaned = '380' + cleaned;
+        if (digits.length >= 9) {
+            let local = digits.slice(-9);
+            let cleaned = '380' + local;
+            phone = '+' + cleaned.slice(0, 12);
+        } else {
+            if (digits.startsWith('380')) {
+                phone = '+' + digits.slice(0, 12);
+            } else {
+                phone = '+' + ('380' + digits).slice(0, 12);
+            }
         }
-        phone = '+' + cleaned.slice(0, 12);
         if (errors.phone) delete errors.phone;
     "
                                         x-init="if (!phone) phone = '+380';"
