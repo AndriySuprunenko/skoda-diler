@@ -35,4 +35,6 @@ return [
         ],
     ],
 
+    'bitrix_webhook' => env('BITRIX_WEBHOOK', ''),
+
 ];
