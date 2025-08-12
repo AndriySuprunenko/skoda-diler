@@ -68,7 +68,6 @@
                                     isSubmitting = true;
 
                                     const formData = new FormData($refs.form);
-                                    const newTab = window.open('', '_blank');
                                     fetch($refs.form.action, {
                                         method: 'POST',
                                         body: formData,
@@ -78,8 +77,8 @@
                                     })
                                     .then(res => res.json())
                                     .then(data => {
-                                        if (data.price_url && newTab) {
-                                            newTab.location.href = data.price_url;
+                                        if (data.price_url) {
+                                            const newTab = window.open(data.price_url, '_blank');
                                         }
                                         if (data.redirect) {
                                             window.location.href = data.redirect;
