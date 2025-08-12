@@ -39,7 +39,6 @@ class ModalFormController extends Controller
             try {
                 Mail::to('suprunenko.andriy@gmail.com')->send(new ModalFormRequest($validated, $contactMethods, $utm));
             } catch (\Throwable $e) {
-                \Log::error('Помилка відправки пошти: ' . $e->getMessage());
             }
 
             // Відправка в Bitrix
@@ -47,7 +46,6 @@ class ModalFormController extends Controller
                 $full_data = "Source: {$utm['utm_source']}/{$utm['utm_medium']}/{$utm['utm_campaign']}/{$utm['utm_content']}\nKW: {$utm['utm_term']}";
                 $webhook = config('services.bitrix_webhook');
                 if (empty($webhook)) {
-                    \Log::error('BITRIX_WEBHOOK is not set in configuration');
                 } else {
                     $response = Http::post($webhook . 'crm.lead.add.json', [
                         'fields' => [
@@ -67,19 +65,16 @@ class ModalFormController extends Controller
                         ]
                     ]);
                     if (!$response->successful()) {
-                        \Log::error('Bitrix повернув помилку', ['body' => $response->body()]);
                     }
                 }
             } catch (\Throwable $e) {
-                \Log::error('Помилка при відправці в Bitrix: ' . $e->getMessage());
             }
 
             return response()->json([
                 'redirect' => '/thank-you',
-                'price_url' => $request->input('price_url'),
+                'price_url' => $request->filled('price_url') ? $request->input('price_url') : null,
             ]);
         } catch (\Throwable $e) {
-            \Log::error('Помилка в ModalFormController@send: ' . $e->getMessage());
             return response()->json(['error' => 'Щось пішло не так'], 500);
         }
     }
