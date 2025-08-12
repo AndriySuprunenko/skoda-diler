@@ -27,7 +27,7 @@
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                 <span class="text-lg">Потужність двигуна </span>
                 <x-text.text>
-                    {{ $model->power }} кВт
+                    {{ $model->power }}
                 </x-text.text>
             </div>
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
