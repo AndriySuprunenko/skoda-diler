@@ -108,72 +108,16 @@
                                 </label>
                                 <div class="mt-0 md:mt-2 mb-4">
                                     <input type="tel" name="phone" id="phone" x-model="phone"
-                                        autocomplete="tel" :disabled="isSubmitting"
+                                        autocomplete="tel" :disabled="isSubmitting" maxlength="13" minlength="10"
                                         @keydown="
-        // тільки цифри та службові клавіші
-        if (!['Backspace','Delete','ArrowLeft','ArrowRight','Tab'].includes($event.key) && !/\d/.test($event.key)) {
-            $event.preventDefault();
-        }
-
-        // забороняємо стирати префікс +38(
-        if ($event.key === 'Backspace' && phone.length <= 4) {
-            $event.preventDefault();
-        }
-    "
-                                        @paste.prevent="
-        let pasted = ($event.clipboardData || window.clipboardData).getData('text') || '';
-        let digits = pasted.replace(/\D/g, '');
-
-        // забираємо тільки останні 10 цифр
-        if (digits.length > 10) {
-            digits = digits.slice(-10);
-        }
-
-        let p1 = digits.slice(0, 3); // оператор
-        let p2 = digits.slice(3, 6);
-        let p3 = digits.slice(6, 8);
-        let p4 = digits.slice(8, 10);
-
-        phone = '+38'
-            + (p1 ? '(' + p1 : '')
-            + (p1 && p1.length === 3 ? ')' : '')
-            + (p2 ? p2 : '')
-            + (p3 ? '-' + p3 : '')
-            + (p4 ? '-' + p4 : '');
-
-        if (errors.phone) delete errors.phone;
-    "
-                                        @input="
-        let digits = phone.replace(/\D/g, '');
-
-        // видаляємо код країни, якщо він випадково додався
-        if (digits.startsWith('38')) {
-            digits = digits.slice(2);
-        }
-
-        // максимум 10 цифр
-        if (digits.length > 10) {
-            digits = digits.slice(0, 10);
-        }
-
-        let p1 = digits.slice(0, 3);
-        let p2 = digits.slice(3, 6);
-        let p3 = digits.slice(6, 8);
-        let p4 = digits.slice(8, 10);
-
-        phone = '+38'
-            + (p1 ? '(' + p1 : '')
-            + (p1 && p1.length === 3 ? ')' : '')
-            + (p2 ? p2 : '')
-            + (p3 ? '-' + p3 : '')
-            + (p4 ? '-' + p4 : '');
-
-        if (errors.phone) delete errors.phone;
-    "
-                                        x-init="phone = '+38('"
+    if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {
+      $event.preventDefault();
+    }
+  "
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
                                         :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                                            '{{ $config['outlineColor'] }}'" />
+                                            '{{ $config['outlineColor'] }}'"
+                                        placeholder="+38(XXX)XXX-XX-XX" />
                                 </div>
                                 <x-checkbox name="no_call" text="Не телефонуйте мені"
                                     color="{{ $config['textColor'] }}" />
