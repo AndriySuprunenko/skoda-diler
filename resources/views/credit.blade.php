@@ -37,7 +37,7 @@
     <div class="text-center my-4 md:my-8">
         <x-text.title>Основні переваги кредитної програми Škoda</x-text.title>
     </div>
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-4xl mx-auto">
         <x-section>
             <x-text.subtitle>Для фізичних осіб: </x-text.subtitle>
             <x-text.text class="mb-4">Економія на щомісячних платежах - програма «Акція Škoda»:</x-text.text>
