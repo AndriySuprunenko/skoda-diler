@@ -32,18 +32,21 @@
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Продаж автомобілів"
-                    description="Широкий вибір нових та вживаних автомобілів ŠKODA." />
+                    description="Широкий модельний ряд Škoda та пропозиції авто з пробігом на різний бюджет." />
             </li>
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Кредитування"
-                    description="Консультації з питань фінансування та кредитування автомобілів." link='credit' />
+                    description="Отримайте консультацію з питань фінансування для фізичних та юридичних осіб."
+                    link='credit' />
             </li>
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Тест-драйв"
-                    description="Запишіться на тест-драйв та відчуйте переваги автомобілів ŠKODA." type='test-drive' />
+                    description="Дізнайтесь можливості бажаної моделі в реальних умовах. Запис в один клік!"
+                    type='test-drive' />
             </li>
             <li class="w-full max-w-[600px]">
-                <x-service-card title="Trade-in" description="Обміняй старе авто на нову ŠKODA" link='trade-in' />
+                <x-service-card title="Trade-in"
+                    description="Програма обміну вашого автомобіля на нову Škoda з доплатою." link='trade-in' />
             </li>
         </ul>
     </x-section>
@@ -95,7 +98,7 @@
                     можливості для подальшого зростання і вдосконалення системи контролю якості.</x-text.text>
             </div>
             <div>
-                <x-image url='images/about.jpg' ratio='horizontal' />
+                <x-image url='images/about.webp' ratio='horizontal' />
             </div>
         </div>
     </x-section>
