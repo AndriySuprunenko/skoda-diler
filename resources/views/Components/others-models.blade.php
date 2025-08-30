@@ -4,6 +4,11 @@
     <x-text.title>Інші моделі</x-text.subtitle>
         <div class="flex flex-wrap gap-8 mt-8 items-center justify-center">
             {{-- Перебираємо моделі --}}
+            @if (count($models) > 4)
+                @php
+                    $models = $models->random(4);
+                @endphp
+            @endif
             @foreach ($models as $modl)
                 <a href="/{{ $modl->url }}" class="block hover:shadow-lg transition overflow-hidden max-w-[350px]">
                     <div class="w-full relative">

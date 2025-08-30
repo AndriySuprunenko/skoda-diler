@@ -34,6 +34,7 @@ class StockCarsResource extends Resource
                         'sold' => 'Продано',
                         'reserved' => 'Заброньовано',
                         'hot_offer' => 'Гаряча пропозиція',
+                        'in_delivery' => 'В поставці',
                     ])
                     ->required(),
 
@@ -55,7 +56,18 @@ class StockCarsResource extends Resource
                 Forms\Components\FileUpload::make('gallery')
                     ->label('Галерея')
                     ->multiple()
-                    ->directory('cars'),
+                    ->image()
+                    ->nullable()
+                    ->deletable(true)
+                    ->downloadable(true)
+                    ->directory('cars')
+                    ->imageEditor()
+                    ->imageResizeMode('cover')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
+                    ->deleteUploadedFileUsing(function ($file) {
+                        \Storage::disk('public')->delete($file);
+                    }),
 
                 Forms\Components\TextInput::make('color')
                     ->label('Колір'),
@@ -79,6 +91,18 @@ class StockCarsResource extends Resource
                     ->label('Ціна')
                     ->numeric()
                     ->required(),
+                Forms\Components\FileUpload::make('specification_file')
+                    ->label('Файл специфікації')
+                    ->nullable()
+                    ->directory('cars/specifications')
+                    ->deletable(true)
+                    ->downloadable(true)
+                    ->deleteUploadedFileUsing(function ($file) {
+                        \Storage::disk('public')->delete($file);
+                    }),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Опис')
+                    ->nullable(),
             ]);
     }
 
@@ -207,7 +231,30 @@ class StockCarsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function (StockCars $record) {
+                        if ($record->gallery) {
+                            foreach ($record->gallery as $file) {
+                                \Storage::disk('public')->delete($file);
+                            }
+                        }
+                        if ($record->specification_file) {
+                            \Storage::disk('public')->delete($record->specification_file);
+                        }
+                    }),
+                Tables\Actions\Action::make('clear_gallery')
+                    ->label('Очистити галерею')
+                    ->icon('heroicon-o-trash')
+                    ->requiresConfirmation()
+                    ->action(function (StockCars $record) {
+                        if ($record->gallery) {
+                            foreach ($record->gallery as $file) {
+                                \Storage::disk('public')->delete($file);
+                            }
+                            $record->gallery = [];
+                            $record->save();
+                        }
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

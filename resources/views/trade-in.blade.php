@@ -67,6 +67,11 @@
             цього тижня.</x-text.text>
         <div class="flex gap-6 flex-wrap justify-center mt-6">
             <div class="w-full max-w-[300px]">
+                <x-link href="/stock-cars">
+                    Переглянути авто в наявності
+                </x-link>
+            </div>
+            <div class="w-full max-w-[300px]">
                 <x-send-message-button>Написати нам</x-send-message-button>
             </div>
             <div class="w-full max-w-[300px]">

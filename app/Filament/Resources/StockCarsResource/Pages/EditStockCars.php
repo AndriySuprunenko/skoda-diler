@@ -16,4 +16,17 @@ class EditStockCars extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function beforeDelete(): void
+    {
+        if ($this->record->gallery) {
+            foreach ($this->record->gallery as $file) {
+                \Storage::disk('public')->delete($file);
+            }
+        }
+
+        if ($this->record->specification_file) {
+            \Storage::disk('public')->delete($this->record->specification_file);
+        }
+    }
 }

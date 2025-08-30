@@ -13,7 +13,12 @@ class EditBanner extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->before(function ($record) {
+                    if ($record->image) {
+                        \Storage::disk('public')->delete($record->image);
+                    }
+                }),
         ];
     }
 }

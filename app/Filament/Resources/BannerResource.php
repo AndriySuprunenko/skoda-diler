@@ -77,7 +77,13 @@ class BannerResource extends Resource
                 FileUpload::make('image')
                     ->label('Зображення(Рекомендовано 1920х1080)')
                     ->directory('banners')
-                    ->image(),
+                    ->deletable(true)
+                    ->downloadable(true)
+                    ->image()
+                    ->imageEditor()
+                    ->deleteUploadedFileUsing(function ($file) {
+                        \Storage::disk('public')->delete($file);
+                    }),
                 Toggle::make('is_active')->default(true)->label('Чи активний?'),
                 TextInput::make('order')
                     ->label('Порядок відображення')
@@ -103,7 +109,12 @@ class BannerResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function (Banner $record) {
+                        if ($record->image) {
+                            \Storage::disk('public')->delete($record->image);
+                        }
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

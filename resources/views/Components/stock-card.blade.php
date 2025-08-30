@@ -4,8 +4,16 @@
 {{-- Використовується для відображення інформації про автомобіль у списку на складі --}}
 {{-- Параметри: --}}
 {{-- $car - об'єкт автомобіля з усіма необхідними властивостями --}}
+@php
+    if ($car->status === 'sold') {
+        $class = 'opacity-50 bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-200';
+    } else {
+        $class = 'bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-200';
+    }
 
-<div class="bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-200">
+@endphp
+
+<div class="{{ $class }}">
     @php
         // Безпечне декодування галереї
         $gallery = [];

@@ -20,6 +20,8 @@ class StockCars extends Model
         'fuel_consumption',
         'configuration',
         'price',
+        'specification_file',
+        'description',
     ];
 
     protected $casts = [

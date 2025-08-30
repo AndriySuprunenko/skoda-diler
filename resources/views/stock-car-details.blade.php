@@ -40,7 +40,7 @@
 
 <x-layout>
     <x-section>
-        <div class="bg-white shadow flex flex-col xl:flex-row">
+        <div class="bg-white flex flex-col xl:flex-row">
             @php
                 // Безпечне декодування галереї
                 $gallery = [];
@@ -54,7 +54,7 @@
                 }
 
                 // Безпечне отримання зображення
-                $img = asset('images/no-car.jpg'); // значення за замовчуванням
+                $img = asset('images/no-car.webp'); // значення за замовчуванням
                 if (!empty($gallery) && isset($gallery[0]) && !empty($gallery[0])) {
                     $img = Storage::url($gallery[0]);
                 }
@@ -90,6 +90,9 @@
                     @elseif($car->status === 'hot_offer')
                         <span class="px-2 py-1 text-md rounded bg-orange-100 text-orange-700">Гаряча
                             пропозиція</span>
+                    @elseif($car->status === 'in_delivery')
+                        <span class="px-2 py-1 text-md rounded bg-purple-100 text-purple-700">В
+                            поставці</span>
                     @endif
 
                     @if ($car->condition === 'new')
@@ -172,7 +175,7 @@
 
                         @if (!empty($car->configuration))
                             <div
-                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row">
+                                class="flex justify-between border-b-4 border-skoda-emerald-green pb-1 flex-col md:flex-row mb-4">
                                 <span class=" text-skoda-emerald-green">Комплектація</span>
                                 <x-text.text>{{ $car->configuration }}</x-text.text>
                             </div>
@@ -187,6 +190,13 @@
 
                 {{-- Кнопка дії --}}
                 <div class=" m-auto flex flex-wrap gap-6 w-full justify-center">
+                    @if (!empty($car->specification_file))
+                        <div class="max-w-[300px] w-full">
+                            <x-link href="{{ Storage::url($car->specification_file) }}" target="_blank"
+                                style="outline">Файл з
+                                характеристиками</x-link>
+                        </div>
+                    @endif
                     <div class="max-w-[300px] w-full">
                         <x-button style="emerald"
                             click="$dispatch('open-modal', { type: 'consultation', value: 'Склад {{ $car->name }}' })">
@@ -213,6 +223,16 @@
             </div>
         </div>
     </x-section>
+
+    @if (!empty($car->description))
+        <div class="bg-skoda-white p-12 flex flex-col gap-8 items-center">
+            <x-text.title color="emerald-green">Опис автомобіля</x-text.title>
+            <div class="prose w-full max-w-5xl m-auto p-8 rounded-2xl bg-skoda-white border-4 border-skoda-emerald-green text-skoda-emerald-green"
+                id="car-description">
+                {!! $car->description !!}
+            </div>
+        </div>
+    @endif
 
     <x-other-models-stock :otherCars="$otherCars" />
 </x-layout>
@@ -352,5 +372,76 @@
 
     #fullscreenOverlay {
         transition: opacity 0.3s ease;
+    }
+
+    #car-description table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #car-description table th,
+    #car-description table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #car-description table th {
+        background-color: #f4f4f4;
+        text-align: left;
+    }
+
+    #car-description a {
+        color: #0e3a2f;
+        text-decoration: underline;
+    }
+
+    #car-description a:hover {
+        color: #078a57;
+    }
+
+    #car-description ul,
+    #car-description ol {
+        padding-left: 20px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #car-description blockquote {
+        border-left: 4px solid #ddd;
+        padding-left: 16px;
+        color: #666;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #car-description pre {
+        background-color: #f4f4f4;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #car-description h2 {
+        font-size: 36px;
+        margin-bottom: 1rem;
+    }
+
+    #car-description h3 {
+        font-size: 32px;
+    }
+
+    #car-description p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    #car-description li {
+        margin-bottom: 0.5rem;
+        list-style: disc;
     }
 </style>
