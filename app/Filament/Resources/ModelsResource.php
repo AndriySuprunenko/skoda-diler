@@ -82,6 +82,9 @@ class ModelsResource extends Resource
                             ->required(),
                     ])
                     ->collapsible()
+                    ->deleteUploadedFileUsing(function ($file) {
+                        \Storage::disk('public')->delete($file);
+                    })
                     ->label('Галерея моделі'),
                 TextInput::make('order')
                     ->label('Порядок відображення')
@@ -112,7 +115,30 @@ class ModelsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function (Models $record) {
+                        if ($record->images) {
+                            foreach ($record->images as $image) {
+                                if ($image->image) {
+                                    \Storage::disk('public')->delete($image->image);
+                                }
+                            }
+                        }
+                    }),
+                Tables\Actions\Action::make('clear_gallery')
+                    ->label('Очистити галерею')
+                    ->icon('heroicon-o-trash')
+                    ->requiresConfirmation()
+                    ->action(function (Models $record) {
+                        if ($record->images) {
+                            foreach ($record->images as $image) {
+                                if ($image->image) {
+                                    \Storage::disk('public')->delete($image->image);
+                                    $image->delete();
+                                }
+                            }
+                        }
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

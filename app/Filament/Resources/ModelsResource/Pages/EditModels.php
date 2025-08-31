@@ -13,7 +13,16 @@ class EditModels extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->before(function ($record) {
+                    if ($record->images) {
+                        foreach ($record->images as $image) {
+                            if ($image->image) {
+                                \Storage::disk('public')->delete($image->image);
+                            }
+                        }
+                    }
+                }),
         ];
     }
 }
