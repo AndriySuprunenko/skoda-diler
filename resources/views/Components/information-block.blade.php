@@ -67,7 +67,7 @@
                 </div>
                 <div class="w-full max-w-[300px]">
                     <x-button style="emerald"
-                        click="$dispatch('open-modal', { type: 'price', value: '{{ $model->name }}', price: '{{ $model->price }}' })">
+                        click="$dispatch('open-modal', { type: 'price', value: '{{ $model->name }}', price: '{{ Storage::url($model->price) }}' })">
                         Завантажити прайс
                     </x-button>
                 </div>

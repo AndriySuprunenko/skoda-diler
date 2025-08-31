@@ -43,10 +43,15 @@ class ModelsResource extends Resource
                     ->label('Коробка передач')
                     ->nullable()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('price')
-                    ->label('Прайс')
+                Forms\Components\FileUpload::make('price')
+                    ->label('Прайс-лист')
                     ->nullable()
-                    ->maxLength(255),
+                    ->directory('models/prices')
+                    ->deletable(true)
+                    ->downloadable(true)
+                    ->deleteUploadedFileUsing(function ($file) {
+                        \Storage::disk('public')->delete($file);
+                    }),
                 Forms\Components\TextInput::make('engine_capacity')
                     ->label('Обʼєм двигуна')
                     ->nullable()
@@ -118,6 +123,9 @@ class ModelsResource extends Resource
                             foreach ($record->images as $image) {
                                 if ($image->image) {
                                     \Storage::disk('public')->delete($image->image);
+                                }
+                                if ($record->price) {
+                                    \Storage::disk('public')->delete($record->price);
                                 }
                             }
                         }
