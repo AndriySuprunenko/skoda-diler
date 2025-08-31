@@ -8,7 +8,7 @@
     <meta property="og:description" content="ТОВ Автоцентр-Кременчук-2012 Офіційний дилер автомобілів ŠKODA в м. Кременчук">
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ Storage::url('main.webp') }}">
+    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
 
     <!-- Structured Data -->
     <script type="application/ld+json">

@@ -6,6 +6,8 @@
     }
     $otherCars = \App\Models\StockCars::where('id', '!=', $carId)->where('status', '!=', 'sold')->get();
     $name = $car->name ?? 'Автомобіль на складі';
+
+    $contentPhoto = $car->gallery[0] ?? '/images/no-car.webp';
 @endphp
 
 @section('title', $name)
@@ -20,7 +22,7 @@
         content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ Storage::url($car->gallery[0]) }}">
+    <meta property="og:image" content="{{ Storage::url($contentPhoto) }}">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -54,7 +56,7 @@
                 }
 
                 // Безпечне отримання зображення
-                $img = asset('images/no-car.webp'); // значення за замовчуванням
+                $img = Storage::url('/images/no-car.webp'); // значення за замовчуванням
                 if (!empty($gallery) && isset($gallery[0]) && !empty($gallery[0])) {
                     $img = Storage::url($gallery[0]);
                 }
@@ -66,12 +68,20 @@
                 <div class="swiper modelSwiper-{{ $car->id }}">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        @foreach ($gallery as $image)
+                        @if (empty($gallery))
                             <div class="swiper-slide">
-                                <img src="{{ Storage::url($image) }}" alt="Фото автомобіля {{ $car->name }}"
-                                    loading="lazy" class="w-full h-[300px] md:h-[630px] object-cover object-center">
+                                <img src="{{ Storage::url('/images/no-car.webp') }}"
+                                    alt="Фото автомобіля {{ $car->name }}" loading="lazy"
+                                    class="w-full h-[300px] md:h-[630px] object-cover object-center">
                             </div>
-                        @endforeach
+                        @else
+                            @foreach ($gallery as $image)
+                                <div class="swiper-slide">
+                                    <img src="{{ Storage::url($image) }}" alt="Фото автомобіля {{ $car->name }}"
+                                        loading="lazy" class="w-full h-[300px] md:h-[630px] object-cover object-center">
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                     <!-- Navigation buttons -->
                     <div class="swiper-button-next after:text-skoda-emerald-green"></div>

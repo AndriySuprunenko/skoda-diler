@@ -27,7 +27,7 @@
         }
 
         // Безпечне отримання зображення
-        $img = asset('images/no-car.jpg'); // значення за замовчуванням
+        $img = Storage::url('/images/no-car.webp'); // значення за замовчуванням
         if (!empty($gallery) && isset($gallery[0]) && !empty($gallery[0])) {
             $img = Storage::url($gallery[0]);
         }

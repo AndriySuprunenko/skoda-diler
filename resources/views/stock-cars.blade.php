@@ -8,7 +8,7 @@
         content="Авто на складі Škoda в Кременчуці. Широкий вибір моделей та вигідні умови покупки.">
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ asset('images/stock-cars-og.jpg') }}">
+    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
