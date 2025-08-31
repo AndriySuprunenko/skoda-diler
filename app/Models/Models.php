@@ -16,6 +16,7 @@ class Models extends Model
         'price',
         'colors',
         'url',
+        'order',
     ];
 
     protected $casts = [

@@ -1,17 +1,17 @@
 @php
-    $models = \App\Models\Models::get();
+    $models = \App\Models\Models::orderBy('order')->get();
 @endphp
 
 <div class="flex flex-col justify-around lg:p-8 w-full text-start">
     @foreach ($models as $model)
         @php
-            $reverse = $model->id % 2 == 0 ? 'flex-col lg:flex-row-reverse' : '';
+            $reverse = $model->order % 2 == 0 ? 'flex-col lg:flex-row-reverse' : '';
             $roundedBl =
-                $model->id % 2 == 0
+                $model->order % 2 == 0
                     ? 'rounded-b-xl lg:rounded-br-none lg:rounded-l-xl'
                     : 'rounded-b-xl lg:rounded-bl-none lg:rounded-r-xl';
             $roundedImg =
-                $model->id % 2 == 0
+                $model->order % 2 == 0
                     ? 'rounded-t-xl lg:rounded-tl-none lg:rounded-r-xl '
                     : 'rounded-t-xl lg:rounded-tr-none lg:rounded-l-xl ';
         @endphp

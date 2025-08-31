@@ -13,6 +13,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\TextInput;
 
 class ModelsResource extends Resource
 {
@@ -82,6 +83,13 @@ class ModelsResource extends Resource
                     ])
                     ->collapsible()
                     ->label('Галерея моделі'),
+                TextInput::make('order')
+                    ->label('Порядок відображення')
+                    ->numeric()
+                    ->default(1)
+                    ->required()
+                    ->minValue(1)
+                    ->maxValue(10)
             ]);
     }
 
