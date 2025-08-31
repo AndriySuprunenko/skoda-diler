@@ -82,9 +82,6 @@ class ModelsResource extends Resource
                             ->required(),
                     ])
                     ->collapsible()
-                    ->deleteUploadedFileUsing(function ($file) {
-                        \Storage::disk('public')->delete($file);
-                    })
                     ->label('Галерея моделі'),
                 TextInput::make('order')
                     ->label('Порядок відображення')
