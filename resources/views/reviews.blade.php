@@ -38,7 +38,7 @@
             @foreach ($clients as $client)
                 <li>
                     <img src="{{ Storage::url($client->photo) }}"
-                        class="w-[200px] h-[200px] object-cover object-center cursor-pointer" />
+                        class="w-[200px] h-[200px] object-cover object-center cursor-pointer" loading="lazy" />
                 </li>
             @endforeach
         </ul>
