@@ -46,7 +46,12 @@ class ClientsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(function (Clients $record) {
+                        if ($record->photo) {
+                            \Storage::disk('public')->delete($record->photo);
+                        }
+                    }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

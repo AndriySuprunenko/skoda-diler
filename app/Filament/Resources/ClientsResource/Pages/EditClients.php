@@ -13,7 +13,12 @@ class EditClients extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->before(function ($record) {
+                    if ($record->photo) {
+                        \Storage::disk('public')->delete($record->photo);
+                    }
+                }),
         ];
     }
 }
