@@ -20,8 +20,8 @@
                     @endphp
                     <div
                         class="absolute top-6 left-1 md:top-12 md:left-15 flex flex-col gap-4 max-w-2xl lg:max-w-4xl text-center md:text-left">
-                        <h1 class="text-2xl md:text-6xl font-bold {{ 'text-skoda-' . $color }}">{{ $slider->title }}
-                        </h1>
+                        <h2 class="text-2xl md:text-6xl font-bold {{ 'text-skoda-' . $color }}">{{ $slider->title }}
+                        </h2>
                         <x-text.subtitle color="{{ $color }}">{{ $slider->description }}</x-text.subtitle>
                         @php
                             $items = [
