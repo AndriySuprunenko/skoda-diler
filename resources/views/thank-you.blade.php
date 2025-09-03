@@ -16,15 +16,15 @@
     <x-section class="text-center">
         <x-text.main-title>Дякуємо що залишили заявку</x-text.main-title>
         <x-text.subtitle>Ми скоро з вами звʼяжемось</x-text.subtitle>
-        <div class="max-w-[300px] m-auto mt-6">
-            <x-link href="/"> Повернутися на головну</x-link>
-        </div>
         @if (request()->has('price'))
             <div class="max-w-[300px] m-auto mt-4">
-                <x-link style="outline" :href="request()->get('price')" target="_blank">
+                <x-link :href="request()->get('price')" target="_blank">
                     Завантажити прайс
                 </x-link>
             </div>
         @endif
+        <div class="max-w-[300px] m-auto mt-6">
+            <x-link style="outline" href="/"> Повернутися на головну</x-link>
+        </div>
     </x-section>
 </x-layout>
