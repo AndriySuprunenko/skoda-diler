@@ -1,4 +1,4 @@
-<div x-data="{ open: false, value: '', phone: '', phoneStarted: false, isSubmitting: false, errors: {}, priceUrl: '', phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }"
+<div x-data="{ open: false, value: '', phone: '', phoneStarted: false, priceUrl: '' }"
     @open-modal.window="if ($event.detail?.type === '{{ $type }}') { open = true; value = $event.detail?.value || ''; priceUrl = $event.detail?.price || ''; }"
     @close-modal.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -58,66 +58,31 @@
                     </div>
                     <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                         <form x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
-                            @submit.prevent="
-                                if (isSubmitting) return;
-                                errors = {};
-                                if (!name?.trim()) errors.name = true;
-                                if (!phone?.trim()) errors.phone = true;
-                                else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера';
-                                if (Object.keys(errors).length === 0) {
-                                    isSubmitting = true;
-
-                                    const formData = new FormData($refs.form);
-                                    fetch($refs.form.action, {
-                                        method: 'POST',
-                                        body: formData,
-                                        headers: {
-                                            'X-CSRF-TOKEN': formData.get('_token')
-                                        }
-                                    })
-                                    .then(res => res.json())
-                                    .then(data => {
-                                        if (data.price_url) {
-                                            const newTab = window.open(data.price_url, '_blank');
-                                        }
-                                        if (data.redirect) {
-                                            window.location.href = data.redirect;
-                                        }
-                                    })
-                                    .catch(() => isSubmitting = false);
-                                }
-                            "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                             @csrf
                             <input type="hidden" name="type" :value="value">
                             <div>
-                                <label for="name" class="block text-base font-medium"
-                                    :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'"><span
-                                        x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span> </label>
+                                <label for="name"
+                                    class="block text-base font-medium {{ $config['textColor'] }}">Імʼя</label>
                                 <div class="mt-2"> <input type="text" name="name" id="name" x-ref="name"
-                                        x-model="name" autocomplete="name" :disabled="isSubmitting"
-                                        @input="if (errors.name) delete errors.name"
-                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
-                                        :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
-                                            '{{ $config['outlineColor'] }}'" />
+                                        x-model="name" autocomplete="name"
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                        {{ $config['outlineColor'] }} />
                                 </div>
                             </div>
-                            <div> <label for="phone" class="block text-base font-medium"
-                                    :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'"> <span
-                                        x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
-                                </label>
+                            <div> <label for="phone"
+                                    class="block text-base font-medium {{ $config['textColor'] }}">Номер
+                                    телефону</label>
                                 <div class="mt-0 md:mt-2 mb-4">
                                     <input type="tel" name="phone" id="phone" x-model="phone"
-                                        autocomplete="tel" :disabled="isSubmitting" maxlength="13" minlength="10"
+                                        autocomplete="tel" maxlength="13" minlength="10"
                                         @keydown="
     if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {
       $event.preventDefault();
     }
   "
-                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
-                                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
-                                            '{{ $config['outlineColor'] }}'"
-                                        placeholder="+38(XXX)XXX-XX-XX" />
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
+                                        {{ $config['outlineColor'] }}" placeholder="+38(XXX)XXX-XX-XX" />
                                 </div>
                                 <x-checkbox name="no_call" text="Не телефонуйте мені"
                                     color="{{ $config['textColor'] }}" />
@@ -133,8 +98,7 @@
                             <input type="hidden" name="price_url" :value="priceUrl">
                             <div class="w-fit mx-auto mb-6 md:mb-0">
                                 <x-button type="submit">
-                                    <span x-show="!isSubmitting">Відправити</span>
-                                    <span x-show="isSubmitting">Відправляю...</span>
+                                    Відправити
                                 </x-button>
                             </div>
                         </form>

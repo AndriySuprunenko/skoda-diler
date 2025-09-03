@@ -19,5 +19,12 @@
         <div class="max-w-[300px] m-auto mt-6">
             <x-link href="/"> Повернутися на головну</x-link>
         </div>
+        @if (request()->has('price'))
+            <div class="max-w-[300px] m-auto mt-4">
+                <x-link style="outline" :href="request()->get('price')" target="_blank">
+                    Завантажити прайс
+                </x-link>
+            </div>
+        @endif
     </x-section>
 </x-layout>

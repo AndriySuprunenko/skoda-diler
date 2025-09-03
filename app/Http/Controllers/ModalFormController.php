@@ -70,10 +70,9 @@ class ModalFormController extends Controller
             } catch (\Throwable $e) {
             }
 
-            return response()->json([
-                'redirect' => '/thank-you',
-                'price_url' => $request->filled('price_url') ? $request->input('price_url') : null,
-            ]);
+            return redirect()->to('/thank-you' . ($request->filled('price_url')
+                ? '?price=' . urlencode($request->input('price_url'))
+                : ''));
         } catch (\Throwable $e) {
             return response()->json(['error' => 'Щось пішло не так'], 500);
         }
