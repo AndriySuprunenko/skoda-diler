@@ -17,6 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     @vite('resources/css/app.css')
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body class="font-sans w-full min-h-screen flex flex-col bg-skoda-white" x-data="{ open: false }">
@@ -26,9 +31,9 @@
     </main>
     <x-footer />
 
-    <x-modal type='test-drive' />
-    <x-modal type='consultation' />
-    <x-modal type='price' />
+    <x-modal type='test-drive' x-cloak />
+    <x-modal type='consultation' x-cloak />
+    <x-modal type='price' x-cloak />
 
     {{-- UTM мітки --}}
     <script>
