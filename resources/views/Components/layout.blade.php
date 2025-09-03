@@ -122,7 +122,7 @@
     </script>
 
     {{-- Повідомлення про збирання cookies --}}
-    <div id="cookie-banner"
+    <div id="cookie-banner" x-cloak
         class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-skoda-emerald-green text-white text-sm md:text-base px-6 py-4 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 z-50 w-full md:w-auto max-w-7xl rounded-xl border-2 border-skoda-electric-green">
         <span>Ми використовуємо cookie для покращення роботи сайту. Продовжуючи, ви погоджуєтесь.</span>
         <button id="accept-cookies"
