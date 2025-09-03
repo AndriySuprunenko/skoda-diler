@@ -235,7 +235,7 @@
     </x-section>
 
     @if (!empty($car->description))
-        <div class="bg-skoda-white p-12 flex flex-col gap-8 items-center">
+        <div class="bg-skoda-white p-4 md:p-12 flex flex-col gap-8 items-center">
             <x-text.title color="emerald-green">Опис автомобіля</x-text.title>
             <div class="prose w-full max-w-5xl m-auto p-8 rounded-2xl bg-skoda-white border-4 border-skoda-emerald-green text-skoda-emerald-green"
                 id="car-description">
