@@ -81,8 +81,8 @@
             </ul>
 
             <x-text.title>Технічні характеристики:</x-text.title>
-            <img src="{{ Storage::url('/images/models/kamiq/kamiq_1.webp') }}" alt="Kamiq sizes"
-                class="my-16 max-w-[400px]" loading="lazy" />
+            <img src="{{ Storage::url('/images/models/kamiq/kamiq_1.webp') }}" alt="Kamiq sizes" class="my-16"
+                loading="lazy" />
             <a href="{{ Storage::url('/images/models/kamiq/Broshura_Kamiq.pdf') }}" target="_blank"
                 class="text-skoda-emerald-green cursor-pointer text-2xl underline mb-16">
                 Більше про Kamiq
