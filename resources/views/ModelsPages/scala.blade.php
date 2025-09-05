@@ -68,21 +68,13 @@
                 <li><x-text.text> - Сучасна мультимедійна система з інтеграцією смартфона.</x-text.text></li>
             </ul>
 
-            <x-text.title>Чому варто обрати Škoda Scala у Кременчуці</x-text.title>
-            <ul class="mb-16 mt-2">
-                <li><x-text.text> - Універсальний формат: <strong>міський хетчбек + авто для
-                            подорожей</strong>.</x-text.text>
-                </li>
-                <li><x-text.text> - Сучасні технології при доступній ціні.</x-text.text></li>
-                <li><x-text.text> - Простота у керуванні та паркуванні.</x-text.text></li>
-                <li><x-text.text> - Можливість <strong>вигідного придбання</strong> по трейд-ін, кредиту або
-                        лізингу.</x-text.text></li>
-                <li><x-text.text> - <strong>Офіційний сервіс у місті</strong> для ТО та ремонту.</x-text.text></li>
-            </ul>
-
             <x-text.title>Технічні характеристики:</x-text.title>
             <img src="{{ Storage::url('/images/models/scala/scala_1.webp') }}" alt="Scala sizes" class="my-16"
                 loading="lazy" />
+            <a href="{{ Storage::url('/images/models/scala/Broshura_Scala.pdf') }}" target="_blank"
+                class="text-skoda-emerald-green cursor-pointer text-2xl underline mb-16">
+                Більше про Scala
+            </a>
         </x-section>
     </div>
     <x-section class="text-center bg-skoda-electric-green">
