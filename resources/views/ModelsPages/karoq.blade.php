@@ -71,18 +71,6 @@
                 <li><x-text.text> - Опційний повний привід (4x4) для любителів пригод.</x-text.text></li>
             </ul>
 
-            <x-text.title>Чому варто обрати Škoda Karoq у Кременчуці</x-text.title>
-            <ul class="mb-16 mt-2">
-                <li><x-text.text> - Універсальний формат: <strong>міський кросовер + авто для
-                            подорожей</strong>.</x-text.text>
-                </li>
-                <li><x-text.text> - Сучасні технології при доступній ціні.</x-text.text></li>
-                <li><x-text.text> - Простота у керуванні та паркуванні.</x-text.text>
-                </li>
-                <li><x-text.text> - Можливість вигідного придбання по <strong>трейд-ін, кредиту або
-                            лізингу</strong>.</x-text.text></li>
-            </ul>
-
             <x-text.title>Технічні характеристики:</x-text.title>
             <img src="{{ Storage::url('/images/models/karoq/karoq_1.webp') }}" alt="Karoq sizes" class="my-16"
                 loading="lazy" />
