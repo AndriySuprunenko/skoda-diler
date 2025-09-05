@@ -69,6 +69,10 @@
             <x-text.title>Технічні характеристики:</x-text.title>
             <img src="{{ Storage::url('/images/models/fabia/fabia_1.webp') }}" alt="Fabia sizes" class="my-16"
                 loading="lazy" />
+            <a href="{{ Storage::url('/images/models/fabia/Broshura_Fabia.pdf') }}" target="_blank"
+                class="text-skoda-emerald-green cursor-pointer text-2xl underline mb-16">
+                Більше про Fabia
+            </a>
         </x-section>
     </div>
     {{-- Інші моделі --}}

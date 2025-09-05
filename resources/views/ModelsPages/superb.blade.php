@@ -82,6 +82,11 @@
                 <li><x-text.text> - Офіційний сервіс Škoda у місті для техобслуговування та ремонту</x-text.text></li>
             </ul>
 
+            <a href="{{ Storage::url('/images/models/superb/Katalog_Superb.pdf') }}" target="_blank"
+                class="text-skoda-emerald-green cursor-pointer text-2xl underline mb-16">
+                Більше про Superb
+            </a>
+
             <x-video url="https://www.youtube.com/watch?v=9qFS9z30ITw" />
         </x-section>
     </div>

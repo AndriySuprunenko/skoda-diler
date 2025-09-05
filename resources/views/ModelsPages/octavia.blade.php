@@ -70,14 +70,10 @@
                 <li><x-text.text> - Висока ефективність, низькі витрати пального</x-text.text></li>
             </ul>
 
-            <x-text.title>Чому обрати Škoda Octavia у Кременчуці</x-text.title>
-            <ul class="mb-16 mt-2">
-                <li><x-text.text> - Комфортний автомобіль для міста та подорожей</x-text.text></li>
-                <li><x-text.text> - Сучасні технології, що роблять керування простим і приємним</x-text.text></li>
-                <li><x-text.text> - Можливість придбання по <strong>трейд-ін, кредиту або лізингу</strong></x-text.text>
-                </li>
-                <li><x-text.text> - Легкий доступ до сервісу та підтримка дилера Škoda</x-text.text></li>
-            </ul>
+            <a href="{{ Storage::url('/images/models/octavia/Katalog_Octavia.pdf') }}" target="_blank"
+                class="text-skoda-emerald-green cursor-pointer text-2xl underline mb-16">
+                Більше про Octavia
+            </a>
 
             <x-video url="https://www.youtube.com/watch?v=0EIE8yrHN7w" />
         </x-section>
