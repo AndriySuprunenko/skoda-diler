@@ -47,7 +47,7 @@
                 </label>
                 <div>
                     <input type="tel" name="phone" id="phone" x-model="phone" autocomplete="tel"
-                        :disabled="isSubmitting" maxlength="13" minlength="10"
+                        :disabled="isSubmitting" maxlength="15" minlength="10"
                         @keydown="
     if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {
       $event.preventDefault();

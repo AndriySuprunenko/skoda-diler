@@ -75,7 +75,7 @@
                                     телефону</label>
                                 <div class="mt-0 md:mt-2 mb-4">
                                     <input type="tel" name="phone" id="phone" x-model="phone"
-                                        autocomplete="tel" maxlength="13" minlength="10"
+                                        autocomplete="tel" maxlength="15" minlength="10"
                                         @keydown="
     if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {
       $event.preventDefault();
