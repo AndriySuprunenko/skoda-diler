@@ -58,31 +58,54 @@
                     </div>
                     <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                         <form x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
+                            x-data="{ name: '', phone: '', errors: {}, isSubmitting: false }"
+                            @submit.prevent="
+        errors = {};
+        if (!name.trim()) errors.name = 'Це поле є обовʼязковим';
+        if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим';
+        if (Object.keys(errors).length === 0) $el.submit();
+      "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                             @csrf
                             <input type="hidden" name="type" :value="value">
+
+                            <!-- Імʼя -->
                             <div>
-                                <label for="name"
-                                    class="block text-base font-medium {{ $config['textColor'] }}">Імʼя</label>
-                                <div class="mt-2"> <input type="text" name="name" id="name" x-ref="name"
-                                        x-model="name" autocomplete="name"
+                                <label for="name" class="block text-base font-medium"
+                                    :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'">
+                                    <span x-text="errors.name ? errors.name : 'Імʼя'"></span>
+                                </label>
+                                <div class="mt-2">
+                                    <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                                        autocomplete="name" :disabled="isSubmitting"
+                                        @input="if (errors.name) delete errors.name"
+                                        @blur="if (!name.trim()) errors.name = 'Це поле є обовʼязковим'"
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                        {{ $config['outlineColor'] }} />
+                                        :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
+                                            '{{ $config['outlineColor'] }}'" />
                                 </div>
                             </div>
-                            <div> <label for="phone"
-                                    class="block text-base font-medium {{ $config['textColor'] }}">Номер
-                                    телефону</label>
-                                <div class="mt-0 md:mt-2 mb-4">
+
+                            <!-- Телефон -->
+                            <div class="mt-4">
+                                <label for="phone" class="block text-base font-medium"
+                                    :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'">
+                                    <span x-text="errors.phone ? errors.phone : 'Номер телефону'"></span>
+                                </label>
+                                <div class="mt-2 md:mt-2 mb-4">
                                     <input type="tel" name="phone" id="phone" x-model="phone"
-                                        autocomplete="tel" maxlength="17" minlength="10"
+                                        autocomplete="tel" maxlength="17" minlength="10" :disabled="isSubmitting"
+                                        @input="if (errors.phone) delete errors.phone"
+                                        @blur="if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим'"
                                         @keydown="
-    if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {
-      $event.preventDefault();
-    }
-  "
+                       if (!['Backspace','Delete','ArrowLeft','ArrowRight','Tab','+','(',')','-'].includes($event.key) && !/\d/.test($event.key)) {
+                           $event.preventDefault();
+                       }
+                   "
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
-                                        {{ $config['outlineColor'] }}" placeholder="+38(XXX)XXX-XX-XX" />
+                                        :class="errors.phone ? 'outline-red-500 focus:outline-red-500' :
+                                            '{{ $config['outlineColor'] }}'"
+                                        placeholder="+38(XXX)XXX-XX-XX" />
                                 </div>
                                 <x-checkbox name="no_call" text="Не телефонуйте мені"
                                     color="{{ $config['textColor'] }}" />
