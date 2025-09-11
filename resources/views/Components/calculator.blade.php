@@ -2,46 +2,67 @@
     <div class="mb-4">
         <label for="car_model" class="block  text-skoda-emerald-green font-semibold mb-2">Модель
             авто:</label>
-        <select id="car_model"
-            class="appearance-none w-full border border-gray-300 bg-skoda-white text-skoda-emerald-green rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
-            <option value="Skoda Octavia" data-price="1148648">Skoda Octavia</option>
-            <option value="Skoda Kodiaq" data-price="1680112">Skoda Kodiaq</option>
-            <option value="Skoda Superb" data-price="1621822">Skoda Superb</option>
-            <option value="Skoda Kamiq" data-price="936405">Skoda Kamiq</option>
-            <option value="Skoda Scala" data-price="896159">Skoda Scala</option>
-            <option value="Skoda Fabia" data-price="754250">Skoda Fabia</option>
-            <option value="Skoda Karoq" data-price="1271956">Skoda Karoq</option>
-        </select>
+        <div class="relative">
+            <select id="car_model"
+                class="appearance-none w-full border border-gray-300 bg-skoda-white text-skoda-emerald-green rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
+                <option value="Skoda Octavia" data-price="1148648">Skoda Octavia</option>
+                <option value="Skoda Kodiaq" data-price="1680112">Skoda Kodiaq</option>
+                <option value="Skoda Superb" data-price="1621822">Skoda Superb</option>
+                <option value="Skoda Kamiq" data-price="936405">Skoda Kamiq</option>
+                <option value="Skoda Scala" data-price="896159">Skoda Scala</option>
+                <option value="Skoda Fabia" data-price="754250">Skoda Fabia</option>
+                <option value="Skoda Karoq" data-price="1271956">Skoda Karoq</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <svg class="w-5 h-5 text-skoda-emerald-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
     </div>
 
     <div class="mb-4">
         <label for="advance_percent" class="block text-skoda-emerald-green font-semibold mb-2">Аванс (%):</label>
-        <select id="advance_percent"
-            class="appearance-none w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
-            <option value="0">0%</option>
-            <option value="10">10%</option>
-            <option value="20">20%</option>
-            <option value="30">30%</option>
-            <option value="40">40%</option>
-            <option value="50">50%</option>
-            <option value="60">60%</option>
-            <option value="70">70%</option>
-            <option value="80">80%</option>
-        </select>
+        <div class="relative">
+            <select id="advance_percent"
+                class="appearance-none w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
+                <option value="0">0%</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+                <option value="60">60%</option>
+                <option value="70">70%</option>
+                <option value="80">80%</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <svg class="w-5 h-5 text-skoda-emerald-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
     </div>
 
     <div class="mb-8">
         <label for="months" class="block text-skoda-emerald-green font-semibold mb-2">Кількість років:</label>
-        <select id="months"
-            class="appearance-none w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
-            <option value="12">1 рік</option>
-            <option value="24">2 роки</option>
-            <option value="36">3 роки</option>
-            <option value="48">4 роки</option>
-            <option value="60">5 років</option>
-            <option value="72">6 років</option>
-            <option value="84">7 років</option>
-        </select>
+        <div class="relative">
+            <select id="months"
+                class="appearance-none w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
+                <option value="12">1 рік</option>
+                <option value="24">2 роки</option>
+                <option value="36">3 роки</option>
+                <option value="48">4 роки</option>
+                <option value="60">5 років</option>
+                <option value="72">6 років</option>
+                <option value="84">7 років</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <svg class="w-5 h-5 text-skoda-emerald-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
     </div>
 
     <x-button style="emerald" onclick="calculate()">Розрахувати</x-button>
