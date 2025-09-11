@@ -9,7 +9,7 @@
     <meta property="og:description" content="Обмін старого автомобіля на новий Škoda в Кременчуці">
     <meta property="og:type" content="financial.product">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ Storage::url('main.webp') }}">
+    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
 @endsection
 
 <x-layout>
