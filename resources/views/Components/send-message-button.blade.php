@@ -72,7 +72,7 @@
 
     <div x-show="open" @click.away="open = false"
         class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-2 space-y-2">
-        <a href="https://t.me/YOUR_USERNAME" target="_blank"
+        <a href="https://t.me/skodaKremenchuk" target="_blank"
             class="flex items-center gap-2 text-blue-500 hover:text-blue-700">
             <!-- Telegram Icon -->
             <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/telegram.png') }}" alt="Telegram">
