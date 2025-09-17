@@ -16,8 +16,7 @@
             <span class="px-2 py-1 text-md rounded bg-orange-100 text-orange-700">Гаряча
                 пропозиція</span>
         @elseif($car->status === 'in_delivery')
-            <span class="px-2 py-1 text-md rounded bg-purple-100 text-purple-700">В
-                поставці</span>
+            <span class="px-2 py-1 text-md rounded bg-purple-100 text-purple-700">Очікується в салоні</span>
         @endif
 
         @if ($car->condition === 'new')

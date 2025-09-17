@@ -40,7 +40,7 @@
                 <button @click="tab = 'new'"
                     :class="tab === 'new' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
-                    class="px-6 py-2 font-medium transition rounded-l-lg border-r-0"
+                    class="px-6 py-2 font-medium transition rounded-l-lg border-r-0 cursor-pointer"
                     aria-label="Показати нові автомобілі">
                     Нові авто ({{ $newCars->count() }})
                 </button>
@@ -48,7 +48,8 @@
                 <button @click="tab = 'used'"
                     :class="tab === 'used' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
-                    class="px-6 py-2 font-medium transition rounded-r-lg" aria-label="Показати вживані автомобілі">
+                    class="px-6 py-2 font-medium transition rounded-r-lg cursor-pointer"
+                    aria-label="Показати вживані автомобілі">
                     Вживані авто ({{ $usedCars->count() }})
                 </button>
             </div>
