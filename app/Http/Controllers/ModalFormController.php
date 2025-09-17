@@ -37,7 +37,7 @@ class ModalFormController extends Controller
 
             // Відправка пошти
             try {
-                Mail::to('suprunenko.andriy@gmail.com')->send(new ModalFormRequest($validated, $contactMethods, $utm));
+                Mail::to('salon@skoda-kremen.com.ua')->send(new ModalFormRequest($validated, $contactMethods, $utm));
             } catch (\Throwable $e) {
             }
 
