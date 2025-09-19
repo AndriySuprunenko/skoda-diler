@@ -34,17 +34,18 @@ class BannerResource extends Resource
                 Select::make('button_type')
                     ->label('Оберіть тип форми')
                     ->options([
-                        'price' => 'Скачати прайс',
                         'test-drive' => 'Записатися на тест-драйв',
                         'consultation' => 'Консультація',
-                    ]),
+                    ])
+                    ->default('consultation'),
                 Select::make('text_color')
                     ->label('Оберіть колір тексту')
                     ->options([
                         'white' => 'Білий',
                         'black' => 'Чорний',
                         'green' => 'Зелений',
-                    ]),
+                    ])
+                    ->default('white'),
                 Textarea::make('description')->label('Текст')->rows(3),
                 TextInput::make('item_one')
                     ->label('Пункт Один')
