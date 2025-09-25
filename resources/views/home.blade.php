@@ -32,7 +32,8 @@
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Продаж автомобілів"
-                    description="Широкий модельний ряд Škoda та пропозиції авто з пробігом на різний бюджет." />
+                    description="Широкий модельний ряд Škoda та пропозиції авто з пробігом на різний бюджет."
+                    link='stock-cars' />
             </li>
             <li class="w-full max-w-[600px]">
                 <x-service-card title="Кредитування"
