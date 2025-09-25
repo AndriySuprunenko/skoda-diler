@@ -25,7 +25,7 @@
 @endsection
 
 @php
-    $cars = \App\Models\StockCars::orderBy('created_at', 'desc')->get();
+    $cars = \App\Models\StockCars::orderBy('updated_at', 'desc')->get();
     $newCars = $cars->where('condition', 'new');
     $usedCars = $cars->where('condition', 'used');
 @endphp
