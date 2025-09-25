@@ -31,11 +31,11 @@
 
 <x-layout>
     <div>
-        <img src="{{ Storage::url('images/kredit/kredit.jpg') }}" alt="Зображення кредитної програми Škoda"
+        <img src="{{ Storage::url('images/kredit/credit.webp') }}" alt="Кредитна програми Škoda"
             class="w-full h-auto" />
     </div>
     <div class="text-center my-4 md:my-8">
-        <x-text.title>Основні переваги кредитної програми Škoda</x-text.title>
+        <x-text.title>Кредитування Škoda — вигідні програми для фізичних та юридичних осіб</x-text.title>
     </div>
     <div class="max-w-4xl mx-auto">
         <x-section>
