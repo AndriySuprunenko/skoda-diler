@@ -56,15 +56,7 @@ class StockCarsResource extends Resource
                 Forms\Components\FileUpload::make('gallery')
                     ->label('Галерея')
                     ->multiple()
-                    ->image()
-                    ->nullable()
-                    ->deletable(true)
-                    ->downloadable(true)
                     ->directory('cars')
-                    ->imageEditor()
-                    ->imageResizeMode('cover')
-                    ->imageResizeTargetWidth('1920')
-                    ->imageResizeTargetHeight('1080')
                     ->deleteUploadedFileUsing(function ($file) {
                         \Storage::disk('public')->delete($file);
                     }),
