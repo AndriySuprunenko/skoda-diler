@@ -14,8 +14,6 @@
 @section('meta')
     <meta name="description"
         content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
-    <meta name="keywords" content="{{ $car->name }}, автомобіль, стиль, комфорт, технології, Škoda Кременчук">
-
     <!-- Open Graph мета-теги -->
     <meta property="og:title" content="{{ $car->name }}">
     <meta property="og:description"
@@ -23,21 +21,6 @@
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($contentPhoto) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "{{ $car->name }}",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.",
-    }
-    </script>
 @endsection
 
 <x-layout>
