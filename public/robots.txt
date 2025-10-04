@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+

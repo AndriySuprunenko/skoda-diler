@@ -1,29 +1,14 @@
 @section('title', 'Головна')
 @section('meta')
-    <meta name="description" content="ТОВ Автоцентр-Кременчук-2012">
-    <meta name="keywords" content="Škoda, Автоцентр, Автомобілі">
-
+    <meta name="description"
+        content="Купуйте нові автомобілі Škoda в Україні — офіційний автосалон у Кременчуці. Широкий вибір моделей та комплектацій, вигідні акції, кредит та лізинг, обмін за програмою Trade-in.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="ТОВ Автоцентр-Кременчук-2012">
-    <meta property="og:description" content="ТОВ Автоцентр-Кременчук-2012 Офіційний дилер автомобілів ŠKODA в м. Кременчук">
-    <meta property="og:type" content="product">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Офіційний дилер Škoda у Кременчуці — Нові автомобілі та з пробігом">
+    <meta property="og:description"
+        content="Купуйте нові автомобілі Škoda в Україні — офіційний автосалон у Кременчуці. Широкий вибір моделей та комплектацій, вигідні акції, кредит та лізинг, обмін за програмою Trade-in.">
     <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "ТОВ Автоцентр-Кременчук-2012",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "ТОВ Автоцентр-Кременчук-2012 Офіційний дилер автомобілів ŠKODA в м. Кременчук",
-    }
-    </script>
 @endsection
 <x-layout>
     <x-banner />

@@ -5,30 +5,13 @@
 
 @section('title', 'Наші клієнти')
 @section('meta')
-    <meta name="description" content="Фото наших клієнтів">
-    <meta name="keywords" content="Фото, наші, клієнти">
-
+    <meta name="description"
+        content="Читайте відгуки реальних власників Škoda про покупку, обслуговування та сервіс у Кременчуці. Дізнайтеся досвід наших клієнтів офіційного дилера Škoda та запишіться на тест-драйв.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Наші клієнти">
-    <meta property="og:description" content="Фото наших клієнтів">
-    <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
+    <meta property="og:title" content="Відгуки клієнтів Škoda у Кременчуці – досвід покупців">
+    <meta property="og:description"
+        content="Читайте відгуки реальних власників Škoda про покупку, обслуговування та сервіс у Кременчуці. Дізнайтеся досвід наших клієнтів офіційного дилера Škoda та запишіться на тест-драйв.">
     <meta property="og:image" content="{{ Storage::url($photo->photo) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Наші клієнти",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Фото наших клієнтів",
-    }
-    </script>
 @endsection
 
 <x-layout>

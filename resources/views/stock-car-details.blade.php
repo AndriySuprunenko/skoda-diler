@@ -12,14 +12,17 @@
 
 @section('title', $name)
 @section('meta')
-    <meta name="description"
-        content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
-    <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="{{ $car->name }}">
-    <meta property="og:description"
-        content="{{ $car->name }} - це автомобіль, який поєднує в собі стиль, комфорт та передові технології.">
-    <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
+    @if ($car->condition === 'new')
+        <meta property="og:title"
+            content="Купити нову {{ $car->name }} {{ $car->color }} - ціна {{ $car->price }} ₴ в наявності у Кременчуці.">
+        <meta property="og:description"
+            content="Продаємо {{ $car->name }} зі складу у Кременчуці від офіційного дилера. @if (!empty($car->transmission)) "Коробка {{ $car->transmission }}." @endif @if (!empty($car->color)) "Колір – {{ $car->color }}." @endif Актуальна ціна {{ $car->price }} ₴. Можна в кредит">
+    @else
+        <meta property="og:title"
+            content="Купити вживаний {{ $car->name }} - ціна {{ $car->price }} ₴ в наявності у Кременчуці.">
+        <meta property="og:description"
+            content="За {{ $car->price }} купити перевірене авто з пробігом від офіційного дилера Škoda в м. Кременчук.">
+    @endif
     <meta property="og:image" content="{{ Storage::url($contentPhoto) }}">
 @endsection
 

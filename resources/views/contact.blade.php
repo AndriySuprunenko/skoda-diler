@@ -1,29 +1,12 @@
 @section('title', 'Контакти')
 @section('meta')
-    <meta name="description" content="ТОВ Автоцентр-Кременчук-2012">
-    <meta name="keywords" content="Škoda, Автоцентр, Автомобілі">
-
+    <meta name="description"
+        content="Зв'яжіться з офіційним дилером Škoda у Кременчуці: адреса салону, телефони та графік роботи. Отримайте консультацію, дізнайтеся про наявність авто та запишіться на тест-драйв.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="ТОВ Автоцентр-Кременчук-2012 Контакти">
-    <meta property="og:description" content="ТОВ Автоцентр-Кременчук-2012 Офіційний дилер автомобілів ŠKODA в м. Кременчук">
-    <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
+    <meta property="og:title" content="Контакти офіційного дилера Škoda у Кременчуці – адреса та телефон">
+    <meta property="og:description"
+        content="Зв'яжіться з офіційним дилером Škoda у Кременчуці: адреса салону, телефони та графік роботи. Отримайте консультацію, дізнайтеся про наявність авто та запишіться на тест-драйв.">
     <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "ТОВ Автоцентр-Кременчук-2012",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "ТОВ Автоцентр-Кременчук-2012 Офіційний дилер автомобілів ŠKODA в м. Кременчук",
-    }
-    </script>
 @endsection
 
 @php
@@ -32,7 +15,7 @@
 
 <x-layout>
     <x-section class="flex flex-col items-center">
-        <x-text.title>Контакти</x-Text.title>
+        <x-text.main-title>Контакти</x-text.main-title>
         <div class="flex gap-6 mt-5 flex-col md:flex-row justify-center w-full items-center">
             <x-map />
             <div class="w-full max-w-[300px] md:max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">

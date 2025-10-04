@@ -5,14 +5,12 @@
 @endphp
 
 @section('meta')
-    <meta name="description" content="Обміняйте свій автомобіль на нову Škoda — без зайвих турбот">
-    <meta name="keywords" content="trade-in, обмін автомобіля, Škoda, Кременчук, автомобіль">
-
+    <meta name="description"
+        content="Офіційний дилер Škoda у Кременчуці пропонує зручний обмін Trade-in. Обміняйте свій старий автомобіль на новий Škoda за вигідною ціною. Швидка оцінка та оформлення.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Trade-in на автомобілі Škoda">
-    <meta property="og:description" content="Обміняйте свій автомобіль на нову Škoda — без зайвих турбот">
-    <meta property="og:type" content="financial.product">
-    <meta property="og:site_name" content="Škoda Кременчук">
+    <meta property="og:title" content="Škoda Trade-in – обмін старого авто на новий автомобіль Škoda у Кременчуці">
+    <meta property="og:description"
+        content="Офіційний дилер Škoda у Кременчуці пропонує зручний обмін Trade-in. Обміняйте свій старий автомобіль на новий Škoda за вигідною ціною. Швидка оцінка та оформлення.">
     <meta property="og:image" content="{{ Storage::url('images/trade-in/trade-in.webp') }}">
 @endsection
 
