@@ -12,32 +12,13 @@
 
 @section('meta')
     <meta name="description"
-        content="Fabia - це компактний автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології.">
-    <meta name="keywords"
-        content="Fabia, Škoda, компактний автомобіль, стильний автомобіль, комфорт, технології, сімейний автомобіль">
-
+        content="Škoda Fabia – компактний хетчбек з низьким споживанням пального. Дізнайтеся про ціни, комплектації та вигідні пропозиції на Fabia в офіційного дилера Škoda у Кременчуці.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Fabia">
+    <meta property="og:title" content="Škoda Fabia – компактний хетчбек, купити у Кременчуці">
     <meta property="og:description"
-        content="Fabia - це компактний автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології.">
+        content="Škoda Fabia – компактний хетчбек з низьким споживанням пального. Дізнайтеся про ціни, комплектації та вигідні пропозиції на Fabia в офіційного дилера Škoda у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Fabia",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Fabia - це компактний автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології."
-    }
-    </script>
 @endsection
 
 <x-layout>

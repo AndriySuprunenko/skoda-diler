@@ -12,32 +12,13 @@
 
 @section('meta')
     <meta name="description"
-        content="Superb - це великий автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології.">
-    <meta name="keywords"
-        content="Superb, Škoda, великий автомобіль, стильний автомобіль, комфорт, технології, сімейний автомобіль">
-
+        content="Škoda Superb – просторий преміальний седан із інноваційними технологіями та розкішним інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує тест-драйв та вигідні ціни та умови купівлі нового Superb.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Superb">
+    <meta property="og:title" content="Škoda Superb – преміальний седан, купити у Кременчуці">
     <meta property="og:description"
-        content="Superb - це великий автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології.">
+        content="Škoda Superb – просторий преміальний седан із інноваційними технологіями та розкішним інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує тест-драйв та вигідні ціни та умови купівлі нового Superb.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Superb",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Superb - це великий автомобіль від Škoda, який поєднує в собі стиль, комфорт та передові технології."
-    }
-    </script>
 @endsection
 
 <x-layout>

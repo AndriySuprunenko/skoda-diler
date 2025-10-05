@@ -11,30 +11,14 @@
 @endphp
 
 @section('meta')
-    <meta name="description" content="Škoda Karoq — універсальний кросовер для міста та подорожей.">
-    <meta name="keywords" content=" Karoq, Škoda, кросовер, автомобіль, компактний SUV, комфорт, технології, стиль">
-
+    <meta name="description"
+        content="Škoda Karoq – сучасний кросовер з комфортною підвіскою та продуманим інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує різні комплектації Karoq за вигідними цінами та спеціальні пропозиції.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Karoq">
-    <meta property="og:description" content="Škoda Karoq — універсальний кросовер для міста та подорожей">
+    <meta property="og:title" content="Škoda Karoq – надійний кросовер, купити у Кременчуці">
+    <meta property="og:description"
+        content="Škoda Karoq – сучасний кросовер з комфортною підвіскою та продуманим інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує різні комплектації Karoq за вигідними цінами та спеціальні пропозиції.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Karoq",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Škoda Karoq — універсальний кросовер для міста та подорожей"
-    }
-    </script>
 @endsection
 
 <x-layout>

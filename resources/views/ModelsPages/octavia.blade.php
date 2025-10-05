@@ -12,31 +12,13 @@
 
 @section('meta')
     <meta name="description"
-        content="Škoda Octavia A8 - це новий рівень комфорту та технологій у класі компактних автомобілів.">
-    <meta name="keywords" content="Škoda Octavia A8, компактний автомобіль, нові технології, комфорт, Škoda Кременчук">
-
+        content="Новий Škoda Octavia – сучасний седан з просторим салоном та інноваційними технологіями. Дізнайтеся більше про комплектації та ціни від офіційного дилера у Кременчуці.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Octavia A8">
+    <meta property="og:title" content="Škoda Octavia – стильний седан, купити у Кременчуці">
     <meta property="og:description"
-        content="Škoda Octavia A8 - це новий рівень комфорту та технологій у класі компактних автомобілів.">
+        content="Новий Škoda Octavia – сучасний седан з просторим салоном та інноваційними технологіями. Дізнайтеся більше про комплектації та ціни від офіційного дилера у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Octavia A8",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Škoda Octavia A8 - це новий рівень комфорту та технологій у класі компактних автомобілів.",
-    }
-    </script>
 @endsection
 
 <x-layout>

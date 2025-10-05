@@ -11,30 +11,14 @@
 @endphp
 
 @section('meta')
-    <meta name="description" content="Škoda Kamiq — міський кросовер для великих відкриттів">
-    <meta name="keywords" content="Škoda, Kamiq, кросовер, міський автомобіль, комфорт, технології, стиль">
-
+    <meta name="description"
+        content="Škoda Kamiq – стильний компактний кросовер із передовими технологіями та ергономічним інтер’єром. Зверніться до офіційного дилера Škoda у Кременчуці щоб дізнатися ціну та для покупки нового Kamiq з гарантією.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Kamiq FL">
-    <meta property="og:description" content="Škoda Kamiq — міський кросовер для великих відкриттів">
+    <meta property="og:title" content="Škoda Kamiq – компактний кросовер у Кременчуці">
+    <meta property="og:description"
+        content="Škoda Kamiq – стильний компактний кросовер із передовими технологіями та ергономічним інтер’єром. Зверніться до офіційного дилера Škoda у Кременчуці щоб дізнатися ціну та для покупки нового Kamiq з гарантією.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Kamiq FL",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Škoda Kamiq — міський кросовер для великих відкриттів",
-    }
-    </script>
 @endsection
 
 <x-layout>

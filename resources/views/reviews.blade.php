@@ -11,6 +11,7 @@
     <meta property="og:title" content="Відгуки клієнтів Škoda у Кременчуці – досвід покупців">
     <meta property="og:description"
         content="Читайте відгуки реальних власників Škoda про покупку, обслуговування та сервіс у Кременчуці. Дізнайтеся досвід наших клієнтів офіційного дилера Škoda та запишіться на тест-драйв.">
+    <meta property="og:type" content="article">
     <meta property="og:image" content="{{ Storage::url($photo->photo) }}">
 @endsection
 

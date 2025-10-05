@@ -8,6 +8,7 @@
     <meta property="og:title" content="Автокредит та лізинг на автомобілі Škoda у Кременчуці – вигідні умови">
     <meta property="og:description"
         content="Купуйте авто Škoda у Кременчуці в кредит, лізинг або розстрочку. Офіційний дилер пропонує прозорі умови, вигідні програми та допомогу у виборі фінансування для вашої нової машини.">
+    <meta property="og:type" content="article">
     <meta property="og:image" content="{{ Storage::url('images/kredit/kredit.jpg') }}">
 @endsection
 
@@ -17,7 +18,8 @@
 
 <x-layout>
     <div>
-        <img src="{{ Storage::url('images/kredit/credit.webp') }}" alt="Кредитна програми Škoda" class="w-full h-auto" />
+        <img src="{{ Storage::url('images/kredit/credit.webp') }}" alt="Кредитна програми Škoda"
+            class="w-full h-auto" />
     </div>
     <div class="text-center my-4 md:my-8">
         <x-text.main-title>Кредитування Škoda — вигідні програми для фізичних та юридичних осіб</x-text.main-title>

@@ -6,6 +6,7 @@
     <meta property="og:title" content="Контакти офіційного дилера Škoda у Кременчуці – адреса та телефон">
     <meta property="og:description"
         content="Зв'яжіться з офіційним дилером Škoda у Кременчуці: адреса салону, телефони та графік роботи. Отримайте консультацію, дізнайтеся про наявність авто та запишіться на тест-драйв.">
+    <meta property="og:type" content="article">
     <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
 @endsection
 

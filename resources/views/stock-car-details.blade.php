@@ -23,6 +23,9 @@
         <meta property="og:description"
             content="За {{ $car->price }} купити перевірене авто з пробігом від офіційного дилера Škoda в м. Кременчук.">
     @endif
+    <meta property="og:type" content="product">
+    <meta property="product:price:amount" content="{{ $car->price }}">
+    <meta property="product:price:currency" content="UAH">
     <meta property="og:image" content="{{ Storage::url($contentPhoto) }}">
 @endsection
 

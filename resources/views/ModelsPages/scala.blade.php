@@ -11,31 +11,14 @@
 @endphp
 
 @section('meta')
-    <meta name="description" content="Škoda Scala — універсальний хетчбек для міста та подорожей">
-    <meta name="keywords"
-        content="Scala, Škoda, компактний автомобіль, стильний автомобіль, комфорт, технології, сімейний автомобіль">
-
+    <meta name="description"
+        content="Škoda Scala – стильний хетчбек з просторим салоном і передовими технологіями. Офіційний дилер Škoda у Кременчуці пропонує актуальні ціни, комплектації та спеціальні пропозиції на Scala.">
     <!-- Open Graph мета-теги -->
-    <meta property="og:title" content="Škoda Scala">
-    <meta property="og:description" content="Škoda Scala — універсальний хетчбек для міста та подорожей">
+    <meta property="og:title" content="Škoda Scala – модний хетчбек, купити у Кременчуці">
+    <meta property="og:description"
+        content="Škoda Scala – стильний хетчбек з просторим салоном і передовими технологіями. Офіційний дилер Škoda у Кременчуці пропонує актуальні ціни, комплектації та спеціальні пропозиції на Scala.">
     <meta property="og:type" content="product">
-    <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "Škoda Scala",
-        "brand": {
-            "@type": "Brand",
-            "name": "Škoda"
-        },
-        "category": "SUV",
-        "description": "Škoda Scala — універсальний хетчбек для міста та подорожей"
-    }
-    </script>
 @endsection
 
 <x-layout>
