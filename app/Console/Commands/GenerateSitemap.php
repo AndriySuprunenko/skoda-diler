@@ -16,41 +16,50 @@ class GenerateSitemap extends Command
     {
         $sitemap = Sitemap::create();
 
+        // Статичні маршрути з пріоритетами
         $staticRoutes = [
-            '/',
-            '/about',
-            '/contact',
-            '/kodiaq',
-            '/octavia-a8',
-            '/superb',
-            '/fabia',
-            '/scala',
-            '/kamiq-fl',
-            '/karoq',
-            '/credit',
-            '/trade-in',
-            '/reviews',
-            '/thank-you',
-            '/stock-cars',
+            ['url' => '/', 'priority' => 1.0, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
+            ['url' => '/about', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/contact', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/kodiaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/octavia-a8', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/superb', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/fabia', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/scala', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/kamiq-fl', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/karoq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/credit', 'priority' => 0.7, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/trade-in', 'priority' => 0.7, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/reviews', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/stock-cars', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
         ];
 
         foreach ($staticRoutes as $route) {
-            $sitemap->add(Url::create($route));
+            $sitemap->add(
+                Url::create($route['url'])
+                    ->setPriority($route['priority'])
+                    ->setChangeFrequency($route['frequency'])
+            );
         }
 
-        if (class_exists(StockCar::class)) {
-            StockCar::all()->each(function ($car) use ($sitemap) {
-                $sitemap->add(
-                    Url::create("/stock-cars/{$car->id}")
-                        ->setLastModificationDate($car->updated_at)
-                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                        ->setPriority(0.8)
-                );
-            });
+        // Динамічні маршрути для автомобілів
+        try {
+            if (class_exists(StockCar::class)) {
+                StockCar::all()->each(function ($car) use ($sitemap) {
+                    $sitemap->add(
+                        Url::create("/stock-cars/{$car->id}")
+                            ->setLastModificationDate($car->updated_at)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                            ->setPriority(0.8)
+                    );
+                });
+            }
+        } catch (\Exception $e) {
+            $this->error('Error loading stock cars: ' . $e->getMessage());
         }
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
-
         $this->info('✅ Sitemap updated successfully!');
+        $this->info('📍 Location: ' . public_path('sitemap.xml'));
     }
 }
