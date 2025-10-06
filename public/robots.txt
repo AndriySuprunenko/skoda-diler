@@ -3,3 +3,4 @@ Disallow: /*?utm_source=
 Disallow: /*?utm_medium=
 Disallow: /*?utm_campaign=
 
+Sitemap: https://avtocenter-kremenchuk.site/sitemap.xml

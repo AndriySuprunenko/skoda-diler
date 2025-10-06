@@ -27,4 +27,15 @@ class StockCars extends Model
     protected $casts = [
         'gallery' => 'array',
     ];
+
+    protected static function booted()
+    {
+        static::saved(function () {
+            \Artisan::call('sitemap:generate');
+        });
+
+        static::deleted(function () {
+            \Artisan::call('sitemap:generate');
+        });
+    }
 }
