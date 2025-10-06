@@ -44,8 +44,8 @@ class GenerateSitemap extends Command
 
         // Динамічні маршрути для автомобілів
         try {
-            if (class_exists(StockCar::class)) {
-                StockCar::all()->each(function ($car) use ($sitemap) {
+            if (class_exists(StockCars::class)) {
+                StockCars::all()->each(function ($car) use ($sitemap) {
                     $sitemap->add(
                         Url::create("/stock-cars/{$car->id}")
                             ->setLastModificationDate($car->updated_at)
