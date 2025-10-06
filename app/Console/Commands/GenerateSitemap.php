@@ -5,7 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-use App\Models\StockCar;
+use App\Models\StockCars;
+use Carbon\Carbon;
 
 class GenerateSitemap extends Command
 {
@@ -18,9 +19,9 @@ class GenerateSitemap extends Command
 
         // Статичні маршрути з пріоритетами
         $staticRoutes = [
-            ['url' => '/', 'priority' => 1.0, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
-            ['url' => '/about', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
-            ['url' => '/contact', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
+            ['url' => '/about', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/contact', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/kodiaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/octavia-a8', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/superb', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
@@ -28,9 +29,9 @@ class GenerateSitemap extends Command
             ['url' => '/scala', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/kamiq-fl', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/karoq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/credit', 'priority' => 0.7, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
-            ['url' => '/trade-in', 'priority' => 0.7, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
-            ['url' => '/reviews', 'priority' => 0.8, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/credit', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/trade-in', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
+            ['url' => '/reviews', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/stock-cars', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
         ];
 
@@ -50,15 +51,18 @@ class GenerateSitemap extends Command
                         Url::create("/stock-cars/{$car->id}")
                             ->setLastModificationDate($car->updated_at)
                             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-                            ->setPriority(0.8)
+                            ->setPriority(1.0) // Найвищий пріоритет для авто в наявності
                     );
                 });
+
+                $this->info('✅ Added ' . StockCars::count() . ' stock cars to sitemap');
             }
         } catch (\Exception $e) {
-            $this->error('Error loading stock cars: ' . $e->getMessage());
+            $this->error('❌ Error loading stock cars: ' . $e->getMessage());
         }
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
+
         $this->info('✅ Sitemap updated successfully!');
         $this->info('📍 Location: ' . public_path('sitemap.xml'));
     }
