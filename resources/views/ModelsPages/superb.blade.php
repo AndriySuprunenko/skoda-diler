@@ -1,4 +1,4 @@
-@section('title', 'Superb')
+@section('title', 'Škoda Superb – преміальний седан, купити у Кременчуці')
 
 @php
     $model = \App\Models\Models::where('url', 'superb')->with('images')->first();

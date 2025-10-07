@@ -1,4 +1,4 @@
-@section('title', 'Karoq')
+@section('title', 'Škoda Karoq – надійний кросовер, купити у Кременчуці')
 
 @php
     $model = \App\Models\Models::where('url', 'karoq')->with('images')->first();

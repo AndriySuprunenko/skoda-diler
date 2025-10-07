@@ -10,7 +10,8 @@
     $contentPhoto = $car->gallery[0] ?? '/images/no-car.webp';
 @endphp
 
-@section('title', $name)
+@section('title', "Купити нову {{ $car->name }} {{ $car->color }} - ціна {{ $car->price }} ₴ в наявності у
+    Кременчуці.")
 @section('meta')
     @if ($car->condition === 'new')
         <meta property="og:title"

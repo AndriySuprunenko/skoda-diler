@@ -1,4 +1,4 @@
-@section('title', 'New Kodiaq')
+@section('title', 'Škoda Kodiaq – просторий кросовер, купити у Кременчуці')
 
 @php
     $model = \App\Models\Models::where('url', 'kodiaq')->with('images')->first();

@@ -1,4 +1,4 @@
-@section('title', 'Trade-in')
+@section('title', 'Škoda Trade-in – обмін старого авто на новий автомобіль Škoda у Кременчуці')
 
 @php
     $contacts = \App\Models\Contacts::first();

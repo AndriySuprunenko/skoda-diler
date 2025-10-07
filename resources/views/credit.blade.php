@@ -1,4 +1,4 @@
-@section('title', 'Kредит/Лізинг')
+@section('title', 'Автокредит та лізинг на автомобілі Škoda у Кременчуці – вигідні умови')
 
 @section('meta')
     <meta name="description"

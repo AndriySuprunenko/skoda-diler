@@ -1,4 +1,4 @@
-@section('title', 'Авто на складі')
+@section('title', 'Авто на складі Škoda')
 
 @section('meta')
     <meta name="description" content="Авто на складі Škoda в Кременчуці. Широкий вибір моделей та вигідні умови покупки.">

@@ -1,4 +1,4 @@
-@section('title', 'Kamiq FL')
+@section('title', 'Škoda Kamiq – компактний кросовер у Кременчуці')
 
 @php
     $model = \App\Models\Models::where('url', 'kamiq-fl')->with('images')->first();

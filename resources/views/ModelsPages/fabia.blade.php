@@ -1,4 +1,4 @@
-@section('title', 'Fabia')
+@section('title', 'Škoda Fabia – компактний хетчбек, купити у Кременчуці')
 
 @php
     $model = \App\Models\Models::where('url', 'fabia')->with('images')->first();

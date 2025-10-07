@@ -20,7 +20,6 @@ class GenerateSitemap extends Command
         // Статичні маршрути з пріоритетами
         $staticRoutes = [
             ['url' => '/', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
-            ['url' => '/about', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/contact', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/kodiaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/octavia-a8', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
