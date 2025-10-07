@@ -88,7 +88,7 @@
                     <x-link style='emerald' href="/{{ $model->url }}">Детальніше про модель</x-link>
                 </div>
                 <div
-                    class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->id % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">
+                    class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->order % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">
                 </div>
             </div>
         </div>
