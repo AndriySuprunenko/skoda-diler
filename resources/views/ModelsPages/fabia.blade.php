@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Fabia – компактний хетчбек з низьким споживанням пального. Дізнайтеся про ціни, комплектації та вигідні пропозиції на Fabia в офіційного дилера Škoda у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити нову Škoda Fabia</x-text.main-title>
             <x-text.title>Škoda Fabia – ваш стиль у ритмі міста</x-text.title>
             <x-text.text class="mb-12 mt-2">Fabia створена для тих, хто цінує свободу руху й власний ритм життя.
                 Це міський хетчбек, який поєднує в собі динаміку, комфорт і сучасні технології.

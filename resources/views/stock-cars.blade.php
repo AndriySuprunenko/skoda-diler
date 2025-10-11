@@ -6,7 +6,7 @@
     <meta property="og:title" content="Автомобілі Škoda в наявності у Кременчуці – широкий вибір">
     <meta property="og:description"
         content="У продажу більше 50 нових автомобілів Škoda в наявності на складі у Кременчуці. Ознайомтеся з моделями, фото та актуальними цінами. Запишіться на тест-драйв вже сьогодні!">
-    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
+    <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
 @endsection
 
 @php
@@ -18,7 +18,7 @@
 <x-layout>
     <div x-data="{ tab: 'new' }">
         <x-section class="text-center">
-            <x-text.main-title>Авто на складі</x-text.main-title>
+            <x-text.main-title>Авто Škoda в наявності у Кременчуці</x-text.main-title>
 
             {{-- Вкладки --}}
             <div class="flex justify-center mt-6">

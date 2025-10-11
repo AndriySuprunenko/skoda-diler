@@ -30,7 +30,7 @@
     <meta property="og:type" content="product">
     <meta property="product:price:amount" content="{{ $car->price }}">
     <meta property="product:price:currency" content="UAH">
-    <meta property="og:image" content="{{ Storage::url($contentPhoto) }}">
+    <meta property="og:image" content="{{ url(Storage::url($contentPhoto)) }}">
 @endsection
 
 <x-layout>
@@ -113,7 +113,11 @@
             <div class="p-4 flex flex-col flex-grow md:p-8">
 
                 {{-- Назва моделі --}}
-                <x-text.main-title class="font-bold mb-3">{{ $car->name }}</x-text.main-title>
+                @if ($car->condition === 'new')
+                    <x-text.main-title>Нова {{ $car->name }} в наявності</x-text.main-title>
+                @else
+                    <x-text.main-title>Вживаний {{ $car->name }} у Кременчуці</x-text.main-title>
+                @endif
 
                 {{-- Основна інформація --}}
                 <div class="mb-3 flex-grow text-lg">

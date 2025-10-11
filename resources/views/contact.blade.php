@@ -7,7 +7,7 @@
     <meta property="og:description"
         content="Зв'яжіться з офіційним дилером Škoda у Кременчуці: адреса салону, телефони та графік роботи. Отримайте консультацію, дізнайтеся про наявність авто та запишіться на тест-драйв.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
+    <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
 @endsection
 
 @php
@@ -16,7 +16,7 @@
 
 <x-layout>
     <x-section class="flex flex-col items-center">
-        <x-text.main-title>Контакти</x-text.main-title>
+        <x-text.main-title>Контакти - Автоцентр-Кременчук-2012</x-text.main-title>
         <div class="flex gap-6 mt-5 flex-col md:flex-row justify-center w-full items-center">
             <x-map />
             <div class="w-full max-w-[300px] md:max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">

@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Новий Škoda Octavia – сучасний седан з просторим салоном та інноваційними технологіями. Дізнайтеся більше про комплектації та ціни від офіційного дилера у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити нову Škoda Octavia</x-text.main-title>
             <x-text.title>Škoda Octavia — дорога до нових відкриттів</x-text.title>
             <x-text.text class="mb-12 mt-2"><strong>Нова Škoda Octavia</strong> втілила в собі успіх бренду та продовжує
                 вражати своєю

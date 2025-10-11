@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Karoq – сучасний кросовер з комфортною підвіскою та продуманим інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує різні комплектації Karoq за вигідними цінами та спеціальні пропозиції.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити новий Škoda Karoq</x-text.main-title>
             <x-text.title>Škoda Karoq — універсальний кросовер для міста та подорожей</x-text.title>
             <x-text.text class="mb-12 mt-2"><strong>Будь-яка поїздка може стати початком важливих моментів</strong>.
                 З новим <strong>Škoda Karoq</strong> ви отримуєте практичність, стиль і технології, які роблять кожну

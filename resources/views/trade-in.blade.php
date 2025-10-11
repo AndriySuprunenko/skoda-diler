@@ -12,15 +12,14 @@
     <meta property="og:description"
         content="Офіційний дилер Škoda у Кременчуці пропонує зручний обмін Trade-in. Обміняйте свій старий автомобіль на новий Škoda за вигідною ціною. Швидка оцінка та оформлення.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="{{ Storage::url('images/trade-in/trade-in.webp') }}">
+    <meta property="og:image" content="{{ url(Storage::url('images/trade-in/trade-in.webp')) }}">
 @endsection
 
 <x-layout>
     <img src="{{ Storage::url('images/trade-in/trade-in.webp') }}" alt="Trade-in"
         class="w-full h-[300px] md:h-[800px] object-cover object-center" />
     <div class="flex flex-col gap-6 max-w-[1200px] text-center mt-10 m-auto">
-        <x-text.main-title>Обміняйте свій автомобіль на нову Škoda — без зайвих
-            турбот</x-text.main-title>
+        <x-text.main-title>Обмін Škoda за програмою Trade-in</x-text.main-title>
         <x-text.subtitle>У вас уже є авто, але хочете нову Škoda?
             Не витрачайте час на самостійну продажу — ми викупимо або приймемо ваш автомобіль на комісію, поки ви вже
             катаєтесь на новенькій Škoda з салону.</x-text.subtitle>

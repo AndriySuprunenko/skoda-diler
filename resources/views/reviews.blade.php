@@ -12,12 +12,12 @@
     <meta property="og:description"
         content="Читайте відгуки реальних власників Škoda про покупку, обслуговування та сервіс у Кременчуці. Дізнайтеся досвід наших клієнтів офіційного дилера Škoda та запишіться на тест-драйв.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="{{ Storage::url($photo->photo) }}">
+    <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
 @endsection
 
 <x-layout>
     <x-section class="text-center">
-        <x-text.main-title>Наші клієнти</x-text.main-title>
+        <x-text.main-title>Відгуки наших клієнтів - Автоцентр-Кременчук-2012</x-text.main-title>
         <ul class="flex flex-wrap items-center justify-center gap-8 mt-10">
             @foreach ($clients as $client)
                 <li>

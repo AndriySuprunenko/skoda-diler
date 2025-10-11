@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Superb – просторий преміальний седан із інноваційними технологіями та розкішним інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує тест-драйв та вигідні ціни та умови купівлі нового Superb.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити нову Škoda Superb</x-text.main-title>
             <x-text.title>Škoda Superb — новий рівень комфорту преміум-класу</x-text.title>
             <x-text.text class="mb-12 mt-2">Кожна подорож відкриває нові можливості.
                 З новим <strong>Škoda Superb</strong> ви отримуєте <strong> простір, сучасні технології та динаміку

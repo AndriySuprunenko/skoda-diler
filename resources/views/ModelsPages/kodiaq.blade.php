@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Kodiaq – потужний кросовер з містким салоном. Ціни від офіційного дилера Škoda у Кременчуці. Пропонуємо покупку, тест-драйви, акційні пропозиції та сервісні програми на Kodiaq.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити новий Škoda Kodiaq</x-text.main-title>
             <x-text.title>Новий Škoda Kodiaq — простір для сім’ї та відкриттів</x-text.title>
             <x-text.text class="mb-12 mt-2">Škoda Kodiaq — це більше, ніж автомобіль. Це <strong>сімейний простір,
                     компаньйон у

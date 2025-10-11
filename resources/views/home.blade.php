@@ -8,7 +8,7 @@
     <meta property="og:description"
         content="Купуйте нові автомобілі Škoda в Україні — офіційний автосалон у Кременчуці. Широкий вибір моделей та комплектацій, вигідні акції, кредит та лізинг, обмін за програмою Trade-in.">
     <meta property="og:site_name" content="Škoda Кременчук">
-    <meta property="og:image" content="{{ Storage::url('/images/main.webp') }}">
+    <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
 @endsection
 <x-layout>
     <x-banner />
@@ -41,6 +41,7 @@
         <x-model />
     </x-section>
     <x-section class=" flex flex-col items-center gap-6">
+        <x-text.main-title>Škoda Автоцентр Кременчук - Офіційний сайт</x-text.main-title>
         <x-text.title>Про нас</x-text.title>
         <div class="flex justify-around items-center gap-6 flex-col md:flex-row">
             <div class="max-w-[900px]">

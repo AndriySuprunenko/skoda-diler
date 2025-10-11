@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Scala – стильний хетчбек з просторим салоном і передовими технологіями. Офіційний дилер Škoda у Кременчуці пропонує актуальні ціни, комплектації та спеціальні пропозиції на Scala.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити нову Škoda Scala</x-text.main-title>
             <x-text.title>Škoda Scala — універсальний хетчбек для міста та подорожей</x-text.title>
             <x-text.text class="mb-12 mt-2">Будь-яка поїздка може стати початком важливих моментів.
                 З новою <strong>Škoda Scala</strong> ви отримуєте <strong>універсальність, стиль і сучасні

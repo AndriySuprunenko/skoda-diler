@@ -18,7 +18,7 @@
     <meta property="og:description"
         content="Škoda Kamiq – стильний компактний кросовер із передовими технологіями та ергономічним інтер’єром. Зверніться до офіційного дилера Škoda у Кременчуці щоб дізнатися ціну та для покупки нового Kamiq з гарантією.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ Storage::url($primaryImage->image) }}">
+    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
 
 <x-layout>
@@ -26,6 +26,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col">
+            <x-text.main-title>Купити новий Škoda Kamiq</x-text.main-title>
             <x-text.title>Škoda Kamiq — міський кросовер для великих відкриттів</x-text.title>
             <x-text.text class="mb-12 mt-2"><strong>Досліджувати світ легко, коли поруч надійний супутник.</strong>
                 Новий <strong>Škoda Kamiq</strong> поєднує стильний дизайн, компактні розміри та сучасні технології, щоб
