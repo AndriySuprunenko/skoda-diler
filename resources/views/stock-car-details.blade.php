@@ -220,11 +220,11 @@
             <div id="fullscreenOverlay"
                 class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
                 <button id="closeFullscreen"
-                    class="absolute top-6 right-6 text-white text-4xl font-bold z-60 hover:text-gray-300">×</button>
+                    class="absolute top-6 right-6 text-white text-4xl font-bold z-60 hover:text-gray-300 p-6 bg-white/15 cursor-pointer">×</button>
                 <button id="fullscreenPrev"
-                    class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl z-60 hover:text-gray-300">‹</button>
+                    class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-5xl z-60 hover:text-gray-300 p-6 bg-white/15 cursor-pointer">‹</button>
                 <button id="fullscreenNext"
-                    class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl z-60 hover:text-gray-300">›</button>
+                    class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-5xl z-60 hover:text-gray-300 p-6 bg-white/15 cursor-pointer">›</button>
                 <img id="fullscreenImage" src="" alt="Зображення" class="max-w-full max-h-full">
             </div>
         </div>
