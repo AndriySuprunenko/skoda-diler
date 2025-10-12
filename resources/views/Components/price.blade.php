@@ -1,7 +1,7 @@
 @props(['carPrice'])
 
 <div class="relative mt-6 flex">
-    <div class="mb-6 bg-skoda-emerald-green w-fit p-4 flex items-center justify-between z-10">
+    <div class="mb-6 bg-skoda-emerald-green w-fit p-4 flex items-center justify-between z-10 h-[72px]">
         <x-text.title color="electric-green">
             {{ number_format($carPrice, 0, ',', ' ') }} ₴
         </x-text.title>
