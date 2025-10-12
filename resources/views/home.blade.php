@@ -43,7 +43,7 @@
     <x-section class=" flex flex-col items-center gap-6">
         <x-text.main-title>Škoda Автоцентр Кременчук - Офіційний сайт</x-text.main-title>
         <x-text.title>Про нас</x-text.title>
-        <div class="flex justify-around items-center gap-6 flex-col md:flex-row">
+        <div class="flex justify-around items-center gap-6 flex-col lg:flex-row">
             <div class="max-w-[900px]">
                 <x-text.subtitle class="mb-4">Офіційний дилер Škoda в Кременчуці –
                     <br />Автоцентр-Кременчук-2012</x-text.subtitle>

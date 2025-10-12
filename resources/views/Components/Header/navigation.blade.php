@@ -8,26 +8,12 @@
         <li class="group">
             <x-header.nav-link href="/">Головна</x-header.nav-link>
         </li>
-        <!-- Лінк з підменю -->
-        <li class="relative dropdown">
-            <x-header.nav-link-def href="#" class="dropdown-toggle flex cursor-pointer group">
-                Послуги
-                <svg class="w-4 h-4 dropdown-arrow transition-transform" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-            </x-header.nav-link-def>
-            <!-- Підменю -->
-            <ul class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-skoda-emerald-green rounded-md z-50 hidden">
-                <li class="group">
-                    <x-header.nav-link href="/trade-in"
-                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Trade in</x-header.nav-link>
-                </li>
-                <li class="group">
-                    <x-header.nav-link href="/credit"
-                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Кредит/Лізинг</x-header.nav-link>
-                </li>
-            </ul>
+        <li class="group">
+            <x-header.nav-link href="/trade-in" class="block px-4 py-3 text-base">Trade
+                in</x-header.nav-link>
+        </li>
+        <li class="group">
+            <x-header.nav-link href="/credit" class="block px-4 py-3 text-base">Кредитування</x-header.nav-link>
         </li>
         <li class="relative dropdown">
             <x-header.nav-link-def href="#" class="dropdown-toggle group flex">

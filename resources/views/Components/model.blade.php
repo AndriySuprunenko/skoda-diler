@@ -15,9 +15,9 @@
                     ? 'rounded-t-xl lg:rounded-tl-none lg:rounded-r-xl '
                     : 'rounded-t-xl lg:rounded-tr-none lg:rounded-l-xl ';
         @endphp
-        <div class="flex flex-col lg:flex-row justify-center p-2 md:p-8 {{ $reverse }}">
+        <div class="flex flex-col lg:flex-row justify-center p-2 md:p-8 {{ $reverse }} w-full">
             <div
-                class="relative z-20 max-w-[900px] w-full lg:max-w-[1000px]  p-1 bg-skoda-electric-green  {{ $roundedImg }} overflow-hidden">
+                class="relative z-20 w-full lg:max-w-[1000px]  p-1 bg-skoda-electric-green  {{ $roundedImg }} overflow-hidden">
                 <!-- Slider main container -->
                 <div class="swiper modelSwiper-{{ $model->id }}">
                     <!-- Additional required wrapper -->
@@ -38,7 +38,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-4 w-full max-w-[900px] lg:max-w-[700px] border-4 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
+                class="flex flex-col gap-4 w-full lg:max-w-[700px] border-4 border-solid border-skoda-electric-green p-4 md:p-8  {{ $roundedBl }}  bg-skoda-white text-skoda-emerald-green relative z-10">
                 <x-text.title>{{ $model->name }}</x-text.title>
                 <div
                     class="flex md:justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row">
@@ -87,9 +87,9 @@
                     </x-button>
                     <x-link style='emerald' href="/{{ $model->url }}">Детальніше про модель</x-link>
                 </div>
-                <div
+                {{-- <div
                     class="triangle-up absolute top-0 left-0 w-0 h-0 {{ $model->order % 2 == 0 ? 'lg:rounded-tl-lg' : '' }} -z-10">
-                </div>
+                </div> --}}
             </div>
         </div>
     @endforeach

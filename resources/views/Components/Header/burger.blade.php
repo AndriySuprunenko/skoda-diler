@@ -28,6 +28,12 @@
                         <x-header.nav-link href="/">Головна</x-header.nav-link>
                     </li>
 
+                    <li class="w-full">
+                        <x-header.nav-link href="/trade-in">Trade in</x-header.nav-link>
+                    </li>
+                    <li class="w-full">
+                        <x-header.nav-link href="/credit">Кредитування</x-header.nav-link>
+                    </li>
                     <!-- Лінк з підменю/акордеоном: Моделі (Models) -->
                     <!-- x-data="{ open: false }" initializes Alpine.js state for the dropdown -->
                     <!-- x-transition provides a smooth show/hide animation -->
@@ -72,36 +78,6 @@
                             </li>
                             <li>
                                 <x-header.nav-link href="/kamiq-fl">Kamiq FL</x-header.nav-link>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li x-data="{ open: false }" class="w-full ml-2">
-                        <button @click="open = !open"
-                            class="flex justify-center items-center w-full text-center text-skoda-electric-green hover:text-skoda-white">
-                            <span>Послуги</span>
-                            <!-- Simple arrow icon that rotates based on 'open' state -->
-                            <svg :class="{ 'rotate-180': open, 'rotate-0': !open }"
-                                class="w-4 h-4 ml-1 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <!-- x-show="open" conditionally displays the submenu based on 'open' state -->
-                        <ul x-show="open" x-transition:enter="transition ease-out duration-300"
-                            x-transition:enter-start="opacity-0 transform -translate-y-2"
-                            x-transition:enter-end="opacity-100 transform translate-y-0"
-                            x-transition:leave="transition ease-in duration-200"
-                            x-transition:leave-start="opacity-100 transform translate-y-0"
-                            x-transition:leave-end="opacity-0 transform -translate-y-2"
-                            class="flex flex-col gap-8 items-end w-full py-8 text-base">
-                            <li>
-                                <x-header.nav-link href="/trade-in">Trade in</x-header.nav-link>
-                            </li>
-                            <li>
-                                <x-header.nav-link href="/credit">Кредит/Лізинг</x-header.nav-link>
                             </li>
                         </ul>
                     </li>
