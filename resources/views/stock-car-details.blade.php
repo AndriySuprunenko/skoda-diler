@@ -56,7 +56,7 @@
             @endphp
 
             {{-- Зображення --}}
-            <div class="w-full max-w-[900px] relative m-auto">
+            <div class="w-full max-w-[1100px] relative m-auto">
                 {{-- <x-stock-card-img :car="$car" :img="$img" /> --}}
                 <div class="swiper modelSwiper-{{ $car->id }}">
                     <!-- Additional required wrapper -->
