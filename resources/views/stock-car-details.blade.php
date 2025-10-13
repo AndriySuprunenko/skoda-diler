@@ -56,7 +56,7 @@
             @endphp
 
             {{-- Зображення --}}
-            <div class="w-full max-w-[900px] relative m-auto">
+            <div class="w-full relative m-auto">
                 {{-- <x-stock-card-img :car="$car" :img="$img" /> --}}
                 <div class="swiper modelSwiper-{{ $car->id }}">
                     <!-- Additional required wrapper -->
@@ -110,7 +110,7 @@
             </div>
 
             {{-- Контент картки --}}
-            <div class="p-4 flex flex-col flex-grow md:p-8">
+            <div class="p-4 flex flex-col flex-grow md:p-8 w-full max-w-[700px]">
 
                 {{-- Назва моделі --}}
                 @if ($car->condition === 'new')
