@@ -72,10 +72,7 @@
                     </x-button>
                 </div>
                 <div class="w-full max-w-[300px]">
-                    <x-button style="emerald-white"
-                        click="$dispatch('open-modal', { type: 'test-drive' , value: '{{ $model->name }}' })">
-                        Залишити заявку на тест-драйв
-                    </x-button>
+                    <x-link href="/credit#calculator" style="outline">Розрахувати кредит</x-link>
                 </div>
             </div>
             <div

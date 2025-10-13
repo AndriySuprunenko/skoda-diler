@@ -26,15 +26,12 @@
         <div class="relative">
             <select id="advance_percent"
                 class="appearance-none w-full border bg-skoda-white border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:skoda-emerald-green">
-                <option value="0">0%</option>
-                <option value="10">10%</option>
                 <option value="20">20%</option>
                 <option value="30">30%</option>
                 <option value="40">40%</option>
                 <option value="50">50%</option>
                 <option value="60">60%</option>
                 <option value="70">70%</option>
-                <option value="80">80%</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                 <svg class="w-5 h-5 text-skoda-emerald-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,9 +62,10 @@
         </div>
     </div>
 
-    <x-button style="emerald" onclick="calculate()">Розрахувати</x-button>
+    <x-button style="electric" onclick="calculate()">
+        Розрахувати
+    </x-button>
 
-    <div id="result" class="mt-6 text-center text-lg text-skoda-emerald-green font-medium"></div>
 </div>
 
 <script>
@@ -88,7 +86,11 @@
 
         document.getElementById('result').innerHTML = `
             Аванс: <strong>${advance.toFixed(2)} грн</strong><br>
-            Щомісячний платіж: <strong>${monthlyPayment} грн</strong>
+            Щомісячний платіж: <strong>${monthlyPayment} грн</strong><br>
+            
         `;
+        document.querySelector('#form-credit').scrollIntoView({
+            behavior: 'smooth'
+        });
     }
 </script>

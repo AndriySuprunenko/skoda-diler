@@ -31,23 +31,27 @@
             </div>
         </x-section>
     </div>
-    <div class="bg-skoda-electric-green">
+    <div class="bg-skoda-emerald-green" id="calculator">
         <div class="max-w-3xl mx-auto text-center">
             <x-section>
-                <x-text.title class="mb-4">Кредитний калькулятор</x-text.title>
-                <x-text.text class="mb-4">Ви можете скористатися нашим кредитним калькулятором, щоб розрахувати
-                    приблизні щомісячні платежі за кредитом на автомобіль Škoda.</x-text.text>
+                <x-text.title color="electric-green">Кредитний калькулятор</x-text.title>
+                <x-text.subtitle class="my-4" color="electric-green">Розрахуйте покупку авто в кредит дізнайтеся
+                    орієнтовну суму щомісячного платежу на нову Škoda.</x-text.subtitle>
                 <x-calculator />
             </x-section>
         </div>
     </div>
-    <div class="bg-skoda-emerald-green text-center">
+    <div class="bg-skoda-emerald-green text-center" id="form-credit">
         <x-section>
-            <x-text.title color='electric-green'>Хочеш точний прорахунок?</x-text.title>
-            <x-text.text color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
+            <div id="result" class="mb-6 text-center text-3xl text-skoda-electric-green font-medium"></div>
+            <x-text.title color='electric-green'>Хочете точний прорахунок?</x-text.title>
+            <x-text.subtitle color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
                 зв'яжеться з
-                вами для точного прорахунку з найвигіднішими для вас умовами</x-text.text>
+                вами для точного прорахунку з найвигіднішими для вас умовами</x-text.subtitle>
             <x-form value='Кредит' />
+            <p class="text-sm mt-2 text-skoda-electric-green">Наведені вище розрахунки несуть виключно інформаційний
+                характер. Надішліть заявку та
+                отримайте персональний розрахунок у зручний для вас месенджер протягом 30 хвилин у робочий час.</p>
         </x-section>
     </div>
 </x-layout>
