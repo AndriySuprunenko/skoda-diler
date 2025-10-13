@@ -44,10 +44,9 @@
     <div class="bg-skoda-emerald-green text-center" id="form-credit">
         <x-section>
             <div id="result" class="mb-6 text-center text-3xl text-skoda-electric-green font-medium"></div>
-            <x-text.title color='electric-green'>Хочете точний прорахунок?</x-text.title>
-            <x-text.subtitle color='electric-green' class="m-auto">Заповніть форму нижче, і наш менеджер
-                зв'яжеться з
-                вами для точного прорахунку з найвигіднішими для вас умовами</x-text.subtitle>
+            <x-text.title color='electric-green'>Хочете знати точну вартість?</x-text.title>
+            <x-text.subtitle color='electric-green' class="m-auto">Заповніть форму — ми розрахуємо все індивідуально для
+                вас!</x-text.subtitle>
             <x-form value='Кредит' />
             <p class="text-sm mt-2 text-skoda-electric-green">Наведені вище розрахунки несуть виключно інформаційний
                 характер. Надішліть заявку та
