@@ -49,6 +49,15 @@
                     {{ $model->fuel_consumtion }}
                 </x-text.text>
             </div>
+            @if ($model->url === 'enyaq')
+                <div
+                    class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
+                    <span class="text-lg">Запас ходу</span>
+                    <x-text.text>
+                        до 582 км (WLTP)
+                    </x-text.text>
+                </div>
+            @endif
             <div class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                 <span class="text-lg">Комплектація</span>
                 <x-text.text>
