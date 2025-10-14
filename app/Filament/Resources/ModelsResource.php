@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ModelsResource\Pages;
 use App\Models\Models;
+use Dom\Text;
 use Filament\Forms;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Form;
@@ -106,6 +107,9 @@ class ModelsResource extends Resource
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('order')
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('created_at')
