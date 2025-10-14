@@ -25,15 +25,15 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити новий Škoda Kodiaq</x-text.main-title>
             <x-text.title>Новий Škoda Kodiaq — простір для сім’ї та відкриттів</x-text.title>
-            <x-text.text class="mb-12 mt-2">Škoda Kodiaq — це більше, ніж автомобіль. Це <strong>сімейний простір,
+            <x-text.text class="mb-8">Škoda Kodiaq — це більше, ніж автомобіль. Це <strong>сімейний простір,
                     компаньйон у
                     подорожах і технологічний помічник</strong> у щоденному житті.</x-text.text>
 
             <x-text.title>Що змінилося в новому Kodiaq</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - <strong>Більше простору</strong>: збільшені габарити та <strong>3 ряди
                             сидінь</strong> для всієї родини.</x-text.text>
                 </li>
@@ -49,7 +49,7 @@
             </ul>
 
             <x-text.title>Чому Kodiaq — це «розумний вибір» для сім’ї</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Просторий салон для <strong>подорожей з дітьми та друзями</strong></x-text.text>
                 </li>
                 <li><x-text.text> - Системи безпеки, що піклуються про вашу безпечну поїздку</x-text.text></li>

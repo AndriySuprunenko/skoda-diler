@@ -38,6 +38,10 @@ class PageController extends Controller
     {
         return view('ModelsPages.kamiq');
     }
+    public function enyaq()
+    {
+        return view('ModelsPages.enyaq');
+    }
     public function karoq()
     {
         return view('ModelsPages.karoq');

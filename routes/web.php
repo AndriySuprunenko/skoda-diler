@@ -15,6 +15,7 @@ Route::get('/fabia', [PageController::class, 'fabia']);
 Route::get('/scala', [PageController::class, 'scala']);
 Route::get('/kamiq-fl', [PageController::class, 'kamiq']);
 Route::get('/karoq', [PageController::class, 'karoq']);
+Route::get('/enyaq', [PageController::class, 'enyaq']);
 Route::get('/credit', [PageController::class, 'credit']);
 Route::get('/trade-in', [PageController::class, 'tradeIn']);
 Route::get('/reviews', [PageController::class, 'reviews']);

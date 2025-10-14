@@ -25,16 +25,16 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити новий Škoda Karoq</x-text.main-title>
             <x-text.title>Škoda Karoq — універсальний кросовер для міста та подорожей</x-text.title>
-            <x-text.text class="mb-12 mt-2"><strong>Будь-яка поїздка може стати початком важливих моментів</strong>.
+            <x-text.text class="mb-8"><strong>Будь-яка поїздка може стати початком важливих моментів</strong>.
                 З новим <strong>Škoda Karoq</strong> ви отримуєте практичність, стиль і технології, які роблять кожну
                 дорогу комфортною
                 та безпечною.</x-text.text>
 
             <x-text.title>Дизайн, який привертає увагу</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - Виразна решітка радіатора.</x-text.text>
                 </li>
                 <li> <x-text.text> - Світлодіодна оптика.</x-text.text>
@@ -47,7 +47,7 @@
             </ul>
 
             <x-text.title>Салон і технології</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Просторий салон з фірмовими елементами Simply Clever.</x-text.text>
                 </li>
                 <li><x-text.text> - Сучасна мультимедіа з інтеграцією смартфона.</x-text.text></li>

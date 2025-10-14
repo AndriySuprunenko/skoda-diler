@@ -25,16 +25,16 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити нову Škoda Superb</x-text.main-title>
             <x-text.title>Škoda Superb — новий рівень комфорту преміум-класу</x-text.title>
-            <x-text.text class="mb-12 mt-2">Кожна подорож відкриває нові можливості.
+            <x-text.text class="mb-8">Кожна подорож відкриває нові можливості.
                 З новим <strong>Škoda Superb</strong> ви отримуєте <strong> простір, сучасні технології та динаміку
                 </strong>, які роблять поїздки
                 комфортними як для водія, так і для всієї родини.</x-text.text>
 
             <x-text.title>Дизайн, який підкреслює статус</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - Вишуканий силует і впізнаваний фірмовий стиль</x-text.text>
                 </li>
                 <li> <x-text.text> - Матрична оптика та виразна решітка радіатора</x-text.text>
@@ -43,7 +43,7 @@
             </ul>
 
             <x-text.title>Салон і технології</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Просторий салон із преміальними матеріалами оздоблення</strong></x-text.text>
                 </li>
                 <li><x-text.text> - Дуже зручні <strong>Ergo-сидіння</strong> для максимального комфорту</x-text.text>
@@ -54,7 +54,7 @@
             </ul>
 
             <x-text.title>Чому варто обрати Škoda Superb у Кременчуці</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Наявність індивідуальних комплектацій</strong></x-text.text>
                 </li>
                 <li><x-text.text> - Преміальні технології при оптимальній ціні</x-text.text>

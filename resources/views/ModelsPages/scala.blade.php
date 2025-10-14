@@ -25,17 +25,17 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити нову Škoda Scala</x-text.main-title>
             <x-text.title>Škoda Scala — універсальний хетчбек для міста та подорожей</x-text.title>
-            <x-text.text class="mb-12 mt-2">Будь-яка поїздка може стати початком важливих моментів.
+            <x-text.text class="mb-8">Будь-яка поїздка може стати початком важливих моментів.
                 З новою <strong>Škoda Scala</strong> ви отримуєте <strong>універсальність, стиль і сучасні
                     технології</strong>, які
                 роблять кожну дорогу
                 комфортною та безпечною.</x-text.text>
 
             <x-text.title>Дизайн, який привертає увагу</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - Виразні світлодіодні фари та динамічна решітка радіатора.</x-text.text>
                 </li>
                 <li> <x-text.text> - Ефектний дизайн кузова та сучасні легкосплавні диски.</x-text.text>
@@ -45,7 +45,7 @@
             </ul>
 
             <x-text.title>Салон і технології</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Просторий салон із фірмовими елементами <strong>Simply
                             Clever</strong>.</x-text.text>
                 </li>

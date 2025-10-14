@@ -54,6 +54,10 @@
                     <x-header.nav-link href="/scala"
                         class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Scala</x-header.nav-link>
                 </li>
+                <li class="group">
+                    <x-header.nav-link href="/enyaq"
+                        class="block px-4 py-3 text-base hover:bg-skoda-electric-green/10">Enyaq</x-header.nav-link>
+                </li>
             </ul>
         </li>
 

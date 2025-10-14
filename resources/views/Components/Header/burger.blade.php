@@ -79,6 +79,9 @@
                             <li>
                                 <x-header.nav-link href="/kamiq-fl">Kamiq FL</x-header.nav-link>
                             </li>
+                            <li>
+                                <x-header.nav-link href="/enyaq">Enyaq</x-header.nav-link>
+                            </li>
                         </ul>
                     </li>
 

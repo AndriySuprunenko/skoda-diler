@@ -25,10 +25,10 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити нову Škoda Octavia</x-text.main-title>
             <x-text.title>Škoda Octavia — дорога до нових відкриттів</x-text.title>
-            <x-text.text class="mb-12 mt-2"><strong>Нова Škoda Octavia</strong> втілила в собі успіх бренду та продовжує
+            <x-text.text class="mb-8"><strong>Нова Škoda Octavia</strong> втілила в собі успіх бренду та продовжує
                 вражати своєю
                 технологічністю та
                 практичністю.
@@ -36,7 +36,7 @@
                 безпеку.</x-text.text>
 
             <x-text.title>Технології, які полегшують життя</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - <strong>Віртуальна панель приладів</strong> з 10-дюймовим дисплеєм</x-text.text>
                 </li>
                 <li> <x-text.text> - 13-дюймовий дисплей мультимедіа Škoda для доступу до важливих опцій</x-text.text>
@@ -48,7 +48,7 @@
             </ul>
 
             <x-text.title>Лінійка двигунів</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - TDI та TSI з перевіреною надійністю</x-text.text></li>
                 <li><x-text.text> - Висока ефективність, низькі витрати пального</x-text.text></li>
             </ul>

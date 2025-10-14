@@ -25,16 +25,16 @@
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
-        <x-section class="flex flex-col">
+        <x-section class="flex flex-col gap-4">
             <x-text.main-title>Купити новий Škoda Kamiq</x-text.main-title>
             <x-text.title>Škoda Kamiq — міський кросовер для великих відкриттів</x-text.title>
-            <x-text.text class="mb-12 mt-2"><strong>Досліджувати світ легко, коли поруч надійний супутник.</strong>
+            <x-text.text class="mb-8"><strong>Досліджувати світ легко, коли поруч надійний супутник.</strong>
                 Новий <strong>Škoda Kamiq</strong> поєднує стильний дизайн, компактні розміри та сучасні технології, щоб
                 кожна поїздка
                 була комфортною та безпечною.</x-text.text>
 
             <x-text.title>Дизайн і зовнішність</x-text.title>
-            <ul class="mb-12 mt-2">
+            <ul class="mb-8">
                 <li> <x-text.text> - Компактні пропорції — ідеально для міста.</x-text.text>
                 </li>
                 <li> <x-text.text> - Світлодіодні фари для яскравого і безпечного освітлення.</x-text.text>
@@ -43,7 +43,7 @@
             </ul>
 
             <x-text.title>Салон та технології</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Просторий і функціональний салон для щоденного комфорту.</x-text.text>
                 </li>
                 <li><x-text.text> - Віртуальна панель приладів і сучасна <strong>інформаційно-розважальна
@@ -55,7 +55,7 @@
             </ul>
 
             <x-text.title>Чому Kamiq — розумний вибір для активного життя</x-text.title>
-            <ul class="mb-16 mt-2">
+            <ul class="mb-8">
                 <li><x-text.text> - Компактний, але функціональний кросовер для міста та подорожей.</x-text.text>
                 </li>
                 <li><x-text.text> - Легко паркувати, зручно їздити навіть у щільному трафіку.</x-text.text>
