@@ -85,7 +85,10 @@ class ModelsResource extends Resource
                             ->image()
                             ->maxSize(204800) // 20 MB
                             ->directory('models')
-                            ->required(),
+                            ->required()
+                            ->deleteUploadedFileUsing(function ($file) {
+                                \Storage::disk('public')->delete($file);
+                            }),
                     ])
                     ->collapsible()
                     ->label('Галерея моделі'),
