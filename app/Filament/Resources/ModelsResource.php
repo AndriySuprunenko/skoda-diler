@@ -86,8 +86,10 @@ class ModelsResource extends Resource
                             ->maxSize(204800) // 20 MB
                             ->directory('models')
                             ->required()
-                            ->deleteUploadedFileUsing(function ($file) {
-                                \Storage::disk('public')->delete($file);
+                            ->afterStateUpdated(function ($state, $livewire) {
+                                if (!$state && isset($livewire->oldState['image'])) {
+                                    \Storage::disk('public')->delete($livewire->oldState['image']);
+                                }
                             }),
                     ])
                     ->collapsible()
