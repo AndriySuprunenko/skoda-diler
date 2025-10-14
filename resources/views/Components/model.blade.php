@@ -28,7 +28,7 @@
             </div>
 
             <div
-                class="flex flex-col gap-4 w-full lg:max-w-[700px] p-4 md:p-8  bg-skoda-white text-skoda-emerald-green relative z-10">
+                class="flex flex-col gap-4 w-full lg:max-w-[700px] p-4 md:p-7  bg-skoda-white text-skoda-emerald-green relative z-10">
                 <x-text.title>{{ $model->name }}</x-text.title>
                 <div
                     class="flex md:justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row">
@@ -58,6 +58,15 @@
                         {{ $model->fuel_consumtion }}
                     </x-text.text>
                 </div>
+                @if ($model->url === 'enyaq')
+                    <div
+                        class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
+                        <span class="text-lg">Запас ходу</span>
+                        <x-text.text>
+                            до 582 км (WLTP)
+                        </x-text.text>
+                    </div>
+                @endif
                 <div
                     class="flex justify-between border-b-4 border-solid border-skoda-emerald-green flex-col md:flex-row ">
                     <span class="text-lg">Комплектація</span>
