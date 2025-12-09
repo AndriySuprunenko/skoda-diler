@@ -34,29 +34,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AutoDealer",
-        "name": "ТОВ 'Автоцентр-Кременчук-2012'",
-        "url": "https://www.avtocenter-kremenchuk.site",
-        "image": "https://www.avtocenter-kremenchuk.site/storage/images/main.webp",
-        "logo": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "вулиця Київська, 75",
-            "addressLocality": "Кременчук",
-            "addressRegion": "Полтавська область",
-            "postalCode": "39600",
-            "addressCountry": "UA"
-        },
-        "telephone": "+380676208844",
-        "email": "salon@skoda-kremen.com.ua",
-        "openingHours": "Mo-Fr 08:45-19:00 Sa 08:45-18:00 Su closed",
-        "priceRange": "₴₴",
-        "description": "Офіційний автосалон Škoda у Кременчуці. Продаж нових авто та авто з пробігом, сервіс, кредитування та лізинг."
-    }
-    </script>
+
     @vite('resources/css/app.css')
     <style>
         [x-cloak] {
