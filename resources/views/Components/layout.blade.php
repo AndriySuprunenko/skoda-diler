@@ -37,22 +37,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    {{-- Ringostat calltracking --}}
-    <script type="text/javascript">
-        (function(d, s, u, e, p) {
-            p = d.getElementsByTagName(s)[0], e = d.createElement(s), e.async = 1, e.src = u, p.parentNode.insertBefore(
-                e, p);
-        })(document, 'script', 'https://script.ringostat.com/v4/08/0851e48dc7c34feb51376c829ac8a68624ac10cb.js');
-        var pw = function() {
-            if (typeof(ringostatAnalytics) === "undefined") {
-                setTimeout(pw, 100);
-            } else {
-                ringostatAnalytics.sendHit('pageview');
-            }
-        };
-        pw();
-    </script>
-
     @vite('resources/css/app.css')
     <style>
         [x-cloak] {
