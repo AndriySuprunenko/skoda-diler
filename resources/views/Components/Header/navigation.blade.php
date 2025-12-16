@@ -72,7 +72,7 @@
         </li>
     </ul>
     <div>
-        <x-link href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</x-link>
+        <x-link href="tel:{{ $contacts->phone }}" class="binct-phone-number-1">{{ $contacts->phone }}</x-link>
     </div>
 </nav>
 

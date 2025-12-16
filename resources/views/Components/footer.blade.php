@@ -7,7 +7,7 @@
         <x-header.logo />
         <div class="flex flex-col text-skoda-electric-green w-full max-w-[200px] justify-center">
             <span class="font-bold">Номер телефону: </span>
-            <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a>
+            <a href="tel:{{ $contacts->phone }}" class="binct-phone-number-1">{{ $contacts->phone }}</a>
         </div>
         <div class="flex flex-col text-skoda-electric-green w-full max-w-[400px] justify-center">
             <span class="font-bold"> Електронна пошта: </span>

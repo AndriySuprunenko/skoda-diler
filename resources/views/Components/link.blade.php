@@ -6,6 +6,7 @@
     'size' => 'md',
     'fullWidth' => true,
     'loading' => false,
+    'class' => '',
     'loadingText' => 'Завантаження...',
 ]) @php
     $styles = [
@@ -65,8 +66,8 @@
 @endphp
 <a href='{{ $href }}' @if ($click && !$disabled && !$loading) @click="{{ $click }}" @endif
     @if ($disabled || $loading) disabled @endif
-    @if ($loading) aria-busy="true" aria-live="polite" @endif class="{{ $allClasses }}"
-    {{ $attributes }}>
+    @if ($loading) aria-busy="true" aria-live="polite" @endif
+    class="{{ $allClasses }} {{ $class }}" {{ $attributes }}>
     @if ($loading)
         <svg class="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

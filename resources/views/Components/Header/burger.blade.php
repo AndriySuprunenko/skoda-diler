@@ -98,7 +98,7 @@
                 </ul>
 
                 <!-- Placeholder for x-header.phone-number -->
-                <x-link href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</x-link>
+                <x-link href="tel:{{ $contacts->phone }}" class="binct-phone-number-1">{{ $contacts->phone }}</x-link>
             </nav>
         </div>
     </div>

@@ -27,7 +27,7 @@
                 </div>
                 <div class="flex flex-col mt-4">
                     <span class="font-bold">Номер телефону: </span>
-                    <a href="tel:{{ $contacts->phone }}">{{ $contacts->phone }}</a>
+                    <a href="tel:{{ $contacts->phone }}" class="binct-phone-number-1">{{ $contacts->phone }}</a>
                 </div>
                 <div class="flex flex-col mt-4">
                     <span class="font-bold"> Електронна пошта: </span>
