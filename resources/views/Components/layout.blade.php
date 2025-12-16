@@ -171,7 +171,7 @@
     </script>
 
     {{-- Віджет зворотнього дзвінка Binotel --}}
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         (function(d, w, s) {
             var widgetHash = '9liy23a9a5c5u8u54ijp',
                 gcw = d.createElement(s);
@@ -181,7 +181,19 @@
             var sn = d.getElementsByTagName(s)[0];
             sn.parentNode.insertBefore(gcw, sn);
         })(document, window, 'script');
+    </script> --}}
+    <script type="text/javascript">
+        (function(d, w, s) {
+            var widgetHash = 'xj4n24o5qiaqwe7w5egz',
+                ctw = d.createElement(s);
+            ctw.type = 'text/javascript';
+            ctw.async = true;
+            ctw.src = '//widgets.binotel.com/calltracking/widgets/' + widgetHash + '.js';
+            var sn = d.getElementsByTagName(s)[0];
+            sn.parentNode.insertBefore(ctw, sn);
+        })(document, window, 'script');
     </script>
+
 </body>
 
 </html>
