@@ -64,7 +64,7 @@
                 "name": "Škoda"
             },
             "aggregateRating": {
-                "@type": "AggregateRating",
+                "@@type": "AggregateRating",
                 "ratingValue": "4.5",
                 "reviewCount": "278",
                 "bestRating": "5"
