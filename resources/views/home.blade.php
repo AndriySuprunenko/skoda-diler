@@ -13,9 +13,9 @@
 @section('shema')
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
-            "@type": "AutoDealer",
-            "@id": "https://www.avtocenter-kremenchuk.site/#autodealer",
+            "@@context": "https://schema.org",
+            "@@type": "AutoDealer",
+            "@@id": "https://www.avtocenter-kremenchuk.site/#autodealer",
             "name": "Автоцентр-Кременчук — офіційний дилер Škoda",
             "alternateName": [
                 "Škoda Кременчук",
