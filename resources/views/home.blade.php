@@ -9,6 +9,71 @@
         content="Купуйте нові автомобілі Škoda в Україні — офіційний автосалон у Кременчуці. Широкий вибір моделей та комплектацій, вигідні акції, кредит та лізинг, обмін за програмою Trade-in.">
     <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
+
+    {{-- Schema.org markup for Google --}}
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "@id": "https://www.avtocenter-kremenchuk.site/#autodealer",
+  "name": "Автоцентр-Кременчук — офіційний дилер Škoda",
+  "alternateName": [
+    "Škoda Кременчук",
+    "Офіційний дилер Škoda у Кременчуці",
+    "Кременчук Škoda"
+  ],
+  "url": "https://www.avtocenter-kremenchuk.site/",
+  "logo": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+  "image": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+  "telephone": "+380676208844",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Київська, 75",
+    "addressLocality": "Кременчук",
+    "addressRegion": "Полтавська область",
+    "postalCode": "39600",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "49.067",
+    "longitude": "33.420"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Кременчук, Полтавська область"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "08:45",
+      "closes": "18:00"
+    }
+  ],
+  "priceRange": "$$$",
+  "brand": {
+    "@type": "Brand",
+    "name": "Škoda"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "278",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://maps.google.com/?q=Автоцентр-Кременчук+Škoda"
+  ]
+}
+    </script>
 @endsection
 
 <x-layout>
