@@ -9,7 +9,8 @@
         content="Купуйте нові автомобілі Škoda в Україні — офіційний автосалон у Кременчуці. Широкий вибір моделей та комплектацій, вигідні акції, кредит та лізинг, обмін за програмою Trade-in.">
     <meta property="og:site_name" content="Škoda Кременчук">
     <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
-
+@endsection
+@section('shema')
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
