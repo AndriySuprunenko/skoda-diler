@@ -20,7 +20,23 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
-
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/kodiaq#product",
+  "name": "Škoda Kodiaq",
+  "alternateName": ["Шкода Кодіак","Škoda Kodiaq 2025","Кодіак Кременчук"],
+  "description": "Новий Škoda Kodiaq — повнорозмірний сімейний SUV з можливістю придбання у кредит, лізинг або трейд-ін у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/kodiaq",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "SUV",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 <x-layout>
     <x-information-block :model="$model" />
     {{-- Контент сторінки --}}

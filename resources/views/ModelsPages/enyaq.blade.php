@@ -20,6 +20,24 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/enyaq#product",
+  "name": "Škoda Enyaq",
+  "alternateName": ["Шкода Еньяк","Enyaq електромобіль"],
+  "description": "Škoda Enyaq — електричний SUV з офіційною гарантією. Купівля у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/enyaq",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Electric SUV",
+  "fuelType": "Electric",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />
@@ -93,11 +111,11 @@
             [
                 'title' => 'Які комплектації доступні для Škoda Enyaq в Україні?',
                 'content' => 'В Україні Enyaq доступний у комплектації Basic (Loft) — це збалансована версія з усім необхідним для комфорту:
-                                                                                                                                                                                                                                                                                                                                                                тризонний клімат-контроль,
-                                                                                                                                                                                                                                                                                                                                                                19-дюймові легкосплавні диски,
-                                                                                                                                                                                                                                                                                                                                                                великий мультимедійний екран,
-                                                                                                                                                                                                                                                                                                                                                                асистенти безпеки та додаткові опції, які можна обрати індивідуально під свої потреби.
-                                                                                                                                                                                                                                                                                                                                                                ',
+                                                                                                                                                                                                                                                                                                                                                                        тризонний клімат-контроль,
+                                                                                                                                                                                                                                                                                                                                                                        19-дюймові легкосплавні диски,
+                                                                                                                                                                                                                                                                                                                                                                        великий мультимедійний екран,
+                                                                                                                                                                                                                                                                                                                                                                        асистенти безпеки та додаткові опції, які можна обрати індивідуально під свої потреби.
+                                                                                                                                                                                                                                                                                                                                                                        ',
             ],
             [
                 'title' => 'Який привід має Škoda Enyaq?',

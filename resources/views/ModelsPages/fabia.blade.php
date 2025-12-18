@@ -20,6 +20,24 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/fabia#product",
+  "name": "Škoda Fabia",
+  "alternateName": ["Шкода Фабія","Fabia Кременчук"],
+  "description": "Škoda Fabia — компактний автомобіль для міста. Офіційний дилер Škoda у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/fabia",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Compact Car",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />

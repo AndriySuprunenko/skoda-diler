@@ -20,6 +20,23 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/kamiq-fl#product",
+  "name": "Škoda Kamiq FL",
+  "alternateName": ["Шкода Камік","Kamiq Кременчук"],
+  "description": "Škoda Kamiq FL — міський кросовер. Офіційний продаж Škoda у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/kamiq-fl",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Urban Crossover",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />

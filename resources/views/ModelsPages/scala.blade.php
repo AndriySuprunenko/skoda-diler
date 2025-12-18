@@ -20,6 +20,23 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/scala#product",
+  "name": "Škoda Scala",
+  "alternateName": ["Шкода Скала","Scala Кременчук"],
+  "description": "Škoda Scala — сучасний хетчбек для міста. Купівля у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/scala",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Hatchback",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />

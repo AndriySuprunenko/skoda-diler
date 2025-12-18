@@ -14,6 +14,19 @@
     <meta property="og:type" content="article">
     <meta property="og:image" content="{{ url(Storage::url('images/trade-in/trade-in.webp')) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Service",
+  "@@id": "https://www.avtocenter-kremenchuk.site/#tradein",
+  "name": "Trade-in Škoda у Кременчуці",
+  "description": "Обмін вашого автомобіля на новий Škoda в офіційному автосалоні у Кременчуці.",
+  "provider": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"},
+  "areaServed": {"@type": "AdministrativeArea","name": "Кременчук, Полтавська область"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <img src="{{ Storage::url('images/trade-in/trade-in.webp') }}" alt="Trade-in"

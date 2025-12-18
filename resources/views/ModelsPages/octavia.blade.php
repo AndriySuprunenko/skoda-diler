@@ -20,6 +20,23 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/octavia-a8#product",
+  "name": "Škoda Octavia A8",
+  "alternateName": ["Шкода Октавія A8","Octavia Кременчук"],
+  "description": "Škoda Octavia A8 — універсальний автомобіль для сімʼї та бізнесу. Продаж у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/octavia-a8",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Sedan",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />

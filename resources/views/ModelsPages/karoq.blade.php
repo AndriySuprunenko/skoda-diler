@@ -20,6 +20,23 @@
     <meta property="og:type" content="product">
     <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Product",
+  "@@id": "https://www.avtocenter-kremenchuk.site/karoq#product",
+  "name": "Škoda Karoq",
+  "alternateName": ["Шкода Карок","Karoq Кременчук"],
+  "description": "Škoda Karoq — компактний кросовер для міста та подорожей. Офіційний продаж у Кременчуці.",
+  "url": "https://www.avtocenter-kremenchuk.site/karoq",
+  "brand": {"@type": "Brand","name": "Škoda"},
+  "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
+  "category": "Crossover",
+  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+}
+    </script>
+@endsection
 
 <x-layout>
     <x-information-block :model="$model" />

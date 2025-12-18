@@ -11,6 +11,44 @@
     <meta property="og:type" content="article">
     <meta property="og:image" content="{{ url(Storage::url('images/kredit/credit.webp')) }}">
 @endsection
+@section('shema')
+    <script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@@type": "Service",
+  "@@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#service",
+  "name": "Кредит та лізинг на нові автомобілі Škoda у Кременчуці",
+  "description": "Офіційне кредитування та лізинг нових автомобілів Škoda у Кременчуці для фізичних та юридичних осіб.",
+  "url": "https://www.avtocenter-kremenchuk.site/credit-leasing",
+  "provider": {
+    "@type": "AutoDealer",
+    "@id": "https://www.avtocenter-kremenchuk.site/#autodealer"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Кременчук, Полтавська область"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Фінансові програми придбання Škoda",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#credit",
+        "name": "Кредит на автомобілі Škoda",
+        "description": "Придбання нового автомобіля Škoda у кредит через офіційного дилера у Кременчуці.",
+        "category": "Auto Loan"
+      },
+      {
+        "@type": "Offer",
+        "@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#leasing",
+        "name": "Лізинг автомобілів Škoda",
+        "description": "Лізинг нових автомобілів Škoda для фізичних та юридичних осіб у Кременчуці.",
+        "category": "Vehicle Leasing"
+      }
+
+    </script>
+@endsection
 
 @php
     $credit = \App\Models\Credit::first();
