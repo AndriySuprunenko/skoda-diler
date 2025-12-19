@@ -6,7 +6,7 @@
     <ul class="flex flex-col md:flex-row gap-8 md:gap-4 items-center">
         <!-- Звичайний лінк -->
         <li class="group">
-            <x-header.nav-link href="/">Головна</x-header.nav-link>
+            <x-header.nav-link href="/" class="block px-4 py-3 text-base">Головна</x-header.nav-link>
         </li>
         <li class="group">
             <x-header.nav-link href="/trade-in" class="block px-4 py-3 text-base">Trade
