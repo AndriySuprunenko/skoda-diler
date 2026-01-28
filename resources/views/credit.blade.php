@@ -57,7 +57,7 @@
 <x-layout>
     <div>
         <img src="{{ Storage::url('images/kredit/credit.webp') }}" alt="Кредитна програми Škoda"
-            class="w-full h-auto" />
+            class="w-full h-[300px] md:h-[800px] object-cover object-center" />
     </div>
     <div class="text-center my-4 md:my-8">
         <x-text.main-title>Škoda - авто в кредит, розстрочку</x-text.main-title>
