@@ -11,8 +11,9 @@
 
 @php
     $cars = \App\Models\StockCars::orderBy('updated_at', 'desc')->get();
-    $newCars = $cars->where('condition', 'new');
+    $newCars = $cars->where('condition', 'new')->where('status', '!=', 'in_delivery');
     $usedCars = $cars->where('condition', 'used');
+    $inDeliveryCars = $cars->where('status', 'in_delivery');
 @endphp
 
 <x-layout>
@@ -33,9 +34,16 @@
                 <button @click="tab = 'used'"
                     :class="tab === 'used' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
-                    class="px-6 py-2 font-medium transition rounded-r-lg cursor-pointer"
-                    aria-label="Показати вживані автомобілі">
+                    class="px-6 py-2 font-medium transition cursor-pointer" aria-label="Показати вживані автомобілі">
                     Вживані авто ({{ $usedCars->count() }})
+                </button>
+
+                <button @click="tab = 'in_delivery'"
+                    :class="tab === 'in_delivery' ? 'bg-skoda-emerald-green text-white shadow-md' :
+                        'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
+                    class="px-6 py-2 font-medium transition rounded-r-lg cursor-pointer"
+                    aria-label="Показати авто в доставці">
+                    Поставляється ({{ $inDeliveryCars->count() }})
                 </button>
             </div>
 
@@ -83,6 +91,29 @@
                                 </svg>
                                 <h3 class="text-lg font-medium text-gray-900 mb-2">Немає авто на складі</h3>
                                 <p class="text-gray-500">Наразі немає доступних нових автомобілів.</p>
+                            </div>
+                        </div>
+                    @endforelse
+                </div>
+                {{-- В доставці --}}
+                <div x-show="tab === 'in_delivery'" class="contents">
+                    @forelse($inDeliveryCars as $car)
+                        <li class="w-full max-w-[600px]">
+                            <a href="{{ route('stock.car.details', $car->id) }}">
+                                <x-stock-card :car="$car" />
+                            </a>
+                        </li>
+                    @empty
+                        <div class="w-full text-center text-gray-500 py-12">
+                            <div class="max-w-md mx-auto">
+                                <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v                       3M4 7h16" />
+                                </svg>
+                                <h3 class="text-lg font-medium text-gray-900 mb-2">Немає авто в доставці</h3>
+                                <p class="text-gray-500">Наразі немає автомобілів, які знаходяться в процесі доставки.
+                                </p>
                             </div>
                         </div>
                     @endforelse
