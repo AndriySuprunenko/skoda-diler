@@ -14,16 +14,26 @@
     $newCars = $cars->where('condition', 'new')->where('status', '!=', 'in_delivery');
     $usedCars = $cars->where('condition', 'used');
     $inDeliveryCars = $cars->where('status', 'in_delivery');
+    $allowedTabs = ['new', 'used', 'in_delivery'];
+    $activeTab = in_array(request('tab'), $allowedTabs, true) ? request('tab') : 'new';
 @endphp
 
 <x-layout>
-    <div x-data="{ tab: 'new' }">
+    <div x-data="{
+        tab: '{{ $activeTab }}',
+        setTab(value) {
+            this.tab = value;
+            const url = new URL(window.location.href);
+            url.searchParams.set('tab', value);
+            window.history.replaceState({}, '', url);
+        }
+    }">
         <x-section class="text-center">
             <x-text.main-title>Авто Škoda в наявності у Кременчуці</x-text.main-title>
 
             {{-- Вкладки --}}
             <div class="flex justify-center mt-6">
-                <button @click="tab = 'new'"
+                <button @click="setTab('new')"
                     :class="tab === 'new' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
                     class="px-6 py-2 font-medium transition rounded-l-lg border-r-0 cursor-pointer"
@@ -31,14 +41,14 @@
                     Нові авто ({{ $newCars->count() }})
                 </button>
 
-                <button @click="tab = 'used'"
+                <button @click="setTab('used')"
                     :class="tab === 'used' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
                     class="px-6 py-2 font-medium transition cursor-pointer" aria-label="Показати вживані автомобілі">
                     Вживані авто ({{ $usedCars->count() }})
                 </button>
 
-                <button @click="tab = 'in_delivery'"
+                <button @click="setTab('in_delivery')"
                     :class="tab === 'in_delivery' ? 'bg-skoda-emerald-green text-white shadow-md' :
                         'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100'"
                     class="px-6 py-2 font-medium transition rounded-r-lg cursor-pointer"
