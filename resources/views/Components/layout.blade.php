@@ -198,6 +198,8 @@
         })(document, window, 'script');
     </script>
 
+    <x-telegram-button />
+
 </body>
 
 </html>
