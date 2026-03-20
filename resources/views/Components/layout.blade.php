@@ -186,6 +186,7 @@
             sn.parentNode.insertBefore(gcw, sn);
         })(document, window, 'script');
     </script>
+    {{-- Віджет коллтрекінгу Binotel --}}
     <script type="text/javascript">
         (function(d, w, s) {
             var widgetHash = 'xj4n24o5qiaqwe7w5egz',
@@ -195,6 +196,18 @@
             ctw.src = '//widgets.binotel.com/calltracking/widgets/' + widgetHash + '.js';
             var sn = d.getElementsByTagName(s)[0];
             sn.parentNode.insertBefore(ctw, sn);
+        })(document, window, 'script');
+    </script>
+    {{-- Віджет чату Binotel --}}
+    <script type="text/javascript">
+        (function(d, w, s) {
+            var widgetHash = 'dpMlKBZsxqmJ46iFd052',
+                bch = d.createElement(s);
+            bch.type = 'text/javascript';
+            bch.async = true;
+            bch.src = '//widgets.binotel.com/chat/widgets/' + widgetHash + '.js';
+            var sn = d.getElementsByTagName(s)[0];
+            sn.parentNode.insertBefore(bch, sn);
         })(document, window, 'script');
     </script>
 
