@@ -21,6 +21,7 @@ Route::get('/trade-in', [PageController::class, 'tradeIn']);
 Route::get('/reviews', [PageController::class, 'reviews']);
 Route::get('/thank-you', [PageController::class, 'thankYou']);
 Route::get('/stock-cars', [PageController::class, 'stockCars']);
+Route::get('/test-drive-battle', [PageController::class, 'testDriveBattle']);
 
 Route::get('/stock-cars/{car}', [PageController::class, 'stockCarDetails'])
   ->name('stock.car.details')

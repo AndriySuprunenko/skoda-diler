@@ -66,6 +66,10 @@ class PageController extends Controller
     {
         return view('stock-cars');
     }
+    public function testDriveBattle()
+    {
+        return view('test-drive-battle');
+    }
     public function stockCarDetails($car)
     {
         // Logic to retrieve and display details for the specific stock car
