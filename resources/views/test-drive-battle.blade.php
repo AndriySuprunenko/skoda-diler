@@ -22,6 +22,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W7N9V7SF');
+    </script>
+    <!-- End Google Tag Manager -->
     {{-- ManyChat Widget --}}
     <script src="//widget.manychat.com/3349735_dc59d.js" defer="defer"></script>
     <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
@@ -94,6 +112,10 @@
 </head>
 
 <body class="font-sans w-full min-h-screen flex flex-col bg-skoda-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7N9V7SF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="relative w-full h-[600px] md:h-[848px]"">
         <img src="{{ Storage::url('images/test-drive-battle/test-drive-battle.webp') }}" alt="Karoq and Kodiaq"
             class="w-full h-[600px] md:h-[848px] object-cover object-center" />
@@ -118,8 +140,8 @@
                 </span>
             </div>
             <div class="w-fit m-auto md:m-0">
-                <a href="https://t.me/SkodaSales_Kremenchuk_Bot" target="_blank" rel="noopener noreferrer"
-                    aria-label="Telegram чат-бот"
+                <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" target="_blank"
+                    rel="noopener noreferrer" aria-label="Telegram чат-бот"
                     class="text-skoda-emerald-green bg-skoda-electric-green border-skoda-white hover:bg-skoda-emerald-green hover:text-skoda-electric-green hover:border-skoda-electric-green active:bg-skoda-emerald-green active:text-skoda-electric-green focus:outline-none focus:ring-2 focus:ring-skoda-electric-green focus:ring-offset-2 px-4 py-2 text-3xl border-4 rounded-2xl flex">
                     <svg aria-hidden="true" viewBox="0 0 24 24" class="w-10 h-10">
                         <path fill="currentColor"
@@ -154,7 +176,7 @@
         <h2 class="text-2xl font-bold text-skoda-white">Запишіться за 30 секунд у Telegram</h2>
         <h3 class="text-xl text-skoda-white">Ми підготуємо авто та підтвердимо запис на зручний для вас час</h3>
         <div class="max-w-sm m-auto mt-6">
-            <a href="https://t.me/SkodaSales_Kremenchuk_Bot" target="_blank" rel="noopener noreferrer"
+            <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" target="_blank" rel="noopener noreferrer"
                 aria-label="Telegram чат-бот"
                 class="w-full h-14 rounded-2xl bg-[#0088cc] text-white shadow-2xl border-4 border-white flex items-center justify-center transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0088cc]">
                 <svg aria-hidden="true" viewBox="0 0 24 24" class="w-10 h-10">
@@ -173,6 +195,91 @@
             не підлягає обміну на грошовий еквівалент. Кількість подарунків обмежена. Організатор може змінювати умови
             акції або завершити її достроково.</p>
     </footer>
+    {{-- UTM мітки --}}
+    <script>
+        (function() {
+            const UTMManager = {
+                // Конфігурація
+                config: {
+                    maxAge: 60 * 60 * 24 * 7, // 30 днів
+                    domain: window.location.hostname,
+                    sameSite: 'Lax',
+                    secure: window.location.protocol === 'https:'
+                },
+
+                // UTM параметри для відстеження
+                utmParams: ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'],
+
+                // Додаткові параметри (якщо потрібно)
+                additionalParams: ['gclid', 'fbclid', 'yclid'],
+
+                // Встановлення cookie
+                setCookie(name, value) {
+                    const cookieString = [
+                        `${name}=${encodeURIComponent(value)}`,
+                        'path=/',
+                        `max-age=${this.config.maxAge}`,
+                        `SameSite=${this.config.sameSite}`,
+                        this.config.secure ? 'Secure' : ''
+                    ].filter(Boolean).join('; ');
+
+                    document.cookie = cookieString;
+                },
+
+                // Отримання cookie
+                getCookie(name) {
+                    const value = `; ${document.cookie}`;
+                    const parts = value.split(`; ${name}=`);
+                    if (parts.length === 2) {
+                        return decodeURIComponent(parts.pop().split(';').shift());
+                    }
+                    return null;
+                },
+
+                // Перевірка чи параметр уже збережений
+                isAlreadyStored(name, value) {
+                    return this.getCookie(name) === value;
+                },
+
+                // Основна функція
+                saveUtmParams() {
+                    const params = new URLSearchParams(window.location.search);
+                    const allParams = [...this.utmParams, ...this.additionalParams];
+                    let savedCount = 0;
+
+                    allParams.forEach(key => {
+                        const value = params.get(key);
+                        if (value && !this.isAlreadyStored(key, value)) {
+                            this.setCookie(key, value);
+                            console.log(`Параметр збережено: ${key} = ${value}`);
+                            savedCount++;
+                        }
+                    });
+
+                    if (savedCount > 0) {
+                        console.log(`Збережено ${savedCount} нових параметрів у cookies`);
+                    }
+
+                    // Зберігаємо час першого візиту
+                    if (!this.getCookie('first_visit')) {
+                        this.setCookie('first_visit', new Date().toISOString());
+                    }
+                },
+
+                // Отладка - показати всі UTM cookies
+                debug() {
+                    console.log('=== UTM Cookies Debug ===');
+                    [...this.utmParams, ...this.additionalParams, 'first_visit'].forEach(key => {
+                        const value = this.getCookie(key);
+                        console.log(`${key}: ${value || 'не встановлено'}`);
+                    });
+                }
+            };
+
+            // Запуск
+            UTMManager.saveUtmParams();
+        })();
+    </script>
 </body>
 
 </html>
