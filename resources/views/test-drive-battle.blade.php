@@ -140,8 +140,8 @@
                 </span>
             </div>
             <div class="w-fit m-auto md:m-0">
-                <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" target="_blank"
-                    rel="noopener noreferrer" aria-label="Telegram чат-бот"
+                <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" onclick="fbq('track', 'Lead');"
+                    target="_blank" rel="noopener noreferrer" aria-label="Telegram чат-бот"
                     class="text-skoda-emerald-green bg-skoda-electric-green border-skoda-white hover:bg-skoda-emerald-green hover:text-skoda-electric-green hover:border-skoda-electric-green active:bg-skoda-emerald-green active:text-skoda-electric-green focus:outline-none focus:ring-2 focus:ring-skoda-electric-green focus:ring-offset-2 px-4 py-2 text-3xl border-4 rounded-2xl flex">
                     <svg aria-hidden="true" viewBox="0 0 24 24" class="w-10 h-10">
                         <path fill="currentColor"
@@ -176,8 +176,8 @@
         <h2 class="text-2xl font-bold text-skoda-white">Запишіться за 30 секунд у Telegram</h2>
         <h3 class="text-xl text-skoda-white">Ми підготуємо авто та підтвердимо запис на зручний для вас час</h3>
         <div class="max-w-sm m-auto mt-6">
-            <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" target="_blank" rel="noopener noreferrer"
-                aria-label="Telegram чат-бот"
+            <a href="https://t.me/SkodaSales_Kremenchuk_Bot?start=w51557820" onclick="fbq('track', 'Lead');"
+                target="_blank" rel="noopener noreferrer" aria-label="Telegram чат-бот"
                 class="w-full h-14 rounded-2xl bg-[#0088cc] text-white shadow-2xl border-4 border-white flex items-center justify-center transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0088cc]">
                 <svg aria-hidden="true" viewBox="0 0 24 24" class="w-10 h-10">
                     <path fill="currentColor" d="M4.5 11.5l13.5-6.5-1.5 12.5-4.75-3.5-2.75 2.5-1.5-2.75 6.75-4.25z" />
