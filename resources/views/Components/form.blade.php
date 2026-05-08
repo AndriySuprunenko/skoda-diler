@@ -68,9 +68,9 @@
         </div>
 
         <div class="flex gap-8 items-start md:items-center flex-col md:flex-row mt-6 md:mt-0">
-            <x-checkbox name="no_call" text="Не телефонуйте мені" color="text-skoda-electric-green" />
+            {{-- <x-checkbox name="no_call" text="Не телефонуйте мені" color="text-skoda-electric-green" /> --}}
             <div class="space-y-2 text-skoda-electric-green flex flex-col md:flex-row gap-8">
-                <p class="text-base">Оберіть зручний спосіб звʼязку:</p>
+                <p class="text-base">Оберіть месенджер для отримання інформації: </p>
                 <div class="flex flex-col md:flex-row gap-4 justify-start">
                     <x-checkbox name="viber" text="Viber" color="text-skoda-electric-green" />
                     <x-checkbox name="telegram" text="Telegram" color="text-skoda-electric-green" />

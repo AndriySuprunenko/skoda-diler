@@ -107,11 +107,11 @@
                                             '{{ $config['outlineColor'] }}'"
                                         placeholder="+38(XXX)XXX-XX-XX" />
                                 </div>
-                                <x-checkbox name="no_call" text="Не телефонуйте мені"
-                                    color="{{ $config['textColor'] }}" />
+                                {{-- <x-checkbox name="no_call" text="Не телефонуйте мені"
+                                    color="{{ $config['textColor'] }}" /> --}}
                             </div>
                             <div class="space-y-2 {{ $config['textColor'] }}">
-                                <p class="text-base">Оберіть зручний спосіб звʼязку:</p>
+                                <p class="text-base">Оберіть месенджер для отримання інформації: </p>
                                 <div class="flex flex-wrap gap-2 justify-around">
                                     <x-checkbox name="viber" text="Viber" color="{{ $config['textColor'] }}" />
                                     <x-checkbox name="telegram" text="Telegram" color="{{ $config['textColor'] }}" />
