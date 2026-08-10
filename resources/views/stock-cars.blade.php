@@ -30,6 +30,7 @@
     }">
         <x-section class="text-center">
             <x-text.main-title>Авто Škoda в наявності у Кременчуці</x-text.main-title>
+            <h2 class="sr-only">Фільтр автомобілів за станом</h2>
 
             {{-- Вкладки --}}
             <div class="flex justify-center mt-6">

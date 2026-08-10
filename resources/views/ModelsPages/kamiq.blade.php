@@ -43,7 +43,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити новий Škoda Kamiq</x-text.main-title>
+            <x-text.title>Купити новий Škoda Kamiq</x-text.title>
             <x-text.title>Škoda Kamiq — міський кросовер для великих відкриттів</x-text.title>
             <x-text.text class="mb-8"><strong>Досліджувати світ легко, коли поруч надійний супутник.</strong>
                 Новий <strong>Škoda Kamiq</strong> поєднує стильний дизайн, компактні розміри та сучасні технології, щоб

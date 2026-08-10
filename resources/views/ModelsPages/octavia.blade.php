@@ -43,7 +43,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити нову Škoda Octavia</x-text.main-title>
+            <x-text.title>Купити нову Škoda Octavia</x-text.title>
             <x-text.title>Škoda Octavia — дорога до нових відкриттів</x-text.title>
             <x-text.text class="mb-8"><strong>Нова Škoda Octavia</strong> втілила в собі успіх бренду та продовжує
                 вражати своєю

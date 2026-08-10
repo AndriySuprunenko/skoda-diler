@@ -43,7 +43,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити новий Škoda Karoq</x-text.main-title>
+            <x-text.title>Купити новий Škoda Karoq</x-text.title>
             <x-text.title>Škoda Karoq — універсальний кросовер для міста та подорожей</x-text.title>
             <x-text.text class="mb-8"><strong>Будь-яка поїздка може стати початком важливих моментів</strong>.
                 З новим <strong>Škoda Karoq</strong> ви отримуєте практичність, стиль і технології, які роблять кожну

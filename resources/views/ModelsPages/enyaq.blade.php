@@ -44,7 +44,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити новий Škoda Enyaq</x-text.main-title>
+            <x-text.title>Купити новий Škoda Enyaq</x-text.title>
             <x-text.title>Відчуйте майбутнє вже сьогодні.</x-text.title>
             <x-text.text>Škoda Enyaq — це сучасний електрокросовер: потужний, стильний і повністю
                 екологічний. Без викидів CO₂, із запасом ходу до 582 км і дизайном, який неможливо сплутати з

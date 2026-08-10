@@ -43,7 +43,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити нову Škoda Scala</x-text.main-title>
+            <x-text.title>Купити нову Škoda Scala</x-text.title>
             <x-text.title>Škoda Scala — універсальний хетчбек для міста та подорожей</x-text.title>
             <x-text.text class="mb-8">Будь-яка поїздка може стати початком важливих моментів.
                 З новою <strong>Škoda Scala</strong> ви отримуєте <strong>універсальність, стиль і сучасні

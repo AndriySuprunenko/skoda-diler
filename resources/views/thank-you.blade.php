@@ -9,7 +9,7 @@
 <x-layout>
     <x-section class="text-center">
         <x-text.main-title>Дякуємо що залишили заявку</x-text.main-title>
-        <x-text.subtitle>Ми скоро з вами звʼяжемось</x-text.subtitle>
+        <x-text.title>Ми скоро з вами звʼяжемось</x-text.title>
         @if (request()->has('price'))
             <div class="max-w-[300px] m-auto mt-4">
                 <x-link :href="request()->get('price')" target="_blank">
