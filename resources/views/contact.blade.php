@@ -20,6 +20,7 @@
         <div class="flex gap-6 mt-5 flex-col md:flex-row justify-center w-full items-center">
             <x-map />
             <div class="w-full max-w-[300px] md:max-w-[500px] h-full p-10 bg-skoda-white rounded-xl">
+                <h2 class="text-2xl font-bold mb-6 text-skoda-emerald-green">Наші контакти</h2>
                 <div class="flex flex-col">
                     <span class="font-bold">Адреса: </span>
                     <a href="https://maps.app.goo.gl/VBhCJBRkU8pzisDLA?g_st=ipc" target="_blank">вулиця

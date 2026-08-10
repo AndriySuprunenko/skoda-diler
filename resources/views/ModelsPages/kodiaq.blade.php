@@ -42,7 +42,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити новий Škoda Kodiaq</x-text.main-title>
+            <x-text.title>Купити новий Škoda Kodiaq</x-text.title>
             <x-text.title>Новий Škoda Kodiaq — простір для сім’ї та відкриттів</x-text.title>
             <x-text.text class="mb-8">Škoda Kodiaq — це більше, ніж автомобіль. Це <strong>сімейний простір,
                     компаньйон у

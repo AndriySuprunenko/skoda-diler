@@ -81,13 +81,13 @@
         <a href="viber://chat?number=%2B380674000167"
             class="flex items-center gap-2 text-purple-500 hover:text-purple-700">
             <!-- Viber Icon -->
-            <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/viber.png') }}" alt="Telegram">
+            <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/viber.png') }}" alt="Viber">
             Viber
         </a>
         <a href="https://wa.me/380674000167" target="_blank"
             class="flex items-center gap-2 text-green-500 hover:text-green-700">
             <!-- WhatsApp Icon -->
-            <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/whatsapp.png') }}" alt="Telegram">
+            <img class="w-[24px] h-[24px]" src="{{ Storage::url('images/icons/whatsapp.png') }}" alt="WhatsApp">
             WhatsApp
         </a>
     </div>

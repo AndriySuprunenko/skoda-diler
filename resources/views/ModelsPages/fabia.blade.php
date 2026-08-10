@@ -44,7 +44,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити нову Škoda Fabia</x-text.main-title>
+            <x-text.title>Купити нову Škoda Fabia</x-text.title>
             <x-text.title>Škoda Fabia – ваш стиль у ритмі міста</x-text.title>
             <x-text.text class="mb-8">Fabia створена для тих, хто цінує свободу руху й власний ритм життя.
                 Це міський хетчбек, який поєднує в собі динаміку, комфорт і сучасні технології.

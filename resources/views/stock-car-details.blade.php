@@ -114,9 +114,9 @@
 
                 {{-- Назва моделі --}}
                 @if ($car->condition === 'new')
-                    <x-text.main-title>Нова {{ $car->name }} в наявності</x-text.main-title>
+                    <x-text.main-title>Нова {{ $car->name }} {{ $car->color }} в наявності</x-text.main-title>
                 @else
-                    <x-text.main-title>Вживаний {{ $car->name }} у Кременчуці</x-text.main-title>
+                    <x-text.main-title>Вживаний {{ $car->name }} {{ $car->color }} у Кременчуці</x-text.main-title>
                 @endif
 
                 {{-- Основна інформація --}}

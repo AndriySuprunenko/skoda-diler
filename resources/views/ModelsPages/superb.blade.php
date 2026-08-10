@@ -43,7 +43,7 @@
     {{-- Контент сторінки --}}
     <div class="max-w-4xl mx-auto">
         <x-section class="flex flex-col gap-4">
-            <x-text.main-title>Купити нову Škoda Superb</x-text.main-title>
+            <x-text.title>Купити нову Škoda Superb</x-text.title>
             <x-text.title>Škoda Superb — новий рівень комфорту преміум-класу</x-text.title>
             <x-text.text class="mb-8">Кожна подорож відкриває нові можливості.
                 З новим <strong>Škoda Superb</strong> ви отримуєте <strong> простір, сучасні технології та динаміку
