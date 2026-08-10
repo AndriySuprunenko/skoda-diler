@@ -10,6 +10,7 @@
 
     <title>@yield('title', 'Головна')</title>
 
+    <link rel="canonical" href="{{ url()->current() }}" />
     <link rel="icon" href="{{ asset('favicon.ico') }}" />
 
     <!-- Google Tag Manager -->

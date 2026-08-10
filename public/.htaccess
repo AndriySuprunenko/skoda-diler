@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Enforce www
+    RewriteCond %{HTTP_HOST} ^avtocenter-kremenchuk\.site [NC]
+    RewriteRule ^(.*)$ https://www.avtocenter-kremenchuk.site/$1 [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
