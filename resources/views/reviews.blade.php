@@ -21,7 +21,7 @@
         <ul class="flex flex-wrap items-center justify-center gap-8 mt-10">
             @foreach ($clients as $client)
                 <li>
-                    <img src="{{ Storage::url($client->photo) }}"
+                    <img src="{{ Storage::url($client->photo) }}" alt="Фото клієнта {{ $client->name ?? '' }}"
                         class="w-[200px] h-[200px] object-cover object-center cursor-pointer" loading="lazy" />
                 </li>
             @endforeach
