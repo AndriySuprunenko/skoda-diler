@@ -6,8 +6,8 @@
     RewriteEngine On
 
     # Enforce www
-    RewriteCond %{HTTP_HOST} ^avtocenter-kremenchuk\.site [NC]
-    RewriteRule ^(.*)$ https://www.avtocenter-kremenchuk.site/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^avtocenter-kremenchuk\.com.ua [NC]
+    RewriteRule ^(.*)$ https://www.avtocenter-kremenchuk.com.ua/$1 [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
