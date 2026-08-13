@@ -15,6 +15,7 @@ class ModalFormController extends Controller
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
                 'phone' => 'required|string|max:20',
+                'model' => 'nullable|string|max:255',
                 'type' => 'required|string',
             ]);
 
@@ -26,6 +27,7 @@ class ModalFormController extends Controller
             if ($request->has('telegram')) $preferences[] = 'Telegram';
 
             $contactMethods = count($preferences) ? implode(', ', $preferences) : 'Не вказано';
+            $model = $validated['model'] ?? null;
 
             $utm = [
                 'utm_source' => $request->cookie('utm_source') ?? '',
@@ -49,7 +51,7 @@ class ModalFormController extends Controller
                 } else {
                     $response = Http::post($webhook . 'crm.lead.add.json', [
                         'fields' => [
-                            'TITLE' => 'Заявка з сайту "skoda-diler"',
+                            'TITLE' => 'Заявка з сайту "avtocenter-kremenchuk"',
                             'NAME' => $validated['name'],
                             'PHONE' => [
                                 ['VALUE' => $validated['phone'], 'VALUE_TYPE' => 'WORK']
@@ -58,6 +60,7 @@ class ModalFormController extends Controller
                             'SOURCE_DESCRIPTION' => $full_data,
                             'COMMENTS' => 'Тип: ' . $validated['type'] . "\n" .
                                 'Спосіб звʼязку: ' . $contactMethods . "\n" .
+                                (empty($model) ? '' : 'Модель: ' . $model) . "\n" .
                                 'UTM: ' . implode(', ', array_filter($utm)),
                         ],
                         'params' => [

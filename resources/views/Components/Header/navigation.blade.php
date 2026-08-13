@@ -65,7 +65,7 @@
             <x-header.nav-link href="/stock-cars">Авто на складі</x-header.nav-link>
         </li>
         <li class="group">
-            <x-header.nav-link href="/reviews">Клієнти</x-header.nav-link>
+            <x-header.nav-link href="/service">Сервіс</x-header.nav-link>
         </li>
         <li class="group">
             <x-header.nav-link href="/contact">Контакти</x-header.nav-link>

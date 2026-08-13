@@ -30,7 +30,7 @@ class GenerateSitemap extends Command
             ['url' => '/karoq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/credit', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/trade-in', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
-            ['url' => '/reviews', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
+            ['url' => '/service', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/stock-cars', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
             ['url' => '/enyaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/test-drive-battle', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],

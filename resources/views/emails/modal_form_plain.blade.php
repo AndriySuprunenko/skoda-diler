@@ -1,5 +1,8 @@
 Імʼя: {{ $data['name'] }}
 Телефон: {{ $data['phone'] }}
+@if (!empty($data['model']))
+Модель: {{ $data['model'] }}
+@endif
 Тип заявки: {{ $data['type'] }}
 Бажаний спосіб звʼязку: {{ $contactMethods }}
 

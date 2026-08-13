@@ -54,9 +54,9 @@ class PageController extends Controller
     {
         return view('trade-in');
     }
-    public function reviews()
+    public function service()
     {
-        return view('reviews');
+        return view('service');
     }
     public function thankYou()
     {

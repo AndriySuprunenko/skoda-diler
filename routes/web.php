@@ -18,7 +18,7 @@ Route::get('/karoq', [PageController::class, 'karoq']);
 Route::get('/enyaq', [PageController::class, 'enyaq']);
 Route::get('/credit', [PageController::class, 'credit']);
 Route::get('/trade-in', [PageController::class, 'tradeIn']);
-Route::get('/reviews', [PageController::class, 'reviews']);
+Route::get('/service', [PageController::class, 'service']);
 Route::get('/thank-you', [PageController::class, 'thankYou']);
 Route::get('/stock-cars', [PageController::class, 'stockCars']);
 Route::get('/test-drive-battle', [PageController::class, 'testDriveBattle']);
