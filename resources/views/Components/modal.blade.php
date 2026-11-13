@@ -19,7 +19,7 @@
                 ],
             ],
             'consultation' => [
-                'title' => 'Залиште заявку та отримайте консультацію',
+                'title' => 'Залиште заявку',
                 'logo' => Storage::url('images/logos/Skoda_Wordmark_RGB_Emerald_Green.svg'),
                 'bgColor' => 'bg-white',
                 'textColor' => 'text-skoda-emerald-green',

@@ -31,7 +31,27 @@
         })(window, document, 'script', 'dataLayer', 'GTM-W7N9V7SF');
     </script>
     <!-- End Google Tag Manager -->
-
+    <!-- OpenAI Pixel -->
+    <script>
+        ! function(w, d, s, u) {
+            if (w.oaiq) return;
+            var q = function() {
+                q.q.push(arguments)
+            };
+            q.q = [];
+            w.oaiq = q;
+            var j = d.createElement(s);
+            j.async = 1;
+            j.src = u;
+            var f = d.getElementsByTagName(s)[0];
+            f.parentNode.insertBefore(j, f)
+        }(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+        oaiq("init", {
+            pixelId: "F3X8X5vMjmCEFkNAQ1PPmR",
+            debug: true
+        });
+    </script>
+    <!-- End OpenAI Pixel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

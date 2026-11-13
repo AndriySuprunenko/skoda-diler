@@ -116,7 +116,8 @@
                 @if ($car->condition === 'new')
                     <x-text.main-title>Нова {{ $car->name }} {{ $car->color }} в наявності</x-text.main-title>
                 @else
-                    <x-text.main-title>Вживаний {{ $car->name }} {{ $car->color }} у Кременчуці</x-text.main-title>
+                    <x-text.main-title>Вживаний {{ $car->name }} {{ $car->color }} у
+                        Кременчуці</x-text.main-title>
                 @endif
 
                 {{-- Основна інформація --}}
@@ -198,9 +199,10 @@
                 <div class=" m-auto flex flex-wrap gap-6 w-full justify-center">
                     @if (!empty($car->specification_file))
                         <div class="max-w-[300px] w-full">
-                            <x-link href="{{ Storage::url($car->specification_file) }}" target="_blank"
-                                style="outline">Файл з
-                                характеристиками</x-link>
+                            <x-button
+                                click="$dispatch('open-modal', { type: 'consultation' , value: 'Склад - Файл конфігурації {{ $car->name }}', price: '{{ Storage::url($car->specification_file) }}' })">
+                                Файл з характеристиками
+                            </x-button>
                         </div>
                     @endif
                     <div class="max-w-[300px] w-full">

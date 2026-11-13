@@ -13,7 +13,7 @@
         @if (request()->has('price'))
             <div class="max-w-[300px] m-auto mt-4">
                 <x-link :href="request()->get('price')" target="_blank">
-                    Завантажити прайс
+                    Завантажити файл
                 </x-link>
             </div>
         @endif
