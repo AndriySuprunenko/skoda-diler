@@ -1,7 +1,7 @@
 @props(['class' => '', 'active' => false, 'href' => '#', 'color' => 'text-skoda-electric-green'])
 
 @php
-    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $path = request()->getPathInfo();
 @endphp
 
 <a href={{ $href }} class="relative {{ $color }} p-2 transition-all duration-300 {{ $class }}">

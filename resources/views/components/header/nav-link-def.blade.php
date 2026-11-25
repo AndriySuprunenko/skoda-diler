@@ -1,7 +1,7 @@
 @props(['class' => '', 'active' => false, 'href' => '#'])
 
 @php
-    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $path = request()->getPathInfo();
 @endphp
 
 <a href={{ $href }}
