@@ -16,17 +16,33 @@
                                         method: 'POST',
                                         body: formData,
                                         headers: {
+                                            'Accept': 'application/json',
                                             'X-CSRF-TOKEN': formData.get('_token')
                                         }
                                     })
-                                    .then(() => {
-                                        window.location.href = '/thank-you';
+                                    .then(async (response) => {
+                                        const data = await response.json().catch(() => ({}));
+                                        if (!response.ok) throw { status: response.status, data };
+                                        window.location.href = data.redirect || '/thank-you';
                                     })
-                                    .catch(() => isSubmitting = false);
+                                    .catch((err) => {
+                                        isSubmitting = false;
+                                        const fieldErrors = err?.data?.errors || {};
+                                        if (fieldErrors.name) errors.name = true;
+                                        if (fieldErrors.phone) errors.phone = 'Невірний формат номера';
+                                        if (!fieldErrors.name && !fieldErrors.phone) {
+                                            errors.general = err?.status === 429
+                                                ? 'Забагато спроб. Спробуйте за хвилину.'
+                                                : (err?.status === 419
+                                                    ? 'Сесія застаріла. Оновіть сторінку та спробуйте ще раз.'
+                                                    : 'Не вдалося відправити заявку. Спробуйте ще раз або зателефонуйте нам.');
+                                        }
+                                    });
                                 }
                             "
         class="space-y-3 md:space-y-6 flex flex-col" action="{{ route('send.modal.form') }}" method="POST">
-        @csrf <input type="hidden" name="type" value="{{ $value }}">
+        @csrf
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input type="text" name="website" tabindex="-1" autocomplete="off" value=""></div> <input type="hidden" name="type" value="{{ $value }}">
 
         <div class="flex flex-col md:flex-row w-full gap-4 items-center">
             <div class="w-full">
@@ -78,6 +94,9 @@
                 </div>
             </div>
         </div>
+        <p x-show="errors.general" x-text="errors.general" x-cloak role="alert"
+            class="text-base font-medium text-red-300"></p>
+
         <div class="w-fit mt-5 m-auto md:hidden block">
             <x-button type="submit">
                 <span x-show="!isSubmitting">Відправити</span>

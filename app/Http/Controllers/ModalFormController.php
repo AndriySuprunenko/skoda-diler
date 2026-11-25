@@ -2,86 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessLead;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ModalFormRequest;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ModalFormController extends Controller
 {
     public function send(Request $request)
     {
-        try {
-            $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'phone' => 'required|string|max:20',
-                'model' => 'nullable|string|max:255',
-                'type' => 'required|string',
-            ]);
+        // Validation errors are handled by Laravel: 422 JSON for fetch requests,
+        // redirect back with errors for regular form posts.
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'model' => 'nullable|string|max:255',
+            'type' => 'required|string|max:255',
+        ]);
 
-            // Збір способів зв'язку
-            $preferences = [];
-            if ($request->has('no_call')) $preferences[] = 'Не телефонувати';
-            if ($request->has('whatsapp')) $preferences[] = 'WhatsApp';
-            if ($request->has('viber')) $preferences[] = 'Viber';
-            if ($request->has('telegram')) $preferences[] = 'Telegram';
+        $redirect = '/thank-you' . ($request->filled('price_url')
+            ? '?price=' . urlencode($request->input('price_url'))
+            : '');
 
-            $contactMethods = count($preferences) ? implode(', ', $preferences) : 'Не вказано';
-            $model = $validated['model'] ?? null;
+        // Honeypot: real users never see or fill this field. Pretend success so bots don't adapt.
+        if ($request->filled('website')) {
+            Log::info('Lead form honeypot triggered', ['ip' => $request->ip()]);
 
-            $utm = [
-                'utm_source' => $request->cookie('utm_source') ?? '',
-                'utm_medium' => $request->cookie('utm_medium') ?? '',
-                'utm_campaign' => $request->cookie('utm_campaign') ?? '',
-                'utm_term' => $request->cookie('utm_term') ?? '',
-                'utm_content' => $request->cookie('utm_content') ?? '',
-            ];
-
-            // Відправка пошти
-            try {
-                if (empty($validated['model'])) {
-                    Mail::to('salon@skoda-kremen.com.ua')->send(new ModalFormRequest($validated, $contactMethods, $utm));
-                } else {
-                    Mail::to('service@skoda-kremen.com.ua')->send(new ModalFormRequest($validated, $contactMethods, $utm));
-                }
-            } catch (\Throwable $e) {
-            }
-
-            // Відправка в Bitrix
-            try {
-                $full_data = "Source: {$utm['utm_source']}/{$utm['utm_medium']}/{$utm['utm_campaign']}/{$utm['utm_content']}\nKW: {$utm['utm_term']}";
-                $webhook = config('services.bitrix_webhook');
-                if (empty($webhook)) {
-                } else {
-                    $response = Http::post($webhook . 'crm.lead.add.json', [
-                        'fields' => [
-                            'TITLE' => 'Заявка з сайту "avtocenter-kremenchuk"',
-                            'NAME' => $validated['name'],
-                            'PHONE' => [
-                                ['VALUE' => $validated['phone'], 'VALUE_TYPE' => 'WORK']
-                            ],
-                            'SOURCE_ID' => 'WEB',
-                            'SOURCE_DESCRIPTION' => $full_data,
-                            'COMMENTS' => 'Тип: ' . $validated['type'] . "\n" .
-                                'Спосіб звʼязку: ' . $contactMethods . "\n" .
-                                (empty($model) ? '' : 'Модель: ' . $model) . "\n" .
-                                'UTM: ' . implode(', ', array_filter($utm)),
-                        ],
-                        'params' => [
-                            'REGISTER_SONET_EVENT' => 'Y'
-                        ]
-                    ]);
-                    if (!$response->successful()) {
-                    }
-                }
-            } catch (\Throwable $e) {
-            }
-
-            return redirect()->to('/thank-you' . ($request->filled('price_url')
-                ? '?price=' . urlencode($request->input('price_url'))
-                : ''));
-        } catch (\Throwable $e) {
-            return response()->json(['error' => 'Щось пішло не так'], 500);
+            return $this->respond($request, $redirect);
         }
+
+        // Збір способів зв'язку
+        $preferences = [];
+        if ($request->has('no_call')) $preferences[] = 'Не телефонувати';
+        if ($request->has('whatsapp')) $preferences[] = 'WhatsApp';
+        if ($request->has('viber')) $preferences[] = 'Viber';
+        if ($request->has('telegram')) $preferences[] = 'Telegram';
+
+        $contactMethods = count($preferences) ? implode(', ', $preferences) : 'Не вказано';
+
+        $utm = [];
+        foreach (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as $key) {
+            $utm[$key] = (string) $request->cookie($key, '');
+        }
+
+        // Email + Bitrix are sent after the response reaches the user, so a slow
+        // SMTP server or CRM no longer delays the "thank you" page.
+        ProcessLead::dispatchAfterResponse($validated, $contactMethods, $utm);
+
+        return $this->respond($request, $redirect);
+    }
+
+    private function respond(Request $request, string $redirect)
+    {
+        return $request->expectsJson()
+            ? response()->json(['redirect' => $redirect])
+            : redirect()->to($redirect);
     }
 }

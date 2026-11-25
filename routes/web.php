@@ -4,7 +4,9 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModalFormController;
 
-Route::post('/send-form', [ModalFormController::class, 'send'])->name('send.modal.form');
+Route::post('/send-form', [ModalFormController::class, 'send'])
+    ->middleware('throttle:10,1')
+    ->name('send.modal.form');
 
 Route::get('/', [PageController::class, 'home']);
 Route::get('/contact', [PageController::class, 'contact']);

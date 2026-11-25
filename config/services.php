@@ -37,4 +37,9 @@ return [
 
     'bitrix_webhook' => env('BITRIX_WEBHOOK', ''),
 
+    'leads' => [
+        'salon_email' => env('LEADS_SALON_EMAIL', 'salon@skoda-kremen.com.ua'),
+        'service_email' => env('LEADS_SERVICE_EMAIL', 'service@skoda-kremen.com.ua'),
+    ],
+
 ];
