@@ -1,61 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Škoda dealer website — Кременчук
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website of the official Škoda dealer in Kremenchuk: model pages, cars in stock, credit / trade-in /
+service pages and lead forms that go to email and Bitrix24. Content is managed in a Filament admin panel.
 
-## About Laravel
+Production: https://www.avtocenter-kremenchuk.com.ua
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel 12, PHP 8.2+
+- Filament 3 admin panel at `/admin`
+- Blade + Tailwind CSS 4 (built with Vite), Alpine.js and Swiper from a CDN
+- Pest for tests
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Local setup
 
-## Learning Laravel
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite
+php artisan migrate
+php artisan storage:link
+npm install && npm run build
+php artisan serve
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Create an admin user (only `@skoda-kremen.com.ua` emails can open the panel — see `User::canAccessPanel()`):
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+php artisan make:filament-user
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Pages read their content from the database, so add at least the contacts record and the models in
+`/admin` before browsing the site.
 
-## Laravel Sponsors
+## How it fits together
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Area | Where |
+|---|---|
+| Routes | `routes/web.php` |
+| Page data (queries) | `app/Http/Controllers/PageController.php`; header/footer contacts via a view composer in `AppServiceProvider` |
+| Model pages (`/kodiaq`, `/karoq`, …) | one template `resources/views/model-page.blade.php`, per-model SEO/FAQ in `config/model-pages.php`, marketing copy in `resources/views/model-pages/` |
+| Blade components | `resources/views/components/` (keep folder names lowercase — production runs on a case-sensitive filesystem) |
+| Admin panel | `app/Filament/Resources/` |
 
-### Premium Partners
+### Adding a model page
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. Add an entry to `config/model-pages.php` (the key is the URL slug).
+2. Add `resources/views/model-pages/<name>.blade.php` with the page copy.
+3. Create the model in `/admin` with the same `url`.
 
-## Contributing
+The route and sitemap entry follow from the config.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Lead forms
 
-## Code of Conduct
+All forms (`x-form`, `x-modal`, `x-service-form`) post to `/send-form` through the shared
+`submitLeadForm()` helper (`resources/views/components/lead-form-script.blade.php`).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+`ModalFormController` validates the request, then `App\Jobs\ProcessLead` sends:
 
-## Security Vulnerabilities
+- an email — to `LEADS_SALON_EMAIL` for sales leads, `LEADS_SERVICE_EMAIL` when a car model is filled in;
+- a lead to Bitrix24 via `BITRIX_WEBHOOK`.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The job runs after the response is sent, so no queue worker is needed. Failures are logged to
+`storage/logs/laravel.log` together with the lead, so it can be recovered. The endpoint is rate limited
+(10 requests/minute per IP) and has a honeypot field.
 
-## License
+UTM parameters are stored in cookies by the script in `components/layout.blade.php` and attached to
+each lead.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Tests
+
+```bash
+php artisan test
+```
+
+- `tests/Feature/LeadFormTest.php` covers the lead pipeline.
+- `tests/Feature/PagesSmokeTest.php` renders every public page with sample data.
+
+## Deployment notes
+
+- After deploying, run `php artisan config:cache && php artisan route:cache`. Run them again whenever
+  `config/model-pages.php` changes: the model page route is limited to its slugs.
+- `public/sitemap.xml` is regenerated automatically when a stock car is saved or deleted, or manually
+  with `php artisan sitemap:generate`.

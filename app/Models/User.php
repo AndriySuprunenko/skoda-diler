@@ -31,13 +31,7 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
-    // Метод, який Filament викликає для перевірки доступу
-    public function canAccessFilament(): bool
-    {
-        return str_ends_with($this->email, '@skoda-kremen.com.ua');
-    }
-
-    // Твій метод для інших перевірок, якщо потрібен
+    // Filament admin panel access: only dealership staff accounts
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, '@skoda-kremen.com.ua');

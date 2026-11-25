@@ -58,11 +58,12 @@ it('shows database content on the home page', function () {
         ->assertSee('+380671112233'); // header/footer contacts
 });
 
-it('shows the model and the other models on a model page', function () {
-    $this->get('/karoq')
-        ->assertOk()
-        ->assertSee('Škoda karoq')
-        ->assertSee('Škoda kodiaq');
+it('shows the model and the other models on a model page', function () use ($modelUrls) {
+    $html = $this->get('/karoq')->assertOk()->assertSee('Škoda karoq')->getContent();
+
+    // "Інші моделі" shows a random 4 of the 7 other models
+    $shown = array_filter($modelUrls, fn ($u) => $u !== 'karoq' && str_contains($html, "Фото моделі Škoda {$u}"));
+    expect($shown)->toHaveCount(4);
 });
 
 it('returns 404 when a model page has no model in the database', function () {
@@ -108,4 +109,20 @@ it('renders model page SEO data from config', function () {
 
 it('does not treat unknown slugs as model pages', function () {
     $this->get('/not-a-model')->assertNotFound();
+});
+
+it('strips scripts from admin rich text but keeps formatting', function () {
+    $evil = '<p><strong>Гарне авто</strong></p><script>alert(1)</script><img src="x" onerror="alert(2)"><a href="javascript:alert(3)">x</a>';
+
+    StockCars::first()->forceFill(['description' => $evil])->saveQuietly();
+    Credit::first()->update(['description' => $evil]);
+
+    foreach (['/stock-cars/' . StockCars::first()->id, '/credit'] as $url) {
+        $this->get($url)
+            ->assertOk()
+            ->assertSee('<strong>Гарне авто</strong>', false)
+            ->assertDontSee('alert(1)', false)
+            ->assertDontSee('alert(2)', false)
+            ->assertDontSee('javascript:alert', false);
+    }
 });

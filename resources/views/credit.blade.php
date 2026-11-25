@@ -61,7 +61,7 @@
     <div class="max-w-4xl mx-auto">
         <x-section>
             <div id="car-description" class="text-skoda-emerald-green">
-                {!! $credit?->description !!}
+                {!! str($credit?->description)->sanitizeHtml() !!}
             </div>
         </x-section>
     </div>

@@ -231,7 +231,7 @@
             <x-text.title color="emerald-green">Опис автомобіля</x-text.title>
             <div class="prose w-full max-w-5xl m-auto p-8 rounded-2xl bg-skoda-white border-4 border-skoda-emerald-green text-skoda-emerald-green"
                 id="car-description">
-                {!! $car->description !!}
+                {!! str($car->description)->sanitizeHtml() !!}
             </div>
         </div>
     @endif
