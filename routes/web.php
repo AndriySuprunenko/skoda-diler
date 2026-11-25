@@ -10,20 +10,17 @@ Route::post('/send-form', [ModalFormController::class, 'send'])
 
 Route::get('/', [PageController::class, 'home']);
 Route::get('/contact', [PageController::class, 'contact']);
-Route::get('/kodiaq', [PageController::class, 'kodiaq']);
-Route::get('/octavia-a8', [PageController::class, 'octavia']);
-Route::get('/superb', [PageController::class, 'superb']);
-Route::get('/fabia', [PageController::class, 'fabia']);
-Route::get('/scala', [PageController::class, 'scala']);
-Route::get('/kamiq-fl', [PageController::class, 'kamiq']);
-Route::get('/karoq', [PageController::class, 'karoq']);
-Route::get('/enyaq', [PageController::class, 'enyaq']);
 Route::get('/credit', [PageController::class, 'credit']);
 Route::get('/trade-in', [PageController::class, 'tradeIn']);
 Route::get('/service', [PageController::class, 'service']);
 Route::get('/thank-you', [PageController::class, 'thankYou']);
 Route::get('/stock-cars', [PageController::class, 'stockCars']);
 Route::get('/test-drive-battle', [PageController::class, 'testDriveBattle']);
+
+// Model landing pages: /kodiaq, /octavia-a8, ... (see config/model-pages.php)
+Route::get('/{slug}', [PageController::class, 'modelPage'])
+  ->whereIn('slug', array_keys(config('model-pages')))
+  ->name('model.page');
 
 Route::get('/stock-cars/{car}', [PageController::class, 'stockCarDetails'])
   ->name('stock.car.details')

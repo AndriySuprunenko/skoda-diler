@@ -83,3 +83,29 @@ it('loads contacts only once per page', function () {
 
     expect($queries)->toBe(1);
 });
+
+it('has a content partial and a database-backed route for every configured model page', function () use ($modelUrls) {
+    expect(array_keys(config('model-pages')))->toEqualCanonicalizing($modelUrls);
+
+    foreach (config('model-pages') as $slug => $page) {
+        expect(view()->exists($page['content']))->toBeTrue("missing content view for {$slug}");
+    }
+});
+
+it('renders model page SEO data from config', function () {
+    $this->get('/enyaq')
+        ->assertOk()
+        ->assertSee('<title>Škoda Enyaq – надійний електричний кросовер, купити у Кременчуці</title>', false)
+        ->assertSee('"fuelType": "Electric"', false)
+        ->assertSee('"@id": "' . url('/enyaq') . '#product"', false)
+        ->assertSee('Часті запитання');
+
+    $this->get('/fabia')
+        ->assertOk()
+        ->assertDontSee('Часті запитання')
+        ->assertDontSee('fuelType');
+});
+
+it('does not treat unknown slugs as model pages', function () {
+    $this->get('/not-a-model')->assertNotFound();
+});

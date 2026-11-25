@@ -23,46 +23,6 @@ class PageController extends Controller
         return view('contact', ['contacts' => Contacts::current()]);
     }
 
-    public function kodiaq()
-    {
-        return $this->modelPage('kodiaq', 'ModelsPages.kodiaq');
-    }
-
-    public function octavia()
-    {
-        return $this->modelPage('octavia-a8', 'ModelsPages.octavia');
-    }
-
-    public function superb()
-    {
-        return $this->modelPage('superb', 'ModelsPages.superb');
-    }
-
-    public function fabia()
-    {
-        return $this->modelPage('fabia', 'ModelsPages.fabia');
-    }
-
-    public function scala()
-    {
-        return $this->modelPage('scala', 'ModelsPages.scala');
-    }
-
-    public function kamiq()
-    {
-        return $this->modelPage('kamiq-fl', 'ModelsPages.kamiq');
-    }
-
-    public function enyaq()
-    {
-        return $this->modelPage('enyaq', 'ModelsPages.enyaq');
-    }
-
-    public function karoq()
-    {
-        return $this->modelPage('karoq', 'ModelsPages.karoq');
-    }
-
     public function credit()
     {
         return view('credit', ['credit' => Credit::first()]);
@@ -105,17 +65,19 @@ class PageController extends Controller
     }
 
     /**
-     * A model landing page: the model itself plus the other models for the "Інші моделі" block.
+     * A model landing page (/kodiaq, /karoq, ...): one template, per-model copy in config/model-pages.php.
      */
-    private function modelPage(string $url, string $view)
+    public function modelPage(string $slug)
     {
-        $model = Models::where('url', $url)->with('images')->first();
+        $page = config("model-pages.{$slug}");
+        $model = Models::where('url', $slug)->with('images')->first();
 
-        abort_if(! $model, 404, 'Модель не знайдена');
+        abort_if(! $page || ! $model, 404, 'Модель не знайдена');
 
-        return view($view, [
+        return view('model-page', [
+            'page' => $page,
             'model' => $model,
-            'models' => Models::where('url', '!=', $url)->with('images')->get(),
+            'models' => Models::where('url', '!=', $slug)->with('images')->get(),
         ]);
     }
 }
