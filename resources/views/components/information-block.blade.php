@@ -1,6 +1,3 @@
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
 
 <x-section>
     <div class="relative w-full overflow-hidden flex flex-col lg:flex-row">

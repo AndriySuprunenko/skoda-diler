@@ -1,10 +1,4 @@
 @php
-    $car = \App\Models\StockCars::find($carId);
-    $contacts = \App\Models\Contacts::first();
-    if (!$car) {
-        abort(404, 'Stock car not found');
-    }
-    $otherCars = \App\Models\StockCars::where('id', '!=', $carId)->where('status', '!=', 'sold')->get();
     $name = $car->name ?? 'Автомобіль на складі';
 
     $contentPhoto = $car->gallery[0] ?? '/images/no-car.webp';

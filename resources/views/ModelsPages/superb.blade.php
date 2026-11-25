@@ -1,12 +1,6 @@
 @section('title', 'Škoda Superb – преміальний седан, купити у Кременчуці')
 
 @php
-    $model = \App\Models\Models::where('url', 'superb')->with('images')->first();
-    $models = \App\Models\Models::where('url', '!=', 'superb')->with('images')->get();
-
-    if (!$model) {
-        abort(404, 'Модель не знайдена');
-    }
     $primaryImage = $model->images->first();
 @endphp
 

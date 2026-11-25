@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Banner;
 use App\Models\Contacts;
 use App\Models\Credit;
 use App\Models\Models;
 use App\Models\StockCars;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 
 uses(RefreshDatabase::class);
 
@@ -15,12 +17,14 @@ $modelUrls = ['kodiaq', 'octavia-a8', 'superb', 'fabia', 'scala', 'kamiq-fl', 'k
 
 beforeEach(function () use ($modelUrls) {
     Contacts::create([
-        'phone' => '+380000000000',
+        'phone' => '+380671112233',
         'email' => 'test@example.test',
         'working_hours' => [],
         'social_medias' => ['facebook' => '#', 'instagram' => '#', 'tiktok' => '#', 'youtube' => '#'],
     ]);
     Credit::create(['description' => '<p>Кредит</p>']);
+    Banner::create(['title' => 'Тестовий банер', 'image' => 'banners/a.webp', 'is_active' => true]);
+    Banner::create(['title' => 'Вимкнений банер', 'image' => 'banners/b.webp', 'is_active' => false]);
 
     foreach ($modelUrls as $i => $url) {
         Models::create(['name' => "Škoda {$url}", 'url' => $url, 'price' => 'x.pdf', 'colors' => [], 'order' => $i]);
@@ -43,4 +47,39 @@ it('renders a stock car page', function () {
 
 it('returns 404 for a missing stock car', function () {
     $this->get('/stock-cars/999999')->assertNotFound();
+});
+
+it('shows database content on the home page', function () {
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('Тестовий банер')
+        ->assertDontSee('Вимкнений банер')
+        ->assertSee('Škoda karoq')
+        ->assertSee('+380671112233'); // header/footer contacts
+});
+
+it('shows the model and the other models on a model page', function () {
+    $this->get('/karoq')
+        ->assertOk()
+        ->assertSee('Škoda karoq')
+        ->assertSee('Škoda kodiaq');
+});
+
+it('returns 404 when a model page has no model in the database', function () {
+    Models::where('url', 'fabia')->delete();
+
+    $this->get('/fabia')->assertNotFound();
+});
+
+it('loads contacts only once per page', function () {
+    $queries = 0;
+    DB::listen(function ($q) use (&$queries) {
+        if (str_contains($q->sql, 'from "contacts"')) {
+            $queries++;
+        }
+    });
+
+    $this->get('/stock-cars/' . StockCars::first()->id)->assertOk()->assertSee('+380671112233');
+
+    expect($queries)->toBe(1);
 });

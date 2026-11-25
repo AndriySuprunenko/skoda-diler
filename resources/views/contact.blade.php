@@ -10,10 +10,6 @@
     <meta property="og:image" content="{{ url(Storage::url('images/main.webp')) }}">
 @endsection
 
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
-
 <x-layout>
     <x-section class="flex flex-col items-center">
         <x-text.main-title>Контакти - Автоцентр-Кременчук-2012</x-text.main-title>

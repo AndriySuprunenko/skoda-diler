@@ -1,12 +1,6 @@
 @section('title', 'Škoda Octavia – стильний седан, купити у Кременчуці')
 
 @php
-    $model = \App\Models\Models::where('url', 'octavia-a8')->with('images')->first();
-    $models = \App\Models\Models::where('url', '!=', 'octavia-a8')->with('images')->get();
-
-    if (!$model) {
-        abort(404, 'Модель не знайдена');
-    }
     $primaryImage = $model->images->first();
 @endphp
 

@@ -1,6 +1,4 @@
-@php
-    $models = \App\Models\Models::orderBy('order')->get();
-@endphp
+@props(['models'])
 
 <div class="flex flex-col justify-around lg:p-8 w-full text-start">
     @foreach ($models as $model)

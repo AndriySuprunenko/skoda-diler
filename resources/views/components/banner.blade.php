@@ -1,6 +1,3 @@
-@php
-    $sliders = \App\Models\Banner::where('is_active', true)->orderBy('order')->get();
-@endphp
 
 <section class="relative w-full h-[600px] md:h-[848px]"">
     <div class="swiper mySwiper">

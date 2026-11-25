@@ -1,6 +1,3 @@
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
 
 @props(['color' => 'black'])
 

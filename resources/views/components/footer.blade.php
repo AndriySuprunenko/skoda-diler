@@ -1,6 +1,3 @@
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
 
 <footer class="bg-skoda-emerald-green px-8 py-4 flex flex-col gap-4 md:gap-8">
     <div class="w-full flex justify-between items-center z-10 flex-col md:flex-row gap-4 text-center md:text-left">

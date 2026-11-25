@@ -50,10 +50,6 @@
     </script>
 @endsection
 
-@php
-    $credit = \App\Models\Credit::first();
-@endphp
-
 <x-layout>
     <div>
         <img src="{{ Storage::url('images/kredit/credit.webp') }}" alt="Кредитна програми Škoda"
@@ -65,7 +61,7 @@
     <div class="max-w-4xl mx-auto">
         <x-section>
             <div id="car-description" class="text-skoda-emerald-green">
-                {!! $credit->description !!}
+                {!! $credit?->description !!}
             </div>
         </x-section>
     </div>

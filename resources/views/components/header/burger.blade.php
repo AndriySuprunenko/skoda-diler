@@ -1,6 +1,3 @@
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
 
 
 <div x-data="{ isOpen: false }" class="relative z-50 lg:hidden">

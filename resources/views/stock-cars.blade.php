@@ -10,7 +10,6 @@
 @endsection
 
 @php
-    $cars = \App\Models\StockCars::orderBy('updated_at', 'desc')->get();
     $newCars = $cars->where('condition', 'new')->where('status', '!=', 'in_delivery');
     $usedCars = $cars->where('condition', 'used');
     $inDeliveryCars = $cars->where('status', 'in_delivery');

@@ -78,7 +78,7 @@
 
 <x-layout>
     <h1 class="sr-only">Офіційний дилер Škoda у Кременчуці — Нові автомобілі та з пробігом</h1>
-    <x-banner />
+    <x-banner :sliders="$sliders" />
     <x-section class="text-center bg-skoda-electric-green">
         <x-text.title>Наші послуги</x-text.title>
         <ul class="flex flex-wrap w-full justify-center gap-6 md:gap-12 lg:gap-16 mt-6 md:mt-12">
@@ -105,7 +105,7 @@
     </x-section>
     <x-section class="bg-skoda-emerald-green text-center">
         <x-text.title color='electric-green'>Наш модельний ряд</x-text.title>
-        <x-model />
+        <x-model :models="$models" />
     </x-section>
     <x-section class=" flex flex-col items-center gap-6">
         <x-text.title>Škoda Автоцентр Кременчук - Офіційний сайт</x-text.title>

@@ -1,6 +1,3 @@
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
 
 <nav class="flex gap-10 flex-col md:flex-row w-full justify-end items-center">
     <ul class="flex flex-col md:flex-row gap-8 md:gap-4 items-center">
