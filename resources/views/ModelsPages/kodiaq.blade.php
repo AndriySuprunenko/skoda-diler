@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Kodiaq – потужний кросовер з містким салоном. Ціни від офіційного дилера Škoda у Кременчуці. Пропонуємо покупку, тест-драйви, акційні пропозиції та сервісні програми на Kodiaq.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/kodiaq#product",
+  "@@id": "{{ url('') }}/kodiaq#product",
   "name": "Škoda Kodiaq",
   "alternateName": ["Шкода Кодіак","Škoda Kodiaq 2025","Кодіак Кременчук"],
   "description": "Новий Škoda Kodiaq — повнорозмірний сімейний SUV з можливістю придбання у кредит, лізинг або трейд-ін у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/kodiaq",
+  "url": "{{ url('') }}/kodiaq",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "SUV",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

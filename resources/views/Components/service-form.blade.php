@@ -1,5 +1,7 @@
 @props(['value' => 'Сервіс Škoda'])
 
+@php $uid = 'lead-' . \Illuminate\Support\Str::random(6); @endphp
+
 <div
     class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg border-4 border-skoda-emerald-green">
     <div class="flex flex-col justify-center px-6 py-6 lg:px-8 z-20 relative">
@@ -11,10 +13,11 @@
         <div class="mt-5 md:mt-10 sm:mx-auto sm:w-full sm:max-w-sm z-20 relative">
             <form x-ref="form" x-data="{ name: '', phone: '', model: '', errors: {}, isSubmitting: false }"
                 @submit.prevent="
+                    if (isSubmitting) return;
                     errors = {};
                     if (!name.trim()) errors.name = 'Це поле є обовʼязковим';
                     if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим';
-                    if (Object.keys(errors).length === 0) $el.submit();
+                    if (Object.keys(errors).length === 0) submitLeadForm($refs.form, $data);
                 "
                 class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                 @csrf
@@ -23,12 +26,12 @@
 
                 <!-- Імʼя -->
                 <div>
-                    <label for="name" class="block text-base font-medium"
+                    <label for="{{ $uid }}-name" class="block text-base font-medium"
                         :class="errors.name ? 'text-red-500' : 'text-skoda-emerald-green'">
                         <span x-text="errors.name ? errors.name : 'Імʼя'"></span>
                     </label>
                     <div class="mt-2">
-                        <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                        <input type="text" name="name" id="{{ $uid }}-name" x-ref="name" x-model="name"
                             autocomplete="name" :disabled="isSubmitting" @input="if (errors.name) delete errors.name"
                             @blur="if (!name.trim()) errors.name = 'Це поле є обовʼязковим'"
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6"
@@ -39,12 +42,12 @@
 
                 <!-- Телефон -->
                 <div class="mt-4">
-                    <label for="phone" class="block text-base font-medium"
+                    <label for="{{ $uid }}-phone" class="block text-base font-medium"
                         :class="errors.phone ? 'text-red-500' : 'text-skoda-emerald-green'">
                         <span x-text="errors.phone ? errors.phone : 'Номер телефону'"></span>
                     </label>
                     <div class="mt-2 md:mt-2 mb-4">
-                        <input type="tel" name="phone" id="phone" x-model="phone" autocomplete="tel"
+                        <input type="tel" name="phone" id="{{ $uid }}-phone" x-model="phone" autocomplete="tel"
                             maxlength="17" minlength="10" :disabled="isSubmitting"
                             @input="if (errors.phone) delete errors.phone"
                             @blur="if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим'"
@@ -62,19 +65,21 @@
 
                 <!-- Модель -->
                 <div>
-                    <label for="model" class="block text-base font-medium text-skoda-emerald-green">
+                    <label for="{{ $uid }}-model" class="block text-base font-medium text-skoda-emerald-green">
                         <span>Марка та модель авто, рік</span>
                     </label>
                     <div class="mt-2">
-                        <input type="text" name="model" id="model" x-ref="model" x-model="model"
+                        <input type="text" name="model" id="{{ $uid }}-model" x-ref="model" x-model="model"
                             :disabled="isSubmitting"
                             class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6" />
                     </div>
                 </div>
 
+                <p x-show="errors.general" x-text="errors.general" x-cloak role="alert" class="text-base font-medium text-red-500"></p>
                 <div class="w-fit mx-auto mb-6 md:mb-0">
                     <x-button type="submit">
-                        Відправити
+                        <span x-show="!isSubmitting">Відправити</span>
+                        <span x-show="isSubmitting" x-cloak>Відправляю...</span>
                     </x-button>
                 </div>
             </form>

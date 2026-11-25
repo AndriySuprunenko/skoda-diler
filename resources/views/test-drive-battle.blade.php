@@ -19,9 +19,9 @@
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js"></script>
     <!-- Google Tag Manager -->
     <script>
         (function(w, d, s, l, i) {
@@ -50,16 +50,16 @@
         {
             "@@context": "https://schema.org",
             "@@type": "AutoDealer",
-            "@@id": "https://www.avtocenter-kremenchuk.site/#autodealer",
+            "@@id": "{{ url('') }}/#autodealer",
             "name": "Автоцентр-Кременчук — офіційний дилер Škoda",
             "alternateName": [
                 "Škoda Кременчук",
                 "Офіційний дилер Škoda у Кременчуці",
                 "Кременчук Škoda"
             ],
-            "url": "https://www.avtocenter-kremenchuk.site/",
-            "logo": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
-            "image": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+            "url": "{{ url('') }}/",
+            "logo": "{{ url('') }}/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+            "image": "{{ url('') }}/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
             "telephone": "+380676208844",
             "address": {
                 "@type": "PostalAddress",

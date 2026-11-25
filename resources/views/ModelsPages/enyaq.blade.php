@@ -18,23 +18,23 @@
     <meta property="og:description"
         content="Škoda Enyaq – сучасний кросовер з комфортною підвіскою та продуманим інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує різні комплектації Enyaq за вигідними цінами та спеціальні пропозиції.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/enyaq#product",
+  "@@id": "{{ url('') }}/enyaq#product",
   "name": "Škoda Enyaq",
   "alternateName": ["Шкода Еньяк","Enyaq електромобіль"],
   "description": "Škoda Enyaq — електричний SUV з офіційною гарантією. Купівля у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/enyaq",
+  "url": "{{ url('') }}/enyaq",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Electric SUV",
   "fuelType": "Electric",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

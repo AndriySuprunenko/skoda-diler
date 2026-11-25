@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Fabia – компактний хетчбек з низьким споживанням пального. Дізнайтеся про ціни, комплектації та вигідні пропозиції на Fabia в офіційного дилера Škoda у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/fabia#product",
+  "@@id": "{{ url('') }}/fabia#product",
   "name": "Škoda Fabia",
   "alternateName": ["Шкода Фабія","Fabia Кременчук"],
   "description": "Škoda Fabia — компактний автомобіль для міста. Офіційний дилер Škoda у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/fabia",
+  "url": "{{ url('') }}/fabia",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Compact Car",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
 
     </script>

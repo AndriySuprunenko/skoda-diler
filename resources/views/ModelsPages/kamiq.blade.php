@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Kamiq – стильний компактний кросовер із передовими технологіями та ергономічним інтер’єром. Зверніться до офіційного дилера Škoda у Кременчуці щоб дізнатися ціну та для покупки нового Kamiq з гарантією.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/kamiq-fl#product",
+  "@@id": "{{ url('') }}/kamiq-fl#product",
   "name": "Škoda Kamiq FL",
   "alternateName": ["Шкода Камік","Kamiq Кременчук"],
   "description": "Škoda Kamiq FL — міський кросовер. Офіційний продаж Škoda у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/kamiq-fl",
+  "url": "{{ url('') }}/kamiq-fl",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Urban Crossover",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Scala – стильний хетчбек з просторим салоном і передовими технологіями. Офіційний дилер Škoda у Кременчуці пропонує актуальні ціни, комплектації та спеціальні пропозиції на Scala.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/scala#product",
+  "@@id": "{{ url('') }}/scala#product",
   "name": "Škoda Scala",
   "alternateName": ["Шкода Скала","Scala Кременчук"],
   "description": "Škoda Scala — сучасний хетчбек для міста. Купівля у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/scala",
+  "url": "{{ url('') }}/scala",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Hatchback",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

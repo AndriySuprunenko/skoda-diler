@@ -48,18 +48,19 @@
         }(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
         oaiq("init", {
             pixelId: "F3X8X5vMjmCEFkNAQ1PPmR",
-            debug: true
+            debug: false
         });
     </script>
     <!-- End OpenAI Pixel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js"></script>
     {{-- ManyChat Widget --}}
     <script src="//widget.manychat.com/3349735_dc59d.js" defer="defer"></script>
     <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
 
     @vite('resources/css/app.css')
+    <x-lead-form-script />
 
 
     @yield('shema')

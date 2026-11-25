@@ -19,10 +19,10 @@
 {
   "@@context": "https://schema.org",
   "@@type": "Service",
-  "@@id": "https://www.avtocenter-kremenchuk.site/#tradein",
+  "@@id": "{{ url('') }}/#tradein",
   "name": "Trade-in Škoda у Кременчуці",
   "description": "Обмін вашого автомобіля на новий Škoda в офіційному автосалоні у Кременчуці.",
-  "provider": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"},
+  "provider": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"},
   "areaServed": {"@type": "AdministrativeArea","name": "Кременчук, Полтавська область"}
 }
     </script>

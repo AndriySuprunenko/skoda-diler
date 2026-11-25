@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Новий Škoda Octavia – сучасний седан з просторим салоном та інноваційними технологіями. Дізнайтеся більше про комплектації та ціни від офіційного дилера у Кременчуці.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/octavia-a8#product",
+  "@@id": "{{ url('') }}/octavia-a8#product",
   "name": "Škoda Octavia A8",
   "alternateName": ["Шкода Октавія A8","Octavia Кременчук"],
   "description": "Škoda Octavia A8 — універсальний автомобіль для сімʼї та бізнесу. Продаж у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/octavia-a8",
+  "url": "{{ url('') }}/octavia-a8",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Sedan",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

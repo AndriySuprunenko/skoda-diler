@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Karoq – сучасний кросовер з комфортною підвіскою та продуманим інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує різні комплектації Karoq за вигідними цінами та спеціальні пропозиції.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/karoq#product",
+  "@@id": "{{ url('') }}/karoq#product",
   "name": "Škoda Karoq",
   "alternateName": ["Шкода Карок","Karoq Кременчук"],
   "description": "Škoda Karoq — компактний кросовер для міста та подорожей. Офіційний продаж у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/karoq",
+  "url": "{{ url('') }}/karoq",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Crossover",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection

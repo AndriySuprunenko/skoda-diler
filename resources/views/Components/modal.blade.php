@@ -1,10 +1,11 @@
+@php $uid = 'lead-' . \Illuminate\Support\Str::random(6); @endphp
 <div x-data="{ open: false, value: '', phone: '', phoneStarted: false, priceUrl: '' }"
     @open-modal.window="if ($event.detail?.type === '{{ $type }}') { open = true; value = $event.detail?.value || ''; priceUrl = $event.detail?.price || ''; }"
     @close-modal.window="open = false" x-show="open" x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-500/75"
-    role="dialog" aria-modal="true" aria-labelledby="modal-title"> @php
+    role="dialog" aria-modal="true" aria-labelledby="{{ $uid }}-title"> @php
         $configs = [
             'price' => [
                 'title' => 'Заповніть поля та отримуйте прайс-лист на автомобіль',
@@ -52,7 +53,7 @@
                 <div class="flex min-h-full flex-col justify-center px-6 py-8 md:py-12 lg:px-8">
                     <div class="sm:mx-auto sm:w-full sm:max-w-sm z-20"> <img class="mx-auto h-7 md:h-10 w-auto"
                             src="{{ $config['logo'] }}" alt="Skoda Logo" onerror="this.style.display='none'">
-                        <h2 id="modal-title"
+                        <h2 id="{{ $uid }}-title"
                             class="mt-5 md:mt-10 text-center text-2xl/9 font-bold tracking-tight {{ $config['textColor'] }}">
                             {{ $config['title'] }} </h2>
                     </div>
@@ -60,10 +61,11 @@
                         <form x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
                             x-data="{ name: '', phone: '', errors: {}, isSubmitting: false }"
                             @submit.prevent="
+        if (isSubmitting) return;
         errors = {};
         if (!name.trim()) errors.name = 'Це поле є обовʼязковим';
         if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим';
-        if (Object.keys(errors).length === 0) $el.submit();
+        if (Object.keys(errors).length === 0) submitLeadForm($refs.form, $data);
       "
                             class="space-y-3 md:space-y-6" action="{{ route('send.modal.form') }}" method="POST">
                             @csrf
@@ -72,12 +74,12 @@
 
                             <!-- Імʼя -->
                             <div>
-                                <label for="name" class="block text-base font-medium"
+                                <label for="{{ $uid }}-name" class="block text-base font-medium"
                                     :class="errors.name ? 'text-red-500' : '{{ $config['textColor'] }}'">
                                     <span x-text="errors.name ? errors.name : 'Імʼя'"></span>
                                 </label>
                                 <div class="mt-2">
-                                    <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                                    <input type="text" name="name" id="{{ $uid }}-name" x-ref="name" x-model="name"
                                         autocomplete="name" :disabled="isSubmitting"
                                         @input="if (errors.name) delete errors.name"
                                         @blur="if (!name.trim()) errors.name = 'Це поле є обовʼязковим'"
@@ -89,12 +91,12 @@
 
                             <!-- Телефон -->
                             <div class="mt-4">
-                                <label for="phone" class="block text-base font-medium"
+                                <label for="{{ $uid }}-phone" class="block text-base font-medium"
                                     :class="errors.phone ? 'text-red-500' : '{{ $config['textColor'] }}'">
                                     <span x-text="errors.phone ? errors.phone : 'Номер телефону'"></span>
                                 </label>
                                 <div class="mt-2 md:mt-2 mb-4">
-                                    <input type="tel" name="phone" id="phone" x-model="phone"
+                                    <input type="tel" name="phone" id="{{ $uid }}-phone" x-model="phone"
                                         autocomplete="tel" maxlength="17" minlength="10" :disabled="isSubmitting"
                                         @input="if (errors.phone) delete errors.phone"
                                         @blur="if (!phone.trim()) errors.phone = 'Це поле є обовʼязковим'"
@@ -120,9 +122,11 @@
                                 </div>
                             </div>
                             <input type="hidden" name="price_url" :value="priceUrl">
+                            <p x-show="errors.general" x-text="errors.general" x-cloak role="alert" class="text-base font-medium text-red-500"></p>
                             <div class="w-fit mx-auto mb-6 md:mb-0">
                                 <x-button type="submit">
-                                    Відправити
+                                    <span x-show="!isSubmitting">Відправити</span>
+                                    <span x-show="isSubmitting" x-cloak>Відправляю...</span>
                                 </x-button>
                             </div>
                         </form>

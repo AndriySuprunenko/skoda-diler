@@ -1,5 +1,7 @@
 @props(['value'])
 
+@php $uid = 'lead-' . \Illuminate\Support\Str::random(6); @endphp
+
 <div class="mt-5 md:mt-10 bg-skoda-emerald-green p-6 text-start max-w-[900px] mx-auto">
     <form x-data="{ name: '', phone: '', errors: {}, isSubmitting: false, phoneStarted: false, phoneValid(phone) { return /^[\+]?[0-9\s\-\(\)]{10,20}$/.test(phone.replace(/\s/g, '')); } }" x-ref="form" x-init="$watch('open', value => { if (value) $nextTick(() => $refs.name.focus()) })" @keydown.escape.window="open = false"
         @submit.prevent="
@@ -8,37 +10,7 @@
                                 if (!name?.trim()) errors.name = true;
                                 if (!phone?.trim()) errors.phone = true;
                                 else if (!phoneValid(phone)) errors.phone = 'Невірний формат номера';
-                                if (Object.keys(errors).length === 0) {
-                                    isSubmitting = true;
-
-                                    const formData = new FormData($refs.form);
-                                    fetch($refs.form.action, {
-                                        method: 'POST',
-                                        body: formData,
-                                        headers: {
-                                            'Accept': 'application/json',
-                                            'X-CSRF-TOKEN': formData.get('_token')
-                                        }
-                                    })
-                                    .then(async (response) => {
-                                        const data = await response.json().catch(() => ({}));
-                                        if (!response.ok) throw { status: response.status, data };
-                                        window.location.href = data.redirect || '/thank-you';
-                                    })
-                                    .catch((err) => {
-                                        isSubmitting = false;
-                                        const fieldErrors = err?.data?.errors || {};
-                                        if (fieldErrors.name) errors.name = true;
-                                        if (fieldErrors.phone) errors.phone = 'Невірний формат номера';
-                                        if (!fieldErrors.name && !fieldErrors.phone) {
-                                            errors.general = err?.status === 429
-                                                ? 'Забагато спроб. Спробуйте за хвилину.'
-                                                : (err?.status === 419
-                                                    ? 'Сесія застаріла. Оновіть сторінку та спробуйте ще раз.'
-                                                    : 'Не вдалося відправити заявку. Спробуйте ще раз або зателефонуйте нам.');
-                                        }
-                                    });
-                                }
+                                if (Object.keys(errors).length === 0) submitLeadForm($refs.form, $data);
                             "
         class="space-y-3 md:space-y-6 flex flex-col" action="{{ route('send.modal.form') }}" method="POST">
         @csrf
@@ -46,10 +18,10 @@
 
         <div class="flex flex-col md:flex-row w-full gap-4 items-center">
             <div class="w-full">
-                <label for="name" class="block text-base font-medium"
+                <label for="{{ $uid }}-name" class="block text-base font-medium"
                     :class="errors.name ? 'text-red-500' : 'text-skoda-electric-green'"> <span
                         x-text="errors.name ? 'Це поле є обовʼязковим' : 'Імʼя'"></span> </label>
-                <div> <input type="text" name="name" id="name" x-ref="name" x-model="name"
+                <div> <input type="text" name="name" id="{{ $uid }}-name" x-ref="name" x-model="name"
                         autocomplete="name" :disabled="isSubmitting" @input="if (errors.name) delete errors.name"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 placeholder:text-gray-400 sm:text-sm/6 disabled:opacity-50"
                         :class="errors.name ? 'outline-red-500 focus:outline-red-500' :
@@ -57,12 +29,12 @@
                 </div>
             </div>
             <div class="w-full">
-                <label for="phone" class="block text-base font-medium"
+                <label for="{{ $uid }}-phone" class="block text-base font-medium"
                     :class="errors.phone ? 'text-red-500' : 'text-skoda-electric-green'"> <span
                         x-text="errors.phone === true ? 'Це поле є обовʼязковим' : (errors.phone ? errors.phone : 'Номер телефону')"></span>
                 </label>
                 <div>
-                    <input type="tel" name="phone" id="phone" x-model="phone" autocomplete="tel"
+                    <input type="tel" name="phone" id="{{ $uid }}-phone" x-model="phone" autocomplete="tel"
                         :disabled="isSubmitting" maxlength="17" minlength="10"
                         @keydown="
     if (!['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', '+', '(', ')', '-'].includes($event.key) && !/\d/.test($event.key)) {

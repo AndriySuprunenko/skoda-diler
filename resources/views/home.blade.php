@@ -15,16 +15,16 @@
         {
             "@@context": "https://schema.org",
             "@@type": "AutoDealer",
-            "@@id": "https://www.avtocenter-kremenchuk.site/#autodealer",
+            "@@id": "{{ url('') }}/#autodealer",
             "name": "Автоцентр-Кременчук — офіційний дилер Škoda",
             "alternateName": [
                 "Škoda Кременчук",
                 "Офіційний дилер Škoda у Кременчуці",
                 "Кременчук Škoda"
             ],
-            "url": "https://www.avtocenter-kremenchuk.site/",
-            "logo": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
-            "image": "https://www.avtocenter-kremenchuk.site/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+            "url": "{{ url('') }}/",
+            "logo": "{{ url('') }}/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
+            "image": "{{ url('') }}/storage/images/logos/Skoda_Wordmark_RGB_Electric_Green.svg",
             "telephone": "+380676208844",
             "address": {
                 "@type": "PostalAddress",

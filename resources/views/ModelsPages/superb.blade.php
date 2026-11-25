@@ -18,22 +18,22 @@
     <meta property="og:description"
         content="Škoda Superb – просторий преміальний седан із інноваційними технологіями та розкішним інтер’єром. Офіційний дилер Škoda у Кременчуці пропонує тест-драйв та вигідні ціни та умови купівлі нового Superb.">
     <meta property="og:type" content="product">
-    <meta property="og:image" content="{{ url(Storage::url($primaryImage->image)) }}">
+    <meta property="og:image" content="{{ $primaryImage ? url(Storage::url($primaryImage->image)) : '' }}">
 @endsection
 @section('shema')
     <script type="application/ld+json">
 {
   "@@context": "https://schema.org",
   "@@type": "Product",
-  "@@id": "https://www.avtocenter-kremenchuk.site/superb#product",
+  "@@id": "{{ url('') }}/superb#product",
   "name": "Škoda Superb",
   "alternateName": ["Шкода Суперб","Superb 2025"],
   "description": "Škoda Superb — флагманський бізнес-седан з підвищеним комфортом. Купівля у Кременчуці.",
-  "url": "https://www.avtocenter-kremenchuk.site/superb",
+  "url": "{{ url('') }}/superb",
   "brand": {"@type": "Brand","name": "Škoda"},
   "manufacturer": {"@type": "Organization","name": "Škoda Auto"},
   "category": "Business Sedan",
-  "isRelatedTo": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"}
+  "isRelatedTo": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"}
 }
     </script>
 @endsection
