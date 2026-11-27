@@ -1,10 +1,4 @@
 @php
-    $car = \App\Models\StockCars::find($carId);
-    $contacts = \App\Models\Contacts::first();
-    if (!$car) {
-        abort(404, 'Stock car not found');
-    }
-    $otherCars = \App\Models\StockCars::where('id', '!=', $carId)->where('status', '!=', 'sold')->get();
     $name = $car->name ?? 'Автомобіль на складі';
 
     $contentPhoto = $car->gallery[0] ?? '/images/no-car.webp';
@@ -237,7 +231,7 @@
             <x-text.title color="emerald-green">Опис автомобіля</x-text.title>
             <div class="prose w-full max-w-5xl m-auto p-8 rounded-2xl bg-skoda-white border-4 border-skoda-emerald-green text-skoda-emerald-green"
                 id="car-description">
-                {!! $car->description !!}
+                {!! str($car->description)->sanitizeHtml() !!}
             </div>
         </div>
     @endif

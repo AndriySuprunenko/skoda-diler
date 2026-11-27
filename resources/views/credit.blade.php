@@ -16,13 +16,13 @@
 {
   "@@context": "https://schema.org",
   "@@type": "Service",
-  "@@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#service",
+  "@@id": "{{ url('') }}/credit#service",
   "name": "Кредит та лізинг на нові автомобілі Škoda у Кременчуці",
   "description": "Офіційне кредитування та лізинг нових автомобілів Škoda у Кременчуці для фізичних та юридичних осіб.",
-  "url": "https://www.avtocenter-kremenchuk.site/credit-leasing",
+  "url": "{{ url('') }}/credit",
   "provider": {
     "@type": "AutoDealer",
-    "@id": "https://www.avtocenter-kremenchuk.site/#autodealer"
+    "@id": "{{ url('') }}/#autodealer"
   },
   "areaServed": {
     "@type": "AdministrativeArea",
@@ -34,14 +34,14 @@
     "itemListElement": [
       {
         "@type": "Offer",
-        "@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#credit",
+        "@id": "{{ url('') }}/credit#credit",
         "name": "Кредит на автомобілі Škoda",
         "description": "Придбання нового автомобіля Škoda у кредит через офіційного дилера у Кременчуці.",
         "category": "Auto Loan"
       },
       {
         "@type": "Offer",
-        "@id": "https://www.avtocenter-kremenchuk.site/credit-leasing#leasing",
+        "@id": "{{ url('') }}/credit#leasing",
         "name": "Лізинг автомобілів Škoda",
         "description": "Лізинг нових автомобілів Škoda для фізичних та юридичних осіб у Кременчуці.",
         "category": "Vehicle Leasing"
@@ -49,10 +49,6 @@
 
     </script>
 @endsection
-
-@php
-    $credit = \App\Models\Credit::first();
-@endphp
 
 <x-layout>
     <div>
@@ -65,7 +61,7 @@
     <div class="max-w-4xl mx-auto">
         <x-section>
             <div id="car-description" class="text-skoda-emerald-green">
-                {!! $credit->description !!}
+                {!! str($credit?->description)->sanitizeHtml() !!}
             </div>
         </x-section>
     </div>

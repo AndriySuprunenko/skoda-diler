@@ -22,3 +22,7 @@ yarn-error.log
 /.zed
 
 sitemap.xml
+
+# OS / tooling
+.DS_Store
+.php-cs-fixer.cache

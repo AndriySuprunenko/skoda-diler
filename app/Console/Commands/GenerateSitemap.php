@@ -21,20 +21,17 @@ class GenerateSitemap extends Command
         $staticRoutes = [
             ['url' => '/', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
             ['url' => '/contact', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
-            ['url' => '/kodiaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/octavia-a8', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/superb', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/fabia', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/scala', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/kamiq-fl', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
-            ['url' => '/karoq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/credit', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/trade-in', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
             ['url' => '/service', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/stock-cars', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_DAILY],
-            ['url' => '/enyaq', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY],
             ['url' => '/test-drive-battle', 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_MONTHLY],
         ];
+
+        // Model landing pages
+        foreach (array_keys(config('model-pages')) as $slug) {
+            $staticRoutes[] = ['url' => "/{$slug}", 'priority' => 0.9, 'frequency' => Url::CHANGE_FREQUENCY_WEEKLY];
+        }
 
         foreach ($staticRoutes as $route) {
             $sitemap->add(

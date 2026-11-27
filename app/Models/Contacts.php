@@ -17,4 +17,12 @@ class Contacts extends Model
         'working_hours' => 'array',
         'social_medias' => 'array',
     ];
+
+    /**
+     * The site's contact record, loaded once per request (header, footer and pages all use it).
+     */
+    public static function current(): ?self
+    {
+        return once(fn () => static::first());
+    }
 }

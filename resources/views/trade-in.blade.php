@@ -1,9 +1,5 @@
 @section('title', 'Škoda Trade-in – обмін старого авто на новий автомобіль Škoda у Кременчуці')
 
-@php
-    $contacts = \App\Models\Contacts::first();
-@endphp
-
 @section('meta')
     <meta name="description"
         content="Офіційний дилер Škoda у Кременчуці пропонує зручний обмін Trade-in. Обміняйте свій старий автомобіль на новий Škoda за вигідною ціною. Швидка оцінка та оформлення.">
@@ -19,10 +15,10 @@
 {
   "@@context": "https://schema.org",
   "@@type": "Service",
-  "@@id": "https://www.avtocenter-kremenchuk.site/#tradein",
+  "@@id": "{{ url('') }}/#tradein",
   "name": "Trade-in Škoda у Кременчуці",
   "description": "Обмін вашого автомобіля на новий Škoda в офіційному автосалоні у Кременчуці.",
-  "provider": {"@type": "AutoDealer","@id": "https://www.avtocenter-kremenchuk.site/#autodealer"},
+  "provider": {"@type": "AutoDealer","@id": "{{ url('') }}/#autodealer"},
   "areaServed": {"@type": "AdministrativeArea","name": "Кременчук, Полтавська область"}
 }
     </script>
